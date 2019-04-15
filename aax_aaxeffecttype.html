@@ -1,0 +1,50 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <H1 id="Effect">Effect Types</H1>
+
+ Filters and effects are applied in the following order:<br>
+  <ol>
+  <li> Pitch related effects</li>
+  <li> Frequency filter</li>
+  <li> BitCrusher filter</li>
+  <li> Distortion</li>
+  <li> Delay effects (phasing/chorus/flanging)</li>
+  <li> Gain related filters</li>
+  <li> Equalizer/Reverb</li>
+  </ol>
+
+ <table class="Index">
+ <tr>
+  <td>
+   <script>
+   addHeader("Effect", "Effect", "Stereo");
+    addFEFunction("Pitch", "Effect");
+    addFEFunction("Timed", "Pitch", "Effect");
+    addFEFunction("Dynamic", "Pitch", "Effect");
+    addFEFunction("Phasing", "Effect");
+    addFEFunction("Chorus", "Effect");
+    addFEFunction("Flanging", "Effect");
+    addFEFunction("Distortion", "Effect");
+    addFEFunction("Convolution");
+
+   addHeader("Effect", "Effect", "3D Spatialized");
+    addFEFunction("Reverb");
+    addFEFunction("Velocity", "Effect");
+
+  </script>
+  </td>
+  </tr>
+  </table>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

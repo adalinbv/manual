@@ -1,0 +1,66 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <H1 id="Driver">Class AeonWave</H1>
+ <h6 class="menu">Header file: &lt;aax/aeonwave.hpp&gt;</h6>
+ <h6 class="menu">Namespace: aax</h6>
+ <h6 class="menu">Inherits: <a href="sensor.html?api=C++">Sensor</a></h6>
+ <p>&nbsp;<p>
+
+ The AeonWave class encapsulates the <a href="aax_driver.html">Driver</a>,
+ <a href="aax_mixer.html">Mixer</a>, <a href="aax_scenery.html">Scenery</a>
+ and <a href="aax_sensor.html">Sensor</a> functions.<p>
+ It allows setting and getting the State, Mode and Setup parameters and Filter
+ and Effects for all four classes by calling the set() function calls or get()
+ function calls with the appropriate enumerated type. It also handles
+ registering and de-registering of Emitters, Audio-Frames and Sensors,
+ retrieving of information about the selected driver and adds buffer management
+ code and support for playing one fire-and-forget background music stream.<p>
+
+ <h5>Constructors</h5>
+ Constructors that specify a render mode call <a href="aax_driver_init.html#aaxDriverOpenByName">aaxDriverOpenByName</a><br>
+ If the name is omitted or is NULL the default device will be used.<p>
+ <pre class="cpp">AeonWave(const char* name, <a href="aax_aaxrendermode.html">enum aaxRenderMode</a> mode=AAX_MODE_WRITE_STEREO)</pre>
+ <pre class="cpp">AeonWave(std::string&amp; name, <a href="aax_aaxrendermode.html">enum aaxRenderMode</a> mode=AAX_MODE_WRITE_STEREO)</pre>
+ <pre class="cpp">AeonWave(<a href="aax_aaxrendermode.html">enum aaxRenderMode</a> mode)</pre>
+ <pre class="cpp">AeonWave(const aax::AeonWave&amp; config)</pre>
+
+ <h5>Setting Position, Orientation and Velocity</h5>
+ Position and Orientation calls <a href="aax_sensor_matrix.html#aaxSensorSetMatrix64">aaxSensorSetMatrix64</a> and Velocity calls <a href="aax_setvelocity.html#aaxSensorSetVelocity">aaxSensorSetVelocity</a><p>
+ <pre class="cpp">bool sensor_matrix(aax::Matrix&amp; matrix)</pre>
+ <pre class="cpp">bool sensor_velocity(aax::Vector&amp; vector)</pre>
+
+ <h5 class="menu"><a href="aeonwave_enumeration.html?api=C++">Device Enumeration</a></h5>
+ <pre class="cpp">const char* drivers(<a href="aax_aaxrendermode.html">enum aaxRenderMode</a> mode=AAX_MODE_WRITE_STEREO)</pre>
+ <pre class="cpp">const char* devices(bool c_str=false)</pre>
+ <pre class="cpp">const char* interfaces(bool c_str=false)</pre>
+
+ <h5 class="menu"><a href="aeonwave_buffer_management.html?api=C++">Buffer management</a></h5>
+ <pre class="cpp">aax::Buffer&amp; buffer(std::string url)</pre>
+ <pre class="cpp">void destroy(aax::Buffer&amp; buffer)</pre>
+
+ <h5 class="menu"><a href="aeonwave_background_music_stream.html?api=C++">Background music stream</a></h5>
+ <pre class="cpp">bool playback(std::string url)</pre>
+ <pre class="cpp">bool stop()</pre>
+ <pre class="cpp">bool playing()</pre>
+ <pre class="cpp">float offset()</pre>
+
+ <h5>Operators</h5>
+ <pre class="cpp">friend void swap(aax::AeonWave&amp; config1, aax::AeonWave&amp; config2)</pre>
+ <pre class="cpp">aax::AeonWave&amp; operator=(aax::AeonWave config)</pre>
+
+ <!-- enherited from class Obj -->
+ <pre class="cpp">operator void*() const</pre>
+ <pre class="cpp">explicit operator bool()</pre>
+
+ <script>addFooter("The AeonWave class encapsulates the Driver, Mixer, Scenery and Sensor functions.");
+ </script>
+</body>
+</html>

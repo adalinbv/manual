@@ -1,0 +1,72 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <h2>Volume Filter</h2>
+   <p>
+   Adjusting the gain of an audio-frame or mixer object with multiple registered emitters using the volume filter will affect the volume of all registered emitters. The filter makes it possible to let the library clamp the volume between a minimum value and a maximum value.
+   </p>
+   <p>
+   A high gain value might cause the audio compressor to take action but a too high value might result in <a href="https://en.wikipedia.org/wiki/Clipping_%28audio%29" target="_blank"> audio clipping</a> which produces an unpleasant form of audio distortion.
+   </p>
+   <p>
+   By specifying the Response Rate parameter the filter turns into an <a href="http://en.wikipedia.org/wiki/Automatic_gain_control" target="_blank">Automatic gain control</a>. This means the volume setting defined by the Gain parameter no longer results in a static gain value but instead the software tries to match the defined gain level by constantly increasing or decreasing the internal gain value at the rate specified by the Response Rate parameter.
+   </p>
+   <p>
+   AeonWave version 3.1 (and version 1.1 of the volume filter) adds support for <a href="occlusion.html">occlusion</a> by defining a 3D obstruction (or 3D cavity) at the same position, and with the same orientation, as the audio-frame. The obstruction/cavity could influence the gain of the emitter based on the relative position of the emitter, the audio-frame(s) and listener.
+   </p>
+   <p>
+   AeonWave does not define the units of measurement for size, the calculations are scale invariant.
+   Developers have to make sure that all distances and sizes used by AeonWave use the same unit.
+   </p>
+   <br>The Volume filter is supported by Emitters, Audio-Frames, Sensors and the Mixer.</br>
+   Occlusion is only supported by Audio-frames.
+
+   <h5>Volume Filter parameters</h5>
+   The filter uses only one filter slot.
+   <dl>
+    <dt class="v20" id="AAX_VOLUME_FILTER">AAX_VOLUME_FILTER <div class="type">STEREO|3D</div></dt>
+    <dd>
+    Volume filter, supported by the Mixer, Emitters and AudioFrames.
+     <dl>Slot 0
+      <dt class="v20"><div>p0</div> AAX_GAIN</dt>
+      <dd>Current gain multiplier. A too high value might result in audio clipping. <div>AAX_LINEAR, AAX_LOGARITHMIC</div><br>
+          Between 0.0 and 10.0, the default value is 1.0</dd>
+      <dt class="v20"><div>p1</div> AAX_MIN_GAIN</dt>
+      <dd>Minimum gain value, anything lower will be clamped. <div>AAX_LINEAR, AAX_LOGARITHMIC</div><br>
+          Between 0.0 and 1.0, the default value is 0.0</dd>
+      <dt class="v20"><div>p2</div> AAX_MAX_GAIN</dt>
+      <dd>Maximum gain value, anything higher will be clamped. <div>AAX_LINEAR, AAX_LOGARITHMIC</div><br>
+          Between 0.0 and 10.0, the default value is 1.0</dd>
+      <dt class="v23"><div>p3</div> AAX_AGC_RESPONSE_RATE</dt>
+      <dd>Response rate (in seconds) of the Automatic gain control when set to something other than 0.0<br>
+          Between 0.0 and 10.0 seconds, the default is 0.0</dd>
+     </dl>
+     <dl>Slot 1
+      <dt class="v31"><div>p0</div> AAX_OBJECT_WIDTH</dt>
+      <dd>The width of the occlusion object. The width is specified in the x-direction.</dd>
+      <dt class="v31"><div>p1</div> AAX_OBJECT_HEIGHT</dt>
+      <dd>The height of the occlusion object. The height is specified in the y-direction.</dd>
+      <dt class="v31"><div>p2</div> AAX_OBJECT_DEPTH</dt>
+      <dd>The depth of the occlusion object. The depth is specified in the z-direction.</dd>
+      <dt class="v31"><div>p3</div> AAX_OBJECT_DENSITY_FACTOR</dt>
+      <dd>The density of the occlusion object.<br>
+          Between 0.0 and 1.0, where 1.0 means silence when the object is directly between the emitter and sensor.</dd>
+     </dl>
+    </dd>
+   </dl>
+
+   <h5>Volume Filter state options</h5>
+   The filter is always enabled for stereo mode.<br>
+   For occlusion it is required to explicitly set the state to AAX_TRUE (the dimensions define an obstruction) or AAX_INVERSE (the dimensions define a hole).
+
+ <script>addFooter("The volume filter influences the output gain of the object and all it's associated objects.");
+ </script>
+</body>
+</html>

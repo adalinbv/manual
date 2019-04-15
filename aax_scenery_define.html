@@ -1,0 +1,38 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+  <H2 id="config">Scenery configuration</H2>
+   <pre class="define" id="aaxScenerySetSoundVelocity">aaxScenerySetSoundVelocity(config, speed)</pre>
+   Set the sound velocity of the scenery using the velocity-effect.<br>
+   Should be in the same units as the velocity vectors.
+
+   <pre class="define" id="aaxScenerySetDopplerFactor">aaxScenerySetDopplerFactor(config, doppler)</pre>
+   Set the Doppler factor of the scenery using the velocity-effect.<br>
+   Setting it to something other than 1.0 will exaggerate or understate the Doppler effect.
+
+   <pre class="define" id="aaxScenerySetDistanceModel">aaxScenerySetDistanceModel(config, model)</pre>
+   Set the distance model type for the scenery using the distance-effect.
+
+   <pre class="define"class="define" id="aaxSceneryEnableFrequencyFilter">aaxSceneryEnableFrequencyFilter(config, enable)</pre>
+   Enable or disable the frequency filter for the scenery.
+
+   <pre class="define"class="define" id="aaxScenerySetFrequencyFilter">aaxScenerySetFrequencyFilter(config, cutoff, lf_gain, hf_gain)</pre>
+   Set the frequency filters cut-off frequency and linear low-frequency and high-frequency gain for the scenery.
+   <p><br><p>
+   <pre class="define" id="aaxSceneryGetSoundVelocity">aaxSceneryGetSoundVelocity(config)</pre>
+   Return the sound velocity setting of the scenery using the velocity-effect.<br>
+
+   <pre class="define" id="aaxSceneryGetDopplerFactor">aaxSceneryGetDopplerFactor(config)</pre>
+   Return the Doppler factor of the scenery using the velocity-effect.<br>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

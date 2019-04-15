@@ -1,0 +1,112 @@
+<html>
+<head>
+ <title>AeonWave - Documentation</title>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+  <h2>Mixer, Emitter and Audio-Frame sections</h2>
+  Assigning filters or effects to the mixer, an emitter or an audio-frame is
+  the same except for the name of the XML section. By using different section
+  names within the same file it is possible to assign all filters and effects
+  for a particular event in one AAXS file. This makes is possible to add the
+  same buffer object to all individual sound components. The emitter section
+  is handles by emitters, the mixer section by the mixer and the audio-frame
+  section by audio-frames.
+  <p>
+  <ul>
+    <li>The mode attribute defines whether the defined filters and effects should replace the already assigned filters and effects or whether they should be appended. Note however that the same filter or effect can not be assigned twice. In such a case an already defined filter or effect will be replaced by the new one of the same type. If the mode attribute is not defined it defaults to replace.
+    <li>The looping attribute is for emitters only and defines whether the emitter should loop to the beginning of an audio buffer when the buffer end is reached during playback (when set to true) or whether the emitter should stop playing (when set to false).
+   </ul>
+  <table>
+   <tr class="xml">
+    <td class="xml">
+     <div class="xml"><pre> &lt;emitter looping="true"&gt;
+    &lt;filter type="envelope"&gt;
+      &lt;slot n="0"&gt;
+        &lt;param n="0"&gt;0.0&lt;&#47;param&gt;
+        &lt;param n="1"&gt;0.01&lt;&#47;param&gt;
+        &lt;param n="2"&gt;1.2&lt;&#47;param&gt;
+        &lt;param n="3"&gt;0.05&lt;&#47;param&gt;
+      &lt;&#47;slot&gt;
+      &lt;slot n="1"&gt;
+        &lt;param n="0"&gt;0.7&lt;&#47;param&gt;
+        &lt;param n="1"&gt;0.1&lt;&#47;param&gt;
+        &lt;param n="2"&gt;0.6&lt;&#47;param&gt;
+        &lt;param n="3"&gt;0.05&lt;&#47;param&gt;
+      &lt;&#47;slot&gt;
+    &lt;&#47;filter&gt;
+  &lt;&#47;emitter&gt;</pre></div>
+    </td>
+    <td class="xml">
+     <div class="xml"><pre> &lt;mixer mode="append"&gt;
+    &lt;filter type="equalizer"&gt;
+      &lt;slot n="0"&gt;
+        &lt;param n="0"&gt;500&lt;&#47;param&gt;
+        &lt;param n="1"&gt;1.0&lt;&#47;param&gt;
+        &lt;param n="2"&gt;0.1&lt;&#47;param&gt;
+        &lt;param n="3"&gt;2.0&lt;&#47;param&gt;
+      &lt;&#47;slot&gt;
+      &lt;slot n="1"&gt;
+        &lt;param n="0"&gt;8000&lt;&#47;param&gt;
+        &lt;param n="1"&gt;0.1&lt;&#47;param&gt;
+        &lt;param n="2"&gt;0.5&lt;&#47;param&gt;
+        &lt;param n="3"&gt;2.0&lt;&#47;param&gt;
+      &lt;&#47;slot&gt;
+    &lt;&#47;filter&gt;
+  &lt;&#47;mixer&gt;</pre></div>
+    </td>
+    <td class="xml">
+     <div class="xml"><pre> &lt;audioframe mode="append"&gt;
+    &lt;filter type="volume"&gt;
+      &lt;slot n="0"&gt;
+        &lt;param n="0"&gt;1.3&lt;&#47;param&gt;
+      &lt;&#47;slot&gt;
+    &lt;&#47;filter&gt;
+    &lt;effect type="chorus"
+            src="sine"&gt;
+      &lt;slot n="0"&gt;
+        &lt;param n="0"&gt;0.4&lt;&#47;param&gt;
+        &lt;param n="1"&gt;0.3&lt;&#47;param&gt;
+        &lt;param n="2"&gt;0.1&lt;&#47;param&gt;
+        &lt;param n="3"&gt;0.2&lt;&#47;param&gt;
+      &lt;&#47;slot&gt;
+    &lt;&#47;effect&gt;
+  &lt;&#47;audioframe&gt;</pre>
+     </div>
+    </td>
+   </tr>
+  </table>
+  Several filter and effect sections may be defined within a mixer, audio-frame
+  or emitters section. A particular filter or effect type may be specified only
+  once for every emitter, audio-frame or mixer object. If a filter or effect type
+  should be applied multiple times then register the emitter or audio-frame to
+  another audio-frame and add the filter or effect to the later. Usage of helper 
+  audio-frames comes almost for free.<br>
+  The order in which they are applied is the same as for coded <a href="aax_aaxfiltertype.html">filters</a> and <a href="aax_aaxeffecttype.html">effects</a>.
+  <p>
+  <ul>
+    <li>The type attribute defines the <a href="aax_aaxfiltertype.html">filter</a> or <a href="aax_aaxeffecttype.html">effect</a> name with or without the AAX_ prefix and _FILTER or _EFFECT suffix. Underscores may be replaced with a minus sign.
+    <li>The src attribute defines the <a href="aax_aaxfilterstate.html">filter state</a> or <a href="aax_aaxeffectstate.html">effect state</a> with or without the AAX_ prefix and _VALUE, _WAVE or _FOLLOW suffix. Underscores may be replaced with a minus sign. If the src attribute is not defined it defaults to AAX_CONSTANT_VALUE (AAX_TRUE) which enables the particular filter or effect.
+    <li> Multiple slots could be defined if a particular filter or effects supports ts. If slots are not specified all the parameters are considered to be 0.0.
+      <ul>
+        <li>The n attribute of the slot node specifies the slot number which is being defined.
+        <li>An optional type attribute could be used to specify the <a href="aax_aaxtype.html">type specifier</a> for all parameters of this slot. If not defined it defaults to linear.
+        <li>The param nodes specify the individual parameters for the particular slot for the defined filter or effect type and are <a href="aax_filter.html">filter</a> and <a href="aax_effect.html">effect</a> type specific.
+          <ul>
+            <li>The n attribute specifies the parameter number, p3 for instance requires n="3".
+            <li>An optional type attribute could be used to specify the <a href="aax_aaxtype.html">type specifier</a> for this specific parameter. If not define
+d it defaults to linear.
+          </ul>
+      </ul>
+   <li>The <a href="aax_timed_gain_filter.html">timed-gain-filter</a> supports an optional repeat attribute to define the number of times the defined envelope has to be repeated.
+  </ul>
+
+ <script>addFooter("AeonWave allows finetuning large parts of the project without user action even after the product is shipped. Only an internet connection is required.");
+ </script>
+</body>
+</html>

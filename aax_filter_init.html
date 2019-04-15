@@ -1,0 +1,34 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+  <H2 id="init">Filter initialization</H2>
+
+   <pre class="v20" id="aaxFilterCreate">aaxFilter aaxFilterCreate(aaxConfig config, enum aaxFilterType type)</pre>
+   Create a new filter instance for a specific type of filter.<p>
+   <ul>
+   <li> The config parameter is the handle as returned by aaxDriverOpen. 
+   <li> The type parameter is an enumerated type <a href="aax_aaxfiltertype.html">aaxFilterType</a>.
+    <li> Assigning 3D filters to a stereo emitter or audio-frame has no effect. 
+    <li> Stereo filters can be assigned to emitters in any mode. 
+   </ul><p>
+   Return a newly created filter handle if successful or NULL otherwise.<p>
+   Reasons for failure are in incorrect or already destroyed configuration handle or an incompatible type parameter or insufficient memory to allocate the filter handle.
+
+   <pre class="v20" id="aaxFilterDestroy">int aaxFilterDestroy(aaxFilter filter)</pre>
+   Destroy a filter handle.<p>
+   <ul>
+   <li> The filter parameter is the handle as returned by aaxFilterCreate or one of the class getter functions.
+   </ul><p>
+   Return AAX_TRUE if successful, AAX_FALSE otherwise.<p>
+   Reasons for failure are an incorrect or already destroyed handle.
+
+ <script>addFooter("Assigning 3D filters to a stereo emitter has no effect, stereo filters can always be assigned.");</script>
+</body>
+</html>

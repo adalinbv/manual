@@ -1,0 +1,59 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <H1 id="Driver">Driver Backends</H1>
+
+ Drivers are the connection between the software and the hardware which has to handle the audio stream either by playing back, or recording from, audio hardware or by streaming it to, or from, a file or network connection.
+
+ <table class="Index">
+ <tr>
+  <td>
+   <script>
+   addHeader("Init", "Driver", "Initialization");
+    addFunction("Init", "Driver", "OpenDefault");
+    addFunction("Init", "Driver", "OpenByName");
+    addFunction("Init", "Driver", "Open");
+    addFunction("Init", "Driver", "Close");
+    addFunction("Init", "Driver", "Destroy");
+
+   addHeader("Support", "Driver", "Support");
+    addFunction("Support", "Driver", "GetByName");
+    addFunction("Support", "Driver", "GetCount");
+    addFunction("Support", "Driver", "GetByPos");
+    addFunction("Support", "Driver", "GetDeviceCount");
+    addFunction("Support", "Driver", "GetDeviceNameByPos");
+    addFunction("Support", "Driver", "GetInterfaceCount");
+    addFunction("Support", "Driver", "GetInterfaceNameByPos");
+    addFunction("Setup", "Driver", "GetSetup");
+    addFunction("Support", "Driver", "GetSupport");
+
+  </script>
+  </td>
+
+<!--
+  <td class="define">
+   <script>
+   addHeader("Define", "Driver", "Defines");
+    addDefine("Define", "Driver", "IsValid");
+    addDefine("Define", "Driver", "GetDefault");
+    addDefine("Define", "Driver", "GetName");
+    addDefine("Define", "Driver", "GetVersion");
+    addDefine("Define", "Driver", "GetRenderer");
+    addDefine("Define", "Driver", "GetVendor");
+  </script>
+   </td>
+-->
+  </tr>
+  </table>
+
+ <script>addFooter("Drivers are the connection between the software and the hardware which has to handle the audio stream.");
+ </script>
+</body>
+</html>

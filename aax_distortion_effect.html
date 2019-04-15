@@ -1,0 +1,97 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <h2>Distortion Effect</h2>
+
+   <div class="table_fx">
+    <table class="dist">
+     <tr>
+      <td></td>
+      <td>sharp clipping</td>
+      <td>soft clipping</td>
+     </tr>
+     <tr>
+      <td class="legenda"><div class="vertical">symmetric</div></td>
+      <td><img src="images/sharp-clipping.png"></img></td>
+      <td><img src="images/soft-clipping.png"></img></td>
+     </tr>
+     <tr>
+      <td class="legenda"><div class="vertical">asymmetric</div></td>
+      <td><img src="images/asym-sharp-clipping.png"></img></td>
+      <td><img src="images/asym-soft-clipping.png"></img></td>
+     </tr>
+    </table>
+   </div>
+
+   <a href="https://en.wikipedia.org/wiki/Distortion#Audio_distortion" target="_blank">Audio Distortion</a> is a way to add harmonics or overtones to an input signal by amplification of the signal beyond the capabilities of the equipment which causes <a href="https://en.wikipedia.org/wiki/Clipping_%28audio%29" target="_blank">clipping</a>.<br>
+   As a result a sound may sound richer but too much distortion may sound unpleasant.
+   <p></p>
+   AeonWave lets you select from hard-clipping, with sharp signal edges and lots of harmonics, to <a href="https://en.wikipedia.org/wiki/Tube_sound#Soft_clipping" target="_blank">soft-clipping</a>, with rounded signal edges and less and mostly uneven harmonics, and anything in between.
+   <p></p>
+   AeonWave also lets you select between symmetric distortion, which happens in transistor based amplifiers, and <a href="https://en.wikipedia.org/wiki/Tube_sound#Harmonic_content_and_distortion" target="_blank">asymmetric distortion</a>, which happens in certain valve based amplifiers.
+   <p></p>
+   As a result distortion ranges from hard-clipping Fuzz to Valve-like Overdrive by altering just a few parameters.
+   <p></p>
+   The effect is auto gain-adjusting which means there is no need to alter the signal-level to compensate the different settings.
+
+   <p></p>
+   The Distortion effect is supported by the Mixer, Emitters and Audio-Frames.
+
+   <h5>Distortion Effect parameters</h5>
+   The effect uses only one effect slot.
+   <dl>
+    <dt class="v20" id="AAX_DISTORTION_EFFECT">AAX_DISTORTION_EFFECT<div class="type">STEREO</div></dt>
+    <dd>
+     <dl>
+      <dt class="v20"><div>p0</div> AAX_DISTORTION_FACTOR</dt>
+      <dd>A factor defining the amount of distortion.<br>
+          Between 0.0 and 4.0<br>
+          0.0 equals to no distortion, 1.0 is overdrive (+22dB amplification). 4.0 is full distortion (+86dB amplification).
+      </dd>
+      <dt class="v20"><div>p1</div> AAX_CLIPPING_FACTOR</dt>
+      <dd>A factor defining the amount of hard clipping.<br>
+          Between 0.0 and 1.0<br>
+          0.0 equals to soft clipping, 1.0 is hard clipping.</dd>
+      <dt class="v20"><div>p2</div> AAX_MIX_FACTOR</dt>
+      <dd>A factor defining the mix between the distorted and clean signal.<br>
+          Between 0.0 and 1.0<br>
+          0.0 equals to only the original signal (no distortion mixed in),
+          1.0 equals to only the distorted signal. </dd>
+      <dt class="v22"><div>p3</div> AAX_ASYMMETRY</dt>
+      <dd>Specifies the amount of asymmetric distortion.<br>
+          Between 0.0 and 1.0<br>
+          0.0 equals to symmetric, 1.0 equals to asymmetric distortion.</dd>
+     </dl>
+    </dd>
+   </dl>
+
+   <h5>Distortion Effect state options</h5>
+   Specify AAX_TRUE or envelope-following to enable the distortion effect or AAX_FALSE to disable it.<br>
+   Or use one of the ENVELOPE_FOLLOW types to make distortion volume dependent.
+   <ul>
+   <li>AAX_ENVELOPE_FOLLOW will provide strong distortion for loud signal peaks and virtually no distortion for soft sections.
+   <li> AAX_INVERSE_ENVELOPE_FOLLOW will provide strong distortion for soft sections and virtually no distortion for loud signal peaks.
+   </ul>
+   <dl>
+    <dt class="v20">AAX_DISTORTION_EFFECT</dt>
+    <dd>
+      <h6>Valid types are:</h6>
+      <dl>
+        <dt class="v22"> AAX_CONSTANT_VALUE (or AAX_TRUE)
+        <dt class="v22"> AAX_ENVELOPE_FOLLOW
+        <dt class="v22"> AAX_INVERSE_ENVELOPE_FOLLOW
+      </dl><br>
+    </dd>
+   </dl>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

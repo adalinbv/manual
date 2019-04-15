@@ -1,0 +1,56 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+  <H2 id="init">Change the Playback state</H2>
+
+   <pre class="shared" id="aaxEmitterSetState">int aaxEmitterSetState(aaxEmitter emitter, enum aaxState state)</pre>
+   <p>These functions change the respective runtime playback state.<br>
+   <ul>
+   <li> The emitter parameter is the handle as returned by aaxEmitterCreate.
+   <li> The state parameter is an enumerated type <a href="aax_aaxstate.html">aaxState</a> and specifies the desired state for a class.
+   </ul>
+   <p>Return AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   Reasons for failure are an incorrect or already destroyed class handle, an incompatible state value, failure to initialize using the requested setup parameters or the inability to start the mixer or capture thread.
+   <p>
+   <br>
+   <p>
+  <pre class="shared" id="aaxEmitterGetState">int aaxEmitterGetState(const aaxEmitter emitter)</pre><p>
+  <ul>
+   <li> The emitter parameter is the handle as returned by aaxEmitterCreate.
+  </ul>
+  <p>Return the current state of the class as an enumerated type <a href="aax_aaxstate.html">aaxState</a> or AAX_FALSE if a error occurred.<p>
+  Reasons for failure are an incorrect or already destroyed class handle.
+
+  <h5>Supported values for the state parameter</h5>
+   <dl>
+   <dt class="v20" id="AAX_INITIALIZED"> AAX_INITIALIZED </dt>
+   <dd>  Emitters can use this state to rewind the playback position. </dd>
+   <dt class="v20" id="AAX_PLAYING"> AAX_PLAYING </dt>
+   <dd> Start or restart playback of the emitter.</dd>
+    <dt class="v20" id="AAX_PROCESSED"> AAX_PROCESSED </dt>
+    <dd> Immediately and permanently stop playback of emitters. </dd>
+    <dt class="v20" id="AAX_STOPPED"> AAX_STOPPED </dt>
+    <dd> Request stopping playback of an emitter.<br>
+         Based on whether the distance mode includes support for distance delay or not the library might decide to postpone actual stopping of playback. Therefore it is best to test for AAX_PROCESSED when waiting for an emitter to stop playback.<br>
+         The setup will not change but the configuration is set to initialized.
+    </dd>
+    <dt class="v20" id="#AAX_SUSPENDED"> AAX_SUSPENDED </dt>
+    <dd> Temporarily postpone (pause) playback of the emitter.<br>
+         The setup and configuration will not change. </dd>
+    <dt class="v25" id="AAX_UPDATE"> AAX_UPDATE </dt>
+    <dd> Force recalculation of the distance parameters if distance delay was enabled.<br>
+         This is useful for sudden position jumps.
+    </dd>
+  </dl>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

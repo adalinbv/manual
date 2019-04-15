@@ -1,0 +1,31 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+  <h2>enum aaxRenderMode</h2>
+
+  <P>
+  <dl>
+   <dt class="v20">AAX_MODE_READ</dt>
+   <dd>Audio capturing mode</dd>
+   <dt class="v20">AAX_MODE_WRITE_STEREO</dt>
+   <dd>Stereo output mode.<br>
+       This is the only mode that won't take precedence over the mode specified by one of the configuration files.</dd>
+   <dt class="v20">AAX_MODE_WRITE_SPATIAL</dt>
+   <dd>Spatialized stereo output that extends beyond the location of the speakers.</dd>
+   <dt class="v20">AAX_MODE_WRITE_SURROUND</dt>
+   <dd>Typical surround sound setup.</dd>
+   <dt class="v20">AAX_MODE_WRITE_HRTF</dt>
+   <dd>Spatialized headphone setup with additional source location cues.</dd>
+  </dl>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <H1 id="support">Support</H1>
+
+ Support functions are available to get information about the library or about
+ the internal state.
+
+ <table class="Index">
+ <tr>
+  <td>
+  <script>
+   addHeader("Support", "Library", "Version information");
+    addFunction("Init", "", "GetMajorVersion");
+    addFunction("Init", "", "GetMinorVersion");
+    addFunction("Init", "", "GetPatchLevel");
+    addFunction("Init", "", "GetVersionString");
+
+  addHeader("Support", "Library", "Generic");
+    addFunction("Init", "", "Free");
+    addFunction("Init", "", "PlaySoundLogo");
+    addFunction("Init", "", "GetBitsPerSample");
+    addFunction("Init", "", "GetBytesPerSample");
+
+  addHeader("Support", "Library", "Filters & Effects");
+    addFunction("Init", "", "IsFilterSupported");
+    addFunction("Init", "", "IsEffectSupported");
+
+   addHeader("Support", "Library", "Debugging functions");
+      addFunction("Init2", "", "GetErrorNo");
+      addFunction("Init2", "", "GetErrorString");
+      addFunction("Init2", "", "IsValid");
+  </script>
+  </td>
+ </tr>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

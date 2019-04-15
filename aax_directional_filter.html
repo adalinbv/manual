@@ -1,0 +1,59 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <h2>Directional Filter</h2>
+
+   <strong>Note: Prior to AeonWave 3.2.1 the directional filter was called angular filter (it got lost in translation). For backwards compatibility the angular name is still being recognized internally and the library is binary compatible with previous versions.</strong>
+   <p></p>
+   <img src="images/directional.jpg" align="right"></img>
+   The Directional filter adjusts the volume based on the location of the sensor in relation to the sound sources forward direction. This makes it possible to specify directional sounds which could be loud in front of the sound source and hard to hear directly behind the sound source.
+   <p></p>
+   The gain in front of the emitter is 1.0. Sound stays 1.0 up to the inner angle and then gradually fades from 1.0 to outer-gain up to outer-angle. Beyond outer-angle the sound fades from outer-gain to 0.0 at 360 degrees.
+   <p></p>
+   0 (zero degrees) is directly in front of the sound source.<br>
+   An angle of &pi; (180 degrees) is from 90 degrees left to 90 degrees right and 90 degrees up to 90 degrees down.
+   <p></p>
+   AeonWave 2.6 also adds the option to specify the sound gain directly in  front of the sound source which makes it possible to create a doughnut shaped sound distribution: soft in front, loud to the sides and soft again behind the sound source.
+   <p></p>
+   The default values make the sound source omni-directional.
+   <p></p>
+   The Directional filter is supported by Emitters and Audio-Frames.
+
+   <p></p>
+
+   <h5>Directional Filter parameters</h5>
+   The filter uses only one filter slot.
+   <dl>
+    <dt class="v20" id="AAX_DIRECTIONAL_FILTER">AAX_DIRECTIONAL_FILTER <div class="type">3D</div></dt>
+    <dd>
+     <dl>
+      <dt class="v20"><div>p0</div> AAX_INNER_ANGLE</dt>
+      <dd>Inner angle of the audio cone. <div>AAX_RADIANS, AAX_DEGREES</div><br>
+          Between 0 and 2&pi;, defaults to 2&pi; (360 degrees).</dd>
+      <dt class="v20"><div>p1</div> AAX_OUTER_ANGLE</dt>
+      <dd>Outer angle of the audio cone. <div>AAX_RADIANS, AAX_DEGREES</div><br>
+          Between 0 and 2&pi;, defaults to 2&pi; (360 degrees).</dd>
+      <dt class="v20"><div>p2</div> AAX_OUTER_GAIN</dt>
+      <dd>Outer gain of the audio cone.<br>
+          Between 0.0 and 1.0, defaults to 1.0</dd>
+       <dt class="v26"><div>p3</div> AAX_FORWARD_GAIN</dt>
+      <dd>Gain of the sound directly in front.<br>
+          Between 0.0 and 1.0, defaults to 1.0</dd>
+     </dl>
+    </dd>
+   </dl>
+
+   <h5>Directional Filter state options</h5>
+   The filter is always enabled. 
+
+ <script>addFooter("The Directional filter adjusts the volume based on the direction of the sensor in relation to the sound source.");
+ </script>
+</body>
+</html>

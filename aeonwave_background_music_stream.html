@@ -1,0 +1,42 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <H1 id="Driver">Class AeonWave</H1>
+ <h6 class="menu">Header file: &lt;aax/aeonwave.hpp&gt;</h6>
+ <h6 class="menu">Namespace: aax</h6>
+ <p>&nbsp;<p>
+
+ The AeonWave class supports code to playback one audio stream in the background
+ which will keep playing until it runs out of data or gets explicitly stopped.
+ <p>
+ There are support functions to detect whether the stream is still playing and
+ to get the number of seconds the stream has been playing. If the playback
+ function gets called while a stream is still playing then the previous stream
+ is stopped automatically and a new stream is started.
+
+ <pre>
+
+   aax::AeonWave aax(AAX_MODE_WRITE_STEREO);
+   aax.set(AAX_INITIALIZED);
+   aax.set(AAX_PLAYING);
+
+   aax.playback("http://streamnl.atinet.nl:8004/;stream.mp3");
+   do
+   {
+      sleep(1);
+      if (key_pressed()) aax.stop();
+   }
+   while (aax.playing());
+ </pre>
+
+ <script>addFooter("AeonWave supports playback of an audio stream which will keep playing until it runs out of data or gets explicitly stopped. ");
+ </script>
+</body>
+</html>

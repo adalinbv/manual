@@ -1,0 +1,79 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+  <H2 id="support">Driver support</H2>
+
+   There are a number of functions available to be able to detect which backends are supported and which devices are available to;</br>
+   <ul>
+   <li>return the number of backends.
+   <li>get information about the backend at a given position.
+   <li>return the number of devices for a given backend.
+   <li>get the name of the device at a given position.
+   </ul>
+
+   <pre class="v10" id="aaxDriverGetByName">aaxConfig aaxDriverGetByName(const char* name, enum aaxRenderMode mode)</pre>
+   <ul>
+   <li>the name parameter consists of the backend name, possibly followed by " on " and the device name.<br>
+       if no device name is specified the default will be used.
+    <li>the mode parameter is an enumerated type <a href="aax_aaxrendermode.html">aaxRenderMode</a>.
+   </ul>
+   Return the driver configuration for the requested backend name.
+
+   <pre class="v10" id="aaxDriverGetCount">unsigned aaxDriverGetCount(enum aaxRenderMode mode)</pre>
+   <ul>
+    <li>the mode parameter is an enumerated type <a href="aax_aaxrendermode.html">aaxRenderMode</a>.
+   </ul>
+   Return the number of driver backends that this system supports for the specified mode.
+
+   <pre class="v10" id="aaxDriverGetByPos">aaxConfig aaxDriverGetByPos(unsigned pos, enum aaxRenderMode mode)</pre>
+   <ul>
+    <li>the mode parameter is an enumerated type <a href="aax_aaxrendermode.html">aaxRenderMode</a>.
+   </ul>
+   Return the driver configuration for the driver at the specified position and mode.
+
+   <pre class="v10" id="aaxDriverGetDeviceCount">unsigned aaxDriverGetDeviceCount(aaxConfig config, enum aaxRenderMode mode)</pre>
+   <ul>
+    <li>the mode parameter is an enumerated type <a href="aax_aaxrendermode.html">aaxRenderMode</a>.
+   </ul>
+   Return the number of available devices that support the specified mode for this driver configuration.
+
+   <pre class="v10" id="aaxDriverGetDeviceNameByPos">const char* aaxDriverGetDeviceNameByPos(aaxConfig config, unsigned pos, enum aaxRenderMode mode)</pre>
+   <ul>
+    <li>the pos parameter defines the position of the device to return.
+    <li>the mode parameter is an enumerated type <a href="aax_aaxrendermode.html">aaxRenderMode</a>.
+   </ul>
+   Return the device name at the specified position for the specified mode as a string constant.
+
+   <pre class="v20" id="aaxDriverGetInterfaceCount">unsigned aaxDriverGetInterfaceCount(aaxConfig config, unsigned dev_pos, enum aaxRenderMode mode)</pre>
+   <ul>
+    <li>the dev_pos parameter is the position of the device of which to acquire the available interfaces.
+    <li>the mode parameter is an enumerated type <a href="aax_aaxrendermode.html">aaxRenderMode</a>.
+   </ul>
+   Return the number of available interfaces that support the specified mode for this driver configuration.
+
+   <pre class="v20" id="aaxDriverGetInterfaceNameByPos">const char* aaxDriverGetInterfaceNameByPos(aaxConfig config, usnigned dev_pos, unsigned pos,
+                                             enum aaxRenderMode mode)</pre>
+   <ul>
+    <li>the dev_pos parameter defines the position of the device to get information from.
+    <li>the pos parameter defines the position of the interface to return.
+    <li>the mode parameter is an enumerated type <a href="aax_aaxrendermode.html">aaxRenderMode</a>.
+   </ul>
+   Return the interface name at the specified position for the specified mode as a string constant.
+
+   <pre class="v10" id="aaxDriverGetSupport">int aaxDriverGetSupport(aaxConfig config, enum aaxRenderMode mode)</pre>
+   <ul>
+   <li>the mode parameter is an enumerated type <a href="aax_aaxrendermode.html">aaxRenderMode</a>.
+   </ul>
+   Return AAX_TRUE if the driver supports the requested mode, AAX_FALSE otherwise.
+
+ <script>addFooter("All drivers should be freed afterwards.");
+ </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <H1 id="Driver">Class Matrix</H1>
+ <h6 class="menu">Header file: &lt;aax/matrix.hpp&gt;</h6>
+ <h6 class="menu">Namespace: aax</h6>
+ <p>&nbsp;<p>
+
+ <h5>Constructors</h5>
+ <pre class="cpp">Matrix()</pre>
+ <pre class="cpp">Matrix(aaxMtx4f&amp; matrix)</pre>
+ <pre class="cpp">Matrix(aax::Matrix&amp; matrix)</pre>
+ <pre class="cpp">Matrix(aax::Vector&amp; pos, aax::Vector&amp; at)</pre>
+ <pre class="cpp">Matrix(aaxVec3f&amp; pos, aaxVec3f&amp; at)</pre>
+ <pre class="cpp">Matrix(aax::Vector&amp; pos, aax::Vector&amp; at, aax::Vector&amp; up)</pre>
+ <pre class="cpp">Matrix(aaxVec3f&amp; pos, aaxVec3f&amp; at, aaxVec3f&amp; up)</pre>
+
+ <h5>Position and Orientation</h5>
+ <pre class="cpp">bool set(aax::Vector&amp; pos, aax::Vector&amp; at)</pre>
+ <pre class="cpp">bool set(aaxVec3f&amp; pos, aaxVec3f&amp; at)</pre>
+ <pre class="cpp">bool set(aax::Vector&amp; pos, aax::Vector&amp; at, Vector&amp; up)</pre>
+ <pre class="cpp">bool set(aaxVec3f&amp; pos, aaxVec3f&amp; at, aaxVec3f&amp; up)</pre>
+ <p>
+ <pre class="cpp">bool get(aaxVec3f&amp; pos, aaxVec3f&amp; at, aaxVec3f&amp; up)</pre>
+
+ <h5>Manipulation</h5>
+ <pre class="cpp">bool translate(float dx, float dy, float dz)</pre>
+ <pre class="cpp">bool translate(aax::Vector&amp; vector)</pre>
+ <pre class="cpp">bool translate(aaxVec3f&amp; vector)</pre>
+ <p>
+ <pre class="cpp">bool rotate(float angle_rad, float x, float y, float z)</pre>
+ <pre class="cpp">bool multiply(aax::Matrix&amp; matrix)</pre>
+ <pre class="cpp">bool inverse()</pre>
+ <p>
+ <pre class="cpp">Matrix64 toMatrix64()</pre>
+
+ <h5>Operators</h5>
+ <pre class="cpp">aax::Matrix&amp; operator*=(aax::Matrix&amp; matrix)</pre>
+ <pre class="cpp">aax::Matrix&amp; operator/=(aax::Matrix&amp; matrix)</pre>
+ <pre class="cpp">aax::Matrix&amp; operator~()</pre>
+ <p>
+ <pre class="cpp">aax::Matrix&amp; operator+=(aax::Vector&amp; vector)</pre>
+ <pre class="cpp">aax::Matrix&amp; operator+=(aaxVec3f&amp; vector)</pre>
+ <p>
+ <pre class="cpp">aax::Matrix&amp; operator-=(aax::Vector&amp; vector)</pre>
+ <pre class="cpp">aax::Matrix&amp; operator-=(aaxVec3f&amp; vector)</pre>
+ <p>
+ <pre class="cpp">aax::Matrix&amp; operator=(aaxMtx4f&amp; matrix)</pre>
+ <pre class="cpp">aax::Matrix&amp; operator=(aax::Matrix&amp; matrix)</pre>
+ <p>
+ <pre class="cpp">friend aax::Matrix operator*(aax::Matrix&amp; matrix1, aax::Matrix&amp; matrix2)</pre>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

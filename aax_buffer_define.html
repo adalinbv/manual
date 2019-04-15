@@ -1,0 +1,73 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <H2 id="define">Buffer defines</H2>
+
+   <pre class="define" id="aaxBufferSetFrequency">aaxBufferSetFrequency(buffer, frequency)</pre>
+   <div class="define">aaxBufferSetSetup(buffer, AAX_FREQUENCY, frequency)</div>
+   Set the sample frequency of the audio buffer.
+
+   <pre class="define" id="aaxBufferSetNoTracks">aaxBufferSetNoTracks(buffer, tracks)</pre>
+   <div class="define">aaxBufferSetSetup(buffer, AAX_TRACKS, tracks)</div>
+   Set the number of tracks in the audio buffer.
+
+   <pre class="define v20" id="aaxBufferSetLoopPoints">aaxBufferSetLoopPoints(buffer, loop_start, loop_end)</pre>
+   Set the loop-start and loop-end points as samples from the start of the buffer.<br>
+   Setting the start point beyond the end point results in an error.
+
+   <pre class="define v20" id="aaxBufferSetWaveform">aaxBufferSetWaveform(buffer, frequency, type)</pre>
+   <div class="define">aaxBufferProcessWaveform(buffer, frequency, type, 1.0, AAX_OVERWRITE)</div>
+   Fill the buffer with a newly generated waveform of a given frequency and waveform-type by overwriting existing data.
+
+   <pre class="define v20" id="aaxBufferAddWaveform">aaxBufferAddWaveform(buffer, frequency, type, gain)</pre>
+   <div class="define">aaxBufferProcessWaveform(buffer, frequency, type, gain, AAX_ADD)</div>
+   Add a newly generated waveform of a given frequency and waveform-type and with the specified gain to the current data in the buffer.
+
+   <pre class="define v20" id="aaxBufferMixWaveform">aaxBufferMixWaveform(buffer, frequency, type, ratio)</pre>
+   <div class="define">aaxBufferProcessWaveform(buffer, frequency, type, ratio, AAX_MIX)</div>
+   Mix a newly generated waveform of a given frequency and waveform-type with the current data in the buffer at the specified mixing ratio.
+
+   <pre class="define v20" id="aaxBufferRingmodulateWaveform">aaxBufferRingmodulateWaveform(buffer, freq, type, depth)</pre>
+   <div class="define">aaxBufferProcessWaveform(buffer, freq, type, ratio, AAX_RINGMODULATE)</div>
+   Ring-modulate the current data using a newly generated waveform of a given frequency and waveform-type at the specified modulation depth.
+
+   <p><br><p>
+
+   <pre class="define" id="aaxBufferIsValid">aaxBufferIsValid(handle)</pre>
+   <div class="define">aaxIsValid(handle, AAX_BUFFER)</div>
+   Return AAX_TRUE if the handle is a valid buffer handle, AAX_FALSE otherwise.
+
+   <pre class="define" id="aaxBufferGetFrequency">aaxBufferGetFrequency(buffer)</pre>
+   <div class="define">aaxBufferGetSetup(buffer, AAX_FREQUENCY)</div>
+   Return the sample frequency of the audio buffer.
+
+   <pre class="define" id="aaxBufferGetFormat">aaxBufferGetFormat(buffer)</pre>
+   <div class="define">aaxBufferGetSetup(emitter, AAX_FORMAT)</div>
+   Return the format of the audio buffer.
+
+   <pre class="define" id="aaxBufferGetNoTracks">aaxBufferGetNoTracks(buffer)</pre>
+   <div class="define">aaxBufferGetSetup(buffer, AAX_TRACKS)</div>
+   Return the number of tracks in the audio buffer.
+
+   <pre class="define" id="aaxBufferGetSize">aaxBufferGetSize(buffer)</pre>
+   Return the total buffer size in bytes of all tracks in the audio buffer.
+
+   <pre class="define" id="aaxBufferGetNoSamples">aaxBufferGetNoSamples(buffer)</pre>
+   <div class="define">aaxBufferGetSetup(buffer, AAX_NO_SAMPLES)</div>
+   Return the number of samples per track in the audio buffer.
+
+    <pre class="define" id="aaxBufferGetBytesPerSample">aaxBufferGetBytesPerSample(buffer)</pre>
+   <div class="define">aaxGetBytesPerSample(aaxBufferGetSetup(buffer, AAX_FORMAT))</div>
+   Return the number of bytes per sample in the audio buffer.
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

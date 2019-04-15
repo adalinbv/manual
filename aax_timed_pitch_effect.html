@@ -1,0 +1,75 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <h2>Timed Pitch Effect</h2>
+
+   This effect can alter the <a href="https://en.wikipedia.org/wiki/Timbre" target="_blank">Timbre</a> of a looping sound buffer by adjusting the pitch using a predefined <a href="http://en.wikipedia.org/wiki/Synthesizer#ADSR_envelope" target="_blank">Pitch Envelope</a>.
+   <p></p>
+   The Effect may have up to 6 stages.<br>
+   Switching to the first Level is instant, switching to the next levels is smooth.<br>
+   The pitch remains unchanged during one refresh period. Because of this slow pitch changes might provide better results.<br>
+   Time steps can not be smaller than the refresh period (defaults to 22 milliseconds per period).<br>
+   There is no pitch level that will stop the emitter automatically
+   <p></p>
+   Time parameters define the time (in seconds) relative to the previous stage.<br>
+   Set the Time parameter to AAX_FPINFINITE for the looped sustain period.<br>
+   Set the last Time parameter to zero if less than 6 stages are required.
+   <p></p>
+   Level parameters range between 0.0 and 4.0.<br>
+   High values allow for a clearer attack (and/or release) period.
+   <p></p>
+   The Timed Pitch effect is supported by Emitters.
+   <p></p>
+   <img src="images/pitch_envelope.png"></img>
+
+   <h5>Timed Pitch Effect parameters</h5>
+   The effect uses up to three effect slots.
+
+   <dl>
+    <dt class="v21" id="AAX_TIMED_PITCH_EFFECT">AAX_TIMED_PITCH_EFFECT<div class="type">STEREO</div></dt>
+    <dd>
+     <table class="parallel">
+      <tr>
+       <td>
+        <dl>Slot 0
+         <dt class="v21"><div>p0</div> AAX_LEVEL0</dt>
+         <dt class="v21"><div>p1</div> AAX_TIME0</dt>
+         <dt class="v21"><div>p2</div> AAX_LEVEL1</dt>
+         <dt class="v21"><div>p3</div> AAX_TIME1</dt>
+        </dl>
+       </td>
+       <td>
+        <dl>Slot 1
+         <dt class="v21"><div>p0</div> AAX_LEVEL2</dt>
+         <dt class="v21"><div>p1</div> AAX_TIME2</dt>
+         <dt class="v21"><div>p2</div> AAX_LEVEL3</dt>
+         <dt class="v21"><div>p3</div> AAX_TIME3</dt>
+        </dl>
+       </td>
+       <td>
+        <dl>Slot 2
+         <dt class="v21"><div>p0</div> AAX_LEVEL4</dt>
+         <dt class="v21"><div>p1</div> AAX_TIME4</dt>
+         <dt class="v21"><div>p2</div> AAX_LEVEL5</dt>
+         <dt class="v21"><div>p3</div> AAX_TIME5</dt>
+        </dl>
+       </td>
+      </tr>
+     </table>
+    </dd>
+   </dl>
+
+   <h5>Timed Pitch Effect state options</h5>
+  Specify AAX_TRUE to enable the timed pitch effect or AAX_FALSE to disable it.
+
+ <script>addFooter("A Timed Pitch Effect can be used to add pitch dynamics to a looping waveform sound.");
+ </script>
+</body>
+</html>

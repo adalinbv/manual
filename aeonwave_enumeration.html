@@ -1,0 +1,61 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <H1 id="Driver">Class AeonWave</H1>
+ <h6 class="menu">Header file: &lt;aax/aeonwave.hpp&gt;</h6>
+ <h6 class="menu">Namespace: aax</h6>
+ <p>&nbsp;<p>
+
+ The AeonWave C++ API turns device enumeration into a simple nested while loop.
+ <p>
+ Each of drivers(), devices() and interfaces() functions will return a string
+ constant referencing the associated name at the current position, and increment
+ the position counter, until the last one is reached. In which case it returns
+ 0 and the position counter is reset to 0.
+ <p>
+ After a successful run the process can therefore be repeated for a different
+ rendering mode.
+ 
+
+ <pre>
+
+   aax::AeonWave aax(AAX_MODE_WRITE_STEREO);
+
+   std::cout &lt;&lt; "Devices that support capture:" &lt;&lt; std::endl;
+   while (const char* d = aax.drivers(AAX_MODE_READ)) {
+       while (const char* r = aax.devices()) {
+           while (const char* i = aax.interfaces()) {
+               std::cout &lt;&lt; " '" &lt;&lt; d;
+               if (*r) std::cout &lt;&lt; " on " &lt;&lt; r;
+               if (*i) std::cout &lt;&lt; ": " &lt;&lt; i ;
+               std::cout &lt;&lt; "'" &lt;&lt; std::endl;
+           }
+       }
+    }
+    std::cout &lt;&lt; std::endl;
+
+    std::cout &lt;&lt; "Devices that support playback:" &lt;&lt; std::endl;
+    while (const char* d = aax.drivers()) {	// defaults to AAX_MODE_WRITE_STEREO
+        while (const char* r = aax.devices()) {
+            while (const char* i = aax.interfaces()) {
+                std::cout &lt;&lt; " '" &lt;&lt; d;
+                if (*r) std::cout &lt;&lt; " on " &lt;&lt; r;
+                if (*i) std::cout &lt;&lt; ": " &lt;&lt; i ;
+                std::cout &lt;&lt; "'" &lt;&lt; std::endl;
+            }
+        }
+    }
+    std::cout &lt;&lt; std::endl;l;
+ </pre>
+
+ <script>addFooter("The AeonWave C++ API turns device enumeration into a simple nested while loop.");
+ </script>
+</body>
+</html>

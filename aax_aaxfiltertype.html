@@ -1,0 +1,50 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <H1 id="Filter">Filter Types</H1>
+
+ Filters and effects are applied in the following order:<br>
+  <ol>
+  <li> Pitch related effects</li>
+  <li> Frequency filter</li>
+  <li> BitCrusher filter</li>
+  <li> Distortion</li>
+  <li> Delay effects (phasing/chorus/flanging)</li>
+  <li> Gain related filters</li>
+  <li> Equalizer/Reverb</li>
+  </ol>
+
+ <table class="Index">
+ <tr>
+  <td>
+   <script>
+   addHeader("Filter", "Filter", "Stereo");
+    addFEFunction("Timed", "Gain", "Filter");
+    addFEFunction("Dynamic", "Gain", "Filter");
+    addFEFunction("Frequency", "Filter");
+    addFEFunction("BitCrisher", "Filter");
+    addFEFunction("Graphic", "Equalizer");
+    addFEFunction("Equalizer");
+    addFEFunction("Compressor");
+
+   addHeader("Filter", "Filter", "3D Spatialized");
+    addFEFunction("Volume", "Filter");
+    addFEFunction("Distance", "Filter");
+    addFEFunction("Directional", "Filter");
+
+  </script>
+  </td>
+  </tr>
+  </table>
+
+ <script>addFooter("The Timed Gain filter is for ADSR Envelopes and the Dynamic Gain filter can be used for Tremolo.");
+ </script>
+</body>
+</html>

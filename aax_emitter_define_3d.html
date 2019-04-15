@@ -1,0 +1,50 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <H2 id="define">Emitter defines</H2>
+
+   None of these defined functions have any effect unless the emitter is
+   registered to either the mixer or to  an audio-frame. They can however be
+   useful to set the emitter in a predefined state prior to registration.
+
+   <pre class="define" id="aaxEmitterSetIdentityMatrix">aaxEmitterSetIdentityMatrix(emitter)</pre>
+   Load the Identity matrix as the emitter position-and-orientation matrix.<br>
+
+   <pre class="define" id="aaxEmitterSetAudioCone">aaxEmitterSetAudioCone(emitter, inner_angle, outer_angle, outer_gain)</pre>
+   Set the audio cone inner-angle and outer-angle in radians and linear outer-gain using the directional-filter.<br>
+   If any of the inner-angle, outer-angle or outer-gain parameters is NaN it will be ignored.
+
+   <pre class="define" id="aaxEmitterSetDistanceModel">aaxEmitterSetDistanceModel(emitter, model)</pre>
+   <ul>
+   <li> the model parameter is an enumerated type <a href="aax_aaxdistancemodel.html">aaxDistanceModel</a>.
+   </ul>
+   Set the preferred distance mode for distance attenuation using the distance-filter.
+
+   <pre class="define" id="aaxEmitterSetRolloffFactor">aaxEmitterSetRolloffFactor(emitter, roll-off)</pre>
+   Set the roll-off factor for distance attenuation using the distance-filter.
+
+   <pre class="define" id="aaxEmitterSetReferenceDistance">aaxEmitterSetReferenceDistance(emitter, distance)</pre>
+   Set the reference distance for distance attenuation using the distance-filter.<br>
+   The reference distance is the distance from which the sound has been recorded.
+
+   <pre class="define" id="aaxEmitterSetMaxDistance">aaxEmitterSetMaxDistance(emitter, max_distance)</pre>
+   Set the maximum distance for distance attenuation using the distance-filter.<br>
+   Depending on the distance-mode sounds beyond the maximum distance will be clamped, processed or culled.
+
+   <pre class="define" id="aaxEmitterEnableFrequencyFilter">aaxEmitterEnableFrequencyFilter(emitter, enable)</pre>
+   Enable or disable the frequency-filter.
+
+   <pre class="define" id="aaxEmitterSetFrequencyFilter">aaxEmitterSetFrequencyFilter(emitter, cutoff, lf_gain, hf_gain)</pre>
+   Set the frequency filters cut-off frequency and linear low-frequency and high-frequency gain.
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

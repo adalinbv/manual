@@ -1,0 +1,70 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <h2>BitCrusher Filter</h2>
+
+   The BitCrusher filter can be used to simulate communications line degradation. A <a href="https://en.wikipedia.org/wiki/Bitcrusher" target="_bank">BitCrusher</a> is a lo-fi (low fidelity) digital audio effect, which produces a distortion by the reduction of the resolution or bandwidth of digital audio data.
+   <p></p>
+   AeonWave only implements resolution-reduction using this filter. But since the frequency filter is applied before the bitcrusher filter it is easy to add bandwidth too.
+   <p></p>
+   AeonWave does however add the option to mix with a noise signal. And since the filter is applied after the frequency filter the noise is unaffected by any frequency filter settings.
+   <p></p>
+   If the combined Offset parameter and Depth parameter exceeds 1.0 then the depth of the low frequency oscillator is automatically clamped.
+   <p></p>
+   The BitCrusher filter is supported by Emitters, Audio-Frames and the Mixer.
+
+   <h5>BitCrusher Filter parameters</h5>
+   The filter uses only one filter slot.
+   <dl>
+    <dt class="v32">AAX_BITCRISHER_FILTER<div class="type">STEREO</div></dt>
+    <dd>
+     <dl>
+      <dt><div>p0</div> AAX_NOISE_LEVEL </dt>
+      <dd>Level of the added white-noise.<br>
+          Between 0.0 and 1.0, 0.0 equals to no added noise.</dd>
+      <dt><div>p1</div> AAX_LFO_FREQUENCY</dt>
+      <dd>Frequency of the low-frequency oscillator.<br>
+          Response rate in Hertz (1/seconds) when using Envelope Following mode.<br>
+          Between 0.01 and 50 Hz.</dd>
+      <dt><div>p2</div> AAX_LFO_DEPTH</dt>
+      <dd>Depth range of the low-frequency oscillator.<br>
+          Between 0.0 and 1.0.</dd>
+      <dt><div>p3</div> AAX_LFO_OFFSET</dt>
+      <dd>Minimum offset value of the low-frequency oscillator.<br>
+          Between 0.0 and 1.0</dd>
+     </dl>
+    </dd>
+   </dl>
+
+   <h5>BitCrusher Filter state options</h5>
+   Specify a waveform type or envelope-following to enable the dynamic filter or AAX_FALSE to disable it.
+   <dl>
+    <dt class="v32" id="AAX_BITCRISHER_FILTER">AAX_BITCRISHER_FILTER</dt>
+    <dd>
+      <h6>Valid waveform types are:</h6>
+      <dl>
+        <dt> AAX_CONSTANT_VALUE (or AAX_TRUE)
+        <dt> AAX_TRIANGLE_WAVE
+        <dt> AAX_SINE_WAVE
+        <dt> AAX_SQUARE_WAVE
+        <dt> AAX_SAWTOOTH_WAVE
+        <dt> AAX_INVERSE_TRIANGLE_WAVE
+        <dt> AAX_INVERSE_SINE_WAVE
+        <dt> AAX_INVERSE_SQUARE_WAVE
+        <dt> AAX_INVERSE_SAWTOOTH_WAVE
+      </dl><br>
+    </dd>
+   </dl>
+
+
+ <script>addFooter("The BitCrusher filter produces a distortion by the reduction of the resolution of digital audio data.");
+ </script>
+</body>
+</html>

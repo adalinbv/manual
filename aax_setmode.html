@@ -1,0 +1,39 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+  <H2 id="init">Modifying the Playback mode</H2>
+
+   <pre class="shared" id="aaxEmitterSetMode">int aaxEmitterSetMode(aaxEmitter emitter, enum aaxModeType type, int mode)</pre>
+   <pre class="shared" id="aaxAudioFrameSetMode">int aaxAudioFrameSetMode(aaxFrame frame, enum aaxModeType type, int mode)</pre>
+   <p>Alter the mode of operation.<br>
+   <ul>
+   <li> The frame parameter is the handle as returned by aaxAudioFrameCreate.
+   <li> The emitter parameter is the handle as returned by aaxEmitterCreate.
+   <li> The type parameter is an enumerated type and specifies which mode to change.
+    <li> The mode parameter is type parameter specific (see <a href="aax_aaxmodetype.html">aaxModeType</a> for more information).
+   </ul>
+   <p>Return AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   Reasons for failure are an incorrect or already destroyed class handle, an incompatible type parameter or an invalid mode value.
+   <p>
+   <br>
+   <p>
+  <pre class="shared" id="aaxEmitterGetMode">int aaxEmitterGetMode(const aaxEmitter emitter, enum aaxModeType type)</pre>
+  <p>Return current mode settings.<br>
+  <ul>
+   <li> The emitter parameter is the handle as returned by aaxEmitterCreate
+   <li> The type parameter specifies which mode parameter to return.
+  </ul>
+  <p>Return the value of the requested mode type or AAX_FALSE if a error occurred.<p>
+  Reasons for failure are an incorrect or already destroyed class handle or an incompatible type parameter.
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <H2 id="config">Buffer runtime configuration</H2>
+
+   <pre class="v10" id="aaxBufferSetData">int aaxBufferSetData(aaxBuffer buffer, const void* data)</pre>
+   Store new sample data in the buffer.<p>
+   
+   <ul>
+    <li> The buffer parameter is the handle as returned by aaxBufferCreate. 
+    <li> The data parameter is a pointer to a memory area that holds the sound data in the format specified when creating the buffer using aaxBufferCreate.<br>
+    <li> When the sound buffer contains multiple tracks they should be interleaved according to the compression type specification.<br>
+    <li> The sound data will be copied for internal use and the buffer pointed to by the data parameter should be freed by the caller.
+   </ul><p>
+   Return AAX_TRUE if successful, AAX_FALSE otherwise.<p>
+   Reasons for failure are an incorrect or already destroyed buffer handle or the data parameter being NULL.
+  <p>
+  <br>
+  <p>
+  <pre class="v20" id="aaxBufferGetData">void** aaxBufferGetData(const aaxBuffer buffer)</pre>
+   <ul>
+    <li> The buffer parameter is the handle as returned by aaxBufferCreate.
+    <li> The returned data is stored interleaved and in the format associated with the buffer.
+    <li> The sound data area is guaranteed to be 16-byte aligned on systems that support SSE.
+    <li> Freeing the returned pointer will free all returned data.
+   </ul><p>
+   Returns a pointer to a pointer to a memory area containing a copy of the sample data of the audio buffer or NULL in case of an error.<p>
+   Reasons for failure are an incorrect or already destroyed buffer handle or insufficient memory to create the sound buffer.
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

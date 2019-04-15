@@ -1,0 +1,66 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <H1 id="Matrix">Position and Orientation</H1>
+ <p>
+ Positions may be absolute, or relative to the sensor position. This is done either by calling <a href="aax_setmode.html">aaxEmitterSetMode</a> or <a href="aax_setmode.html">aaxAudioFrameSetMode</a>.
+ </p>
+ <p>
+ The orientation is defined with the x-axis positive to the right, the y-axis positive upwards and the z-axis positive backwards.
+ </p>
+ <p>
+  The sensor matrix should be inversed using <a href="aax_matrix64_config.html#aaxMatrix64Inverse">aaxMatrix64Inverse</a> first if the matrix was manipulated using the matrix support functions.
+ </p>
+ <p>
+ AeonWave does not define the units of measurement for distance, velocity or size, the calculations are scale invariant.<br>
+ Developers have to make sure that all distances and sizes used by AeonWave use the same unit.
+ </p>
+
+ <table class="Index">
+ <tr>
+  <td>
+   <script>
+   addHeader("Config", "Matrix64", "Default Runtime Configuration");
+    addFunction("Config", "Matrix64", "SetIdentityMatrix");
+    addFunction("Config", "Matrix64", "Translate");
+    addFunction("Config", "Matrix64", "Rotate");
+    addFunction("Config", "Matrix64", "Multiply");
+    addFunction("Config", "Matrix64", "Inverse");
+
+   addHeader("Position", "Matrix64", "Position and Orientation");
+    addFunction("Position", "Matrix64", "SetDirection");
+    addFunction("Position", "Matrix64", "SetOrientation");
+
+   addHeader("Config", "Matrix", "32-bit Runtime Configuration");
+    addFunction("Config", "Matrix", "SetIdentityMatrix");
+    addFunction("Config", "Matrix", "Translate");
+    addFunction("Config", "Matrix", "Rotate");
+    addFunction("Config", "Matrix", "Multiply");
+    addFunction("Config", "Matrix", "Inverse");
+
+   addHeader("Support", "Matrix64", "Support");
+    addFunction("Support", "Matrix64", "GetOrientation");
+    addFunction("Config", "Matrix", "ToMatrix64");
+  </script>
+  </td>
+
+  <td class="define">
+   <!-- script>
+   addHeader("#HeaderName#", "Matrix", "#Header Description#");
+    addDefine("#HeaderName#", "Matrix", "#DefineExtention#");
+  </script -->
+   </td>
+  </tr>
+  </table>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

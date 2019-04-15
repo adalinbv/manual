@@ -1,0 +1,68 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <H1 id="Effect">Audio Effects</H1>
+
+  Audio effects provide a way to alter the appearance of a particular sound,
+  ranging from distortion (adding extra harmonics) to chorus effects by
+  duplicating a signal with a small but varying delay.
+  <p></p>
+  Returned effects should always be destroyed whether they are created by
+  calling aaxEffectCreate or are returned by one of the class getter functions.
+
+ <table class="Index">
+ <tr>
+  <td>
+   <script>
+   addHeader("Init", "Effect", "Static Initialization");
+    addFunction("Init", "Effect", "Create");
+    addFunction("Init", "Effect", "Destroy");
+
+   addHeader("Config", "Effect", "Runtime Configuration");
+    addFunction("Config", "Effect", "SetSlot");
+    addFunction("Config", "Effect", "SetSlotParams");
+    addFunction("Config", "Effect", "SetParam");
+    addFunction("Config", "Effect", "SetState");
+    addFunction("Config", "Effect", "AddBuffer");
+
+   addHeader("Support", "Effect", "Support");
+    addFunction("Support", "Effect", "GetSlot");
+    addFunction("Support", "Effect", "GetSlotParams");
+    addFunction("Support", "Effect", "GetParam");
+    addFunction("Support", "Effect", "GetState");
+  </script>
+  </td>
+
+  <td class="define">
+   <script>
+    addHeader("Effect", "Effect", "Supported Stereo Effects");
+    addFEFunction("Pitch", "Effect");
+    addFEFunction("Timed", "Pitch", "Effect");
+    addFEFunction("Dynamic", "Pitch", "Effect");
+    addFEFunction("Phasing", "Effect");
+    addFEFunction("Chorus", "Effect");
+    addFEFunction("Flanging", "Effect");
+    addFEFunction("RingModulator", "Effect");
+    addFEFunction("Distortion", "Effect");
+    addFEFunction("Convolution");
+    </script>
+    <script>
+    addHeader("Effect", "Effect", "Supported Spatialized 3D Effects");
+    addFEFunction("Reverb");
+    addFEFunction("Velocity", "Effect");
+   </script>
+  </td>
+ </tr>
+ </table>
+
+ <script>addFooter("Returned effects should always be destroyed.");
+ </script>
+</body>
+</html>

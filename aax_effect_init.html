@@ -1,0 +1,34 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+  <H2 id="init">Effect initialization</H2>
+
+   <pre class="v20" id="aaxEffectCreate">aaxEffect aaxEffectCreate(aaxConfig config, enum aaxEffectType type)</pre>
+   Create a new effect instance for a specific type of effect.<p>
+   <ul>
+    <li> The config parameter is the handle as returned by aaxDriverOpen. 
+    <li> The type parameter is an enumerated type <a href="aax_aaxeffecttype.html">aaxEffectType</a>.
+    <li>Assigning 3D effects to a stereo emitter or audio-frame has no effect.
+    <li>Stereo effects can be assigned to emitters in any mode.
+   </ul><p>
+   Return a newly created effect handle if successful or NULL otherwise.<p>
+   Reasons for failure are in incorrect or already destroyed configuration handle or an incompatible type parameter or insufficient memory to allocate the effect handle.
+
+   <pre class="v20" id="aaxEffectDestroy">int aaxEffectDestroy(aaxEffect effect)</pre>
+   Destroy an effect handle.<p>
+   <ul>
+   <li> The effect parameter is the handle as returned by aaxEffectCreate or one of the class getter functions.
+   </ul><p>
+   Return AAX_TRUE if successful, AAX_FALSE otherwise.<p>
+   Reasons for failure are an incorrect or already destroyed handle.
+
+ <script>addFooter("Assigning 3D effects to a stereo emitter has no effect, stereo effects can always be assigned.");</script>
+</body>
+</html>

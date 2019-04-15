@@ -1,0 +1,85 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <H1 id="Mixer">Audio Mixer</H1>
+
+ <table class="Index">
+ <tr>
+  <td>
+   <script>
+   addHeader("Init", "Mixer", "Static Initialization");
+    addFunction("Init", "Mixer", "SetSetup");
+    addFunction("Init", "Mixer", "AddBuffer");
+
+   addHeader("Config", "Mixer", "Runtime Configuration");
+    addSharedFunction("Init", "Mixer", "SetFilter");
+    addSharedFunction("Init", "Mixer", "SetEffect");
+
+   addHeader("Playback", "Mixer", "Playback Control");
+    addFunction("State", "Mixer", "SetState");
+
+   addHeader("Emitter", "Mixer", "Emitters");
+    addSharedFunction("Init", "Mixer", "RegisterEmitter");
+    addSharedFunction("Init", "Mixer", "DeregisterEmitter");
+
+   addHeader("AudioFrame", "Mixer", "AudioFrames");
+    addSharedFunction("Init", "Mixer", "RegisterAudioFrame");
+    addSharedFunction("Init", "Mixer", "DeregisterAudioFrame");
+
+   addHeader("Sensor", "Mixer", "Sensors");
+    addSharedFunction("Init", "Mixer", "RegisterSensor");
+    addSharedFunction("Init", "Mixer", "DeregisterSensor");
+
+   addHeader("Support", "Mixer", "Support");
+    addFunction("GetSetup", "Mixer", "GetSetup");
+    addFunction("State", "Mixer", "GetState");
+    addSharedFunction("Define", "Mixer", "GetFilter");
+    addSharedFunction("Define", "Mixer", "GetEffect");
+   </script>
+  </td>
+
+<!--
+  <td class="define">
+   <script>
+   addHeader("Define", "Mixer", "Defines");
+    addDefine("Define", "Mixer", "Init");
+    addDefine("Define", "Mixer", "Setup");
+    addDefine("Define", "Mixer", "Start");
+    addDefine("Define", "Mixer", "Suspend");
+    addDefine("Define", "Mixer", "Resume");
+    addDefine("Define", "Mixer", "Stop");
+< ! - - addDefine("Define", "Mixer", "Update");  - ->
+    addDefine("Define", "Mixer", "SetGain");
+    addDefine("Define", "Mixer", "SetPitch");
+    addDefine("Define", "Mixer", "SetNoTracks");
+    addDefine("Define", "Mixer", "SetFrequency");
+    addDefine("Define", "Mixer", "SetRefreshRate");
+    addDefine("Define", "Mixer", "SetFormat");
+    addDefine("Define", "Mixer", "SetMonoSources");
+    addDefine("Define", "Mixer", "SetStereoSources");
+   </script>
+   <br>
+   <script>
+    addDefine("Define_support", "Mixer", "GetGain");
+    addDefine("Define_support", "Mixer", "GetPitch");
+    addDefine("Define_support", "Mixer", "GetFrequency");
+    addDefine("Define_support", "Mixer", "GetRefreshRate");
+    addDefine("Define_support", "Mixer", "GetNoMonoSources");
+    addDefine("Define_support", "Mixer", "GetNoStereoSources");
+   </script>
+   </td>
+-->
+  </tr>
+  </table>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

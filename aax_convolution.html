@@ -1,0 +1,77 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <h2>Convolution Effect</h2>
+
+   <a href="https://en.wikipedia.org/wiki/Convolution_reverb" target="_blank">Convolution</a> is an effect that uses an impulse response recording to give a close representation of the recorded environment.
+   <p></p>
+   This is a resource heavy effect, use with care.
+   <p></p>
+   The effect has two distinct audio paths which get mixed in the end:
+   <ul>
+   <li> A convoluted path which represents the room response of the original signal.</li>
+   <li> A direct path of the original signal which can be filtered using the frequency filter.
+   </ul>
+   By filtering the direct path it is possible to simulate an object or objects
+   standing between the emitter and the listener.
+   <p></p>
+   There are several ways to decrease resource usage for this effect:
+   <ul>
+   <li> Use short impulse response files.<br>
+        Since it is possible to combine convolution with the reverb effect it
+        would be an option to increase reverberation decay times by combining
+        both effects.</li>
+   <li> Increase the threshold-level.<br>
+        Silence is handled efficiently by the effect so by increasing the
+        silence threshold a longer impulse response file can be handled more
+        efficiently. Setting the level too high might introduce artefacts
+        though.
+   <li> Decrease the mixer frequency.<br>
+        The mixer frequency influences how many samples need to be processed
+        for every refresh period. Setting the mixer frequency to 22050Hz from
+        48000Hz for lower end machines will more than half the number of
+        samples that need to be processed.
+   </ul>
+   <p></p>
+   Always make sure test this effect with all used impulse response files on
+   the lowest supported hardware for your project.
+   <p></p>
+   The Convolution effect is supported by Mixer.<br>
+
+   <h5>Convolution parameters</h5>
+   The effect uses only one effect slot.
+   <dl>
+    <dt class="v30" id="AAX_CONVOLUTION_EFFECT">AAX_CONVOLUTION_EFFECT <div class="type">STEREO</div></dt>
+    <dd>
+     <dl>Slot 0
+      <dt class="v30"><div>p0</div> AAX_CUTOFF_FREQUENCY</dt>
+      <dd>Alters the frequency response of the original signal by setting a Low Pass frequency filter cut off frequency.<br>
+          Between 50Hz and 22kHz.</dt>
+      <dt class="v30"><div>p1</div> AAX_LF_GAIN</dt>
+      <dd>Gain of all frequencies below the cut-off frequency of the original signal.<div>AAX_LINEAR, AAX_LOGARITHMIC</div><br>
+          Between 0.0 and 1.0</dd>
+      <dt class="v30"><div>p2</div> AAX_MAX_GAIN</dt>
+      <dd>Sets the gain for the convoluted signal.<div>AAX_LINEAR, AAX_LOGARITHMIC</div><br>
+          Between 0.0 and 1.0</dd>
+      <dt class="v30"><div>p3</div> AAX_THRESHOLD</dt>
+      <dd>Set the threshold level that represents silence.<div>AAX_LINEAR, AAX_LOGARITHMIC</div><br>
+          Any audio value lower than the threshold will be considered silence.<br>
+          Between 0.0 and 1.0</dd>
+     </dl>
+    </dd>
+   </dl>
+
+  <h5>Convolution state options</h5>
+  Specify AAX_TRUE to enable convolution or AAX_FALSE to disable it.
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

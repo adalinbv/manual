@@ -1,0 +1,43 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <H2 id="define">Sensor defines</H2>
+
+   <pre class="define" id="aaxSensorSetIdentityMatrix">aaxSensorSetIdentityMatrix(config)</pre>
+   Load the Identity matrix as the sensor position-and-orientation matrix.<br>
+
+   <pre class="define" id="aaxSensorCaptureStart">aaxSensorCaptureStart(config)</pre>
+   <div class="define">aaxSensorSetState(config, AAX_CAPTURING)</div>
+   Start capturing audio samples.<p>
+   <ul>
+    <li> Samples are captured from a physical device if the config parameter was returned by a call to aaxDriverOpen using AAX_MODE_READ.
+    <li> Samples are captured from the internal mixer in all other cases.
+   </ul>
+
+   <pre class="define" id="aaxSensorCaptureStop">aaxSensorCaptureStop(config)</pre>
+   <div class="define">aaxSensorSetState(config, AAX_STOPPED)</div>
+   Stop capturing audio samples.
+
+   <pre class="define" id="aaxSensorGetOffsetSamples">aaxSensorGetOffsetSamples(config)</pre>
+   <div class="define">aaxSensorGetOffset(config, AAX_SAMPLES)</div>
+   Return the offset in samples from the start of the buffer stack.
+
+   <pre class="define" id="aaxSensorGetOffsetFrames">aaxSensorGetOffsetFrames(config)</pre>
+   <div class="define">aaxSensorGetOffset(config, AAX_FRAMES)</div>
+   Return the offset in frames from the start of the buffer stack.
+
+   <pre class="define" id="aaxSensorGetOffsetBytes">aaxSensorGetOffsetBytes(config)</pre>
+   <div class="define">aaxSensorGetOffset(config, AAX_BYTES)</div>
+   Return the offset in bytes from the start of the buffer stack.
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

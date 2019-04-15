@@ -1,0 +1,60 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+  <H2 id="init">Change the Playback state</H2>
+
+   <pre class="shared" id="aaxMixerSetState">int aaxMixerSetState(aaxConfig config, enum aaxState state)</pre>
+   <p>These functions change the respective runtime playback state.<br>
+   <ul>
+   <li> The config parameter is the handle as returned by aaxOpenDevice.
+   <li> The state parameter is an enumerated type <a href="aax_aaxstate.html">aaxState</a> and specifies the desired state for a class.
+   </ul>
+   <p>Return AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   Reasons for failure are an incorrect or already destroyed class handle, an incompatible state value, failure to initialize using the requested setup parameters or the inability to start the mixer or capture thread.
+   <p>
+   <br>
+   <p>
+  <pre class="shared v23" id="aaxMixerGetState">int aaxMixerGetState(aaxConfig config)</pre>
+  <ul>
+   <li> The config parameter is the handle as returned by aaxOpenDevice.
+  </ul>
+  <p>Return the current state of the class as an enumerated type <a href="aax_aaxstate.html">aaxState</a> or AAX_FALSE if a error occurred.<p>
+  Reasons for failure are an incorrect or already destroyed class handle.
+
+  <h5>Supported values for the state parameter</h5>
+   <dl>
+   <dt class="v20" id="AAX_INITIALIZED"> AAX_INITIALIZED </dt>
+   <dd> The mixer should be initialized after the mixer has been set-up properly. </dd>
+   <dt class="v20" id="AAX_PLAYING"> AAX_PLAYING </dt>
+   <dd> Start or restart playback of the mixer </dd>
+    <dt class="v20" id="AAX_STOPPED"> AAX_STOPPED </dt>
+    <dd> Request stopping playback of all emitters.<br>
+         The setup will not change but the configuration is set to initialized.
+    </dd>
+    <dt class="v20" id="#AAX_SUSPENDED"> AAX_SUSPENDED </dt>
+    <dd> Temporarily postpone playback of the mixer.<br>
+         The setup and configuration will not change. </dd>
+    <dt class="v20" id="#AAX_STANDBY"> AAX_STANDBY </dt>
+    <dd> Temporarily switch to low energy mode.<br>
+         The standby mode is like AAX_PLAYING although state changes will be
+         processed at a slower rate. The mixer is disabled and no sound will
+         be audible.</dd>
+    <dt class="v25" id="AAX_UPDATE"> AAX_UPDATE </dt>
+    <dd>
+     Force the mixer to render the next time-frame, especially useful for batch-mode.<br>
+     The size of the time-frame is refresh-rate dependent.<br>
+     The resulting buffer will be pushed to the buffer queue.
+    </dd>
+  </dl>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

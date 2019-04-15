@@ -1,0 +1,67 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <h2>RingModulator Effect</h2>
+
+   The <a href="https://en.wikipedia.org/wiki/Ring_modulation#Operation"  target="_blank">RingModulator</a> effect multiplies the input signal by a sine wave with a specified frequency which results in detuning of the original signal.
+   <p></p>
+   The main purpose is being to simulate atmospheric anomalies for wireless communications. But the effect is useful for other purposes too.
+   <p></p>
+   The RingModulator effect is supported by Emitters.
+
+   <h5>RingModulator Effect parameters</h5>
+   The effect uses only one effect slot.
+   <dl>
+    <dt class="v34" id="AAX_RINGMODULATOR_EFFECT">AAX_RINGMODULATOR_EFFECT<div class="type">STEREO</div></dt>
+    <dd>
+     <dl>
+      <dt class="v34"><div>p0</div> AAX_GAIN </dt>
+      <dd> Gain of the ring-modulator frequency signal.<br>
+          Between 0.0 and 1.0</dd>
+      <dt class="v34"><div>p1</div> AAX_LFO_FREQUENCY</dt>
+      <dd>Frequency of the low-frequency oscillator.<br>
+          Between 0.01 and 50 Hz.</dd>
+      <dt class="v34"><div>p2</div> AAX_LFO_DEPTH</dt>
+      <dd>Depth of the low-frequency oscillator.<br>
+          Between 10.0 and 10000.0</dd>
+      <dt class="v34"><div>p3</div> AAX_LFO_OFFSET</dt>
+      <dd>Offset position of the low-frequency oscillator.<br>
+          Between 10.0 and 10000.0</dd>
+     </dl>
+    </dd>
+   </dl>
+
+  <h5>RingModulator Effect state options</h5>
+  Specify a waveform type to enable the dynamic effect or AAX_FALSE to disable it. 
+   <dl>
+    <dt class="v34">AAX_RINGMODULATOR_EFFECT</dt>
+    <dd>
+      <h6>Valid waveform types are:</h6>
+      <dl>
+        <dt class="v34"> AAX_CONSTANT_VALUE (or AAX_TRUE)
+        <dt class="v34"> AAX_TRIANGLE_WAVE
+        <dt class="v34"> AAX_SINE_WAVE
+        <dt class="v34"> AAX_SQUARE_WAVE
+        <dt class="v34"> AAX_SAWTOOTH_WAVE
+        <dt class="v34"> AAX_ENVELOPE_FOLLOW
+        <dt class="v34"> AAX_INVERSE_TRIANGLE_WAVE
+        <dt class="v34"> AAX_INVERSE_SINE_WAVE
+        <dt class="v34"> AAX_INVERSE_SQUARE_WAVE
+        <dt class="v34"> AAX_INVERSE_SAWTOOTH_WAVE
+        <dt class="v34"> AAX_INVERSE_ENVELOPE_FOLLOW
+      </dl>
+    </dd>
+   </dl>
+
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

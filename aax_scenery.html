@@ -1,0 +1,52 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <H1 id="Scenery">Scenery and Environment</H1>
+
+ The scenery is the virtual representation of the 4D world surrounding the virtual sensor and influences the characteristics of sound emitting objects.
+
+ <table class="Index">
+ <tr>
+  <td>
+   <script>
+   addHeader("Init", "Scenery", "Static Initialization");
+    addSharedFunction("Init", "Scenery", "SetFilter");
+    addSharedFunction("Init", "Scenery", "SetEffect");
+
+   addHeader("Support", "Scenery", "Support");
+    addSharedFunction("Init", "Scenery", "GetFilter");
+    addSharedFunction("Init", "Scenery", "GetEffect");
+  </script>
+  </td>
+
+<!--
+  <td class="define">
+   <script>
+   addHeader("Define", "Scenery", "Defines");
+    addDefine("Define", "Scenery", "SetSoundVelocity");
+    addDefine("Define", "Scenery", "SetDopplerFactor");
+    addDefine("Define", "Scenery", "SetDistanceModel");
+    addDefine("Define", "Scenery", "SetFrequencyFilter");
+    addDefine("Define", "Scenery", "EnableFrequencyFilter");
+   </script>
+   <br>
+   <script>
+    addDefine("Define", "Scenery", "GetSoundVelocity");
+    addDefine("Define", "Scenery", "GetDopplerFactor");
+  </script>
+   </td>
+-->
+  </tr>
+  </table>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

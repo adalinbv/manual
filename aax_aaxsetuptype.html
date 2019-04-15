@@ -1,0 +1,426 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+<!--   <h2>enum aaxSetupType</h2> -->
+
+   <table id="aaxSetupType">
+   <tr>
+    <td class="enum_head"><h4>enum aaxSetupType</h4></td>
+    <td class="enum_head">Driver</td>
+    <td class="enum_head">Mixer</td>
+    <td class="enum_head">Emitter</td>
+    <td class="enum_head">Buffer</td>
+    <td class="enum_head">AudioFrame</td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_driver_setup.html#AAX_NAME_STRING">AAX_NAME_STRING</a></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_driver_setup.html#AAX_VERSION_STRING">AAX_VERSION_STRING</a></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_driver_setup.html#AAX_RENDERER_STRING">AAX_RENDERER_STRING</a></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_driver_setup.html#AAX_VENDOR_STRING">AAX_VENDOR_STRING</a></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_driver_setup.html#AAX_SHARED_DATA_DIR">AAX_SHARED_DATA_DIR</a></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+<!--
+   <tr>
+    <td class="enum_legenda"><a href="aax_driver_setup.html#AAX_COVER_IMAGE_DATA">AAX_COVER_IMAGE_DATA</a></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+-->
+  <tr>
+    <td class="enum_legenda"><a href="aax_driver_setup.html#AAX_MUSIC_PERFORMER_STRING">AAX_MUSIC_PERFORMER_STRING, AAX_MUSIC_PERFORMER_UPDATE</a></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_driver_setup.html#AAX_MUSIC_GENRE_STRING">AAX_MUSIC_GENRE_STRING</a></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_driver_setup.html#AAX_TRACK_TITLE_STRING">AAX_TRACK_TITLE_STRING, AAX_TRACK_TITLE_UPDATE</a></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_driver_setup.html#AAX_TRACK_NUMBER_STRING">AAX_TRACK_NUMBER_STRING</a></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_driver_setup.html#AAX_ALBUM_NAME_STRING">AAX_ALBUM_NAME_STRING</a></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_driver_setup.html#AAX_RELEASE_DATE_STRING">AAX_RELEASE_DATE_STRING</a></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_driver_setup.html#AAX_SONG_COPYRIGHT_STRING">AAX_SONG_COPYRIGHT_STRING</a></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_driver_setup.html#AAX_SONG_COMPOSER_STRING">AAX_SONG_COMPOSER_STRING</a></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_driver_setup.html#AAX_SONG_COMMENT_STRING">AAX_SONG_COMMENT_STRING</a></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_driver_setup.html#AAX_ORIGINAL_PERFORMER_STRING">AAX_ORIGINAL_PERFORMER_STRING</a></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_driver_setup.html#AAX_WEBSITE_STRING">AAX_WEBSITE_STRING</a></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr></tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_mixer_init.html#AAX_FREQUENCY">AAX_FREQUENCY</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_mixer_init.html#AAX_TRACKS">AAX_TRACKS</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_mixer_init.html#AAX_FORMAT">AAX_FORMAT</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_mixer_init.html#AAX_TRACK_SIZE">AAX_TRACK_SIZE</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_mixer_init.html#AAX_REFRESH_RATE">AAX_REFRESH_RATE</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_mixer_init.html#AAX_UPDATE_RATE">AAX_UPDATE_RATE</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_mixer_init.html#AAX_BITRATE">AAX_BITRATE</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_mixer_init.html#AAX_TRACK_LAYOUT">AAX_TRACK_LAYOUT</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Set</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_buffer_setup.html#AAX_NO_SAMPLES">AAX_NO_SAMPLES</a></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_buffer_setup.html#AAX_LOOP_START">AAX_LOOP_START</a></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_buffer_setup.html#AAX_LOOP_END">AAX_LOOP_END</a></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_buffer_setup.html#AAX_BLOCK_ALIGNMENT">AAX_BLOCK_ALIGNMENT</a></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum"></td>
+   </tr>
+   <tr></tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_mixer_init.html#AAX_MONO_EMITTERS">AAX_MONO_EMITTERS</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_mixer_init.html#AAX_STEREO_EMITTERS">AAX_STEREO_EMITTERS</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_mixer_init.html#AAX_AUDIO_FRAMES">AAX_AUDIO_FRAMES</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr></tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_mixer_getsetup.html#AAX_PEAK_VALUE">AAX_PEAK_VALUE</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get</td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_mixer_getsetup.html#AAX_AVERAGE_VALUE">AAX_AVERAGE_VALUE</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get</td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_mixer_getsetup.html#AAX_COMPRESSION_VALUE">AAX_COMPRESSION_VALUE</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get</td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_mixer_getsetup.html#AAX_GATE_ENABLED">AAX_GATE_ENABLED</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_mixer_getsetup.html#AAX_LATENCY">AAX_LATENCY</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_mixer_getsetup.html#AAX_FRAME_TIMING">AAX_FRAME_TIMING</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr></tr>
+    <tr>
+    <td class="enum_legenda"><a href="aax_mixer_getsetup.html#AAX_TRACKS_MIN">AAX_TRACKS_MIN</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+    <tr>
+    <td class="enum_legenda"><a href="aax_mixer_getsetup.html#AAX_TRACKS_MAX">AAX_TRACKS_MAX</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+    <tr>
+    <td class="enum_legenda"><a href="aax_mixer_getsetup.html#AAX_PERIODS_MIN">AAX_PERIODS_MIN</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+    <tr>
+    <td class="enum_legenda"><a href="aax_mixer_getsetup.html#AAX_PERIODS_MAX">AAX_PERIODS_MAX</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+    <tr>
+    <td class="enum_legenda"><a href="aax_mixer_getsetup.html#AAX_FREQUENCY_MIN">AAX_FREQUENCY_MIN</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+    <tr>
+    <td class="enum_legenda"><a href="aax_mixer_getsetup.html#AAX_FREQUENCY_MAX">AAX_FREQUENCY_MAX</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+    <tr>
+    <td class="enum_legenda"><a href="aax_mixer_getsetup.html#AAX_SAMPLES_MAX">AAX_SAMPLES_MAX</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr></tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_mixer_getsetup.html#AAX_SHARED_MODE">AAX_SHARED_MODE</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_mixer_getsetup.html#AAX_TIMER_MODE">AAX_TIMER_MODE</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_mixer_getsetup.html#AAX_BATCHED_MODE">AAX_BATCHED_MODE</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="aax_mixer_get_setup.html#AAX_SEEKABLE_SUPPORT">AAX_SEEKABLE_SUPPORT</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+  </table>
+
+ <script>addFooter("The aaxSetupType is used to control or collect the internal state of the various components.");
+ </script>
+</body>
+</html>

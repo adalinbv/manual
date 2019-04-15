@@ -1,0 +1,101 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <h2>Frequency Filter</h2>
+
+   Applying a Frequency Filter to an audio-frame or mixer object with multiple registered emitters will affect the frequency response of all registered emitters. This makes it possible to simulate obstruction or occlusion of a group of emitters with one applied filter.
+   <p></p>
+   Applying the frequency filter to the Scenery can be used for obstruction or occlusion of all emitters in the scene (in other words to make the player seek shelter in or under an obstacle).
+   <p></p>
+   The Envelope Following mode can be used for <a href="https://en.wikipedia.org/wiki/Auto-wah" target="_blank">Auto-Wah</a> and can also be used in the Inverted mode.
+   <p></p>
+   If the value of the HF Cutoff Frequency parameter is below the value of the Cutoff Frequency parameter then both settings will be swapped.
+   <p></p>
+   The Frequency filter is supported by the Scenery, Emitters and Audio-Frames.
+
+   <h5>Frequency Filter parameters</h5>
+   The filter uses one or two filter slots.<br>
+   Slot-1 is only used when the state is set to a waveform type or to envelope-following.
+   <dl>
+    <dt class="v20" id="AAX_FREQUENCY_FILTER">AAX_FREQUENCY_FILTER <div class="type">STEREO</div></dt>
+    <dd>
+     <dl>
+      <br>Slot 0</br>
+      <dt class="v20"><div>p0</div> AAX_CUTOFF_FREQUENCY</dt>
+      <dd> Lower or main filter cut-off frequency in Hz.<br>
+           Between 20 Hz and 22050 Hz</dd>
+      <dt class="v20"><div>p1</div> AAX_LF_GAIN</dt>
+      <dd>Gain of all frequencies below the cut-off frequency. <div>AAX_LINEAR, AAX_LOGARITHMIC</div></dd>
+      <dt class="v20"><div>p2</div> AAX_HF_GAIN</dt>
+      <dd>Gain of all frequencies greater than the cut-off frequency. <div>AAX_LINEAR, AAX_LOGARITHMIC</div></dd>
+      <dt class="v22"><div>p3</div> AAX_RESONANCE</dt>
+      <dd><a href="http://en.wikipedia.org/wiki/Q_factor" target="_blank">Resonance factor</a> of the frequency filter.<br>
+          Between 0.1 en 100.0, defaults to 1.0</dd>
+      <br>Slot 1</br>
+      <dt class="v22"><div>p0</div> AAX_CUTOFF_FREQUENCY_HF</dt>
+      <dd>Higher filter cut-off frequency in Hz.<br>
+           Between 20 Hz and 22050 Hz</dd>
+      <dt><div>p1</div></dt>
+      <dd>unused</dd>
+      <dt><div>p2</div></dt>
+      <dd>unused</dd>
+      <dt class="v22"><div>p3</div> AAX_SWEEP_RATE</dt>
+      <dd>Frequency of the low-frequency oscillator.<br>
+          Response rate in Hertz (1/seconds) when using Envelope Following mode.<br>
+          Between 0.01 and 50 Hz.<dt>
+     </dl>
+    </dd>
+   </dl>
+
+   <h5>Frequency Filter state options</h5>
+   Specify a filter type and/or a filter order or a waveform type to enable the filter or AAX_FALSE to disable it.
+   <p></p>
+   The fastest filters are 6dB/Oct and 12dB/Oct (both are equally fast). Higher order filters require extra filter passes. This makes an 8th order filter 4 times slower than a 2nd order filter.
+   <p></p>
+   Filter type selection and filter order selection are available for AAX_frequency_filter version 1.1 or higher only.<br>
+   The filter type and filter order can be combined by using the bitwise OR operation.<br>
+    The default for AAX_TRUE is (AAX_2ND_ORDER|AAX_BUTTERWORTH)
+   <dl>
+    <dt class="v20" id="AAX_FREQUENCY_FILTER">AAX_FREQUENCY_FILTER</dt>
+    <dd>
+      Valid filter types are:
+      <dl>
+        <dt class="v26"> <a href="https://en.wikipedia.org/wiki/Butterworth_filter" target="_blank">AAX_BUTTERWORTH</a>
+        <dt class="v26"> <a href="https://en.wikipedia.org/wiki/Bessel_filter" target="_blank">AAX_BESSEL</a>
+      </dl><br> 
+      Valid filter slope types are:
+      <dl>
+        <dt class="v26"> AAX_6DB_OCT (or AAX_1ST_ORDER)
+        <dt class="v26"> AAX_12DB_OCT (or AAX_2ND_ORDER)
+        <dt class="v26"> AAX_24DB_OCT (or AAX_4TH_ORDER)
+        <dt class="v26"> AAX_36DB_OCT (or AAX_6TH_ORDER)
+        <dt class="v26"> AAX_48DB_OCT (or AAX_8TH_ORDER)
+      </dl><br>
+      Valid waveform types are:
+      <dl>
+        <dt class="v22"> AAX_CONSTANT_VALUE (or AAX_TRUE)
+        <dt class="v20"> AAX_TRIANGLE_WAVE
+        <dt class="v20"> AAX_SINE_WAVE
+        <dt class="v20"> AAX_SQUARE_WAVE
+        <dt class="v20"> AAX_SAWTOOTH_WAVE
+        <dt class="v22"> AAX_ENVELOPE_FOLLOW
+        <dt class="v22"> AAX_INVERSE_TRIANGLE_WAVE
+        <dt class="v22"> AAX_INVERSE_SINE_WAVE
+        <dt class="v22"> AAX_INVERSE_SQUARE_WAVE
+        <dt class="v22"> AAX_INVERSE_SAWTOOTH_WAVE
+        <dt class="v22"> AAX_INVERSE_ENVELOPE_FOLLOW
+      </dl><br>
+    </dd>
+   </dl>
+
+ <script>addFooter("A Frequency Filter enhances or suppresses frequencies above or below a cutoff frequency.");
+ </script>
+</body>
+</html>

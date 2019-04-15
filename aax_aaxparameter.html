@@ -1,0 +1,206 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+  <h2>enum aaxParameter</h2>
+
+  <table id="aaxParameter">
+   <tr>
+    <td class="enum_head">Filter Type</td>
+    <td class="enum_head">p1<br>Parameter Name</td>
+    <td class="enum_head">p2<br>Parameter Name</td>
+    <td class="enum_head">p3<br>Parameter Name</td>
+    <td class="enum_head">p4<br>Parameter Name</td>
+   </tr>
+   <tr><td class="enum_head"></td><td class="enum" colspan="4"></td></tr>
+   <tr>
+    <td class="enum_legenda">AAX_VOLUME_FILTER</td>
+    <td class="enum_ok">AAX_GAIN</td>
+    <td class="enum_ok">AAX_MIN_GAIN</td>
+    <td class="enum_ok">AAX_MAX_GAIN</td>
+    <td class="enum"></td>
+   </tr>
+   <tr><td class="enum_head"></td><td class="enum" colspan="4"></td></tr>
+   <tr>
+    <td class="enum_legenda">AAX_DYNAMIC_GAIN_FILTER</td>
+    <td class="enum"></td>
+    <td class="enum_ok">AAX_LFO_FREQUENCY</td>
+    <td class="enum_ok">AAX_LFO_DEPTH</td>
+    <td class="enum"></td>
+   </tr>
+   <tr><td class="enum_head"></td><td class="enum" colspan="4"></td></tr>
+   <tr>
+    <td class="enum_legenda" rowspan="2">AAX_EQUALIZER</td>
+    <td class="enum_ok">AAX_CUTOFF_FREQUENCY</td>
+    <td class="enum_ok">AAX_LF_GAIN</td>
+    <td class="enum_ok">AAX_HF_GAIN</td>
+    <td class="enum_ok">AAX_RESONANCE</td>
+   </tr>
+   <tr>
+    <td class="enum_ok">AAX_CUTOFF_FREQUENCY_HF</td>
+    <td class="enum_ok">AAX_LF_GAIN_H</td>
+    <td class="enum_ok">AAX_HF_GAIN_HF</td>
+    <td class="enum_ok">AAX_RESONANCE_HF</td>
+   </tr>
+   <tr><td class="enum_head"></td><td class="enum" colspan="4"></td></tr>
+   <tr>
+    <td class="enum_legenda" rowspan="2">AAX_GRAPHIC_EQUALIZER</td>
+    <td class="enum_ok">AAX_GAIN_BAND0</td>
+    <td class="enum_ok">AAX_GAIN_BAND1</td>
+    <td class="enum_ok">AAX_GAIN_BAND2</td>
+    <td class="enum_ok">AAX_GAIN_BAND3</td>
+   </tr>
+   <tr>
+    <td class="enum_ok">AAX_GAIN_BAND4</td>
+    <td class="enum_ok">AAX_GAIN_BAND5</td>
+    <td class="enum_ok">AAX_GAIN_BAND6</td>
+    <td class="enum_ok">AAX_GAIN_BAND7</td>
+   </tr>
+   <tr><td class="enum_head"></td><td class="enum" colspan="4"></td></tr>
+   <tr>
+    <td class="enum_legenda" rowspan="2">AAX_FREQUENCY_FILTER</td>
+    <td class="enum_ok">AAX_CUTOFF_FREQUENCY</td>
+    <td class="enum_ok">AAX_LF_GAIN</td>
+    <td class="enum_ok">AAX_HF_GAIN</td>
+    <td class="enum_ok">AAX_RESONANCE</td>
+   </tr>
+   <tr>
+    <td class="enum_ok">AAX_CUTOFF_FREQUENCY_HF</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum_ok">AAX_SWEEP_RATE</td>
+   </tr>
+   <tr><td class="enum_head"></td><td class="enum" colspan="4"></td></tr>
+   <tr>
+    <td class="enum_legenda" rowspan="3">AAX_TIMED_GAIN_FILTER</td>
+    <td class="enum_ok">AAX_LEVEL0</td>
+    <td class="enum_ok">AAX_TIME0</td>
+    <td class="enum_ok">AAX_LEVEL1</td>
+    <td class="enum_ok">AAX_TIME1</td>
+   </tr>
+   <tr>
+    <td class="enum_ok">AAX_LEVEL2</td>
+    <td class="enum_ok">AAX_TIME2</td>
+    <td class="enum_ok">AAX_LEVEL3</td>
+    <td class="enum_ok">AAX_TIME3</td>
+   </tr>
+   <tr>
+    <td class="enum_ok">AAX_LEVEL4</td>
+    <td class="enum_ok">AAX_TIME4</td>
+    <td class="enum_ok">AAX_LEVEL5</td>
+    <td class="enum_ok">AAX_TIME5</td>
+   </tr>
+   <tr><td class="enum_head"></td><td class="enum" colspan="4"></td></tr>
+   <tr>
+    <td class="enum_legenda">AAX_DIRECTIONAL_FILTER</td>
+    <td class="enum_ok">AAX_INNER_ANGLE</td>
+    <td class="enum_ok">AAX_OUTER_ANGLE</td>
+    <td class="enum_ok">AAX_OUTER_GAIN</td>
+    <td class="enum"></td>
+   </tr>
+   <tr><td class="enum_head"></td><td class="enum" colspan="4"></td></tr>
+   <tr>
+    <td class="enum_legenda">AAX_DISTANCE_FILTER</td>
+    <td class="enum_ok">AAX_REF_DISTANCE</td>
+    <td class="enum_ok">AAX_MAX_DISTANCE</td>
+    <td class="enum_ok">AAX_ROLLOFF_FACTOR</td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_head"></td>
+   </tr>
+   <tr>
+    <td class="enum_head">Effect Type</td>
+    <td class="enum_head">p1<br>Parameter Name</td>
+    <td class="enum_head">p2<br>Parameter Name</td>
+    <td class="enum_head">p3<br>Parameter Name</td>
+    <td class="enum_head">p4<br>Parameter Name</td>
+   </tr>
+   <tr><td class="enum_head"></td><td class="enum" colspan="4"></td></tr>
+   <tr>
+    <td class="enum_legenda">AAX_PITCH_EFFECT</td>
+    <td class="enum_ok">AAX_PITCH</td>
+    <td class="enum_ok">AAX_MAX_PITCH</td>
+    <td class="enum">AAX_SPEEDUP</td>
+    <td class="enum"></td>
+   </tr>
+   <tr><td class="enum_head"></td><td class="enum" colspan="4"></td></tr>
+   <tr>
+    <td class="enum_legenda">AAX_DYNMIC_PITCH_EFFECT</td>
+    <td class="enum"></td>
+    <td class="enum_ok">AAX_LFO_FREQUENCY</td>
+    <td class="enum_ok">AAX_LFO_DEPTH</td>
+    <td class="enum"></td>
+   </tr>
+   <tr><td class="enum_head"></td><td class="enum" colspan="4"></td></tr>
+   <tr>
+    <td class="enum_legenda">AAX_PHASING_EFFECT</td>
+    <td class="enum_ok">AAX_DELAY_GAIN</td>
+    <td class="enum_ok">AAX_LFO_FREQUENCY</td>
+    <td class="enum_ok">AAX_LFO_DEPTH</td>
+    <td class="enum_ok">AAX_LFO_OFFSET</td>
+   </tr>
+   <tr><td class="enum_head"></td><td class="enum" colspan="4"></td></tr>
+   <tr>
+    <td class="enum_legenda">AAX_CHORUS_EFFECT</td>
+    <td class="enum_ok">AAX_DELAY_GAIN</td>
+    <td class="enum_ok">AAX_LFO_FREQUENCY</td>
+    <td class="enum_ok">AAX_LFO_DEPTH</td>
+    <td class="enum_ok">AAX_LFO_OFFSET</td>
+   </tr>
+   <tr><td class="enum_head"></td><td class="enum" colspan="4"></td></tr>
+   <tr>
+    <td class="enum_legenda">AAX_FLANGING_EFFECT</td>
+    <td class="enum_ok">AAX_DELAY_GAIN</td>
+    <td class="enum_ok">AAX_LFO_FREQUENCY</td>
+    <td class="enum_ok">AAX_LFO_DEPTH</td>
+    <td class="enum_ok">AAX_LFO_OFFSET</td>
+   </tr>
+   <tr><td class="enum_head"></td><td class="enum" colspan="4"></td></tr>
+   <tr>
+    <td class="enum_legenda">AAX_DISTORTION_EFFECT</td>
+    <td class="enum_ok">AAX_DISTORTION_FACTOR</td>
+    <td class="enum_ok">AAX_CLIPPING_FACTOR</td>
+    <td class="enum_ok">AAX_MIX_FACTOR</td>
+    <td class="enum_OK">AAX_ASYMMETRY</td>
+   </tr>
+   <tr><td class="enum_head"></td><td class="enum" colspan="4"></td></tr>
+   <tr>
+    <td class="enum_legenda" rowspan="3">AAX_TIMED_PITCH_EFFECT</td>
+    <td class="enum_ok">AAX_LEVEL0</td>
+    <td class="enum_ok">AAX_TIME0</td>
+    <td class="enum_ok">AAX_LEVEL1</td>
+    <td class="enum_ok">AAX_TIME1</td>
+   </tr>
+   <tr>
+    <td class="enum_ok">AAX_LEVEL2</td>
+    <td class="enum_ok">AAX_TIME2</td>
+    <td class="enum_ok">AAX_LEVEL3</td>
+    <td class="enum_ok">AAX_TIME3</td>
+   </tr>
+   <tr>
+    <td class="enum_ok">AAX_LEVEL4</td>
+    <td class="enum_ok">AAX_TIME4</td>
+    <td class="enum_ok">AAX_LEVEL5</td>
+    <td class="enum_ok">AAX_TIME5</td>
+   </tr>
+   <tr><td class="enum_head"></td><td class="enum" colspan="4"></td></tr>
+   <tr>
+    <td class="enum_legenda">AAX_VELOCITY_EFFECT</td>
+    <td class="enum_ok">AAX_SOUND_VELOCITY</td>
+    <td class="enum_ok">AAX_DOPPLER_FACTOR</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+  </table>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+
+  <H2 id="playback">AudioFrame defines</H2>
+
+   <pre class="v20" id="aaxAudioFrameIsValid">aaxAudioFrameIsValid(handle)</pre>
+   <div class="define">aaxIsValid(handle, AAX_CONFIG)</div>
+   Return AAX_TRUE if the handle is a valid audio-frame handle, AAX_FALSE otherwise.
+
+   <pre class="v20" id="aaxAudioFrameGetGain">aaxAudioFrameGetGain(frame)</pre>
+   Return the linear gain value of this frame using the volume-filter.
+
+   <pre class="v20" id="aaxAudioFrameGetPitch">aaxAudioFrameGetPitch(frame)</pre>
+   Return the pitch factor of this frame using the pitch-effect.
+
+   <pre class="v20" id="aaxAudioFrameGetSoundVelocity">aaxAudioFrameSetSoundVelocity(frame)</pre>
+   Return the sound velocity setting of the frame using the velocity-effect.<br>
+
+   <pre class="v20" id="aaxAudioFrameGetDopplerFactor">aaxAudioFrameSetDopplerFactor(frame)</pre>
+   Return the Doppler factor of the frame using the velocity-effect.<br>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <h2>enum aaxProcessingType</h2>
+
+   <dl>
+    <dt class="v20" id="AAX_OVERWRITE">AAX_OVERWRITE</dt>
+    <dd>Overwrite the existing data with the new waveform data.<br>
+        The ratio parameter defines the gain of the new waveform data.</dd>
+
+    <dt class="v20" id="AAX_ADD">AAX_ADD</dt>
+    <dd>Add the new waveform data to the current data in the buffer.<br>
+        The ratio parameter defines the gain of the new data while the current data is untouched.</dd>
+
+    <dt class="v20" id="AAX_MIX">AAX_MIX</dt>
+    <dd>Mix the new waveform data with the current data in the buffer.<br>
+        The ratio parameter defines the mixing ratio of the new waveform and the current data. This means the volume level of the data which is already in the buffer will be altered. </dd>
+
+    <dt class="v20" id="AAX_RINGMODULATE">AAX_RINGMODULATE</dt>
+    <dd>Use the new waveform to <a href="http://en.wikipedia.org/wiki/Ring_modulation" target="_blank">ring-modulate</a> the current data in the buffer.<br>
+        The ratio parameter defines the ring-modulation depth.<p>
+        Note: While ring-modulation is permitted using noise the results are unpredictable.</dd>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

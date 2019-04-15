@@ -1,0 +1,53 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <H1 id="Driver">Class AeonWave</H1>
+ <h6 class="menu">Header file: &lt;aax/aeonwave.hpp&gt;</h6>
+ <h6 class="menu">Namespace: aax</h6>
+ <p>&nbsp;<p>
+
+ For AeonWave Buffer objects may be shared across multiple emitters. The Buffer
+ management code of the AeonWave class makes sure only one copy of a Buffer
+ with a particular reference name is resident. When the reference name is a
+ file location (either local or on a web server) it's data will be loaded and
+ the buffer is ready for use after the request. Files should be in one of the
+ audio formats supported by AeonWave. If the reference name does not locate a
+ file it is up to the caller to fill the buffer with audio data afterwards.
+ <p>
+ When a buffer is not required anymore the caller still should call the destroy
+ function to decrement the reference counter.
+
+ <pre>
+
+   aax::AeonWave aax(AAX_MODE_WRITE_STEREO);
+
+   aax::Buffer&amp; buffer1 = aax.buffer("test.wav");
+   aax::Buffer&amp; buffer2 = aax.buffer("test.wav");
+
+   aax::Emitter emitter1(AAX_ABSOLUTE);
+   aax::Emitter emitter2(AAX_ABSOLUTE);
+
+   emitter1.add(buffer1);
+   emitter2.add(buffer2);
+
+   /*** Both emitters now use the same Buffer object */
+
+   emitter1.remove_buffer();
+   aax.destroy(buffer1);
+
+   emitter2.remove_buffer();
+   aax.destroy(buffer2);
+
+ </pre>
+
+ <script>addFooter("The Buffer management code makes sure only one copy of a Buffer is resident");
+ </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <H1 id="Filter">Audio Filters</H1>
+
+  Audio filters provide a way to remove information of a particular sound,
+  ranging from volume adjustment based on distance or orientation, or a 
+  frequency filter that only lowers the volume of frequencies greater than
+  or less than a specific cut-off frequency.
+  <p></p>
+  Returned filters should always be destroyed whether they are created by
+  calling aaxFilterCreate or are returned by one of the class getter functions.
+
+ <table class="Index">
+ <tr>
+  <td>
+   <script>
+   addHeader("Init", "Filter", "Static Initialization");
+    addFunction("Init", "Filter", "Create");
+    addFunction("Init", "Filter", "Destroy");
+
+   addHeader("Config", "Filter", "Runtime Configuration");
+    addFunction("Config", "Filter", "SetSlot");
+    addFunction("Config", "Filter", "SetSlotParams");
+    addFunction("Config", "Filter", "SetParam");
+    addFunction("Config", "Filter", "SetState");
+    addFunction("Config", "Filter", "AddBuffer");
+
+   addHeader("Support", "Filter", "Support");
+    addFunction("Support", "Filter", "GetSlot");
+    addFunction("Support", "Filter", "GetSlotParams");
+    addFunction("Support", "Filter", "GetParam");
+    addFunction("Support", "Filter", "GetState");
+  </script>
+  </td>
+
+  <td class="define">
+   <script>
+    addHeader("Filter", "Filter", "Supported Stereo Filters");
+    addFEFunction("Timed", "Gain", "Filter");
+    addFEFunction("Dynamic", "Gain", "Filter");
+    addFEFunction("Frequency", "Filter");
+    addFEFunction("BitCrusher", "Filter");
+    addFEFunction("Graphic", "Equalizer");
+    addFEFunction("Equalizer");
+    addFEFunction("Compressor");
+   </script>
+   <script>
+    addHeader("Filter", "Filter", "Supported Spatialized 3D Filters");
+    addFEFunction("Volume", "Filter");
+    addFEFunction("Distance", "Filter");
+    addFEFunction("Directional", "Filter");
+   </script>  
+  </td>
+ </tr>
+ </table>
+
+ <script>addFooter("Returned filters should always be destroyed.");
+ </script>
+</body>
+</html>

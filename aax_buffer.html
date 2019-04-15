@@ -1,0 +1,71 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <H1 id="Buffer">Audio Buffers</H1>
+
+ An audio buffer is a container for audio information and sample data.<p>
+ The internal format of an audio buffer might differ from the user specified
+ format for rendering efficiency but the library will always return data in 
+ the requested format. This also means that it is possible to assign data with
+ a specific format, then change the format settings and let the library do the
+ conversion to the new format when requesting the sample data.
+
+ <table class="Index">
+ <tr>
+  <td>
+   <script>
+   addHeader("Init", "Buffer", "Static Initialization");
+    addFunction("Init", "Buffer", "Create");
+    addFunction("Init", "Buffer", "ReadFromStream");
+    addFunction("Init", "Buffer", "Destroy");
+    addFunction("Setup", "Buffer", "SetSetup");
+
+   addHeader("Manipulation", "Buffer", "Data Manipulation");
+    addFunction("Config", "Buffer", "SetData");
+    addFunction("Data", "Buffer", "ProcessWaveform");
+    // addFunction("Config", "Buffer", "Distort");
+
+   addHeader("Support", "Buffer", "Support");
+    addFunction("Setup", "Buffer", "GetSetup");
+    addFunction("Config", "Buffer", "GetData");
+   </script>
+  </td>
+
+<!--
+  <td class="define">
+   <script>
+   addHeader("Define", "Buffer", "Defines");
+    addDefine("Define", "Buffer", "SetFrequency");
+    addDefine("Define", "Buffer", "SetNoTracks");
+    addDefine("Define", "Buffer", "SetLoopPoints");
+    addDefine("Define", "Buffer", "SetWaveform");
+    addDefine("Define", "Buffer", "AddWaveform");
+    addDefine("Define", "Buffer", "MixWaveform");
+    addDefine("Define", "Buffer", "RingmodulateWaveform");
+   </script>
+   <br>
+   <script>
+    addDefine("Define", "Buffer", "IsValid");
+    addDefine("Define", "Buffer", "GetFrequency");
+    addDefine("Define", "Buffer", "GetFormat");
+    addDefine("Define", "Buffer", "GetSize");
+    addDefine("Define", "Buffer", "GetNoTracks");
+    addDefine("Define", "Buffer", "GetNoSamples");
+    addDefine("Define", "Buffer", "GetBytesPerSample");
+  </script>
+   </td>
+-->
+  </tr>
+  </table>
+
+ <script>addFooter("Buffers allow sample data to be converted to any supported format.");
+ </script>
+</body>
+</html>

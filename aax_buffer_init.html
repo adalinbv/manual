@@ -1,0 +1,50 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <H2 id="config">Buffer static setup</H2>
+
+   <pre class="v10" id="aaxBufferCreate">aaxBuffer aaxBufferCreate(aaxConfig config, unsigned int no_samples,
+                            unsigned no_tracks, enum aaxFormat format)</pre>
+   Create a new audio buffer using the supplied parameters.<p>
+   <ul>
+    <li> The config parameter is the handle as returned by aaxOpenDevice.<br>
+         It will not be possible to use the <a href="aax_buffer_data.html#aaxBufferProcessWaveform">aaxBufferProcessWaveform</a> function to generate waveforms on-demand if NULL is passed as the config parameter, otherwise buffers will function properly.
+    <li> The no_samples parameter specifies the number of samples the buffer should be able to hold for every track.
+    <li> The no_tracks parameter specifies the number of tracks for this buffer.
+    <li> The format parameter specifies which format or compression type the data will be in.<br>
+      The format parameter is an enumerated type <a href="aax_aaxformat.html">aaxFormat</a>.
+    <li> The sample frequency of the buffer defaults to 48kHz and should be set to the correct value using <a href="aax_setsetup.html#aaxBufferSetSetup">aaxBufferSetSetup</a> after calling this function.
+   </ul><p>
+   Return the new audio buffer or NULL in case of an error.<p>
+   Reasons for failure are an incorrect or already destroyed config handle, an unsupported format parameter, the no_samples or no_tracks parameter being zero or insufficient memory to allocate the buffers.
+
+  <pre class="v30" id="aaxBufferReadFromStream">aaxBuffer aaxBufferReadFromStream(aaxConfig config, const char *url)</pre>
+   Creates a new audio buffer from a file indicated by the url.
+  <br>
+  <ul>
+   <li> The config parameter is the handle as returned by aaxOpenDevice.
+   <li> The url could either be a local file or a file on a remote web-server.
+   <li> All recognized streaming formats are supported which includes: WAV, MP3, Vorbis and AAXS.
+  </ul>
+  Return the new audio buffer or NULL in case of an error.<p>
+   Reasons for failure are an incorrect or already destroyed config handle, an invalid URL or an unsupported audio format.
+
+   <pre class="v10" id="aaxBufferDestroy">int aaxBufferDestroy(aaxBuffer buffer)</pre>
+   Destroy the audio buffer and all associated memory buffers.<p>
+   <ul>
+    <li> The buffer parameter is the handle as returned by aaxBufferCreate.
+   </ul><p>
+   Return AAX_TRUE if successful, AAX_FALSE otherwise.<p>
+   Reasons for failure are an incorrect or already destroyed buffer handle.
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

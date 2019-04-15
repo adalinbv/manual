@@ -1,0 +1,91 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <H1 id="AudioFrame">AudioFrames and Submixing</H1>
+
+ <table class="Index">
+ <tr>
+  <td>
+   <script>
+   addHeader("Init", "AudioFrame", "Static Initialization");
+    addFunction("Init", "AudioFrame", "Create");
+    addFunction("Init", "AudioFrame", "Destroy");
+    addFunction("Init", "AudioFrame", "AddBuffer");
+
+   addHeader("Playback", "AudioFrame", "Playback and Capture Control");
+    addFunction("State", "AudioFrame", "SetState");
+    addSharedFunction("Playback", "AudioFrame", "WaitForBuffer");
+
+   addHeader("Position", "AudioFrame", "Position and Orientation");
+    addFunction("Matrix", "AudioFrame", "SetMatrix64");
+    addSharedFunction("Init", "AudioFrame", "SetVelocity");
+
+   addHeader("Config", "AudioFrame", "Runtime Configuration")
+    addSharedFunction("Config", "AudioFrame", "SetMode");
+    addSharedFunction("Config", "AudioFrame", "SetFilter");
+    addSharedFunction("Config", "AudioFrame", "SetEffect");
+
+   addHeader("Emitter", "AudioFrame", "Emitters");
+    addSharedFunction("Init", "AudioFrame", "RegisterEmitter");
+    addSharedFunction("Init", "AudioFrame", "DeregisterEmitter");
+
+   addHeader("AudioFrame", "AudioFrame", "AudioFrames");
+    addSharedFunction("Init", "AudioFrame", "RegisterAudioFrame");
+    addSharedFunction("Init", "AudioFrame", "DeregisterAudioFrame");
+
+   addHeader("Sensor", "AudioFrame", "Sensors");
+    addSharedFunction("Init", "AudioFrame", "RegisterSensor");
+    addSharedFunction("Init", "AudioFrame", "DeregisterSensor");
+
+   addHeader("Support", "AudioFrame", "Support");
+    addFunction("Setup", "AudioFrame", "GetSetup");
+    addFunction("Matrix", "AudioFrame", "GetMatrix64");
+    addSharedFunction("Support", "AudioFrame", "GetVelocity");
+    addSharedFunction("Support", "AudioFrame", "GetBuffer");
+    addSharedFunction("Support", "AudioFrame", "GetFilter");
+    addSharedFunction("Support", "AudioFrame", "GetEffect");
+  </script>
+  </td>
+
+<!--
+  <td class="define">
+   <script>
+   addHeader("Define", "AudioFrame", "Defines");
+    addDefine("Define", "AudioFrame", "Start");
+    addDefine("Define", "AudioFrame", "Suspend");
+    addDefine("Define", "AudioFrame", "Resume");
+    addDefine("Define", "AudioFrame", "Stop");
+< ! - - addDefine("Define", "AudioFrame", "Update"); - ->
+    addDefine("Define", "AudioFrame", "SetGain");
+    addDefine("Define", "AudioFrame", "SetPitch");
+    addDefine("Define", "AudioFrame", "SetIdentityMatrix");
+    addDefine("Define", "AudioFrame", "SetDistanceModel");
+    addDefine("Define", "AudioFrame", "SetSoundVelocity");
+    addDefine("Define", "AudioFrame", "SetDopplerFactor");
+    addDefine("Define", "AudioFrame", "EnableFrequencyFilter");
+    addDefine("Define", "AudioFrame", "SetFrequencyFilter");
+   </script>
+   <br>
+   <script>
+    addDefine("Define_support", "AudioFrame", "IsValid");
+    addDefine("Define_support", "AudioFrame", "GetGain");
+    addDefine("Define_support", "AudioFrame", "GetPitch");
+    addDefine("Define_support", "AudioFrame", "GetSoundVelocity");
+    addDefine("Define_support", "AudioFrame", "GetDopplerFactor");
+  </script>
+   </td>
+-->
+  </tr>
+  </table>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

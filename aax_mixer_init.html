@@ -1,0 +1,76 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+  <H2 id="init">Change Setup parameters</H2>
+
+   <pre class="shared" id="aaxMixerSetSetup">int aaxMixerSetSetup(aaxConfig config, enum aaxSetupType type, unsigned int setup)</pre>
+   <p>These functions change the respective setup.<br>
+   <ul>
+   <li> The config parameter is the handle as returned by aaxDriverOpen.
+   <li> The type parameter is an enumerated type and specifies which setup parameter to change.
+   <li> The setup parameter is type  parameter specific (see <a href="aax_aaxsetuptype.html">aaxSetupType</a> for more information).<br>
+   </ul>
+   <p>Return AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   Reasons for failure are an incorrect or already destroyed class handle or an incompatible setup value.
+   <p>&nbsp;<p>
+  If hardware limitations prevent a particular request then a closest match will be selected.
+
+  <p>
+  <h5>Supported values for the type parameter</h5>
+  <dl>
+  <dt class="v20" id="AAX_FREQUENCY">AAX_FREQUENCY</dt>
+  <dd>Request a sample frequency. Between 1000 Hz and 192 kHz.</dd>
+  <dt class="v20" id="AAX_TRACKS">AAX_TRACKS</dt>
+  <dd>Requested this number of tracks. Between 1 and 8.</dd> 
+  <dt class="v20" id="AAX_FORMAT">AAX_FORMAT</dt>
+  <dd>Set sample format (see <a href="aax_aaxformat.html">aaxFormat</a> for more information).<br>
+      Only the System Native formats are supported by the mixer.</dd>
+  <dt class="v20" id="AAX_TRACK_SIZE">AAX_TRACK_SIZE</dt>
+  <dd>Request a number of bytes that will be available for the mixer (which alters the refresh rate).</dd>
+  <dt class="v20" id="AAX_REFRESH_RATE">AAX_REFRESH_RATE</dt>
+  <dd>Set the refresh rate of the mixer. Between 5 Hz and 200 Hz, defaults to 20 Hz.<br>
+      The refresh rate influences the latency, the higher the refresh rate the lower the latency.</dd> 
+  <dt class="v20" id="AAX_MONO_EMITTERS">AAX_MONO_EMITTERS</dt>
+  <dd>Reserve this number of mono emitters.</dd>
+  <dt class="v20" id="AAX_STEREO_EMITTERS">AAX_STEREO_EMITTERS</dt>
+  <dd>Reserve this number of stereo emitters.</dd>
+  <dt class="v21" id="AAX_AUDIO_FRAMES">AAX_AUDIO_FRAMES</dt>
+  <dd>Reserve this number of audio-frames.</dd>
+  <dt class="v22" id="AAX_UPDATE_RATE">AAX_UPDATE_RATE</dt>
+  <dd>Request this update rate of the mixer. Between 5 Hz and 200 Hz, defaults to 20 Hz.<br>
+      The update rate defines how often 3D properties (like position and orientation) are updated and 20 Hz should be adequate.<dd>
+  <dt class="v23" id="AAX_BITRATE">AAX_BITRATE</dt>
+  <dd>Set the bitrate (currently MP3 out only)</dd>
+  <dt class="v25" id="AAX_TRACK_LAYOUT">AAX_TRACK_LAYOUT</dt>
+  <dd>The setup parameter sets the track layout for capturing real sensors:<br>
+      <ul>
+       <li>AAX_TRACK_ALL: Capture all tracks separately.</li>
+       <li>AAX_TRACK_LEFT: Capture the left track only.</li>
+       <li>AAX_TRACK_RIGHT: Capture the right track only.</li>
+       <li>AAX_TRACK_MIX: Mix all tracks after capturing.</li>
+      </ul>
+   </dd>
+  </dl>
+
+  <pre class="v30" id="aaxMixerAddBuffer">int aaxMixerAddBuffer(aaxConfig config, aaxBuffer buffer)</pre>
+   Adds an audio buffer to the mixer.<p>
+   <ul>
+   <li>Only AAXS buffers containing filter and/or effect information are supported.
+   <li>If a new buffer is added all previous defined filters and effects might be erased depending on the buffer specification.
+   <li>If the buffer parameter is NULL or a non existent buffer the program shall
+   continue without a problem.
+   </ul><p>
+   Return AAX_TRUE if successful, AAX_FALSE otherwise.<p>
+   Reasons for failure are an incorrect or already destroyed configuration or buffer handle, adding a buffer which has no AAXS data assigned to it or insufficient memory to add the buffer to the mixer.
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

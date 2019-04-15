@@ -1,0 +1,75 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <h2>Reverb Effect</h2>
+
+   <a href="https://en.wikipedia.org/wiki/Reverberation" target="_blank">Reverberation or Reverb</a> is an effect that uses a large number of delayed copies of the original signal to give an impression of the surrounding environment. As a result the audio signal will remain present after it was produced, sometimes for a long period of time.
+   <p></p>
+   Rooms with furniture, carpet and curtains reflect lower frequencies but tend to absorb higher frequencies more quickly while empty rooms with concrete surfaces reflect the full frequency spectrum.
+   <p></p>
+   The initial delay between the direct path of the sound and the arrival of the first reflections give a good first indication of the size of the room.<br>
+   Set the Delay Depth parameters to low for small rooms and high for large rooms.
+   <p></p>
+   Set the Decay Level parameter high for highly reflective rooms and set a low decay level to dampen the reflections rather quickly. Set it to zero to only process the first order reflections.
+   <p></p>
+   Set the Decay Depth parameter low for a small room and set high for a large industrial complex or a stadium.<br>
+   Very high values for the Decay Depth parameter are perceived as echo.
+   <p></p>
+   AeonWave version 3.1 (and version 1.1 of the reverb effect) adds the option to add reverb to audio frames to support indoor sound propagation but only with a limited decay depth of 210 ms. This enables simulations up to large rooms. All reflections beyond that will simply be ignored.
+   <p></p>
+   AeonWave version 3.1 adds support for <a href="occlusion.html">occlusion</a> by defining a 3D obstruction (or 3D cavity) at the same position, and with the same orientation, as the audio-frame. The obstruction/cavity could influence the gain of the emitter based on the relative position of the emitter, the audio-frame(s) and listener.
+   <p></p>
+   AeonWave does not define the units of measurement for size, the calculations are scale invariant.
+   Developers have to make sure that all distances and sizes used by AeonWave use the same unit.
+   <p></p>
+   Reverb is supported by the Scenery and by Audio-Frames.<br>
+   Occlusion is only supported by Audio-frames.
+
+   <h5>Reverb parameters</h5>
+   The effect uses one or two effect slots.
+   <dl>
+    <dt class="v23" id="AAX_REVERB_EFFECT">AAX_REVERB_EFFECT <div class="type">STEREO|3D</div></dt>
+    <dd>
+     <dl>Slot 0
+      <dt class="v23"><div>p0</div> AAX_CUTOFF_FREQUENCY</dt>
+      <dd>Alters the frequency response of the room by setting a Low Pass frequency filter cut off frequency.<br>
+          Between 50Hz and 22kHz.</dt>
+      <dt class="v23"><div>p1</div> AAX_DELAY_DEPTH</dt>
+      <dd>The initial delay between the direct path of the sound and the arrival of the first reflections.<br>
+          Between 0.0 and 0.07 (70 ms).</dt>
+      <dt class="v23"><div>p2</div> AAX_DECAY_LEVEL</dt>
+      <dd>Sets the gain for the reflections.<br>
+          Between 0.0 and 1.0</dd>
+      <dt class="v23"><div>p3</div> AAX_DECAY_DEPTH</dt>
+      <dd>Defines how much time it takes for a reflection to reach the listener again.<br>
+          Between 0.0 and 0.7 (700 ms).</dd>
+     </dl>
+     <dl>Slot 1
+      <dt class="v31"><div>p0</div> AAX_OBJECT_WIDTH</dt>
+      <dd>The width of the occlusion object. The width is specified in the x-direction.</dd>
+      <dt class="v31"><div>p1</div> AAX_OBJECT_HEIGHT</dt>
+      <dd>The height of the occlusion object. The height is specified in the y-direction.</dd>
+      <dt class="v31"><div>p2</div> AAX_OBJECT_DEPTH</dt>
+      <dd>The depth of the occlusion object. The depth is specified in the z-direction.</dd>
+      <dt class="v31"><div>p3</div> AAX_OBJECT_DENSITY_FACTOR</dt>
+      <dd>The density of the occlusion object.<br>
+          Between 0.0 and 1.0, where 1.0 means silence when the object is directly between the emitter and sensor.</dd>
+     </dl>
+    </dd>
+   </dl>
+
+  <h5>Reverb state options</h5>
+  Specify AAX_TRUE to enable reverb or AAX_FALSE to disable it.<br>
+  For occlusion it is required to set the state to AAX_TRUE (the dimensions define an obstruction) or AAX_INVERSE (the dimensions define a hole).
+
+ <script>addFooter("Rooms with furniture, carpet and curtains reflect lower frequencies but tend to absorb higher frequencies more quickly.");
+ </script>
+</body>
+</html>

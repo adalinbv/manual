@@ -1,0 +1,40 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <H1 id="Driver">Support Functions</H1>
+ <h6 class="menu">Header file: &lt;aax/aeonwave.hpp&gt;</h6>
+ <h6 class="menu">Namespace: aax</h6>
+ <p>&nbsp;<p>
+
+ <p>
+
+ <h5>Support</h5>
+ <pre class="cpp"><a href="aax_aaxerrortype.html">enum aaxErrorType</a> error_no()</pre>
+ <pre class="cpp">const char* strerror(<a href="aax_aaxerrortype.html">enum aaxErrorType</a> error_no = aax::error_no())</pre>
+ <p>
+ <pre class="cpp">bool is_valid(void* handle, <a href="aax_aaxhandletype.html">enum aaxHandleType</a> type=AAX_CONFIG)</pre>
+ <pre class="cpp">void free(void *ptr)</pre>
+ <p>
+ <pre class="cpp">unsigned major_version()</pre>
+ <pre class="cpp">unsigned minor_version()</pre>
+ <pre class="cpp">unsigned int patch_level()</pre>
+ <p>
+ <pre class="cpp">unsigned bits_per_sample(<a href="aax_aaxformat.html">enum aaxFormat</a> format)</pre>
+ <pre class="cpp">unsigned bytes_per_sample(<a href="aax_aaxformat.html">enum aaxFormat</a> format)</pre>
+ <p>
+ <pre class="cpp"><a href="aax_aaxtype.html">enum aaxType</a> type(const char *type)</pre>
+ <pre class="cpp"><a href="aax_aaxwaveformtype.html">enum aaxWaveformType</a> waveform_type(const char *type)</pre>
+ <pre class="cpp"><a href="aax_aaxfrequencyfiltertype.html">enum aaxFrequencyFilterType</a> frequency_filter_type(const char *type)</pre>
+ <pre class="cpp"><a href="aax_aaxdistancemodel.html">enum aaxDistanceModel</a> distance_model(const char *model)</pre>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

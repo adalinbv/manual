@@ -1,0 +1,87 @@
+<html>
+<head>
+ <title>AeonWave - Documentation</title>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+  <H1 id="AAXS">AAXS File Format</H1>
+  AAXS files are XML encoded configuration files which can be used to define
+  synthesized waveforms and to assign filters and effects to the mixer object,
+  emitters and to audio-frames. The idea started with the desire to assign all
+  elements of a synthesized instrument with one single configuration file but
+  this turned out to be very useful for all aspects of the sound engine since
+  almost all aspect of audio manipulation is defined either as a filter or an
+  effect. This includes 3D sound behavioral effects like Doppler and distance
+  attenuation. As a bonus the format allows setting the looping behaviour of
+  emitters.
+  <p>
+  Combined with the fact that AeonWave can create AAXS buffers from files on a
+  remote web-host this opens the ability to fine-tune a large part of the sound
+  behaviour even after the product is shipped. No recompiling or user action
+  is needed, only an internet connection is required.
+  <p>
+  Like any XML format the file has to start with the XML specification 
+  header followed by any combination of the sound, mixer, emitter and
+  audio-frame sections:<br>
+  <div class="xml"><pre>&lt;?xml version="1.0"?&gt;
+
+ &lt;aeonwave&gt;
+   &lt;sound frequency="440"&gt; &lt;&#47;sound&gt;
+   &lt;emitter mode="replace|append" looping="true|false"&gt; &lt;&#47;emitter&gt;
+   &lt;audioframe mode="replace|append"&gt; &lt;&#47;audioframe&gt;
+   &lt;mixer mode="replace|append"&gt; &lt;&#47;mixer&gt;
+ &lt;&#47;aeonwave&gt;</pre></div>
+  <p>
+  <h2 id="dsp">Mixer, Emitter and Audio-Frame sections</h2>
+  <a href="aaxs_file_format_dsp.html">Mixer, Emitter and Audio-Frame sections are specified on it's own page</a>
+  <p>
+  <h2 id="sound">Sound section</h2>
+  The sound section is used to fill the buffer either by specifying an audio
+  file, and optionally process it, or by mixing, adding (and subtracting) or
+  modulating one or more basic
+  waveform types like sine, sawtooth and noise with a specified gain ratio and
+  pitch. Subtracting is done by adding with a negative value for ratio.
+  If more than one waveform section is specified then they will be processed
+  in order of appearance.
+  <p>
+  A sound section defining a waveform type would look something like this
+  example where a 440Hz sine will be mixed with slightly static, soft sounding
+  pink-noise (and filtered in the second example):
+  <div class="xml"><pre>&lt;sound frequency="440" file="sine.wav"&gt;
+    &lt;waveform src="pink-noise" processing="mix" pitch="0.5" ratio="0.3" staticit="0.1"&#47;&gt;
+  &lt;&#47;sound&gt;
+  </pre></div>
+  <div class="xml"><pre>
+  &lt;sound frequency="440"&gt;
+    &lt;waveform src="sine"&#47;&gt;
+    &lt;waveform src="pink-noise" processing="mix" pitch="0.5" ratio="0.3" staticit="0.1"&#47;&gt;
+
+    &lt;filter type="frequency"&gt;
+      &lt;slot n="0"&gt;
+        &lt;param n="0"&gt;500&lt;&#47;param&gt;
+        &lt;param n="1"&gt;1.0&lt;&#47;param&gt;
+        &lt;param n="2"&gt;0.1&lt;&#47;param&gt;
+        &lt;param n="3"&gt;2.0&lt;&#47;param&gt;
+      &lt;&#47;slot&gt;
+    &lt;&#47;filter&gt;
+  &lt;&#47;sound&gt;</pre></div>
+  <ul>
+    <li>The file attribute of the sound section may be used to fill the buffer with the contents of a sound file before adding, mixing or modulating any other waveform. Files may be local or on a remote web-server and any audio format supported by <a href="aax_buffer_init.html#aaxBufferReadFromStream">aaxBufferReadFromStream</a> can be used. Unless an absolute path is specified the files location is relative to that of the AAXS file.
+    <li>The src attribute defines the type parameter for <a href="aax_buffer_data.html#aaxBufferProcessWaveform">aaxBufferProcessWaveform</a> without the AAX_ prefix and _WAVE suffix and with the underscore replaced by a minus sign: sine, square, triangle, sawtooth, impulse, Brownian-noise, white-noise or pink-noise. If the src attribute is not defined it defaults to sine but for clarity it is advised to always define the src attribute.
+    <li>The processing attribute defines the processing parameter for <a href="aax_buffer_data.html#aaxBufferProcessWaveform">aaxBufferProcessWaveform</a> and may be set to: overwrite, add, mix or modulate. If the processing attribute is not defined it defaults to overwrite.
+    <li>The ratio attribute defines the ratio parameter for <a href="aax_buffer_data.html#aaxBufferProcessWaveform">aaxBufferProcessWaveform</a>. If the ratio attribute is not defined it defaults to 0.5 for the mixing processing type and to 1.0 for all other processing types.
+    <li>The value of the pitch attribute is multiplied by the frequency attribute of the sound section to set the rate parameter for <a href="aax_buffer_data.html#aaxBufferProcessWaveform">aaxBufferProcessWaveform</a> which means that the frequency attribute of the sound section must be present. If the src attribute defines a noise type the pitch value will be used to resample the generated noise before processing it. If the pitch attribute is not defined it defaults to 1.0.
+    <li>The staticity attribute is only used for noise types and defines the rate parameter for <a href="aax_buffer_data.html#aaxBufferProcessWaveform">aaxBufferProcessWaveform</a>. If the staticity attribute is not defined it defaults to 0.0 (non-static).
+    <li>Starting with version 3.0.7 it is possible to define a static frequency filter and a static distortion effect inside the sound section. Defining them here will save some computing power at runtime. Non static filters and effects (where src is defined something else than "true") will be ignored.
+    <li>Starting with version 3.1 it is also possible to define a static parametric equalizer inside the sound section.
+  </ul>
+
+ <script>addFooter("AeonWave allows finetuning large parts of the project without user action even after the product is shipped. Only an internet connection is required.");
+ </script>
+</body>
+</html>

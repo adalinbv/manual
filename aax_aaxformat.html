@@ -1,0 +1,152 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <table class="enum">
+  <tr>
+   <td class="enum_head" colspan="2">
+    <h4>System Native Format Types in System Endianness</h4>
+   </td>
+  </tr>
+  <tr>
+   <td colspan="2">
+    <dl>
+     <dt class="v20" id="AAX_PCM8S">AAX_PCM8S <div class="type">Native</div></dt>
+     <dd>Signed, uncompressed 8-bit PCM data.</dd>
+     <dt class="v10" id="AAX_PCM16S">AAX_PCM16S <div class="type">Native</div></dt>
+     <dd>Signed, uncompressed 16-bit PCM data.</dd>
+     <dt class="v10" id="AAX_PCM24S">AAX_PCM24S <div class="type">Native</div></dt>
+     <dd>Signed, uncompressed 24-bit PCM data in 32-bit samples.</dd>
+     <dt class="v10" id="AAX_PCM32S">AAX_PCM32S <div class="type">Native</div></dt>
+     <dd>Signed, uncompressed 32-bit PCM data.</dd>
+     <dt class="v10" id="AAX_FLOAT">AAX_FLOAT <div class="type">Native</div></dt>
+     <dd>32-bit uncompressed floating-point data. Range: -1.0 .. 1.0</dd>
+     <dt class="v10" id="AAX_DOUBLE">AAX_DOUBLE <div class="type">Native</div></dt>
+     <dd>64-bit uncompressed floating-point data. Range: -1.0 .. 1.0</dd>
+     <dt class="v10" id="AAX_MULAW">AAX_MULAW <div class="type">Native</div></dt>
+     <dd><a href="http://en.wikipedia.org/wiki/M-law_algorithm" target="_blank">8-bit &micro;-Law encoded</a>, 16 to 8-bit compression by reducing the dynamic range.</dd>
+     <dt class="v10" id="AAX_ALAW">AAX_ALAW <div class="type">Native</div></dt>
+     <dd><a href="http://en.wikipedia.org/wiki/A-law_algorithm" target="_blank">8-bit A-Law  encoded</a>, 16 to 8-bit compression by reducing the dynamic range.</dd>
+     <dt class="v10" id="AAX_IMA4_ADPCM">AAX_IMA4_ADPCM <div class="type">Native</div></dt>
+     <dd>
+      <a href="http://en.wikipedia.org/wiki/Adaptive_DPCM" target="_blank">4-bit Differential PCM</a>, 4-bit compressed using the differences between samples.<br>
+      <ul>
+      <li>The block size can be set by calling <a href="aax_setsetup.html#aaxBufferSetSetup#aaxBufferSetup">aaxBufferSetup</a> with the <a href="aax_aaxsetuptype.html#AAX_BLOCK_ALIGNMENT">AAX_BLOCK_ALIGNMENT</a> type specifier<br>
+          prior to calling <a href="aax_buffer_config.html#aaxBufferSetData">aaxBufferSetData</a>.
+      <li> Interleaving is done by interleaving blocks (in contrast to <a href="http://wiki.multimedia.cx/index.php?title=Microsoft_IMA_ADPCM" target="_blank">MS WAV files</a> which interleaves in 4 byte chunks).
+      </ul>
+     </dd>
+     <dt class="v32" id="AAX_PCM24S_PACKED">AAX_PCM24S_PACKED</dt>
+     <dd>Signed, packed uncompressed 24-bit PCM data in 3-byte samples.</dd>
+    </dl>
+   </td>
+  </tr>
+  <tr>
+   <td class="enum_head" colspan="2">
+    <h4>Unsigned Format Types in System Endianness</h4>
+   </td>
+  </tr>
+  <tr>
+   <td colspan="2">
+    <dl>
+     <dt class="v10" id="AAX_PCM8U">AAX_PCM8U</dt>
+     <dd>Unsigned, uncompressed 8-bit PCM data. 127 equals 0 Vtt.</dd>
+     <dt class="v20" id="AAX_PCM16U">AAX_PCM16U</dt>
+     <dd>Unsigned, uncompressed 16-bit PCM data. 32767 equals to 0Vtt.</dd>
+     <dt class="v20" id="AAX_PCM24U">AAX_PCM24U</dt>
+     <dd>Unsigned, uncompressed 24-bit PCM data in 32-bit samples. 8388607 equals to 0Vtt.</dd>
+     <dt class="v20" id="AAX_PCM32U">AAX_PCM32U</dt>
+     <dd>Unsigned, uncompressed 32-bit PCM data. 2147483647 equals to 0Vtt.</dd>
+    </dl>
+   </td>
+  </tr>
+  <tr><td class="enum_head" colspan="2"><h4>Little-Endian</h4></td></tr>
+  <tr>
+   <td class="enum_head"><h4>Signed Types</h4></td>
+   <td class="enum_head"><h4>Unsigned Types</h4></td>
+  </tr>
+  <tr>
+   <td>
+    <dl>
+     <dt class="v20" id="AAX_PCM16S_LE">AAX_PCM16S_LE</dt>
+     <dd>Uncompressed 16-bit PCM data.<br>
+         &nbsp;</dd>
+     <dt class="v20" id="AAX_PCM24S_LE">AAX_PCM24S_LE</dt>
+     <dd>Uncompressed 24-bit PCM data in 32-bit samples.<br>
+         &nbsp;</dd>
+     <dt class="v20" id="AAX_PCM32S_LE">AAX_PCM32S_LE</dt>
+     <dd>Uncompressed 32-bit PCM data.<br>
+         &nbsp;</dd>
+     <dt class="v20" id="AAX_FLOAT_LE">AAX_FLOAT_LE</dt>
+     <dd>32-bit uncompressed floating-point data.<br>
+         Range: -1.0 .. 1.0</dd>
+     <dt class="v20" id="AAX_DOUBLE_LE">AAX_DOUBLE_LE</dt>
+     <dd>64-bit uncompressed floating-point data.<br>
+         Range: -1.0 .. 1.0</dd>
+    </dl>
+   </td>
+   <td>
+    <dl>
+     <dt class="v20" id="AAX_PCM16U_LE">AAX_PCM16U_LE</dt>
+     <dd>Uncompressed 16-bit PCM data.<br>
+         32767 equals to 0Vtt.</dd>
+     <dt class="v20" id="AAX_PCM24U_LE">AAX_PCM24U_LE</dt>
+     <dd>Uncompressed 24-bit PCM data in 32-bit samples.<br>
+         8388607 equals to 0Vtt.</dd>
+     <dt class="v20" id="AAX_PCM32U_LE">AAX_PCM32U_LE</dt>
+     <dd>Uncompressed 32-bit PCM data.<br>
+         2147483647 equals to 0Vtt.</dd>
+    </dl>
+   </td>
+  </tr>
+  <tr><td class="enum_head" colspan="2"><h4>Big-Endian</h4></td></tr>
+  <tr>
+   <td class="enum_head"><h4>Signed Types</h4></td>
+   <td class="enum_head"><h4>Unsigned Types</h4></td>
+  </tr>
+  <tr>
+   <td>
+    <dl>
+     <dt class="v20" id="AAX_PCM16S_BE">AAX_PCM16S_BE</dt>
+     <dd>Uncompressed 16-bit PCM data.<br>
+         &nbsp;</dd>
+     <dt class="v20" id="AAX_PCM24S_BE">AAX_PCM24S_BE</dt>
+     <dd>Uncompressed 24-bit PCM data in 32-bit samples.<br>
+         &nbsp;</dd>
+     <dt class="v20" id="AAX_PCM32S_BE">AAX_PCM32S_BE</dt>
+     <dd>Uncompressed 32-bit PCM data.<br>
+         &nbsp;</dd>
+     <dt class="v20" id="AAX_FLOAT_BE">AAX_FLOAT_BE</dt>
+     <dd>32-bit uncompressed floating-point data.<br>
+         Range: -1.0 .. 1.0</dd>
+     <dt class="v20" id="AAX_DOUBLE_BE">AAX_DOUBLE_BE</dd>
+     <dd>64-bit uncompressed floating-point data.<br>
+         Range: -1.0 .. 1.0</dd>
+    </dl>
+   </td>
+   <td>
+    <dl>
+     <dt class="v20" id="AAX_PCM16U_BE">AAX_PCM16U_BE</dd>
+     <dd>Uncompressed 16-bit PCM data.<br>
+         32767 equals to 0Vtt.</dd>
+     <dt class="v20" id="AAX_PCM24U_BE">AAX_PCM24U_BE</dd>
+     <dd>Uncompressed 24-bit PCM data in 32-bit samples.<br>
+         8388607 equals to 0Vtt.</dd>
+     <dt class="v20" id="AAX_PCM32U_BE">AAX_PCM32U_BE</dd>
+     <dd>Uncompressed 32-bit PCM data.<br>
+         2147483647 equals to 0Vtt.</dd>
+    </dl>
+   </td>
+  </tr>
+ </table>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

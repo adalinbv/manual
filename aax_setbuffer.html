@@ -1,0 +1,27 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <H4 id="record">Capture control</H4>
+
+   <pre class="shared" id="aaxSensorGetBuffer">aaxBuffer aaxSensorGetBuffer(const aaxConfig config)</pre>
+   <pre class="shared" id="aaxAudioFrameGetBuffer">aaxBuffer aaxAudioFrameGetBuffer(const aaxFrame frame)</pre>
+
+   Return and remove the first available buffer from the buffer stack or NULL of none are available.<p>
+   <ul>
+    <li> The config parameter is the handle as returned by aaxOpenDevice.
+    <li> The frame parameter is the handle as returned by aaxAudioFrameCreate.
+    <li> It is also possible to wait for the next buffer by using the <a href="aax_waitforbuffer.html#aaxSensorWaitForBuffer">aaxSensorWaitForBuffer</a> function.
+    <li> Another way to test if there is at least one buffer available in the buffer stack is to use the <a href="aax_setoffset.html#aaxSensorGetOffset">aaxSensorGetOffset</a> function and detect if it returns a value greater than zero.
+   </ul><br>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

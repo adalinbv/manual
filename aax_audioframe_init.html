@@ -1,0 +1,43 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+  <H2 id="init">Initialization</H2>
+   <pre class="v20" id="aaxAudioFrameCreate">aaxAudioFrame aaxAudioFrameCreate(aaxConfig config)</pre>
+   Create a new AudioFrame.<p>
+   <ul>
+    <li>The config parameter is the handle as returned by aaxDriverOpen. 
+   </ul><p>
+   Return a new audio-frame handle or NULL in case of an error.<p>
+   Reasons for failure are an incorrect or already destroyed config handle or insufficient memory to allocate the new audio-frame handle.
+
+   <pre class="v20" id="aaxAudioFrameDestroy">int aaxAudioFrameDestroy(aaxAudioFrame frame)</pre>
+   Destroy the frame and all it's associated memory allocations.<p>
+   <ul>
+    <li>The frame handle can not be used after calling this function.
+   </ul><p>
+   Return AAX_TRUE if successful, AAX_FALSE otherwise.<p>
+   Reasons for failure are an incorrect or already destroyed handle or trying to
+   destroy a registered audio frame.
+
+   <pre class="v30" id="aaxAudioFrameAddBuffer">int aaxAudioFrameAddBuffer(aaxAudioFrame frame, aaxBuffer buffer)</pre>
+   Adds an audio buffer to the frame.<p>
+   <ul>
+   <li>Only AAXS buffers containing filter and/or effect information are supported.
+   <li>If a new buffer is added all previous defined filters and effects might be erased depending on the buffer specification.
+   <li>If the buffer parameter is NULL or a non existent buffer the program shall
+   continue without a problem.
+   </ul><p>
+   Return AAX_TRUE if successful, AAX_FALSE otherwise.<p>
+   Reasons for failure are an incorrect or already destroyed frame or buffer handle, adding a buffer which has no AAXS data assigned to it or insufficient memory to add the buffer to the audio-frame.
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

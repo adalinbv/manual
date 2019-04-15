@@ -1,0 +1,68 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+
+  <H2 id="playback">Emitter defines</H2>
+
+   The function defines that require a buffer to return any useful information
+   will return AAX_FALSE if there is no buffer in the emitters buffer stack.
+
+   <pre class="v20" id="aaxEmitterIsValid">aaxEmitterIsValid(handle)</pre>
+   <div class="define">aaxIsValid(handle, AAX_EMITTER)</div>
+   Return AAX_TRUE if the handle is a valid emitter handle, AAX_FALSE otherwise.
+
+   <pre class="define" id="aaxEmitterGetSetup">aaxEmitterGetSetup(emitter, type)</pre>
+   <div class="define">aaxBufferGetSetup(aaxEmitterGetBuffer(emitter), type)</div>
+   Return the value of the requested setup type.<br>
+   See <a href="aax_setsetup.html#aaxBufferGetSetup">aaxBufferGetSetup</a> for more information.
+
+   <pre class="define" id="aaxEmitterGetBuffer">aaxEmitterGetBuffer(emitter)</pre>
+   <div class="define">aaxEmitterGetBufferByPos(emitter, 0, AAX_FALSE)</div>
+   Return the first buffer of the emitters buffer stack, the buffer will not be removed from the stack.<p>
+   Since the buffer will not be copied it may become invalid when the last reference to it has been destroyed.<br>
+
+   <pre class="define" id="aaxEmitterGetNoTracks">aaxEmitterGetNoTracks(emitter)</pre>
+   <div class="define">aaxEmitterGetSetup(emitter, AAX_TRACKS)</div>
+   Return the number of tracks in the buffer associated with this emitter.
+
+   <pre class="define" id="aaxEmitterGetFormat">aaxEmitterGetFormat(emitter)</pre>
+   <div class="define">aaxEmitterGetSetup(emitter, AAX_FORMAT)</div>
+   Return the format of the buffer associated with this emitter.
+
+   <pre class="define" id="aaxEmitterGetGain">aaxEmitterGetGain(emitter)</pre>
+   Return the linear gain value of this emitter using the volume-filter.
+
+   <pre class="define" id="aaxEmitterGetGainMinMax">aaxEmitterGetGainMinMax(emitter, min_gain, max_gain)</pre>
+   Return the linear minimum and maximum gain allowed by the emitter  using the volume-filter and store it in min_gain and max_gain.<br>
+   If either min_gain or max_gain is NULL it's value will not be set.
+
+   <pre class="define" id="aaxEmitterGetPitch">aaxEmitterGetPitch(emitter)</pre>
+   Return the pitch factor of this emitter using the pitch-effect.
+
+   <pre class="define" id="aaxEmitterGetLooping">aaxEmitterGetLooping(emitter)</pre>
+   <div class="define">aaxEmitterGetMode(emitter, AAX_LOOPING)</div>
+   Return whether this emitter is set to looping or not.
+
+   <pre class="define" id="aaxEmitterGetOffsetBytes">aaxEmitterGetOffsetBytes(emitter)</pre>
+   <div class="define">aaxEmitterGetOffset(emitter, AAX_BYTES)</div>
+   Return the playback offset in bytes from the start of the first buffer in the buffer queue.
+
+   <pre class="define" id="aaxEmitterGetOffsetSamples">aaxEmitterGetOffsetSamples(emitter)</pre>
+   <div class="define">aaxEmitterGetOffset(emitter, AAX_SAMPLES)</div>
+   Return the playback offset in samples from the start of the first buffer in the buffer queue.
+
+  <pre class="define" id="aaxEmitterGetOffsetFrames">aaxEmitterGetOffsetFrames(emitter)</pre>
+   <div class="define">aaxEmitterGetOffset(emitter, AAX_FRAMES)</div>
+   Return the playback offset in frames from the start of the first buffer in the buffer queue.
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+  <H2 id="support">Support</H2>
+
+   <pre class="v30" id="aaxEffectGetSlot">int aaxEffectGetSlot(aaxFilte effect, unsigned slot, int ptype,
+                                              float *p1, float *p2, float *p3)</pre>
+   Return all parameters of a defined parameter-slot for an effect.<p>
+   <ul>
+    <li> The effect parameter is the handle as returned by aaxEffectCreate or one of the class getter functions.
+    <li> The slot parameter defines which slot number to return.<br>
+         Slot numbers start at zero.
+    <li> The ptype parameter specifies the unit of the parameter and is type specific.<br>
+         See <a href="aax_aaxtype.html">enum aaxType</a> for more information.
+   </ul><p>
+   Returns AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   Reasons for failure are an incorrect or already destroyed effect handle or an incorrect slot number.
+
+   <pre class="v20" id="aaxEffectGetParam">float aaxEffectGetParam(aaxEffect effect, int param_no, int ptype)</pre>
+   Get the value of the specified parameter of the effect.<p>
+   <ul>
+    <li> The effect parameter is the handle as returned by  <a href="aaxEffectCreate">aaxEffectCreate</a> or one of the class getter functions.
+    <li> The param_no parameter defines which value of the effect parameters to return.<br>
+         See <a href="aax_aaxparameter.html">enum aaxParameter</a> for more information.
+    <li> The ptype parameter specifies the unit of the parameter and is type specific.<br>
+         See <a href="aax_aaxtype.html">enum aaxType</a> for more information.
+   </ul><p>
+   Return the parameters value if successful or AAX_FALSE otherwise.<p>
+   Reasons for failure are an incorrect or already destroyed effect handle or an incorrect param_no value.
+ 
+ <script>addFooter("");</script>
+</body>
+</html>

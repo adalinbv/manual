@@ -1,0 +1,65 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+  <H2 id="init">Change Setup parameters</H2>
+
+   <pre class="shared" id="aaxBufferSetSetup">int aaxBufferSetup(aaxBuffer buffer, enum aaxSetupType type, unsigned int setup)</pre>
+   <p>These functions change the respective setup.<br>
+   <ul>
+   <li> The buffer parameter is the handle as returned by aaxBufferCreate.
+   <li> The type parameter is an enumerated type and specifies which setup parameter to change.
+   <li> The setup parameter is type  parameter specific (see <a href="aax_aaxsetuptype.html">aaxSetupType</a> for more information).<br>
+   </ul>
+   <p>Return AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   Reasons for failure are an incorrect or already destroyed class handle or an incompatible setup value.
+   <p>
+   <br>
+   <p>
+  <pre class="shared v23" id="aaxBufferGetSetup">unsigned int aaxBufferGetSetup(const aaxBuffer buffer, enum aaxSetupType type)</pre>
+  <p><ul>
+   <li> The buffer parameter is the handle as returned by aaxBufferCreate.
+    <lI> The type parameter specifies which setup parameter to return.
+  </ul>
+  <p>Return the current setup of the class as an enumerated type <a href="aax_aaxsetuptype.html">aaxSetupType</a> or AAX_FALSE if a error occurred.<p>
+  Reasons for failure are an incorrect or already destroyed class handle or an improper type parameter.
+  <p></p>&nbsp;
+  <p></p>
+  Before Setting the Data for the buffer it is required to specify the format and number of samples (or tracks size).
+  <p></p>
+  It is possible to specify a different sample frequency and a different data format before getting the data from the buffer. In this case the software automatically convert to the requested data format and will resample to the new sample frequency.
+
+  <p>
+  <h5>Supported values for the type parameter</h5>
+  <dl>
+  <dt class="v20" id="AAX_FREQUENCY">AAX_FREQUENCY</dt>
+  <dd>Get or Set the sample frequency. Between 1000 and 96000 Hz</dd>
+  <dt class="v20" id="AAX_TRACKS">AAX_TRACKS</dt>
+  <dd>Get or Set the number of tracks that will be available in the buffer. Between 1 and 8.</dd>
+  <dt class="v20" id="AAX_FORMAT">AAX_FORMAT</dt>
+  <dd>Get or Set the sample format of the buffer (see <a href="aax_aaxformat.html">aaxFormat</a> for more information).</dd>
+  <dt class="v20" id="AAX_TRACK_SIZE">AAX_TRACK_SIZE</dt>
+  <dd>Get or Set the number of bytes that will be available in the buffer.</dd>
+  <dt class="v20" id="AAX_NO_SAMPLES">AAX_NO_SAMPLES</dt>
+  <dd>Get or Set the number of samples that will be available in the buffer.</dd> 
+  <dt class="v20" id="AAX_LOOP_START">AAX_LOOP_START</dt>
+  <dd>Get or Set the loop start point in samples from the buffer start.<br>
+      Defaults to 0 samples.</dd>
+  <dt class="v20" id="AAX_LOOP_END">AAX_LOOP_END</dt>
+  <dd>Get or Set the loop end point in samples from the buffer start.<br>
+      Defaults to AAX_NO_SAMPLES.</dd> 
+  <dt class="v20" id="AAX_BLOCK_ALIGNMENT">AAX_BLOCK_ALIGNMENT</dt>
+  <dd>Set the number of samples per data block for each channel: 36 for AAX_IMA4_ADPCM.<br>
+      Defaults to 1.</dd>
+  </dl>
+
+ <script>addFooter("Before Setting the Data for the buffer it is required to specify the format and number of samples.");
+ </script>
+</body>
+</html>

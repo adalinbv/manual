@@ -1,0 +1,39 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+  <H2 id="init">Filter state information</H2>
+
+   <dl>
+    <dt class="v20">AAX_DYNAMIC_PITCH_EFFECT</dt>
+    <dt class="v20">AAX_PHASING_EFFECT</dt>
+    <dt class="v20">AAX_CHORUS_EFFECT</dt>
+    <dt class="v22">AAX_FLANGING_EFFECT</dt>
+    <dd><br>A waveform type (or AAX_TRUE which equals to AAX_CONSTANT_VALUE) to enable the dynamic filter or AAX_FALSE to disable it.<br>
+      Valid waveform types are:
+      <dl>
+        <dt class="v22"> AAX_CONSTANT_VALUE
+        <dt class="v20"> AAX_TRIANGLE_WAVE
+        <dt class="v20"> AAX_SINE_WAVE
+        <dt class="v20"> AAX_SQUARE_WAVE
+        <dt class="v20"> AAX_SAWTOOTH_WAVE
+        <dt class="v22"> AAX_ENVELOPE_FOLLOW
+        <dt class="v22"> AAX_INVERSE_TRIANGLE_WAVE
+        <dt class="v22"> AAX_INVERSE_SINE_WAVE
+        <dt class="v22"> AAX_INVERSE_SQUARE_WAVE
+        <dt class="v22"> AAX_INVERSE_SAWTOOTH_WAVE
+        <dt class="v22"> AAX_INVERSE_ENVELOPE_FOLLOW
+      </dl><br>
+    </dd>
+   </dl>
+   
+
+ <script>addFooter("");</script>
+</body>
+</html>

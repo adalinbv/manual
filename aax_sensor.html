@@ -1,0 +1,61 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <H1 id="Sensor">Audio Sensor</H1>
+
+ The sensor is a virtual representation of the listener and can move through
+ the scene independently.
+
+ <table class="Index">
+ <tr>
+  <td>
+   <script>
+   addHeader("Position", "Sensor", "Position and Orientation");
+    addFunction("Matrix", "Sensor", "SetMatrix64");
+    addSharedFunction("Position", "Sensor", "SetVelocity");
+
+   addHeader("Capture", "Sensor", "Capture Control");
+    addFunction("State", "Sensor", "SetState");
+    addSharedFunction("Capture", "Sensor", "WaitForBuffer");
+
+   addHeader("Support", "Sensor", "Support");
+    addFunction("Matrix", "Sensor", "GetMatrix64");
+    addSharedFunction("Support", "Sensor", "GetVelocity");
+    addSharedFunction("Support", "Sensor", "GetBuffer");
+    addSharedFunction("Support", "Sensor", "GetOffset");
+  </script>
+  </td>
+
+<!--
+  <td class="define">
+   <script>
+    addHeader("Define", "Sensor", "Defines");
+    addDefine("Define", "Sensor", "SetIdentityMatrix");
+   </script>
+   <br>
+   <script>
+    addDefine("Define", "Sensor", "CaptureStart");
+    addDefine("Define", "Sensor", "CaptureStop");
+   </script>
+   <br>
+   <script>
+   addDefine("Define", "Sensor", "GetOffsetSamples");
+   addDefine("Define", "Sensor", "GetOffsetFrames");
+   addDefine("Define", "Sensor", "GetOffsetBytes");
+  </script>
+   </td>
+-->
+  </tr>
+  </table>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

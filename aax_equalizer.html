@@ -1,0 +1,62 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <h2>Parametric Equalizer</h2>
+
+   The <a href="https://en.wikipedia.org/wiki/Equalization_%28audio%29#Parametric_equalizer" target="_blank">Parametric Equalizer</a> uses two user defined cut-off frequencies with adjustable resonance factor and three user definable frequency spectrum gain values resulting in a three band, fully user definable frequency filter.
+   <p></p>
+   If the value of the HF Cutoff Frequency parameter is below the value of the Cutoff Frequency parameter then both filters will be swapped. 
+   <p></p>
+   The gain for the center frequencies is the average of the HF Gain (p3) parameter of Slot-0 and the LF Gain HF (p2) parameter of Slot-1.
+   <p></p>
+   Gain values up to 10.0 (+20dB) are allowed but may result in undesirable sound artefacts;<br>
+   A high gain value might cause the audio compressor to take action but a too high value might result in audio clipping which produces an unpleasant form of audio distortion.
+   <p></p>
+   The Parametric Equalizer is supported by the Mixer.<br>
+   The Parametric Equalizer replaces the Graphic Equalizer if it was already defined for the Mixer.<br>
+   The Parametric Equalizer is also supported by Audio-Frames for AeonWave version 2.6 and later.
+
+   <h5>Parametric Equalizer parameters</h5>
+   The filter uses two filter slots.
+   <dl>
+    <dt class="v20" id="AAX_EQUALIZER">AAX_EQUALIZER <div class="type">STEREO</div></dt>
+    <dd>
+     <dl>Slot 0
+      <dt class="v20"><div>p0</div> AAX_CUTOFF_FREQUENCY</dt>
+      <dd>Lower cut-off frequency in Hz.</dd>
+      <dt class="v20"><div>p1</div> AAX_LF_GAIN</dt>
+      <dd>Gain of all frequencies below the cut-off frequency</dd>
+      <dt class="v20"><div>p2</div> AAX_HF_GAIN</dt>
+      <dd>Gain of all frequencies between the lower and higher cut-off frequency</dd>
+      <dt class="v22"><div>p3</div> AAX_RESONANCE</dt>
+      <dd>Resonance factor of the frequency filter.<br>
+          Between 1.0 en 100.0, defaults to 1.0</dd>
+     </dl>
+     <dl>Slot 1
+      <dt class="v20"><div>p0</div> AAX_CUTOFF_FREQUENCY_HF</dt>
+      <dd>Higher cut-off frequency in Hz.</dd>
+      <dt class="v20"><div>p1</div> AAX_LF_GAIN_HF</dt>
+      <dd>Gain of all frequencies between the lower and higher cut-off frequency</dd>
+      <dt class="v20"><div>p2</div> AAX_HF_GAIN_HF</dt>
+      <dd>Gain of all frequencies greater than the cut-off frequency</dd>
+      <dt class="v22"><div>p3</div> AAX_RESONANCE_HF</dt>
+      <dd>Resonance factor of the frequency filter.<br>
+          Between 1.0 en 100.0, defaults to 1.0</dd>
+     </dl>
+    </dd>
+   </dl>
+
+   <h5>Parametric Equalizer State options</h5>
+   Specify AAX_TRUE to enable the parametric equalizer or AAX_FALSE to disable it. 
+
+ <script>addFooter("The Parametric Equalizer is a three band, fully user definable frequency filter.");
+ </script>
+</body>
+</html>

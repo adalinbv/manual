@@ -1,0 +1,103 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <h2>Distance Filter</h2>
+   The Distance filter attenuates the emitters volume based on the distance between the Sensor and the Emitter.
+   <p></p>
+   AeonWave does not define the units of measurement for distances, the calculations are scale invariant.<br>
+   Developers have to make sure that all distances used by AeonWave use the same unit.
+   <p></p>
+   If the Distance filter is applied to the Scenery all Emitters that get registered afterwards, and which do not have their own Distance filter applied, will use this setting as a default. It is always possible to set an Emitter specific Distance filter later on.
+   <p></p>
+   Version 1.01 of the Distance filter adds frequency response filtering based on the distance of the emitter.
+   <p></p>
+   Version 1.02 of the Distance filter (AeonWave version 3.4) adds support for the <a href="https://www.iso.org/standard/17426.html" target="_blank">ISO9613-1</a> specified distance attenuation model which can be fine tuned by specifying the slot-1 parameters. Perfectly acceptable defaults will be used when omitted.
+   Calculating ISO9613-1 distance attenuation is quite involved and is done every time one of the parameters of slot-1 changes. It is therefore advised to update these parameters at a lower rate than the frame-rate.
+   <p></p>
+   The Distance filter is supported by The Scenery, Emitters and Audio-Frames.
+
+   <h5>Distance Filter parameters</h5>
+   The filter uses only one filter slot.
+   <dl>
+    <dt class="v20" id="AAX_DISTANCE_FILTER">AAX_DISTANCE_FILTER<div class="type">3D</div></dt>
+    <dd>
+     <dl>
+      <br>Slot 0</br>
+      <dt class="v20"><div>p0</div> AAX_REF_DISTANCE</dt>
+      <dd>Distance from which the sound has been recorded.<br>
+          Between 0.0 and max. float.</dd>
+      <dt class="v20"><div>p1</div> AAX_MAX_DISTANCE</dt>
+      <dd>Maximum distance for the emitter to be audible.<br>
+          Between 0.0 and max. float.</dd>
+      <dt class="v20"><div>p2</div> AAX_ROLLOFF_FACTOR</dt>
+      <dd>Defines how fast a sound attenuates over distance.<br>
+          Between 0.0 and 1.0</dd>
+      <dt class="v20"><div>p3</div></dt>
+      <dd>unused</dd>
+      <br>Slot 1</br>
+      <dt class="v34"><div>p0</div> AAX_TEMPERATURE</dt>
+      <dd>Environmental temperature. In Kelvin, degrees Fahrenheit or degrees Celsius<br>
+          Only used by the ISO9613-1 model.</dd>
+      <dt class="v34"><div>p1</div> AAX_ATMOSPHERIC_PRESSURE</dt>
+      <dd>Atmospheric pressure. In kilopascal, bars, pounds per square inch (psi) or atmosphere.<br>
+          Note: one hectopascal is 0.1 kilopascal.<br>
+          Only used by the ISO9613-1 model.</dd>
+      <dt class="v34"><div>p2</div> AAX_RELATIVE_HUMIDITY</dt>
+      <dd>Relative Humidity. In percents, between 0.0 and 100.0.<br>
+          Only used by the ISO9613-1 model.</dd>
+     </dl>
+    </dd>
+   </dl>
+
+  <h5>Distance Filter state options</h5>
+  <dl>
+   <dt class="v20" id="AAX_DISTANCE_FILTER">AAX_DISTANCE_FILTER</dt>
+    <dd>
+     <h6>Valid distance models are:</h6>
+     <dl>
+      <dt class="v20">AAX_DISTANCE_MODEL_NONE</dt>
+      <dd>No distance attenuation at all, attenuation is up to the developer.<br>
+          The emitter will sound equally loud at any distance.</dd>
+      <dt class="v20">AAX_EXPONENTIAL_DISTANCE</dt>
+      <dd>Natural exponential distance attenuation without distance delay.</dd>
+      <dt class="v34">AAX_ISO9613_DISTANCE</dt>
+      <dd>ISO9613-1 based distance attenuation without distance delay.</dd>
+      <dt class="v20"> AAX_EXPONENTIAL_DISTANCE_DELAY</dt>
+      <dd>Natural exponential distance attenuation including distance delay.</dd>
+      <dt class="v34">AAX_ISO9613_DISTANCE_DELAY</dt>
+      <dd>ISO9613-1 based distance attenuation including distance delay.</dd>
+      <br>
+      <dt class="v10">AAX_AL_INVERSE_DISTANCE</dt>
+      <dd>Support for OpenAL mode AL_INVERSE_DISTANCE</dd>
+      <dt class="v10">AAX_AL_INVERSE_DISTANCE_CLAMPED</dt>
+      <dd>Support for OpenAL mode AL_INVERSE_DISTANCE_CLAMPED</dd>
+      <dt class="v10">AAX_AL_LINEAR_DISTANCE</dt>
+      <dd>Support for OpenAL mode AL_LINEAR_DISTANCE</dd>
+      <dt class="v10">AAX_AL_LINEAR_DISTANCE_CLAMPED</dt>
+      <dd>Support for OpenAL mode AL_LINEAR_DISTANCE_CLAMPED</dd>
+      <dt class="v10">AAX_AL_EXPONENT_DISTANCE</dt>
+      <dd>Support for OpenAL mode AL_EXPONENT_DISTANCE</dd>
+      <dt class="v10">AAX_AL_EXPONENT_DISTANCE_CLAMPED</dt>
+      <dd>Support for OpenAL mode AL_EXPONENT_DISTANCE_CLAMPED</dd>
+    </dl>
+
+<!--
+  <p>
+   <br>
+   Ambient sounds can be created by combining the directional and distance filter.
+   <br>
+   AAX_REF_DISTANCE defines the radius of the inner ambient area where the audio level stays the same and AAX_MAX_DISTANCE the maximum distance from the source location where the sound still can be heard.
+   </p>
+-->
+
+ <script>addFooter(" Calculations are scale invariant, developers have to make make sure that all distances use the same unit.");
+ </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <h2>Pitch Effect</h2>
+
+   Adjusting the pitch of an audio-frame or mixer object with multiple registered emitters using the pitch effect will affect the pitch of all registered emitters. The effect makes it possible to let the library clamp the pitch to a maximum value. 
+   <p></p>
+   The hard maximum pitch-limit is 2.0 and cannot be altered.
+   <p></p>
+   The Pitch effect is supported by the Mixer, Emitters and Audio-Frames.
+
+   <h5>Pitch Effect parameters</h5>
+   The effect uses only one effect slot.
+   <dl>
+    <dt class="v20" id="AAX_PITCH_EFFECT">AAX_PITCH_EFFECT <div class="type">STEREO</div></dt>
+    <dd>
+     <dl>
+      <dt class="v20"><div>p0</div> AAX_PITCH</dt>
+      <dd>Current pitch multiplier.<br>
+          Between 0.0 and 2.0, defaults to 1.0</dd>
+      <dt class="v20"><div>p1</div> AAX_MAX_PITCH</dt>
+      <dd>Maximum pitch value, anything higher will be saturated.<br>
+          Between 0.0 and 2.0, defaults to 2.0</dd>
+      <dt class="v20"><div>p2</div> unused</dt>
+      <dd></dd>
+      <dt class="v20"><div>p3</div> unused</dt>
+      <dd></dd>
+     </dl>
+    </dd>
+   </dl>
+
+   <h5>Pitch Effect state options</h5>
+   The effect is always enabled.
+
+ <script>addFooter("The hard maximum pitch-limit is 2.0 and cannot be altered.");
+ </script>
+</body>
+</html>

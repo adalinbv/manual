@@ -1,0 +1,127 @@
+<html>
+<head>
+ <title>AeonWave - Documentation</title>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+  <H1 id="mixer">Introduction</H1>
+  AeonWave is a low-level, hardware accelerated 4D spatialised audio library
+  aimed at the professional simulation market. The software currently runs on
+  Windows and Linux for ARM and x86 and tests have shown that AeonWave
+  renders 3D audio considerably faster than competing products.
+  <p>
+  AeonWave started out as project Anaconda; a fast rendering new OpenAL
+  implementation. After realizing this would not be good enough for
+  spatialised 3D audio demands the library has been rewritten;
+  <p>
+  For project Barracuda the OpenAL code has been separated as thin layer on top
+  of a new library which was named AeonWave Audio eXtensions library (AeonWave
+  or AAX for short).
+  <p>
+  For the next step the internals of AeonWave were completely rewritten to be
+  able to support filters, effects and sub-mixing capabilities resulting  in
+  AeonWave version 2.0 or project Cheetah. While working on the transformation
+  the Application Programming Interface has also been reduced and cleaned up
+  considerably and function defines have been added for easy porting to the
+  new API.
+  <p>
+  In addition to this the function inputs have been hardened; improper input
+  values should not effect the integrity of the software whenever possible.
+  For instance when calling a functions floating point NaN values will be
+  ignored and the calling software will be notified by returning a NULL-pointer
+  or AAX_FALSE.
+  <p>
+  The library has been using matrices for positioning and orientation
+  from the start which makes it fast and accurate without the possibility of
+  glitches or temporary misalignment. Support functions are included to
+  simplify matrix manipulation but it is also possible to provide a user 
+  defined matrix.
+  <p>
+  Several hardware backends are supported by the library and built-in support
+  for improved Head Related Transfer Functions (HRTF) and virtualisation
+  (multiple speaker output) is available.
+  <p>
+  For project Devil Ray, released late 2017, AeonWave version 3.0 switched to
+  dual licensing with GPL3 and a commercial license. Another big change is 
+  switching to 64-bit double precision matrices internally. Further changes are
+  supplemental C++ support classes, tighter integration of audio
+  file and stream support code and the option to assign filters and effects to
+  the sensor, emitter and audio-frames by using XML-encoded AAXS buffer objects
+  which may be located at a remote host. This version also
+  removed all leftovers from the version 1.0 API, fixed the return values of a
+  few effect and filter functions to be more consistent with the rest of the
+  API.
+  <p>
+  The AeonWave Audio eXtensions library defines a number of basic objects:
+  <table>
+   <tr>
+    <td class="home"><h4>Object&nbsp;&nbsp;</h4></td>
+    <td class="home"><h4>Type&nbsp;&nbsp;</h4></td>
+    <td class="home"><h4>Description</h4></td>
+   </tr>
+   <tr>
+    <td class="home"><a href="aax_driver.html">Driver</a></td>
+    <td class="home">Stereo</td>
+    <td class="home">Select which hardware interface to use for audio input or output.</td>
+   </tr>
+   <tr>
+    <td class="home"><a href="aax_mixer.html">Mixer</a></td>
+    <td class="home">Stereo</td>
+    <td class="home">Controls the hardware audio format and frequency and supports global filters and effects.<br>
+        A mixer is in essence pure stereo (multi-channel) and applied Filters and Effects affects the sound output.</td>
+   </tr>
+   <tr>
+    <td class="home"><a href="aax_scenery.html">Scenery</a></td>
+    <td class="home">3D</td>
+    <td class="home">Influences the behavior of sounds surrounding the user.<br>
+        Applied Filters and Effects affects all sound sources in the scene.</td>
+   </tr>
+   <tr>
+    <td class="home"><a href="aax_sensor.html">Virtual Sensor</a></td>
+    <td class="home">3D</td>
+    <td class="home">Represents the position, orientation and velocity of the user.</td>
+   </tr>
+   <tr>
+    <td class="home"><a href="aax_sensor.html">Real Sensor</a></td>
+    <td class="home">Stereo</td>
+    <td class="home">Microphone, line-in or Stream input (file/http): automatically streams real-time audio from hardware.</td>
+   </tr>
+   <tr>
+    <td class="home"><a href="aax_emitter.html">Emitter</a></td>
+    <td class="home">4D/Stereo</td>
+    <td class="home"> Moves a sound source around with a user defined position, orientation and velocity.</td>
+   </tr>
+   <tr>
+    <td class="home"><a href="aax_buffer.html">Buffer</a></td>
+    <td class="home">Stereo</td>
+    <td class="home">Contains the audio data and configuration information.<br>
+        Since buffers are static objects it is not a problem to share a single buffer amongst multiple emitters.</td>
+    </tr>
+    <tr>
+     <td class="home"><a href="aax_audioframe.html">Audio-Frame</a></td>
+    <td class="home">4D/Stereo</td>
+     <td class="home">Introduced in version 2.0: A container for a collection of emitters, sensors and/or other audio-frames. Audio-frames can move around with a user defined position, orientation and velocity. As a result all registered emitters, sensors and audio-frames also change position and orientation with just one update call.<br>
+          Audio-frames also act as a stereo sub-mixer.
+          Applied Filters and Effects affects all registered objects.</td>
+    </tr>
+    <tr>
+     <td class="home"><a href="aax_filter.html">Filters</a></td>
+    <td class="home">3D/Stereo</td>
+     <td class="home">Removes audio information from the sound source.</td>
+    </tr>
+    <tr>
+     <td class="home"><a href="aax_effect.html">Effects</a></td>
+    <td class="home">3D/Stereo</td>
+     <td class="home">Alters the audio information of a sound source, often in a non-reversible manner.</td>
+    </tr>
+   </table>
+  <p>
+ <script>addFooter("Tests have shown that AeonWave renders considerably faster than competing products");
+ </script>
+</body>
+</html>

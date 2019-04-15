@@ -1,0 +1,82 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <H1 id="Driver">Class Frame</H1>
+ <h6 class="menu">Header file: &lt;aax/aeonwave.hpp&gt;</h6>
+ <h6 class="menu">Namespace: aax</h6>
+ <p>&nbsp;<p>
+
+ The Frame class encapsulates the <a href="aax_audioframe.html">AudioFrame</a> functions.
+ <p>
+ Audio-frames serve three purposes:
+ <ul>
+  <li> Applying filters and effects to multiple stereo channels.</li>
+  <li> Repositioning and reorientation of a group of interconnected emitters and/or audio-frames with a single update call.</li>
+  <li> Serve as an obstruction or a cavity for indoor sound propagation.</li>
+ </ul>
+
+ <h5>Constructors</h5>
+ <pre class="cpp">Frame(aaxConfig config)</pre>
+ <pre class="cpp">Frame(const aax::Frame&amp; frame)</pre>
+
+ <h5>Setup</h5>
+ <pre class="cpp">bool set(<a href="aax_aaxsetuptype.html">enum aaxSetupType</a> type, unsigned int setup)</pre>
+ <pre class="cpp">unsigned int get(<a href="aax_aaxsetuptype.html">enum aaxSetupType</a> type)</pre>
+
+ <h5>State</h5>
+ <pre class="cpp">bool set(<a href="aax_aaxstate.html">enum aaxState</a> state)</pre>
+ <pre class="cpp"><a href="aax_aaxstate.html">enum aaxState</a> state()</pre>
+
+ <h5>Mode</h5>
+ <pre class="cpp">bool set(<a href="aax_aaxmodetype.html">enum aaxModeType</a> type, int mode)</pre>
+ <pre class="cpp">bool get(<a href="aax_aaxmodetype.html">enum aaxModeType</a> type)</pre>
+
+ <h5  class="menu"><a href="frame_dsp.html?api=C++">Filters and Effects</a></h5>
+ <pre class="cpp">bool set(aax::dsp&amp; dsp)</pre>
+ <pre class="cpp">aax::dsp get(<a href="aax_aaxfiltertype.html">enum aaxFilterType</a> filter)</pre>
+ <pre class="cpp">aax::dsp get(<a href="aax_aaxeffecttype.html">enum aaxEffectType</a> effect)</pre>
+ <p>
+ <pre class="cpp v33">bool tie(<a href="frame_dsp.html?api=C++#param">aax::Param&amp;</a> parameter, <a href="aax_aaxfiltertype.html">enum aaxFilterType</a> filter, int param)</pre>
+ <pre class="cpp v33">bool tie(<a href="frame_dsp.html?api=C++#param">aax::Param&amp;</a> parameter, <a href="aax_aaxeffecttype.html">enum aaxEffectType</a> effect, int param)</pre>
+ <pre class="cpp v33">bool untie(<a href="emitter_dsp.html?api=C++#param">aax::Param&amp;</a> parameter)</pre>
+
+ <h5>Sub Mixing</h5>
+ <pre class="cpp">bool add(aax::Frame&amp; frame)</pre>
+ <pre class="cpp">bool add(aax::Sensor&amp; sensor)</pre>
+ <pre class="cpp">bool add(aax::Emitter&amp; emitter)</pre>
+ <pre class="cpp">bool remove(aax::Frame&amp; frame)</pre>
+ <pre class="cpp">bool remove(aax::Sensor&amp; sensor)</pre>
+ <pre class="cpp">bool remove(aax::Emitter&amp; emitter)</pre>
+
+ <h5>Position, Orientation and Velocity</h5>
+ <pre class="cpp">bool matrix(aax::Matrix&amp; matrix)</pre>
+ <pre class="cpp">bool velocity(aax::Vector&amp; vector)</pre>
+ <pre class="cpp">bool get(aax::Matrix&amp; matrix)</pre>
+ <pre class="cpp">bool get(aax::Vector&amp; vector)</pre>
+
+ <h5>Buffer handling</h5>
+ <pre class="cpp">bool add(aax::Buffer&amp; buffer)</pre>
+
+ <h5>Capture buffer handling</h5>
+ <pre class="cpp">bool wait(float timeout)</pre>
+ <pre class="cpp">aax::Buffer buffer()</pre>
+
+ <h5>Operators</h5>
+ <pre class="cpp">friend void swap(aax::Frame&amp; frame1, aax::Frame&amp; frame2)</pre>
+ <pre class="cpp">aax::Frame&amp; operator=(aax::Frame frame)</pre>
+
+ <!-- inherited from class Obj -->
+ <pre class="cpp">operator void*() const</pre>
+ <pre class="cpp">explicit operator bool()</pre>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

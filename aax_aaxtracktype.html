@@ -1,0 +1,86 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <h2>enum aaxTrackType</h2>
+
+   <table id="aaxTrackType">
+   <tr>
+    <td class="enum_head"><h4>Name</h4></td>
+    <td class="enum_head">Alternative</td>
+    <td class="enum_head">Also</td>
+   </tr>
+   <tr>
+    <td class="enum_ok">AAX_TRACK0</td>
+    <td class="enum_ok">AAX_TRACK_FRONT_LEFT</td>
+    <td class="enum_ok">AAX_TRACK_LEFT</td>
+   </tr>
+   <tr>
+    <td class="enum_ok">AAX_TRACK1</td>
+    <td class="enum_ok">AAX_TRACK_FRONT_RIGHT</td>
+    <td class="enum_ok">AAX_TRACK_RIGHT</td>
+   </tr>
+   <tr>
+    <td class="enum_ok">AAX_TRACK2</td>
+    <td class="enum_ok">AAX_TRACK_REAR_LEFT</td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_ok">AAX_TRACK3</td>
+    <td class="enum_ok">AAX_TRACK_REAR_RIGHT</td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_ok">AAX_TRACK4</td>
+    <td class="enum_ok">AAX_TRACK_CENTER_FRONT</td>
+    <td class="enum_ok">AAX_TRACK_CENTER</td>
+   </tr>
+   <tr>
+    <td class="enum_ok">AAX_TRACK5</td>
+    <td class="enum_ok">AAX_TRACK_LFE</td>
+    <td class="enum_ok">AAX_TRACK_SUBWOOFER</td>
+   </tr>
+   <tr>
+    <td class="enum_ok">AAX_TRACK6</td>
+    <td class="enum_ok">AAX_TRACK_SIDE_LEFT</td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_ok">AAX_TRACK7</td>
+    <td class="enum_ok">AAX_TRACK_SIDE_RIGHT</td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_ok">AAX_TRACK_ALL</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_ok">AAX_TRACK_MIX</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+  </table>
+
+  <p></p>
+  <ul>
+   <li>AAX_TRACK1 is equal to AAX_TRACK0+1, AAX_TRACK2 is equal to AAX_TRACK0+2 and so on.
+   <li>AAX_TRACK_ALL can be used to get the average of all channels, or to set AAX_TRACK_LAYOUT.
+   <li>AAX_TRACK_MIX can only be used to set AAX_TRACK_LAYOUT in the aaxMixerSetSetup function.
+  </ul>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <h2>Dynamic Range Compressor</h2>
+
+   A <a href="https://en.wikipedia.org/wiki/Dynamic_range_compression" target="_blank">Dynamic Range Compressor</a> limits or extends the dynamic gain range of the audio signal by increasing or decreasing the loudness of softer signal levels over time. The software library implements Upward compression.
+   <p></p>
+   Low volume periods will be amplified by this filter and high volume periods will not be unaltered.
+   <p></p>
+   The Compressor is supported by the Mixer and Audio-Frames.
+
+   <h5>Compressor parameters</h5>
+   The filter uses up to two filter slots.  
+
+   <dl>
+    <dt class="v23" id="AAX_COMPRESSOR">AAX_COMPRESSOR <div class="type">STEREO</div></dt>
+    <dd>
+     <dl>
+      <br>Slot 0</br>
+      <dt class="v23"><div>p0</div> AAX_ATTACK_RATE</dt>
+      <dd>The time it takes to respond to an increase in volume.<br>
+          Ranges between 0.001 (1 ms) and 0.25 (250 ms).</dd>
+      <dt class="v23"><div>p1</div> AAX_RELEASE_RATE</dt>
+      <dd>The time it takes to respond to a decrease in volume.<br>
+          Ranges between 0.001 (1 ms) and 10.0 (seconds).</dd>
+      <dt class="v23"><div>p2</div> AAX_COMPRESSION_RATIO</dt>
+      <dd>Defines the gain level of the altered signal.<br>
+          Between 0.0 and 1.0<br>
+          <ul>
+          <li> 0.0 means no change (a ratio of 1:1)
+          <li>1.0 means an infinite amplification ratio (&infin;:1)
+          </ul>
+      </dd> 
+      <dt class="v23"><div>p3</div> AAX_THRESHOLD</dt>
+      <dd>Signal levels that are below the threshold level will get amplified.<br>
+          Signal levels that are larger than the threshold level will pass unaltered.</dd>
+      <br>Slot 1</br>
+      <dt class="v23"><div>p0</div> &nbsp;</dt>
+      <dd>Unused.</dd>
+      <dt class="v23"><div>p1</div> AAX_GATE_PERIOD</dt>
+      <dd>Defines the time it takes for the noise gate to respond to a volume change.<br>
+          Ranges between 0.001 (1 ms) and 10.0 (seconds), defaults to 0.25 (250 ms)</dd>
+      <dt class="v23"><div>p2</div> &nbsp;</dt>
+      <dd>Unused.</dd>
+      <dt class="v23"><div>p3</div> AAX_GATE_THRESHOLD</dt>
+      <dd>Signal levels that are below the gate threshold will clipped to 0 by the filter.<br>
+          This is useful to eliminate static noise during quiet periods in the audio signal.<br>
+          Between 0.0 and 1.0, defaults to 0.0</dd>
+     </dl>
+    </dd>
+   </dl>
+
+  <h5>Compressor State options</h5>
+
+  Specify an envelope following type to enable the frequency filter or AAX_FALSE to disable it. 
+
+  <dl>
+    <dt class="v23">AAX_COMPRESSOR</dt>
+    <dd>
+      <dl>
+        <dt class="v23"> AAX_ENVELOPE_FOLLOW
+        <dt class="v23"> AAX_INVERSE_ENVELOPE_FOLLOW
+      </dl><br>
+    </dd>
+   </dl>
+
+ <script>addFooter("A Compressor limits or extends the dynamic gain range of the audio signal.");
+ </script>
+</body>
+</html>

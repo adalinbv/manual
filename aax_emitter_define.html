@@ -1,0 +1,72 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+
+  <H2 id="playback">Emitter defines</H2>
+
+   None of these defined functions have any effect unless the emitter is
+   registered to either the mixer or to  an audio-frame. They can however be
+   useful to set the emitter in a predefined state prior to registration.
+
+   <pre class="define" id="aaxEmitterStart">aaxEmitterStart(emitter)</pre>
+   <div class="define">aaxEmitterSetState(emitter, AAX_PLAYING)</div>
+   Schedule the playback of the emitter.
+
+   <pre class="define" id="aaxEmitterSuspend">aaxEmitterSuspend(emitter)</pre>
+   <div class="define">aaxEmitterSetState(emitter, AAX_SUSPENDED)</div>
+   Temporarily suspend playback of the emitter.<br>
+   The configuration of the emitter will not be affected by this call.
+
+   <pre class="define" id="aaxEmitterResume">aaxEmitterResume(emitter)</pre>
+   <div class="define">aaxEmitterSetState(emitter, AAX_PLAYING)</div>
+   Resume playback of the emitter after suspending.<br>
+
+   <pre class="define" id="aaxEmitterStop">aaxEmitterStop(emitter)</pre>
+   <div class="define">aaxEmitterSetState(emitter, AAX_STOPPED)</div>
+   Permanently stop playback of this emitter.<br>
+   The configuration of the emitter will be set to initialized but the setup will not be affected.
+
+   <pre class="define" id="aaxEmitterRewind">aaxEmitterRewind(emitter)</pre>
+   <div class="define">aaxEmitterSetState(emitter, AAX_INITIAL)</div>
+   Rewind the playback position to the start of the first buffer in the emitters buffer stack.<br>
+   <pre class="define" id="aaxEmitterSetOffsetBytes">aaxEmitterSetOffsetBytes(emitter, offset)</pre>
+   <div class="define">aaxEmitterSetOffset(emitter, offset, AAX_BYTES)</div>
+   Set the playback position to the real sample specified by the offset in bytes from the start of the first buffer in the emitters buffer stack.
+
+  <pre class="define" id="aaxEmitterSetOffsetFrames">aaxEmitterSetOffsetFrames(emitter,offset)</pre>
+   <div class="define">aaxEmitterSetOffset(emitter, offset, AAX_FRAMES)</div>
+   Set the playback position to the specified audio frame from the start of the first buffer in the emitters buffer stack.
+
+  <pre class="define" id="aaxEmitterSetOffsetSamples">aaxEmitterSetOffsetSamples(emitter, offset)</pre>
+  <div class="define">aaxEmitterSetOffset(emitter, offset, AAX_SAMPLES)</div>
+   Set the playback position to the specified number of samples from the start of the first buffer in the emitters buffer stack.
+
+   <pre class="define" id="aaxEmitterSetGain">aaxEmitterSetGain(emitter, gain)</pre>
+   Set the emitters linear gain using the volume-filter.
+
+   <pre class="define" id="aaxEmitterSetGainMinMax">aaxEmitterSetGainMinMax(emitter, min, max)</pre>
+   Set the emitters linear minimum and maximum allowed gain using the volume-filter.
+
+   <pre class="define" id="aaxEmitterSetPitch">aaxEmitterSetPitch(emitter, pitch)</pre>
+   Set the emitters pitch factor using the pitch-effect.
+
+   <pre class="define" id="aaxEmitterSetBufferTrack">aaxEmitterSetBufferTrack(emitter, track)</pre>
+   <div class="define">aaxEmitterSetMode(emitter, AAX_BUFFER_TRACK, track)</div>
+   Define which track number of a multi-track buffer to use for playback when in 3d mode.
+
+  <pre class="define" id="aaxEmitterEnableLooping">aaxEmitterEnableLooping(emitter, looping)</pre>
+  <div class="define">aaxEmitterSetMode(emitter, AAX_LOOPING, looping)</div>
+  Set or unset buffer sample looping.<br>
+  The loop points are defined by the associated buffer.
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

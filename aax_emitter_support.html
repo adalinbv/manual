@@ -1,0 +1,51 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+  <H2 id="Support">Support</H2>
+   <pre class="shared v10" id="aaxEmitterGetOffsetSec">float aaxEmitterGetOffsetSec(const aaxEmitter emitter)</pre>
+    <ul>
+    <li> The emitter parameter is the handle as returned by aaxEmitterCreate.
+    </ul><p>
+   Return the actual playing time in seconds since the emitter started playback or AAX_FALSE in case of an error.<p>
+   Reasons for failure are an incorrect or already destroyed handle.<p>
+
+   <pre class="shared" id="aaxEmitterGetBufferByPos">const aaxBuffer aaxEmitterGetBufferByPos(const aaxEmitter emitter, unsigned int pos,
+                                           int copy)</pre>
+   <ul>
+    <li> The emitter parameter is the handle as returned by aaxEmitterCreate. 
+    <li> The pos parameter defines which buffer number to return from the buffer queue.
+    <li> The copy parameter defines if a buffer should be copied or just referenced.<br>
+         A copied buffer needs to be destroyed by aaxBufferDestroy but a referenced buffer may become invalid when the last reference to it has been destroyed.
+   </ul><p>
+   Return the buffer at the requested position in the buffer stack if successful or NULL otherwise. The buffer will not be removed from the queue.<p>
+   Reasons for failure are an incorrect or already destroyed handle or an incorrect position parameter.
+
+   <pre class="shared" id="aaxEmitterGetNoBuffers">unsigned int aaxEmitterGetNoBuffers(const aaxEmitter emitter, enum aaxState state)</pre>
+    <ul>
+    <li> The emitter parameter is the handle as returned by aaxEmitterCreate.
+    <li> The state parameter is an enumerated type <a href="aax_aaxstate.html">aaxState</a> that describes which type of buffer to get information for.
+   </ul><p>
+    Return the number of buffers currently in the buffer stack.
+
+   <h5>Supported values for the state parameter</h5>
+   <dl>
+   <dt class="v20" id="AAX_PLAYING"> AAX_PLAYING </dt>
+   <dd> Return the number of buffers that still need to play until the buffer stack of the emitter is processed. </dd>
+    <dt class="v20" id="AAX_PROCESSED"> AAX_PROCESSED </dt>
+    <dd> Return the number of buffers that have been processed during playback of an emitter.<br>
+         Since these buffers are already processed this number of buffers can be safely removed. </dd>
+    <dt class="v20" id="AAX_MAXIMUM"> AAX_MAXIMUM </dt>
+    <dd> Return the total number of buffers in the buffer stack of the emitter. </dd>
+  </dl>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

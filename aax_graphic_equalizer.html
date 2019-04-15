@@ -1,0 +1,65 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <h2>Graphic Equalizer</h2>
+
+   Implements a <a href="https://en.wikipedia.org/wiki/Equalization_%28audio%29#Graphic_equalizer" target="_blank">Graphic equalizer</a> with 8 gain adjustable frequency bands.<br>
+   For notch filtering use the parametric equalizer instead.
+
+   <p></p>
+   Gain values up to 10.0 (+20dB) are allowed but may result in undesirable sound artefacts;<br>
+   A high gain value might cause the audio compressor to take action but a too high value might result in audio clipping which produces an unpleasant form of audio distortion. 
+   <p></p>
+   Only supported by the Mixer.<br>
+   Replaces the parametric equalizer if it was already defined.
+
+   <h5>Graphic Equalizer parameters</h5>
+   The filter uses two filter slots. 
+   <dl>
+    <dt class="v22" id="AAX_GRAPHIC_EQUALIZER">AAX_GRAPHIC_EQUALIZER <div class="type">STEREO</div></dt>
+    <dd>
+     <table class="parallel">
+      <tr>
+       <td>
+        <dl>Slot 0
+         <dt class="v22"><div>p0</div> AAX_GAIN_BAND0</dt>
+         <dl>44Hz frequency band gain<p></dl>
+         <dt class="v22"><div>p1</div> AAX_GAIN_BAND1</dt>
+         <dl>100Hz frequency band gain<p></dl>
+         <dt class="v22"><div>p2</div> AAX_GAIN_BAND2</dt>
+         <dl>220Hz frequency band gain<p></dl>
+         <dt class="v22"><div>p3</div> AAX_GAIN_BAND3</dt>
+         <dl>500Hz frequency band gain</dl>
+        </dl>
+       </td>
+       <td>
+        <dl>Slot 1
+         <dt class="v22"><div>p0</div> AAX_GAIN_BAND4</dt>
+         <dl>1.1kHz frequency band gain<p></dl>
+         <dt class="v22"><div>p1</div> AAX_GAIN_BAND5</dt>
+         <dl>2.5kHz frequency band gain<p></dl>
+         <dt class="v22"><div>p2</div> AAX_GAIN_BAND6</dt>
+         <dl>5.7kHz frequency band gain<p></dl>
+         <dt class="v22"><div>p3</div> AAX_GAIN_BAND7</dt>
+         <dl>13kHz frequency band gain</dl>
+        </dl>
+       </td>
+      </tr>
+     </table>
+   </dd>
+   </dl>
+
+   <h5>Graphic Equalizer State options</h5>
+   Specify AAX_TRUE to enable the graphic equalizer or AAX_FALSE to disable it. 
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

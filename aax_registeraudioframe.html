@@ -1,0 +1,97 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+  <H2 id="init">Registering or De-registering</H2>
+
+   Emitters and audio-frames need to be registered before they get processed.
+   Sensors that are opened in read-mode may be registered at either the mixer
+   or an audio-frame, resulting in auto-streaming of the captured data.<p>
+   It is possible to register exactly one sensor that was opened in write-mode
+   for an audio-file at the mixer. This will allow the same audio data that is
+   sent to the hardware to be streamed to the output file.
+   <p><br>
+
+   <pre class="shared v10" id="aaxMixerRegisterEmitter">int aaxMixerRegisterEmitter(aaxConfig config, const aaxEmitter emitter)</pre>
+   <pre class="shared v20" id="aaxAudioFrameRegisterEmitter">int aaxAudioFrameRegisterEmitter(aaxFrame frame, const aaxEmitter emitter)</pre>
+   <p>Register an emitter at a mixer or audio-frame (sub-mixer).<p>
+   <ul>
+    <li> The config parameter is the handle as returned by aaxOpenDevice.
+    <li> The frame parameter is the handle as returned by aaxAudioFrameCreate.
+    <li> The emitter parameter is the handle as returned by aaxEmitterCreate.
+   </ul>
+   <p>Return AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   Reasons for failure are an incorrect or already destroyed config, emitter or audio-frame handle or insufficient memory to create internal buffers.<p>
+
+   <pre class="shared v20" id="aaxMixerRegisterAudioFrame">int aaxMixerRegisterAudioFrame(aaxConfig config, const aaxFrame frame)</pre>
+   <pre class="shared v22" id="aaxAudioFrameRegisterAudioFrame">int aaxAudioFrameRegisterAudioFrame(aaxFrame frame_config, const aaxFrame frame)</pre>
+   <p>Register an audio-frame at the mixer.<br>
+   The audio-frame must be set to the AAX_PLAYING state before registering.
+   <ul>
+    <li> The config parameter is the handle as returned by aaxOpenDevice.
+    <li> The frame_config is the handle as returned by aaxAudioFrameCreate.<br>
+         Note: It is only valid to register audio-frames if the mixer is
+         properly initialized.
+    <li> The frame parameter is the handle as returned by aaxAudioFrameCreate.
+   </ul>
+   <p>Return AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   Reasons for failure are an incorrect or already destroyed config or audio-frame handle, insufficient memory to create internal buffers or when trying to register an audio-frame that is not in the proper state.<p>
+
+   <pre class="shared v22" id="aaxMixerRegisterSensor">int aaxMixerRegisterSensor(aaxConfig config, const aaxConfig sensor)</pre>
+   <pre class="shared v22" id="aaxAudioFrameRegisterSensor">int aaxAudioFrameRegisterSensor(aaxFrame frame, const aaxConfig sensor)</pre>
+   <p>Register a sensor (input device) at a mixer or audio-frame (sub-mixer).<br>
+   The sensor will only get processed after it is set to the AAX_CAPTURING state.
+   <ul>
+    <li> The config parameter is the handle as returned by aaxOpenDevice.
+    <li> The frame parameter is the handle as returned by aaxAudioFrameCreate.
+    <li> The sensor parameter is the handle as returned by aaxOpenDevice in AAX_MODE_READ mode.
+   </ul>
+   <p>Return AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   Reasons for failure are an incorrect or already destroyed config, sensor or audio-frame handle or insufficient memory to create internal buffers.<p>
+
+   <br>
+   <p>
+   <pre class="shared v10" id="aaxMixerDeregisterEmitter">int aaxMixerDeregisterEmitter(aaxConfig config, const aaxEmitter emitter)</pre>
+   <pre class="shared v20" id="aaxAudioFrameDeregisterEmitter">int aaxAudioFrameDeregisterEmitter(aaxFrame frame, const aaxEmitter emitter)</pre>
+   <p>De-register an emitter from a mixer or audio-frame (sub-mixer).<p>
+   <ul>
+   <li> The config parameter is the handle as returned by aaxOpenDevice.
+   <li> The frame parameter is the handle as returned by aaxAudioFrameCreate.
+   <li> The emitter parameter is the handle as returned by aaxEmitterCreate.
+   </ul>
+   <p>Return AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   Reasons for failure are an incorrect or already destroyed config, emitter or audio-frame handle.<p>
+
+   <pre class="shared v20" id="aaxMixerDeregisterAudioFrame">int aaxMixerDeregisterAudioFrame(aaxConfig config, const aaxFrame frame)</pre>
+   <pre class="shared v22" id="aaxAudioFrameDeregisterAudioFrame">int aaxAudioFrameDeregisterAudioFrame(aaxFrame frame_config, const aaxFrame frame)</pre>
+   <p>De-register an audio-frame from the mixer.
+    <li> The config parameter is the handle as returned by aaxOpenDevice.
+    <li> The frame_config is the handle as returned by aaxAudioFrameCreate.
+    <li> The frame parameter is the handle as returned by aaxAudioFrameCreate.
+   </ul>
+   <p>Return AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   Reasons for failure are an incorrect or already destroyed config or audio-frame handle.<p>
+
+   <pre class="shared v22" id="aaxMixerDeregisterSensor">int aaxMixerDeregisterSensor(aaxConfig config, const aaxConfig sensor)</pre>
+   <pre class="shared v22" id="aaxAudioFrameDeregisterSensor">int aaxAudioFrameDeregisterSensor(aaxFrame frame, const aaxConfig sensor)</pre>
+   <p>De-register a sensor from a mixer or audio-frame (sub-mixer).<p>
+   <ul>
+   <li> The config parameter is the handle as returned by aaxOpenDevice.
+   <li> The frame parameter is the handle as returned by aaxAudioFrameCreate.
+   <li> The sensor parameter is the handle as returned by aaxOpenDevice in AAX_MODE_READ mode.
+   </ul>
+   <p>Return AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   Reasons for failure are an incorrect or already destroyed config, sensor or audio-frame handle.<p>
+
+
+
+ <script>addFooter("Emitters need to be registered before they get processed.");
+ </script>
+</body>
+</html>

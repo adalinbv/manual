@@ -1,0 +1,68 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <h2>Dynamic Pitch Effect</h2>
+
+   The Dynamic Pitch effect constantly adjusts the objects pitch without any interaction. Adjusting is based on time functions (<a href="https://en.wikipedia.org/wiki/Vibrato" target="_blank">vibrato</a>) using several waveform types. 
+   <p></p>
+   The effect combines the Dynamic Pitch effect of the current sound source and of it's mixer parent. This makes it possible to continually decrease and increase the effects strength.
+   <p></p>
+   If the combined Offset parameter and Depth parameter exceeds 1.0 then the depth of the low frequency oscillator is automatically clamped.
+   <p></p>
+   The Dynamic Pitch effect is supported by the Mixer, Emitters and Audio-Frames.
+
+   <h5>Dynamic Pitch Effect parameters</h5>
+   The effect uses only one effect slot.
+   <dl>
+    <dt class="v20" id="AAX_DYNAMIC_PITCH_EFFECT">AAX_DYNAMIC_PITCH_EFFECT<div class="type">STEREO</div></dt>
+    <dd>
+     <dl>
+      <dt class="v20"><div>p0</div> unused </dt>
+      <dd></dd>
+      <dt class="v20"><div>p1</div> AAX_LFO_FREQUENCY</dt>
+      <dd>Frequency of the low-frequency oscillator.<br>
+          Between 0.01 and 50 Hz.</dd>
+      <dt class="v20"><div>p2</div> AAX_LFO_DEPTH</dt>
+      <dd>Depth of the low-frequency oscillator.<br>
+          Between 0.0 and 1.0</dd>
+      <dt class="v20"><div>p3</div> AAX_LFO_OFFSET</dt>
+      <dd>Offset position of the low-frequency oscillator.<br>
+          Between 0.0 and 1.0</dd>
+     </dl>
+    </dd>
+   </dl>
+
+  <h5>Dynamic Pitch Effect state options</h5>
+  Specify a waveform type to enable the dynamic effect or AAX_FALSE to disable it. 
+   <dl>
+    <dt class="v20">AAX_DYNAMIC_PITCH_EFFECT</dt>
+    <dd>
+      <h6>Valid waveform types are:</h6>
+      <dl>
+        <dt class="v22"> AAX_CONSTANT_VALUE (or AAX_TRUE)
+        <dt class="v20"> AAX_TRIANGLE_WAVE
+        <dt class="v20"> AAX_SINE_WAVE
+        <dt class="v20"> AAX_SQUARE_WAVE
+        <dt class="v20"> AAX_SAWTOOTH_WAVE
+        <dt class="v22"> AAX_ENVELOPE_FOLLOW
+        <dt class="v22"> AAX_INVERSE_TRIANGLE_WAVE
+        <dt class="v22"> AAX_INVERSE_SINE_WAVE
+        <dt class="v22"> AAX_INVERSE_SQUARE_WAVE
+        <dt class="v22"> AAX_INVERSE_SAWTOOTH_WAVE
+        <dt class="v22"> AAX_INVERSE_ENVELOPE_FOLLOW
+      </dl>
+    </dd>
+   </dl>
+
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

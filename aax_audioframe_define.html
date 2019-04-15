@@ -1,0 +1,102 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+  <H2 id="playback">AudioFrame defines</H2>
+
+  Audio-frames that are registered to the mixer will behave differently than
+  audio-frames that are not registered. The output of registered frames will
+  automatically be added to the final mixer stage of the mixer. The output of
+  non-registered frames will need to be fetched by the calling program. Failure
+  to do so might result in memory overflow.
+
+   <pre class="define" id="aaxAudioFrameStart">aaxAudioFrameStart(frame)</pre>
+   <div class="define">aaxAudioFrameSetState(frame, AAX_PLAYING)</div>
+   Start playback of emitters registered to the audio-frame.<br>
+   An audio-frame will always start but depending on whether it is registered to the mixer or not it might be necessary for the calling program to regularly check for available buffers to prevent memory overflow.
+
+   <pre class="define" id="aaxAudioFrameSuspend">aaxAudioFrameSuspend(frame)</pre>
+   <div class="define">aaxAudioFrameSetState(frame, AAX_SUSPENDED)</div>
+   Temporarily suspend playback of the audio-frame.<br>
+   The frame configuration will not be affected by this call.
+
+   <pre class="define" id="aaxAudioFrameResume">aaxAudioFrameResume(frame)</pre>
+   <div class="define">aaxAudioFrameSetState(frame, AAX_PLAYING)</div>
+   Resume playback of the frame after suspending.
+
+   <pre class="define" id="aaxAudioFrameStop">aaxAudioFrameStop(frame)</pre>
+   <div class="define">aaxAudioFrameSetState(frame, AAX_STOPPED)</div>
+   Permanently stop playback of this frame.<br>
+   The configuration of the frame will be set to initialized but the setup will not be affected.
+
+<!--
+   <pre class="define" id="aaxAudioFrameUpdate">aaxAudioFrameUpdate(frame)</pre>
+   <div class="define">aaxAudioFrameSetState(frame, AAX_UPDATE)</div>
+   Process a single frame and push the buffer to the buffer queue.
+-->
+
+   <pre class="define" id="aaxAudioFrameRewind">aaxAudioFrameRewind(frame)</pre>
+   <div class="define">aaxAudioFrameSetState(frame, AAX_INITIAL)</div>
+   Rewind the playback position to the start of the first buffer in the frames buffer stack.
+
+   <pre class="define" id="aaxAudioFrameSetOffsetBytes">aaxAudioFrameSetOffsetBytes(frame, offset)</pre>
+   <div class="define">aaxAudioFrameSetOffset(frame, offset, AAX_BYTES)</div>
+   Set the playback position to the real sample specified by the offset in bytes from the start of the first buffer in the frames buffer stack.
+
+  <pre class="define" id="aaxAudioFrameSetOffsetFrames">aaxAudioFrameSetOffsetFrames(frame, offset)</pre>
+   <div class="define">aaxAudioFrameSetOffset(frame, offset, AAX_FRAMES)</div>
+   Set the playback position to the specified audio frame from the start of the first buffer in the frames buffer stack.
+
+  <pre class="define" id="aaxAudioFrameSetOffsetSamples">aaxAudioFrameSetOffsetSamples(frame, offset)</pre>
+  <div class="define">aaxAudioFrameSetOffset(frame, offset, AAX_SAMPLES)</div>
+   Set the playback position to the specified number of samples from the start of the first buffer in the frames buffer stack.
+
+   <pre class="define" id="aaxAudioFrameSetGain">aaxAudioFrameSetGain(frame, gain)</pre>
+   Set the linear gain of the audio-frame using the volume-filter.<br>
+   This will act as a master gain for all registered emitters.
+
+   <pre class="define" id="aaxAudioFrameSetPitch">aaxAudioFrameSetPitch(frame, pitch)</pre>
+   Set the pitch factor of the frame using the pitch-effect.<br>
+   This will act as pitch shifter for all registered emitters.
+
+   <pre class="define" id="aaxAudioFrameSetIdentityMatrix">aaxAudioFrameSetIdentityMatrix(frame)</pre>
+   Load the Identity matrix as the frame position-and-orientation matrix.<br>
+
+   <pre class="define" id="aaxAudioFrameSetSoundVelocity">aaxAudioFrameSetSoundVelocity(frame, speed)</pre>
+   Set the sound velocity of the frame using the velocity-effect.
+
+   <pre class="define" id="aaxAudioFrameSetDopplerFactor">aaxAudioFrameSetDopplerFactor(frame, Doppler)</pre>
+   Set the Doppler factor of the frame using the velocity-effect.
+
+   <pre class="define" id="aaxAudioFrameSetDistanceModel">aaxAudioFrameSetDistanceModel(frame, model)</pre>
+   Set the preferred distance mode for distance attenuation using the distance-filter.
+
+<!--
+   <pre class="define" id="aaxAudioFrameSetRolloffFactor">aaxAudioFrameSetRolloffFactor(frame, roll-off)</pre>
+   Set the roll-off factor for distance attenuation using the distance-filter.
+
+   <pre class="define" id="aaxAudioFrameSetReferenceDistance">aaxAudioFrameSetReferenceDistance(frame, distance)</pre>
+   Set the reference distance for distance attenuation using the distance-filter.
+
+   <pre class="define" id="aaxAudioFrameSetMaxDistance">aaxAudioFrameSetMaxDistance(frame, max_distance)</pre>
+   Set the maximum distance for distance attenuation using the distance-filter
+-->
+
+   <pre class="define" id="aaxAudioFrameEnableFrequencyFilter">aaxAudioFrameEnableFrequencyFilter(frame, enable)</pre>
+   Enable or disable the frequency-filter.
+
+   <pre class="define" id="aaxAudioFrameSetFrequencyFilter">aaxAudioFrameSetFrequencyFilter(frame, cutoff, lf_gain, hf_gain)</pre>
+   Set the frequency filters cut-off frequency and linear low-frequency and high-frequency gain.
+
+   
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

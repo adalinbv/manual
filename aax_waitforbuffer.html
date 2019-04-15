@@ -1,0 +1,27 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+  <H2 id="capture">Capture support</H2>
+   <pre class="v20" id="aaxSensorWaitForBuffer">int aaxSensorWaitForBuffer(aaxConfig config, float timeout)</pre>
+   <pre class="v20" id="aaxAudioFrameWaitForBuffer">int aaxAudioFrameWaitForBuffer(aaxFrame frame, float timeout)</pre>
+</pre>
+   Wait for at least one new captured buffer to be available, or until timeout time has passed.<p>
+   <ul>
+    <li> The config parameter is the handle as returned by aaxDriverOpen. 
+    <li> The frame parameter is the handle as returned by aaxAudioFrameCreate.
+    <li> The timeout parameter specifies after how many seconds the function shall return anyhow.
+   </ul><p>
+   Return AAX_TRUE if a new buffer is available in the buffer stack or AAX_FALSE otherwise.<p>
+  Reasons for failure are an incorrect or already destroyed class handle or a timeout.
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

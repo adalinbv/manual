@@ -1,0 +1,70 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <h2>Dynamic Gain Filter</h2>
+
+   The Dynamic Gain filter constantly adjusts the objects volume without any interaction. Adjusting can be based on time functions (<a href="https://en.wikipedia.org/wiki/Tremolo" target="_bank">tremolo</a>) using several waveform types or based on the gain of the input signal (envelope following) making the audio sound snappier.
+   <p></p>
+   The filter combines the Dynamic Gain filter of the current sound source and
+of it's mixer parent. This makes it possible to continually decrease and increase the filters strength.
+   <p></p>
+   If the combined Offset parameter and Depth parameter exceeds 1.0 then the depth of the low frequency oscillator is automatically clamped.
+   <p></p>
+   The Dynamic Gain filter is supported by Emitters, Audio-Frames and the Mixer.
+
+   <h5>Dynamic Gain Filter parameters</h5>
+   The filter uses only one filter slot.
+   <dl>
+    <dt class="v20">AAX_DYNAMIC_GAIN_FILTER<div class="type">STEREO</div></dt>
+    <dd>
+     <dl>
+      <dt class="v20"><div>p0</div> &nbsp; </dt>
+      <dd>Unused.</dd>
+      <dt class="v20"><div>p1</div> AAX_LFO_FREQUENCY</dt>
+      <dd>Frequency of the low-frequency oscillator for tremolo.<br>
+          Response rate in Hertz (1/seconds) when using Envelope Following mode.<br>
+          Between 0.01 and 50 Hz.</dd>
+      <dt class="v20"><div>p2</div> AAX_LFO_DEPTH</dt>
+      <dd>Depth range of the low-frequency oscillator.<br>
+          Between 0.0 and 1.0.</dd>
+      <dt class="v20"><div>p3</div> AAX_LFO_OFFSET</dt>
+      <dd>Minimum offset value of the low-frequency oscillator.<br>
+          Between 0.0 and 1.0</dd>
+     </dl>
+    </dd>
+   </dl>
+
+   <h5>Dynamic Gain Filter state options</h5>
+   Specify a waveform type or envelope-following to enable the dynamic filter or AAX_FALSE to disable it.
+   <dl>
+    <dt class="v20" id="AAX_DYNAMIC_GAIN_FILTER">AAX_DYNAMIC_GAIN_FILTER</dt>
+    <dd>
+      <h6>Valid waveform types are:</h6>
+      <dl>
+        <dt class="v22"> AAX_CONSTANT_VALUE (or AAX_TRUE)
+        <dt class="v20"> AAX_TRIANGLE_WAVE
+        <dt class="v20"> AAX_SINE_WAVE
+        <dt class="v20"> AAX_SQUARE_WAVE
+        <dt class="v20"> AAX_SAWTOOTH_WAVE
+        <dt class="v22"> AAX_ENVELOPE_FOLLOW
+        <dt class="v22"> AAX_INVERSE_TRIANGLE_WAVE
+        <dt class="v22"> AAX_INVERSE_SINE_WAVE
+        <dt class="v22"> AAX_INVERSE_SQUARE_WAVE
+        <dt class="v22"> AAX_INVERSE_SAWTOOTH_WAVE
+        <dt class="v22"> AAX_INVERSE_ENVELOPE_FOLLOW
+      </dl><br>
+    </dd>
+   </dl>
+
+
+ <script>addFooter("The Dynamic Gain filter implements Tremolo or adjusts the output gain based on the input gain value.");
+ </script>
+</body>
+</html>

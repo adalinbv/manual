@@ -1,0 +1,156 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <h2>Timed Gain Filer</h2>
+
+   This filter can alter the <a href="https://en.wikipedia.org/wiki/Timbre" target="_blank">Timbre</a> of a looping sound buffer by adjusting the loudness using a predefined <a href="http://en.wikipedia.org/wiki/Synthesizer#ADSR_envelope" target="_blank">Amplitude Envelope</a>.
+   <p></p>
+   The Envelope may have up to 6 stages.<br>
+   Switching to the first Level is instant, switching to the next levels is smooth.<br>
+   Time steps can not be smaller than the refresh period (defaults to 22 milliseconds per period).<br>
+   Level transition during one refresh period is smooth and constant.<br>
+   If the amplitude level reaches zero the emitter will be stopped automatically.
+   <p></p>
+   Time parameters define the time (in seconds) relative to the previous stage.<br>
+   Set the Time parameter to AAX_FPINFINITE for the looped sustain period.<br>
+   Set the last Time parameter to zero if less than 6 stages are required.
+   <p></p>
+   Level parameters range between 0.0 and 4.0, where 1.0 is normal maximum.<br>
+   Higher values are allowed for a clearer attack (and/or release) period.
+   <p></p>
+   The Timed Gain filter is supported by Emitters.
+   <p></p>
+   <img src="images/envelope.png"></img>
+
+   <h5>Timed Gain Filter parameters</h5>
+   The filter uses up to three filter slots.
+
+   <dl>
+    <dt class="v21" id="AAX_TIMED_GAIN_FILTER">AAX_TIMED_GAIN_FILTER<div class="type">STEREO</div></dt>
+    <dd>
+     <table class="parallel">
+      <tr>
+       <td>
+        <dl>Slot 0
+         <dt class="v21"><div>p0</div> AAX_LEVEL0</dt>
+         <dt class="v21"><div>p1</div> AAX_TIME0</dt>
+         <dt class="v21"><div>p2</div> AAX_LEVEL1</dt>
+         <dt class="v21"><div>p3</div> AAX_TIME1</dt>
+        </dl>
+       </td>
+       <td>
+        <dl>Slot 1
+         <dt class="v21"><div>p0</div> AAX_LEVEL2</dt>
+         <dt class="v21"><div>p1</div> AAX_TIME2</dt>
+         <dt class="v21"><div>p2</div> AAX_LEVEL3</dt>
+         <dt class="v21"><div>p3</div> AAX_TIME3</dt>
+        </dl>
+       </td>
+       <td>
+        <dl>Slot 2
+         <dt class="v21"><div>p0</div> AAX_LEVEL4</dt>
+         <dt class="v21"><div>p1</div> AAX_TIME4</dt>
+         <dt class="v21"><div>p2</div> AAX_LEVEL5</dt>
+         <dt class="v21"><div>p3</div> AAX_TIME5</dt>
+        </dl>
+       </td>
+      </tr>
+     </table>
+    </dd>
+   </dl>
+
+  <h5>Timed Gain Filter state options</h5>
+  Specify AAX_TRUE to enable the timed gain filter or AAX_FALSE to disable it.
+  <p></p>
+  As of AeonWave version 3.0.4 it is possible to make the envelope shape repeat
+  a predefined number of times by setting state to AAX_REPEAT with the number of
+  times to repeat added. So AAX_REPEAT+5 would repeat an envelope 5 times
+  before stopping the playback. This can be useful for simulation a repeating
+  hazard alarm sound, a ringing phone or a clock gong.
+  <p></p>
+  A <a href="sounds/telephone.mp3" target="_blank">ringing telephone</a> or a <a href="sounds/alarm.mp3" target="_blank">hazard alarm</a> sound that repeats 5 times could for
+  instance be defined as follows using the AAXS file format:
+  <table>
+   <tr>
+    <td><pre>&lt;?xml version="1.0"?&gt;
+ &lt;aeonwave&gt;
+  &lt;sound name="Telephone" frequency="1250"&gt;
+   &lt;waveform src="square" pitch="0.985"/&gt;
+   &lt;waveform src="sawtooth" processing="mix"
+             pitch="2.9"/&gt;
+   &lt;waveform src="sine" processing="modulate"
+             pitch="6.3"/&gt;
+  &lt;/sound&gt;
+
+  &lt;emitter looping="true"&gt;
+   &lt;filter type="dynamic-gain" src="sawtooth"&gt;
+    &lt;slot n="0"&gt;
+     &lt;param n="1"&gt;12&lt;/param&gt;
+     &lt;param n="2"&gt;2.0&lt;/param&gt;
+    &lt;/slot&gt;
+   &lt;/filter&gt;
+   &lt;filter type="envelope" repeat="5"&gt;
+    &lt;slot n="0"&gt;
+     &lt;param n="0"&gt;0.0&lt;/param&gt;
+     &lt;param n="1"&gt;0.01&lt;/param&gt;
+     &lt;param n="2"&gt;2.0&lt;/param&gt;
+     &lt;param n="3"&gt;1.2&lt;/param&gt;
+    &lt;/slot&gt;
+    &lt;slot n="1"&gt;
+     &lt;param n="0"&gt;2.0&lt;/param&gt;
+     &lt;param n="1"&gt;0.1&lt;/param&gt;
+     &lt;param n="2"&gt;0.04&lt;/param&gt;
+     &lt;param n="3"&gt;1.8&lt;/param&gt;
+    &lt;/slot&gt;
+   &lt;/filter&gt;
+  &lt;/emitter&gt;
+ &lt;/aeonwave&gt;
+    </pre></td>
+    <td><pre>&lt;?xml version="1.0"?&gt;
+ &lt;aeonwave&gt;
+  &lt;sound name="Alarm" frequency="440"&gt;
+   &lt;waveform src="sine" pitch="0.935"/&gt;
+   &lt;waveform src="sawtooth"
+             processing="modulate"
+             pitch="0.5"/&gt;
+  &lt;/sound&gt;
+
+  &lt;emitter looping="true"&gt;
+   &lt;filter type="envelope" repeat="5"&gt;
+    &lt;slot n="0"&gt;
+     &lt;param n="0"&gt;0.0&lt;/param&gt;
+     &lt;param n="1"&gt;0.01&lt;/param&gt;
+     &lt;param n="2"&gt;1.0&lt;/param&gt;
+     &lt;param n="3"&gt;0.7&lt;/param&gt;
+    &lt;/slot&gt;
+    &lt;slot n="1"&gt;
+     &lt;param n="0"&gt;1.0&lt;/param&gt;
+     &lt;param n="1"&gt;0.1&lt;/param&gt;
+     &lt;param n="2"&gt;0.04&lt;/param&gt;
+     &lt;param n="3"&gt;0.9&lt;/param&gt;
+    &lt;/slot&gt;
+   &lt;/filter&gt;
+  &lt;/emitter&gt;
+ &lt;/aeonwave&gt;
+
+
+
+
+
+
+
+    </pre></td>
+   </tr>
+  </table>
+
+ <script>addFooter("A Timed Gain Filter can be used to add loudness dynamics to a looping waveform sound.");
+ </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <H1 id="Driver">Class Buffer</H1>
+ <h6 class="menu">Header file: &lt;aax/aeonwave.hpp&gt;</h6>
+ <h6 class="menu">Namespace: aax</h6>
+ <p>&nbsp;<p>
+
+ The Buffer class encapsulates the <a href="aax_buffer.html">Buffer</a> functions.
+ <p>
+ Buffers are in essence containers of audio data and sample information
+ Because of the static nature of audio buffers they can be shared among
+ multiple registered emitters at the same time. 
+ <p>
+ An internal waveform generator is available to fill audio buffers on-demand.
+ <p>
+ <strong>
+ It is recommended to use the buffer management code  from the AeonWave class to manage buffers.
+ </strong><br>
+ This code can also be used to create buffers from local or remote files.
+ By using AAXS files as buffer objects it is easy to apply filters and effects
+ to emitters and audio-frames and to generate sounds using the waveform
+ generator.
+
+ <h5>Constructors</h5>
+ <pre class="cpp">Buffer(aaxBuffer buffer, bool owner=true)</pre>
+ <pre class="cpp">Buffer(aaxConfig config, unsigned int no_samples, unsigned int no_tracks,
+         <a href="aax_aaxformat.html">enum aaxFormat</a> format)</pre>
+ <pre class="cpp">Buffer(const aax::Buffer&amp; buffer)</pre>
+ <h5>Constructors for AAXS encoded buffers</h5>
+ <pre class="cpp v33">Buffer(aaxConfig config, const char* url);</pre>
+ <pre class="cpp v33">Buffer(aaxConfig config, std::string&amp; url);</pre>
+
+ <h5>Setup</h5>
+ <pre class="cpp">void set(aaxConfig config, unsigned int no_samples, unsigned int no_tracks,
+           <a href="aax_aaxformat.html">enum aaxFormat</a> format)</pre>
+ <p>
+ <pre class="cpp">bool set(<a href="aax_aaxsetuptype.html">enum aaxSetupType</a> type, unsigned int setup)</pre>
+ <pre class="cpp">unsigned int get(<a href="aax_aaxsetuptype.html">enum aaxSetupType</a> type)</pre>
+
+ <h5>Data handling</h5>
+ <pre class="cpp">bool fill(const void* data)</pre>
+ <pre class="cpp">void** data()</pre>
+
+ <h5 class="menu">Data processing (<a href="aax_buffer_data.html#aaxBufferProcessWaveform">Waveform generator</a>)</h5>
+ <pre class="cpp">bool process(float rate, <a href="aax_aaxwaveformtype.html">enum aaxWaveformType</a> type, float ratio=0.5f,
+               <a href="aax_aaxprocessingtype.html">enum aaxProcessingType</a> ptype=AAX_MIX)</pre>
+ <pre class="cpp">bool process(float rate, <a href="aax_aaxwaveformtype.html">enum aaxWaveformType</a> type, <a href="aax_aaxprocessingtype.html">enum aaxProcessingType</a> ptype,
+               float ratio=0.5f)</pre>
+
+ <h5>Operators</h5>
+ <pre class="cpp">friend void swap(aax::Buffer&amp; buffer1, aax::Buffer&amp; buffer2)</pre>
+ <pre class="cpp">aax::Buffer&amp; operator=(aax::Buffer buffer)</pre>
+
+ <!-- inherited from class Obj -->
+ <pre class="cpp">operator void*() const</pre>
+ <pre class="cpp">explicit operator bool()</pre>
+
+ <script>addFooter("Buffers can be shared among multiple registered emitters at the same time.");
+ </script>
+</body>
+</html>

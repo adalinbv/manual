@@ -1,0 +1,51 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <h2>Velocity Effect</h2>
+   The Velocity Effect affects the pitch of the sound source based on the direction vector of the sound source relative to the direction vector of the virtual sensor. This effect is also known as the <a href="https://en.wikipedia.org/wiki/Doppler_effect" target="_blank">Doppler effect</a>.
+   <p></p>
+   The Sound Velocity parameter defines the Speed of Sound in the scenery surrounding the virtual sensor or the emitter.
+   <p></p>
+   The library interpolates between the specified speed of sound at the emitters location and the specified speed of sound at the virtual sensor taking into account both Doppler Factor parameters.
+   <p></p>
+   If the ISO9613-1 distance  model is applied, and the velocity effect was not yet set, then the corresponding speed of sound will be set automatically. If the sound velocity is set afterwards then updating the ISO9613-1 distance model will not overwrite the client supplied sound velocity.
+   <p></p>
+   The Velocity effect is supported by the Scenery and Emitters.
+
+   
+   <h5>Velocity Effect parameters</h5>
+   The effect uses only one effect slot.
+   <dl>
+    <dt class="v20" id="AAX_VELOCITY_EFFECT">AAX_VELOCITY_EFFECT<div class="type">3D</div></dt>
+    <dd>
+     <dl>
+      <dt class="v20"><div>p0</div> AAX_SOUND_VELOCITY</dt>
+      <dd>Sound velocity in the same unit as the velocity vector.<br>
+          Between 0.0 and max. float.</dd>
+      <dt class="v20"><div>p1</div> AAX_DOPPLER_FACTOR</dt>
+      <dd>A factor to understate or exaggerate the velocity effect.<br>
+          Between 0.0 and 10.0, defaults to 1.0</dd>
+      <dt class="v30"><div>p2</div> AAX_LIGHT_VELOCITY</dt>
+      <dd>Light velocity in the same unit as the sound velocity.<br>
+          Between 0.0 and max. float.</dd>
+      <dt class="v20"><div>p3</div> Unused.</dt>
+      <dd></dd>
+     </dl>
+    </dd>
+   </dl>
+   </dl>
+
+  <h5>Velocity Effect state options</h5>
+   The effect is always enabled.
+
+ <script>addFooter("If the ISO9613-1 distance model is applied, and the velocity effect is not set, the speed of sound will be set automatically.");
+ </script>
+</body>
+</html>

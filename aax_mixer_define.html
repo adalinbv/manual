@@ -1,0 +1,85 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+  <H2 id="config">Mixer defines</H2>
+
+   Emitters and audio-frames that are not registered will not be affected
+   by any of these defined functions.
+
+   <pre class="define" id="aaxMixerInit">aaxMixerInit(config)</pre>
+   <div class="define">aaxMixerSetState(config, AAX_INITIALIZED)</div>
+   Initialize the mixer using the current setup parameters.<br>
+   It is possible to alter the mixer setup prior to initializing the mixer.
+
+   <pre class="define" id="aaxMixerStart">aaxMixerStart(config)</pre>
+   <div class="define">aaxMixerSetState(config, AAX_STATUS_PLAYING)</div>
+   Start playback of the registered emitters and audio frames.
+
+   <pre class="define" id="aaxMixerSuspend">aaxMixerSuspend(config)</pre>
+   <div class="define">aaxMixerSetState(config, AAX_STATUS_SUSPENDED)</div>
+   Temporarily suspend playback of the registered emitters and audio frames.<br>
+   The mixer configuration will not be altered.
+
+   <pre class="define" id="aaxMixerResume">aaxMixerResume(config)</pre>
+   <div class="define">aaxMixerSetState(config, AAX_STATUS_PLAYING)</div>
+   Restart playback of the suspended and registered emitters and audio frames.
+
+   <pre class="define" id="aaxMixerStop">aaxMixerStop(config)</pre>
+   <div class="define">aaxMixerSetState(config, AAX_STATUS_STOPPED)</div>
+   Permanently stop playback of the registered emitters and audio frames.<br>
+   The mixer configuration will be set to initialized but the setup will not be affected.
+
+<!--
+   <pre class="define" id="aaxMixerUpdate">aaxMixerUpdate(config)</pre>
+   <div class="define">aaxMixerSetState(config, AAX_UPDATE))</div>
+   Process a single frame and playback the buffer.
+-->
+
+   <pre class="define" id="aaxMixerSetGain">aaxMixerSetGain(config, gain)</pre>
+   Set the linear gain of the mixer using the volume-filter.<br>
+   This will act as a master gain.
+
+   <pre class="define" id="aaxMixerSetPitch">aaxMixerSetPitch(config, pitch)</pre>
+   Set the pitch factor of the mixer using the pitch-effect.<br>
+   This will act as a global pitch shifter.
+
+   <pre class="define" id="aaxMixerSetNoTracks">aaxMixerSetNoTracks(config, tracks)</pre>
+   <div class="define">aaxMixerSetSetup(config, AAX_TRACKS, tracks)</div>
+   Set the number of output tracks for this configuration.<p>
+
+   <pre class="define" id="aaxMixerSetFrequency">aaxMixerSetFrequency(config, frequency)</pre>
+   <div class="define">aaxMixerSetSetup(config, AAX_FREQUENCY, frequency)</div>
+   Set the mixing frequency for this configuration.<p>
+
+   <pre class="define" id="aaxMixerSetRefreshRate">aaxMixerSetRefreshRate(config, refrate)</pre>
+   <div class="define">aaxMixerSetSetup(config, AAX_REFRESHRATE, refrate)</div>
+   Set the frequency at witch the internal parameters, like position changes, get processed.<br>
+   A higher refresh rate means shorter response times at the cost of a higher processor load.
+
+   <pre class="define" id="aaxMixerSetFormat">aaxMixerSetFormat(config, format)</pre>
+   <div class="define">aaxMixerSetSetup(config, AAX_FORMAT, format)</div>
+   <ul>
+   <li> The format parameter is an enumerated type <a href="aax_aaxformat.html">aaxFormat</a>.<br>
+        Only the System Native formats are supported by the mixer.<br>
+   </ul>
+   Set the format of the audio that gets send to the backend driver.
+
+   <pre class="define" id="aaxMixerSetMonoSources">aaxMixerSetMonoSources(sources)</pre>
+   <div class="define">aaxMixerSetSetup(NULL, AAX_MONO_EMITTERS, sources)</div>
+   Reserve a number of mono emitters for the current session.<br>
+
+   <pre class="define" id="aaxMixerSetStereoSources">aaxMixerSetStereoSources(sources)</pre>
+   <div class="define">aaxMixerSetSetup(NULL, AAX_STEREO_EMITTERS, sources)</div>
+   Reserve a number of stereo emitters for the current session.<br>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

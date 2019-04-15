@@ -1,0 +1,70 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <H1 id="Driver">Class Emitter</H1>
+ <h6 class="menu">Header file: &lt;aax/aeonwave.hpp&gt;</h6>
+ <h6 class="menu">Namespace: aax</h6>
+ <p>&nbsp;<p>
+
+ The combination of the AeonWave C++ class buffer management code and XML
+ encoded AAXS files, which can define filters and effects, makes it simple
+ to add a complete set of filters and effects to emitters and audio-frames.
+ <p>
+ To play one of the AeonWave supplied preset effect files for example the
+ following code is sufficient. The buffer function automatically adds the
+ prefix based on APP_DATA_DIR and adds the .aaxs file extension.
+
+ <pre>
+
+   aax::AeonWave aax(AAX_MODE_WRITE_STEREO);
+   aax.set(AAX_INITIALIZED);
+   aax.set(AAX_PLAYING);
+
+   aax::Buffer& buffer = aax.buffer("reverb/concerthall");
+   aax.add(buffer);
+
+   buffer = aax.buffer("instruments/piano-acoustic");
+   aax::Emitter emitter(AAX_STEREO);
+   emitter.add(buffer);
+   emitter.set(AAX_PLAYING);
+
+   aax.add(emitter);
+   do {
+       sleep(1);
+   } while (emitter.state() == AAX_PLAYING);
+
+ </pre>
+
+ <p id="param"><br><h6 class="menu">class aax::Param</h6></p>
+ With the addition of the Param class in AeonWave version 3.3 it is
+ extremely easy to update the status of Filter and Effect parameters. The
+ Param class encapsulates a float value but it can be tied to a specific
+ dsp parameter of another class:
+
+ <pre>
+
+   <em>aax::Param gain = 1.0f</em>;
+   aax.tie(<em>gain</em>, AAX_VOLUME_FILTER, AAX_GAIN);
+
+   float dt = 0.0f;
+   do {
+       sleep(1);
+       dt += 1.0f;
+       if (dt &gt; 3.0f) <em>gain = 0.5f;</em> // automatically updates the filter
+
+   } while (dt &lt; 6.0f && emitter.state() == AAX_PLAYING);
+
+ </pre>
+
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

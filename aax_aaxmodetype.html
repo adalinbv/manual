@@ -1,0 +1,67 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <h2>enum aaxModeType</h2>
+
+   <table id="aaxModeType">
+   <tr>
+    <td class="enum_head"><h4>enum aaxModeType</h4></td>
+    <td class="enum_head">Mixer</td>
+    <td class="enum_head">Sensor</td>
+    <td class="enum_head">Emitter</td>
+    <td class="enum_head">AudioFrame</td>
+   </tr>
+   <tr>
+    <td class="enum_legenda">AAX_POSITION</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum_ok"></td>
+    <td class="enum_ok"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda">AAX_LOOPING</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum_ok"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda">AAX_BUFFER_TRACK</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum_ok"></td>
+    <td class="enum"></td>
+   </tr>
+  </table>
+  <p>
+  <dl>
+  <dt class="v20"> AAX_POSITION</dt>
+  <dd> The <b>aaxEmitterMode</b> type mode parameter defines how the source is located in relation to the sensor:
+    <ul>
+     <li>AAX_STEREO: No positional information will be used.
+     <li>AAX_ABSOLUTE: The position, orientation and velocity are absolute.
+     <li>AAX_RELATIVE: The position, orientation and velocity are relative to the sensors position, orientation  and velocity.
+    </ul></dd>
+  <dt class="v20"> AAX_LOOPING</dt>
+  <dd> The mode parameter defines whether to enable looping or not.<br>
+       <ul>
+       <li>AAX_FALSE disables looping.</li>
+       <li>AAX_TRUE enables looping with an infinite number of loops.</li>
+       <li class="v23">mode &gt; 1 enables looping with 'mode' number of loops before continuing.</li>
+       </ul>
+  </dd>
+  <dt class="v20"> AAX_BUFFER_TRACK</dt>
+  <dd> The mode parameter defines the track-number to use from a multi-track buffer when in 3d mode. Setting the buffer track to a number greater than the number of tracks in the buffer will result in an error.</dd>
+  </dl>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <H2 id="version">Version information</H2>
+
+ Version information is available to determine if the loaded library version
+ matches the required version and to detect if certain features are supported
+ In general matching major version numbers makes sure all functions
+ are supported in the expected way. Different minor version numbers could
+ indicated bug fix releases or very minor functionality updates.
+
+ <pre class="v10" id="aaxGetMajorVersion">unsigned aaxGetMajorVersion()</pre>
+ Return the major version number of the API this library supports.
+
+ <pre class="v10" id="aaxGetMinorVersion">unsigned aaxGetMinorVersion()</pre>
+ Return the minor version number of the API this library supports.
+
+ <pre class="v10" id="aaxGetPatchVersion">unsigned int aaxGetPatchLevel()</pre>
+ Return the patch level of the installed library.<br>
+ The patch level will always be increased with every new release so it is a
+ valid option to test for the patch level to be greater than a known good value.
+ 
+ <pre class="v10" id="aaxGetVersionString">const char* aaxGetVersionString(aaxConfig config)</pre>
+ <ul>
+  <li> The config parameter is the handle as returned by aaxDriverOpen.<br>
+       The config parameter may be set to NULL, in which case the minimum
+       available configuration (AeonWave-Lite) is used.
+  </ul>
+ Return version information about the library as a string constant.
+
+ <H2 id="generic">Generic</H2>
+
+ <pre class="v31" id="aaxPlaySoundLogo">int aaxPlaySoundLogo(const char *devname)</pre>
+ Plays the official AeonWave sound logo at the device specified by devname.<br>
+ The function will block until playback is finished which takes about 12 seconds.<p>
+ The function will return AAX_FALSE in case of an error and the appropriate error number will be set.<br>
+ Otherwise AAX_TRUE will be returned.
+
+ <pre class="v12" id="aaxFree">void aaxFree(void *region)</pre>
+ Frees a memory block that was allocated by the library.<br>
+ Calling this function to free a block of memory is required when the main
+ application is compiled using a different compiler than the AeonWave library.
+ In this case freeing a memory region might (and probably will) result in a
+ segmentation fault. It is therefore recommended to use this function to free
+ all memory that was allocated by AAX for instance after calling
+ <a href="aax_buffer_config.html#aaxBufferGetData">aaxBufferGetData</a>.
+
+ <pre class="v22" id="aaxGetBitsPerSample">unsigned aaxGetBitsPerSample(enum aaxFormat format)</pre>
+ <ul>
+ <li> format is an enumerated type <a href="aax_aaxformat.html">aaxFormat</a>.
+ </ul><p>
+ Return the number of bits per sample associated with a format.
+
+ <pre class="v10" id="aaxGetBytesPerSample">unsigned aaxGetBytesPerSample(enum aaxFormat format)</pre>
+ <ul>
+ <li> format is an enumerated type <a href="aax_aaxformat.html">aaxFormat</a>.
+ </ul><p>
+ Return the number of bytes per sample associated with a format.
+
+ <H2 id="filters">Filters & Effects</H2>
+ <pre  id="aaxIsFilterSupported">int aaxIsFilterSupported(aaxConfig config, const char *filter)</pre>
+  <pre  id="aaxIsEffectSupported">int aaxIsEffectSupported(aaxConfig config, const char *effect)</pre>
+ <ul>
+  <li> The config parameter is the handle as returned by aaxDriverOpen.
+  <li> The config parameter may be set to NULL, in which case the minimum
+       available configuration (AeonWave-Lite) is used.
+  <li> As of AeonWave version 2.6 filters and effects can have a version number appended to the string name.<br>
+       The filter or effect name string parameter may include the version number for this test, but it is not necessary.<br>
+       If the version number is specified exactly the function returns only AAX_TRUE if it matches exactly.<br>
+       If the version number is provided only partially then AAX_TRUE is returned if the available filter or effect version has the same major version.<br>
+       If no version information is provided to test for the function returns AAX_TRUE if the filter or effect is available in any version.
+  </ul>
+ <script>addFooter("Matching major version numbers makes sure all functions are supported in the expected way.");
+ </script>
+</body>
+</html>

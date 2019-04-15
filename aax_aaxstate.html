@@ -1,0 +1,156 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <table id="aaxState">
+   <tr>
+    <td class="enum_head"><h4>enum aaxState</h4></td>
+    <td class="enum_head">Mixer</td>
+    <td class="enum_head">Sensor</td>
+    <td class="enum_head">Emitter</td>
+    <td class="enum_head">GetNoBuffers</td>
+    <td class="enum_head">AudioFrame</td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="#AAX_INITIALIZED">AAX_INITIALIZED</a></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="#AAX_PLAYING">AAX_PLAYING</a></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum_ok">Get</td>
+    <td class="enum_ok">Set</td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="#AAX_STOPPED">AAX_STOPPED</a></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum_ok">Set</td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum"></td>
+    <td class="enum_ok">Set</td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="#AAX_SUSPENDED">AAX_SUSPENDED</a></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum"></td>
+    <td class="enum_ok">Set</td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="#AAX_STANDBY">AAX_STANDBY</a></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="#AAX_CAPTURING">AAX_CAPTURING</a></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Set</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="#AAX_PROCESSED">AAX_PROCESSED</a></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get, Set</td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="#AAX_UPDATE">AAX_UPDATE</a></td>
+    <td class="enum_ok">Set</td>
+    <td class="enum"></td>
+    <td class="enum_ok">Set</td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+   </tr>
+   <tr>
+    <td class="enum_legenda"><a href="#AAX_MAXIMUM">AAX_MAXIMUM</a></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum"></td>
+    <td class="enum_ok">Get</td>
+    <td class="enum"></td>
+   </tr>
+  </table>
+<!--
+  <p>
+  <dl>
+   <dt class="v20" id="AAX_INITIALIZED"> AAX_INITIALIZED </dt>
+   <dd> 
+       <ul>
+       <li> The mixer should be initialized after the mixer has been set-up properly.<br>
+       <li> Emitters can use this state to rewind the playback position.<br>
+       </ul>
+   <dt class="v20" id="AAX_PLAYING"> AAX_PLAYING </dt>
+   <dd>
+       <ul>
+        <li> Start or restart playback of the mixer, audio-frame or emitter.<br>
+             To be able to register an audio-frame to the mixer it is required to set this state after it has been registered.
+        <li> Return the number of buffers that still need to play until the buffer stack of the emitter is processed.
+       </ul>
+       </dd>
+    <dt class="v20" id="AAX_PROCESSED"> AAX_PROCESSED </dt>
+    <dd> 
+        <ul>
+         <li>Immediately and permanently stop playback of emitters.<br>
+         <li>Return the number of buffers that have been processed during playback of an emitter.
+       </ul>
+    </dd>
+    <dt class="v20" id="AAX_STOPPED"> AAX_STOPPED </dt>
+    <dd> 
+        <ul>
+         <li>Permanently stop capturing.
+         <li>Request stopping playback of an emitter.<br>
+         Based on whether the distance mode includes support for distance delay or not the library might decide to postpone actual stopping of playback. Therefore it is best to test for AAX_PROCESSED when waiting for an emitter to stop playback.
+        </ul>
+         The setup will not change but the configuration is set to initialized.
+    </dd>
+    <dt class="v20" id="#AAX_SUSPENDED"> AAX_SUSPENDED </dt>
+    <dd> Temporarily postpone playback of the mixer, audio-frame or emitter.<br>
+         The setup and configuration will not change. </dd>
+    <dt class="v20" id="#AAX_STANDBY"> AAX_STANDBY </dt>
+    <dd> Temporarily switch to low energy mode.<br>
+         The standby mode is like AAX_PLAYING although state changes will be
+         processed at a slower rate. The mixer is disabled and no sound will
+         be audible.</dd>
+    <dt class="v20" id="AAX_CAPTURING"> AAX_CAPTURING </dt>
+    <dd> Start capturing from the specified device.<br>
+       If the device is opened in AAX_MODE_READ mode then samples will be
+       captured from a physical device otherwise samples get captured from the
+       mixer (loop-back mode). </dd>
+    <dt class="v20" id="AAX_MAXIMUM"> AAX_MAXIMUM </dt>
+    <dd> Return the total number of buffers in the buffer stack of the emitter.
+    <dt class="v25" id="AAX_UPDATE"> AAX_UPDATE </dt>
+    <dd>
+     <ul>
+     <li> Force a the mixer to render the next time-frame, especially useful for batch-mode.<br>
+     The size of the time-frame is refresh-rate dependent.<br>
+     The resulting buffer will be pushed to the buffer queue.
+      <li> Force recalculation of the distance parameters if distance delay was enabled.<br>
+         This is useful for sudden position jumps.
+     </ul>
+    </dd>
+  </dl>
+-->
+ <script>addFooter("");
+ </script>
+</body>
+</html>

@@ -1,0 +1,762 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans|Spectral|PT+Sans+Narrow|Ubuntu+Mono:400,800,300,700,600);
+
+BODY {
+    color: #404040;
+    background-image: url('images/background.png');
+    background-attachment: fixed;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    margin: 0px auto 0px auto;
+    padding: 0px;
+}
+
+DIV.header {
+    position: absolute;
+    top: 0;
+    left: 128px;
+    width: 800px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #ffffff;
+    color: #3F3F3F;
+/*  width: 100%; */
+    height: 160px;
+    overflow: hidden;
+    position: -webkit-sticky;
+    position: sticky;
+    top: -87px;
+}
+
+.header IMG {
+    position: absolute;
+    left: -20px;
+    min-width: 105%;
+    max-width: 105%;
+    border-radius: 0 0 8px 8px;
+    -moz-border-radius: 0 0 8px 8px;
+    -webkit-border-radius: 0 0 8px 8px;
+}
+
+DIV.stretch {
+    position: absolute;
+    height: 1080px;
+    min-height: 1080px;
+    width: 100%;
+    top: 0px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #ffffff;
+    color: #3F3F3F;
+}
+
+TABLE {
+}
+
+TABLE.main {
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 15px;
+    height: 100%;
+    width: 100%;
+}
+
+TABLE.index {
+    width: 100%;
+}
+
+TABLE.parallel {
+    font-size: 12px;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 15px;
+    width: 100%;
+}
+
+TABLE.dist {
+    background-color: #888888;
+    border-width: 1px;
+    border-spacing: 1px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+TBODY {
+    height: 100%;
+}
+
+TD {
+    vertical-align: top;
+    height: 120px;
+}
+
+TD.default {
+    font-family: 'PT Sans Narrow', sans-serif;
+    vertical-align: top;
+    font-size: 16px;
+    line-height: 16px;
+    padding: 0px 15px 15px 15px;
+    height: 100%;
+}
+
+TABLE.dist TD {
+    text-align: center;
+    background-color: #EEEEEE;
+    height: auto;
+}
+
+TABLE.parallel TD {
+    height: auto;
+}
+
+TABLE TD.home {
+    background-color: #F4F4FF;
+    height: auto;
+}
+
+DIV.default {
+/*  overflow: auto; */
+    height: 100%;
+}
+
+DIV.table_fx {
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 5;
+    float: right;
+    border-width: 0px;
+}
+
+DIV.default A  {
+    color: #000F92;
+    font-size: 17px;
+/*  font-weight: lighter; */
+    text-decoration: none;
+    padding-left: 0px;
+}
+
+DIV.default A:visited {
+    color: #000F92
+}
+
+DIV.default A:hover {
+    color: #AF1F1F;
+}
+
+DIV.default H4 A {
+    color: #404040;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+DIV.default H4 A:visited {
+    color: #404040;
+}
+
+TR.menu {
+    vertical-align: top;
+}
+
+TD.menu {
+   font-family: sans-serif;
+   line-height: 15px;
+   width: 110px;
+}
+
+TD.menu DIV LI {
+    list-style-type: none;
+    list-style-image: none;
+}
+
+TD.menu DIV {
+    border-left: solid 1px #505FA2;
+    border-right: solid 2px #505FA2;
+    padding: 15px 5px 35px 0px;
+    margin-bottom: 20px;
+    text-align: right;
+    height: 225px;
+    width: 110px;
+}
+
+TD.menu DIV LI A
+{
+    color: #333333;
+    font-size: 13px;
+    font-variant: small-caps;
+    font-weight: bold;
+    text-decoration: none;
+    padding-left: 0px;
+    padding-top: 0px;
+}
+
+TD.menu DIV LI A:hover {
+    color: #AF1f1f;
+}
+
+H1.menu {
+    background-color: #BBCFF2;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 20px;
+    padding: 0px 4px 0px 0px;
+    margin: 2px;
+}
+
+H5.menu A {
+    font-size: 13px;
+}
+
+H6.menu {
+    color: blue;
+    line-height: 16px;
+    padding: 0px 4px 0px 0px;
+    margin: 2px;
+}
+
+H6.menu A {
+    font-size: 14px;
+}
+
+TD.menu A {
+    color: #404040;
+    text-decoration: none;
+}
+
+TD.legend {
+    font-size: 8px;
+    line-height: 8px;
+}
+
+TR.comment {
+   height: 100%;
+}
+
+TD.comment {
+    height: 100%;
+    padding-top: 20px;
+    color: #1F1FAF;
+    text-align: center;
+    vertical-align: top;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: lighter;
+    font-style: italic;
+    line-height: 20px;
+    letter-spacing: 0.7;
+}
+
+UL {
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+UL LI {
+    list-style-type: circle;
+    list-style-image: url('images/listimg.png');
+    margin-left: 10px;
+}
+
+UL LI.v23 {
+    background-image: url('images/vers2.3.png');
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: 32px 16px;
+    line-height: 17px;
+    margin-left: 10px;
+    width: 96.0%;
+}
+
+
+OL {
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+OL LI {
+    list-style-type: square;
+    list-style-image: url('images/listimgol.png');
+}
+
+DT {
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-color: #E4EDFF;
+    line-height: 18px;
+    margin-left: 15px;
+    width: 92.5%;
+}
+
+H5.v33 {
+    background-image: url('images/vers3.3.png');
+    background-size: 32px 16px;
+    background-position: right top;
+    background-repeat: no-repeat;
+}
+
+DT.v36 {
+    background-image: url('images/vers3.6.png');
+    background-size: 32px 16px;
+}
+
+DT.v35 {
+    background-image: url('images/vers3.5.png');
+    background-size: 32px 16px;
+}
+
+DT.v34 {
+    background-image: url('images/vers3.4.png');
+    background-size: 32px 16px;
+}
+
+DT.v33 {
+    background-image: url('images/vers3.3.png');
+    background-size: 32px 16px;
+}
+
+
+DT.v32 {
+    background-image: url('images/vers3.2.png');
+    background-size: 32px 16px;
+}
+
+DT.v31 {
+    background-image: url('images/vers3.1.png');
+    background-size: 32px 16px;
+}
+
+DT.v30 {
+    background-image: url('images/vers3.0.png');
+    background-size: 32px 16px;
+}
+
+DT.v26 {
+    background-image: url('images/vers2.6.png');
+    background-size: 32px 16px;
+}
+
+DT.v25 {
+    background-image: url('images/vers2.5.png');
+    background-size: 32px 16px;
+}
+
+DT.v23 {
+    background-image: url('images/vers2.3.png');
+    background-size: 32px 16px;
+}
+
+DT.v22 {
+    background-image: url('images/vers2.2.png');
+    background-size: 32px 16px;
+}
+
+DT.v21 {
+    background-image: url('images/vers2.1.png');
+    background-size: 32px 16px;
+}
+
+DT.v20 {
+    background-image: url('images/vers2.0.png');
+    background-size: 32px 16px;
+}
+
+DT.v10 {
+    background-image: url('images/vers1.0.png');
+    background-size: 32px 16px;
+}
+
+DD {
+    margin-left: 30px;
+    margin-bottom: 4px;
+}
+
+DD DL {
+    background-color: #F8FDFF;
+    width: 93%;
+}
+
+DD DT {
+    background-color: #F8FDFF;
+    border-bottom: solid 1px #C4CDEF;
+    width: 93%;
+}
+
+DD DT DIV {
+    float: left;
+    margin: 0;
+    width: 25px;
+    padding: 0px;
+    margin-right: 5px;
+    border-right: solid 1px #C4CDEF;
+}
+
+DD DIV {
+    float: right;
+    margin: 0;
+    width: auto;
+    padding: 0px;
+    padding-right: 5px;
+    margin-right: 35px;
+    border-right: solid 1px #C4CDEF;
+}
+
+DT DIV.type {
+    float: right;
+    width: 85px;
+    margin-right: 53px;
+    text-align: center;
+    background-color: #D0D8FF;
+    border-left: solid 2px #C4CDEF;
+    border-right: solid 2px #C4CDEF;
+}
+
+DIV.sub {
+    padding-left: 50px;
+}
+DIV.sub A {
+    padding-left: 15px;
+}
+
+.highlight {
+     color: #BF2020;
+}
+
+.vertical {
+    display: block;
+
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    transform: rotate(270deg);
+
+    /* also accepts left, right, top, bottom coordinates; not required, but a good idea for styling */
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+
+    /* Should be unset in IE9+ I think. */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+P {
+    margin: 5px 0px 5px 0px;
+    padding: 0;
+}
+
+PRE {
+    width: 98%;
+    color: #333333;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: monospace;
+    letter-spacing: -0.4px;
+    text-indent: 10px;
+    border-top: solid 2px #505FA2;
+    border-bottom: solid 1px #505FA2;
+    background-position: top right;
+    background-repeat: no-repeat;
+    padding: 5px 5px 5px 20px;
+    margin: 20px 10px 5px 0px;
+}
+
+PRE.define {
+    color: #992211;
+    background-image: url('images/vers1.0.png');
+    background-size: 44px 22px;
+}
+
+PRE.define.v30 {
+    background-image: url('images/vers3.0.png');
+    background-size: 44px 22px;
+}
+
+PRE.define.v20 {
+    background-image: url('images/vers2.0.png');
+    background-size: 44px 22px;
+}
+
+PRE.v30 {
+    background-image: url('images/vers3.0.png');
+    background-size: 44px 22px;
+}
+
+PRE.v23 {
+    background-image: url('images/vers2.3.png');
+    background-size: 44px 22px;
+}
+
+PRE.v20 {
+    background-image: url('images/vers2.0.png');
+    background-size: 44px 22px;
+}
+
+PRE.v10 {
+    background-image: url('images/vers1.0.png');
+    background-size: 44px 22px;
+}
+
+PRE EM {
+    color: #CC000C;
+}
+
+PRE.cpp {
+    color: #333333;
+    border-top: none;
+    border-bottom: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+PRE.cpp.v33 {
+    background-image: url('images/vers3.3.png');
+    background-size: 32px 16px;
+    background-position: right top;
+    background-repeat: no-repeat;
+}
+
+PRE.cpp A {
+    font-size: 11px;
+}
+
+PRE.shared.v30 {
+    background-image: url('images/vers3.0.png');
+    background-size: 32px 16px;
+    padding: 5px 5px 5px 20px;
+    margin: 5px 10px 5px 0px;
+}
+
+
+PRE.shared.v23 {
+    background-image: url('images/vers2.3.png');
+    background-size: 32px 16px;
+    padding: 5px 5px 5px 20px;
+    margin: 5px 10px 5px 0px;
+}
+
+
+PRE.shared.v22 {
+    background-image: url('images/vers2.2.png');
+    background-size: 32px 16px;
+    padding: 5px 5px 5px 20px;
+    margin: 5px 10px 5px 0px;
+}
+
+PRE.shared.v20 {
+    background-image: url('images/vers2.0.png');
+    background-size: 32px 16px;
+    padding: 5px 5px 5px 20px;
+    margin: 5px 10px 5px 0px;
+}
+
+PRE.shared.v10 {
+    background-image: url('images/vers1.0.png');
+    background-size: 32px 16px;
+    padding: 5px 5px 5px 20px;
+    margin: 5px 10px 5px 0px;
+} 
+
+DIV.define {
+    width: 85%;
+    color: #333333;
+    font-size: 11px;
+    font-weight: bolder;
+    font-style: oblique;
+    font-family: serif;
+    text-indent: 30px;
+    margin-bottom: 10px;
+    border-bottom: solid 1px #BB3311;
+}
+
+.xml {
+    padding: 0px;
+    margin: 5px -2px 5px -2px;
+}
+
+DIV.xml PRE {
+    color: #333333;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: monospace;
+    border-bottom: solid 1px #BB3311;
+    text-indent: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+DIV H2 {
+    font-size: 17px;
+    font-weight: lighter;
+    padding-top: 5px;
+    padding-left: 30px;
+    letter-spacing: 1.1;
+}
+
+H1 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+    font-weight: normal;
+    padding-top: 12px;
+    padding-left: 20px;
+}
+
+H2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 19px;
+    font-weight: normal;
+    padding-top: 5px;
+    padding-left: 25px;
+    letter-spacing: 1.1;
+}
+
+H3 {
+    font-size: 17px;
+    font-weight: lighter;
+    padding-top: 5px;
+    padding-left: 30px;
+    letter-spacing: 1.2;
+}
+
+H4 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: bolder;
+    margin-bottom: 6px;
+    padding-left: 35px;
+    letter-spacing: -0.2;
+}
+
+H5 {
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: underline;
+    font-size: 13px;
+    margin top: 4px;
+    margin-bottom: 8px;
+}
+
+H6 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter;
+    font-style: italic;
+    font-size: 14px;
+    margin-top: 8px;
+    margin-bottom: 12px;
+}
+
+SUP {
+    line-height: 0px;
+}
+
+UL {
+    margin: 0px;
+}
+
+DIV.vertical {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+TD.legenda {
+    vertical-align: middle;
+}
+
+TABLE.enum {
+   width: 100%;
+   border: 0px;
+   line-height: 98%;
+}
+
+TD.enum {
+    text-align: center;
+    vertical-align: middle;
+    background-color: #BBCFF2;
+    letter-spacing: -0.4;
+    font-size: 12px;
+    height: 10px;
+    width: 150px;
+    filter:alpha(opacity=40);
+    -khtml-opacity: 0.4;
+    -moz-opacity:0.4;
+    opacity: 0.4;
+}
+
+TD.enum_head {
+    font-family: 'Spectral';
+    background-color: #BBCFF2;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 15px;
+    height: 10px;
+    width: 150px;
+}
+
+TD.enum_legenda {
+    background-color: #BBCFF2;
+    text-align: left;
+    vertical-align: middle;
+    font-size: 12px;
+    height: 10px;
+    width: 150px;
+}
+
+TD.enum_legenda A {
+    font-family: 'Spectral';
+    font-size: 12px;
+}
+
+TD.enum_ok {
+    font-family: 'Spectral';
+    text-align: center;
+    vertical-align: middle;
+    background-color: #ABE2BF;
+    letter-spacing: -1px;
+    font-size: 12px;
+    height: 10px;
+    width: 150px;
+}
+
+TD.define {
+    width: 50%;
+}
+
+TD.define A {
+    color: #992211;
+}
+
+TD.define A:hover {
+    color: #FF1f1f;
+}
+
+TD.define A:visited {
+    color: #992211;
+}
+
+TD.define H4 A {
+    color: #404040;
+}
+
+THEAD TH {
+    height: 80px;
+}
+
+TFOOT TD {
+    height: 10px;
+    font-size: 10px;
+    letter-spacing: 1.1;
+    background-color: #f7f7f7;
+    text-align: right;
+    padding-right: 10px;
+    padding-top: 2px;
+    border-top: solid 1px #505FA2;
+}
+
+TFOOT TD.copyright {
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 9px;
+}
+

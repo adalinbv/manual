@@ -1,0 +1,83 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <H1 id="Driver">Class Emitter</H1>
+ <h6 class="menu">Header file: &lt;aax/aeonwave.hpp&gt;</h6>
+ <h6 class="menu">Namespace: aax</h6>
+ <p>&nbsp;<p>
+
+ The Emitter class encapsulates the <a href="aax_emitter.html">Emitter</a> functions.
+ <p>
+ <ul>
+  <li> In stereo playback mode an emitter is just one of the sound sources that will be mixed with the other emitters at the requested pitch and volume.</i>
+  <li> In 3d virtual-space sound emitters are the virtual representation of
+ sound sources. They can move around independently or relative to the sensor and
+ have position, orientation en velocity properties. The sound they produce is
+ defined in one or more attached audio buffers. 
+ </ul>
+ Filters and Effects can be applied to individual emitters to alter the way they
+ sound.
+
+ <h5>Constructors</h5>
+ <pre class="cpp">Emitter(<a href="aax_aaxmodetype.html">enum aaxEmitterMode</a> mode)</pre>
+ <pre class="cpp">Emitter(const aax::Emitter&amp; emitter)</pre>
+<!--
+ <h5>Setup</h5>
+ <pre class="cpp">bool set(<a href="aax_aaxsetuptype.html">enum aaxSetupType</a> type, unsigned int setup)</pre>
+ <pre class="cpp">unsigned int get(<a href="aax_aaxsetuptype.html">enum aaxSetupType</a> type)</pre>
+-->
+ <h5>State</h5>
+ <pre class="cpp">bool set(<a href="aax_aaxstate.html">enum aaxState</a> state)</pre>
+ <pre class="cpp"><a href="aax_aaxstate.html">enum aaxState</a> state()</pre>
+
+ <h5>Mode</h5>
+ <pre class="cpp">bool set(<a href="aax_aaxmodetype.html">enum aaxModeType</a> type, int mode)</pre>
+ <pre class="cpp">bool get(<a href="aax_aaxmodetype.html">enum aaxModeType</a> type)</pre>
+
+ <h5 class="menu"><a href="emitter_dsp.html?api=C++">Filters and Effects</a></h5>
+ <pre class="cpp">bool set(aax::dsp&amp; dsp)</pre>
+ <pre class="cpp">aax::dsp get(<a href="aax_aaxfiltertype.html">enum aaxFilterType</a> filter)</pre>
+ <pre class="cpp">aax::dsp get(<a href="aax_aaxeffecttype.html">enum aaxEffectType</a> effect)</pre>
+ <p>
+ <pre class="cpp v33">bool tie(<a href="emitter_dsp.html?api=C++#param">aax::Param&amp;</a> parameter, <a href="aax_aaxfiltertype.html">enum aaxFilterType</a> filter, int param)</pre>
+ <pre class="cpp v33">bool tie(<a href="emitter_dsp.html?api=C++#param">aax::Param&amp;</a> parameter, <a href="aax_aaxeffecttype.html">enum aaxEffectType</a> effect, int param)</pre>
+ <pre class="cpp v33">bool untie(<a href="emitter_dsp.html?api=C++#param">aax::Param&amp;</a> parameter)</pre>
+
+ <h5>Position, Orientation and Velocity</h5>
+ <pre class="cpp">bool matrix(aax::Matrix&amp; matrix)</pre>
+ <pre class="cpp">bool velocity(aax::Vector&amp; vector)</pre>
+ <pre class="cpp">bool get(aax::Matrix&amp; matrix)</pre>
+ <pre class="cpp">bool get(aax::Vector&amp; vector)</pre>
+
+ <h5>Buffer handling</h5>
+ <pre class="cpp">bool add(aax::Buffer&amp; buffer)</pre>
+ <pre class="cpp">aax::Buffer get(unsigned int pos, bool copy=false)</pre>
+ <pre class="cpp">bool remove_buffer()</pre>
+
+ <h5>Set Offset (Forward and Rewind)</h5>
+ <pre class="cpp">bool offset(unsigned long offset, <a href="aax_aaxtype.html">enum aaxType</a> type)</pre>
+ <pre class="cpp">bool offset(float offset)</pre>
+
+ <h5>Support</h5>
+ <pre class="cpp">unsigned long offset(<a href="aax_aaxtype.html">enum aaxType</a> type)</pre>
+ <pre class="cpp">float offset()</pre>
+
+ <h5>Operators</h5>
+ <pre class="cpp">friend void swap(aax::Emitter&amp; emitter1, aax::Emitter&amp; emitter2)</pre>
+ <pre class="cpp">aax::Emitter&amp; operator=(aax::Emitter emitter)</pre>
+
+ <!-- inherited from class Obj -->
+ <pre class="cpp">operator void*() const</pre>
+ <pre class="cpp">explicit operator bool()</pre>
+
+ <script>addFooter("Sound emitters are a virtual representation of sound sources. Filters and Effects can be applied to individual emitters.");
+ </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<HTML>
+<HEAD>
+  <LINK REL="STYLESHEET" TYPE="text/css" HREF="../adalin.css" TITLE="Style">
+</HEAD>
+
+<BODY class="main">
+
+ <center>
+  <table class="menu_right">
+   <thead><tr><th colspan="2"><div class="hr">&nbsp;</div></th></tr></thead>
+   <tfoot>
+    <tr>
+     <td colspan="2">(C) Copyright 2011 by Adalin B.V</td>
+    </tr>
+   </tfoot>
+   <tbody>
+    <tr class="frame">
+     <td class="frame">
+      <iframe class="center" frameborder="0" name="frame2"
+              src="home.html" scrolling="auto">
+      </iframe>
+     </td>
+     <td class="right">
+      <center class="menu">
+       <a class="img" href="../index.html?frame2=news.html"><img class="dia" src="../images/news.png" alt="news" title="news"></a><br>
+       <a class="img" href="../index.html?frame1=company.html"><img class="dia" src="../images/company.png" alt="company" title="company information"></a><br>
+       <a class="img" href="../index.html?frame1=products.html"><img class="dia" src="../images/download.png" alt="download" title="products"></a><br>
+       <a class="img" href="../index.html?frame2=links.html"><img class="dia" src="../images/links.png" alt="links" title="external links"></a><br>
+       <a class="img" href="index.html"><img class="dia" src="../images/documentation.png" alt="manual" title="documentation"></a><br>
+      </center>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </center>
+
+</BODY>
+</HTML>

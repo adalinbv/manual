@@ -1,0 +1,79 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <H1 id="Driver">Class Vector, Vector64</H1>
+ <h6 class="menu">Header file: &lt;aax/matrix.hpp&gt;</h6>
+ <h6 class="menu">Namespace: aax</h6>
+ <h6 class="menu">template &lt;typename T&gt;</h6>
+ <p>&nbsp;<p>
+
+ <pre class="cpp">typedef VecBase&lt;float&gt; Vector;</pre>
+ <pre class="cpp">typedef VecBase&lt;double&gt; Vector64;</pre>
+ <p>
+
+ <h5>Constructors</h5>
+ <pre class="cpp">VecBase()</pre>
+ <pre class="cpp">VecBase(const aaxVec3f&amp; vector)</pre>
+ <pre class="cpp">VecBase(const aaxVec3d&amp; vector)</pre>
+ <pre class="cpp">VecBase(const aaxVec4f&amp; vector)</pre>
+ <pre class="cpp">VecBase(const aaxVec4d&amp; vector)</pre>
+ <pre class="cpp">VecBase(T x, T y, T z)</pre>
+ <pre class="cpp">VecBase(T w, T x, T y, T z)</pre>
+ <pre class="cpp">VecBase(T value)</pre>
+
+ <h5>Support</h5>
+ <pre class="cpp">T normalize()</pre>
+ <pre class="cpp">T magnitude()</pre>
+ <pre class="cpp">T magnitude2()</pre>
+ <p>
+ <pre class="cpp">aax::VecBase normalized()</pre>
+ <p>
+ <pre class="cpp">T dot_product(const aax::VecBase&amp; vector2)</pre>
+ <pre class="cpp">aax::VecBase cross_product(const aax::VecBase&amp; vector2)</pre>
+
+ <h5>Operators</h5>
+ <pre class="cpp">aax::VecBase&amp; operator=(T value)</pre>
+ <pre class="cpp">aax::VecBase&amp; operator=(const aaxVec3f&amp; vector)</pre>
+ <pre class="cpp">aax::VecBase&amp; operator=(const aaxVec3d&amp; vector)</pre>
+ <pre class="cpp">aax::VecBase&amp; operator=(const aaxVec4f&amp; vector)</pre>
+ <pre class="cpp">aax::VecBase&amp; operator=(const aaxVec4d&amp; vector)</pre>
+ <pre class="cpp">aax::VecBase&amp; operator=(const aax::VecBase&amp; vector)</pre>
+ <p>
+ <pre class="cpp">aax::VecBase operator+(T value)</pre>
+ <pre class="cpp">aax::VecBase operator-(T value)</pre>
+ <pre class="cpp">aax::VecBase operator*(T value)</pre>
+ <pre class="cpp">aax::VecBase operator/(T value)</pre>
+ <p>
+ <pre class="cpp">aax::VecBase&amp; operator+=(T value)</pre>
+ <pre class="cpp">aax::VecBase&amp; operator-=(T value)</pre>
+ <pre class="cpp">aax::vecBase&amp; operator*=(T value)</pre>
+ <pre class="cpp">aax::VecBase&amp; operator/=(T value)</pre>
+ <p>
+ <p>
+ <pre class="cpp">aax::VecBase operator+(const aax::VecBase&amp; vector)</pre>
+ <pre class="cpp">aax::VecBase operator-(const aax::VecBase&amp; vector)</pre>
+ <pre class="cpp">aax::VecBase operator*(const aax::VecBase&amp; vector)</pre>
+ <pre class="cpp">aax::VecBase operator/(const aax::VecBase&amp; vector)</pre>
+ <p>
+ <pre class="cpp">aax::VecBase&amp; operator+=(const aax::VecBase&amp; vector)</pre>
+ <pre class="cpp">aax::VecBase&amp; operator-=(const aax::VecBase&amp; vector)</pre>
+ <pre class="cpp">aax::VecBase&amp; operator*=(const aax::VecBase&amp; vector)</pre>
+ <pre class="cpp">aax::VecBase&amp; operator/=(const aax::VecBase&amp; vector)</pre>
+ <p>
+ <pre class="cpp">aax::VecBase operator-()</pre>
+ <p>
+ <pre class="cpp">operator const T*() const</pre>
+ <pre class="cpp">operator T*()</pre>
+ <pre class="cpp">bool is_v4()</pre>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>
