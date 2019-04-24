@@ -14,6 +14,8 @@
    <p></p>
    The hard maximum pitch-limit is 2.0 and cannot be altered.
    <p></p>
+   Starting with AeonWave 3.6 (pitch-effect version 1.01) it is possible to define a starting pitch value and the amount of pitch-change per second to make the effect glide towards the value specified by AAX_PITCH automatically.
+   <p></p>
    The Pitch effect is supported by the Mixer, Emitters and Audio-Frames.
 
    <h5>Pitch Effect parameters</h5>
@@ -28,16 +30,23 @@
       <dt class="v20"><div>p1</div> AAX_MAX_PITCH</dt>
       <dd>Maximum pitch value, anything higher will be saturated.<br>
           Between 0.0 and 2.0, defaults to 2.0</dd>
-      <dt class="v20"><div>p2</div> unused</dt>
-      <dd></dd>
-      <dt class="v20"><div>p3</div> unused</dt>
-      <dd></dd>
+      <dt class="v20"><div>p2</div> AAX_PITCH_START</dt>
+      <dd> Starting value of the pitch-glide.<br>
+           The end value will be the value defined by AAX_PITCH.<br>
+           Between 0.0 and 2.0, defaults to 1.0</dd>
+      <dt class="v20"><div>p3</div> AAX_PITCH_RATE</dt>
+      <dd> Pitch-change per second. If set to 1.0 it will take 1 second to alter the pitch a value of 1.0<br>
+           The pitch will glide from AAX_PITCH_START to AAX_PITCH at AAX_PITCH_RATE.<br>
+           When AAX_PITCH is reached it will remain at that value.<br>
+           A positive value, defaults to 0.0 (disabled).</dd>
      </dl>
     </dd>
    </dl>
 
    <h5>Pitch Effect state options</h5>
-   The effect is always enabled.
+   The effect is always enabled.<br>
+   To enable pitch-gliding it is required to set the state to AAX_TRUE after setting the pitch-glide parameters.<br>
+   Adding AAX_ENVELOPE_FOLLOW to the state will make the pitch-glide logarithmic.
 
  <script>addFooter("The hard maximum pitch-limit is 2.0 and cannot be altered.");
  </script>

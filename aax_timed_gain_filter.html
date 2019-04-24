@@ -67,7 +67,8 @@
    </dl>
 
   <h5>Timed Gain Filter state options</h5>
-  Specify AAX_TRUE to enable the timed gain filter or AAX_FALSE to disable it.
+  Specify AAX_TRUE to enable the timed gain filter or AAX_FALSE to disable it.<br>
+  Starting with AeonWave version 3.6.0 adding AAX_ENVELOPE_FOLLOW to the state will make the gain-changes exponential.
   <p></p>
   As of AeonWave version 3.0.4 it is possible to make the envelope shape repeat
   a predefined number of times by setting state to AAX_REPEAT with the number of
@@ -75,10 +76,15 @@
   before stopping the playback. This can be useful for simulation a repeating
   hazard alarm sound, a ringing phone or a clock gong.
   <p></p>
-  A <a href="sounds/telephone.mp3" target="_blank">ringing telephone</a> or a <a href="sounds/alarm.mp3" target="_blank">hazard alarm</a> sound that repeats 5 times could for
+  Starting with AeonWave version 3.6.0 it is possible to specify AAX_RELEASE_FACTOR with a value to lengthen the time it takes to stop an emitter which has no infinite sustain period defined. The factor is multiplied by ten to have a one decimal accuracy. A factor of 1.2 therefore becomes (AAX_RELEASE_FACTOR+12).<br>
+  <p></p>
+  It is not possible to define both AAX_REPEAT and AAX_RELEASE_FACTOR. In such a case AAX_REPEAT takes precedence.
+  <p></p>
+  A <!-- <a href="sounds/telephone.mp3" target="_blank">ringing telephone</a> or a --> <a href="sounds/alarm.mp3" target="_blank">hazard alarm</a> sound that repeats 5 times could for
   instance be defined as follows using the AAXS file format:
   <table>
    <tr>
+<!--
     <td><pre>&lt;?xml version="1.0"?&gt;
  &lt;aeonwave&gt;
   &lt;sound name="Telephone" frequency="1250"&gt;
@@ -113,13 +119,12 @@
   &lt;/emitter&gt;
  &lt;/aeonwave&gt;
     </pre></td>
+-->
     <td><pre>&lt;?xml version="1.0"?&gt;
  &lt;aeonwave&gt;
   &lt;sound name="Alarm" frequency="440"&gt;
    &lt;waveform src="sine" pitch="0.935"/&gt;
-   &lt;waveform src="sawtooth"
-             processing="modulate"
-             pitch="0.5"/&gt;
+   &lt;waveform src="sawtooth" processing="modulate" pitch="0.5"/&gt;
   &lt;/sound&gt;
 
   &lt;emitter looping="true"&gt;
@@ -138,15 +143,8 @@
     &lt;/slot&gt;
    &lt;/filter&gt;
   &lt;/emitter&gt;
- &lt;/aeonwave&gt;
-
-
-
-
-
-
-
-    </pre></td>
+ &lt;/aeonwave&gt;</pre>
+    </td>
    </tr>
   </table>
 

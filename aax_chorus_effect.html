@@ -19,7 +19,7 @@
    <p></p>
    If the combined Offset parameter and Depth parameter exceeds 1.0 then the depth of the low frequency oscillator is automatically clamped. 
    <p></p>
-   Starting with AeonWave version 3.6 the code supports a frequency filter to be applied to the feedback signal before mixing it with the original.
+   Starting with AeonWave version 3.6 the code supports feedback and a frequency filter to be applied to the delayed signal before mixing it with the original. Feedback is used for adding flanging to the signal before mixing with the delayed signal.
    <p></p>
    The Chorus effect is supported by the Mixer, Emitters and Audio-Frames.
 
@@ -46,14 +46,16 @@
     </dd>
     <dd>
      <dl>Slot 1
-      <dt class="v36"><div>p0</div> AAX_CUTOFF_FREQUENCY_FB</dt>
-      <dd> Cut-off frequency for the feedback signal in Hz.<br>
+      <dt class="v36"><div>p0</div> AAX_DELAY_CUTOFF_FREQUENCY</dt>
+      <dd> Cut-off frequency for the delayed signal in Hz.<br>
            Between 20 Hz and 22050 Hz</dd>
-      <dt><div>p1</div></dt>
-      <dd>unused</dd>
-      <dt><div>p2</div></dt>
-      <dd>unused</dd>
-      <dt class="v36"><div>p3</div> AAX_RESONANCE_FB</dt>
+      <dt class="v36"><div>p1</div> AAX_DELAY_CUTOFF_FREQUENCY_HF</dt>
+      <dd class="v36">Higher cut-off frequency for the delayed signal in Hz.<br>
+           Between 20 Hz and 22050 Hz</dd>
+      <dt class="v36"><div>p2</div> AAX_FEEDBACK_GAIN</dt>
+      <dd>Gain of the feedback signal.<br>
+          Between 0.0 and 1.0</dd>
+      <dt class="v36"><div>p3</div> AAX_DELAY_RESONANCE</dt>
       <dd><a href="http://en.wikipedia.org/wiki/Q_factor" target="_blank">Resonance factor</a> of the frequency filter.<br>
           Between 0.1 en 100.0, defaults to 1.0</dd>
     </dl>
