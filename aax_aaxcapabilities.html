@@ -1,0 +1,33 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <h2>enum aaxCapabilities</h2>
+
+ Use the following bitmasks to return the information from the return value:
+ <dl>
+  <dt class="v36" id="AAX_CPU_CORES">AAX_CPU_CORES</dt>
+  <dd>The number of physical CPU cores. Increase by one to get the real number of cores.<br>The maximum number of reported CPU cores is 64.</dd>
+  <dt class="v36" id="AAX_64BIT">AAX_64BIT</dt>
+  <dd>Set to 0 on 32-bit systems and to 1 otherwise.</dd>
+  <dt class="v36" id="AAX_SIMD">AAX_SIMD</dt>
+  <dd>Set to 1 for 32-bit SIMD support</dd>
+  <dt class="v36" id="AAX_SIMD64">AAX_SIMD64</dt>
+  <dd>Set to 1 for 64-bit SIMD support</dd>
+ </dl>
+
+ The system capabilities information is intended for the developer to determine
+ a strategy for not overloading the system resources. For instance by limiting
+ the number of emitters or by omitting certain types of filters or effects on
+ system with a low number of resources.
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>
