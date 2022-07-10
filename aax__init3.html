@@ -1,0 +1,29 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+ <H2 id="debug">Debugging functions</H2>
+ <pre class="v10" id="aaxGetErrorNo">enum aaxErrorType aaxGetErrorNo()</pre>
+ Returns the number of the last error as an enumerated type <a href="aax_aaxerrortype.html">aaxErrorType</a> and clears the error state to AAX_ERROR_NONE.
+
+ <pre class="v10" id="aaxGetErrorString">const char* aaxGetErrorString(enum aaxErrorType error_no)</pre>
+ Returns error information about the specified error number as a string constant.
+
+ <pre class="v20" id="aaxIsValid">int aaxIsValid(const void* handle, enum aaxHandleType type)</pre>
+ Test whether a handle is still valid or not.<p>
+ <ul>
+  <li> The handle parameter is either a driver, emitter, buffer or audio-frame handle.
+  <li> The type parameter is an enumerated type <a href="aax_aaxhandletype.html">aaxHandleType</a> and specifies which handle type to test for.
+ </ul><p>
+  Return AAX_TRUE if the handle is valid or AAX_FALSE otherwise.
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

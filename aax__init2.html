@@ -8,22 +8,32 @@
 <body>
  <script>addHead();</script>
 
- <H2 id="debug">Debugging functions</H2>
- <pre class="v10" id="aaxGetErrorNo">enum aaxErrorType aaxGetErrorNo()</pre>
- Returns the number of the last error as an enumerated type <a href="aax_aaxerrortype.html">aaxErrorType</a> and clears the error state to AAX_ERROR_NONE.
+ <H2 id="filters">Filters & Effects</H2>
 
- <pre class="v10" id="aaxGetErrorString">const char* aaxGetErrorString(enum aaxErrorType error_no)</pre>
- Returns error information about the specified error number as a string constant.
-
- <pre class="v20" id="aaxIsValid">int aaxIsValid(const void* handle, enum aaxHandleType type)</pre>
- Test whether a handle is still valid or not.<p>
+ <pre  id="aaxMaxFilter">enum aaxFilterType aaxMaxFilter(void)</pre>
  <ul>
-  <li> The handle parameter is either a driver, emitter, buffer or audio-frame handle.
-  <li> The type parameter is an enumerated type <a href="aax_aaxhandletype.html">aaxHandleType</a> and specifies which handle type to test for.
- </ul><p>
-  Return AAX_TRUE if the handle is valid or AAX_FALSE otherwise.
+  <li> returns the maximum number of supported filter types.
+ </ul>
 
- <script>addFooter("");
+ <pre  id="aaxMaxEffec">enum aaxEffectTyp aaxMaxEffect(void</pre>
+ <ul>
+  <li> returns the maximum number of supported effect types.
+ </ul>
+
+ <pre  id="aaxIsFilterSupported">int aaxIsFilterSupported(aaxConfig config, const char *filter)</pre>
+  <pre  id="aaxIsEffectSupported">int aaxIsEffectSupported(aaxConfig config, const char *effect)</pre>
+ <ul>
+  <li> The config parameter is the handle as returned by aaxDriverOpen.
+  <li> The config parameter may be set to NULL, in which case the minimum
+       available configuration (AeonWave-Lite) is used.
+  <li> As of AeonWave version 2.6 filters and effects can have a version number appended to the string name.<br>
+       The filter or effect name string parameter may include the version number for this test, but it is not necessary.<br>
+       If the version number is specified exactly the function returns only AAX_TRUE if it matches exactly.<br>
+       If the version number is provided only partially then AAX_TRUE is returned if the available filter or effect version has the same major version.<br>
+       If no version information is provided to test for the function returns AAX_TRUE if the filter or effect is available in any version.
+  </ul>
+
+ <script>addFooter("Matching major version numbers makes sure all functions are supported in the expected way.");
  </script>
 </body>
 </html>

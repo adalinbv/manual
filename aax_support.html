@@ -22,21 +22,29 @@
     addFunction("Init", "", "GetMinorVersion");
     addFunction("Init", "", "GetPatchLevel");
     addFunction("Init", "", "GetVersionString");
+    addFunction("Init", "", "GetCopyrightString");
+    addFunction("Init", "", "PlaySoundLogo");
 
   addHeader("Support", "Library", "Generic");
     addFunction("Init", "", "Free");
-    addFunction("Init", "", "PlaySoundLogo");
+    addFunction("Init", "", "GetNoCores");
     addFunction("Init", "", "GetBitsPerSample");
     addFunction("Init", "", "GetBytesPerSample");
+    addFunction("Init", "", "GetTypeByName");
+    addFunction("Init", "", "GetWaveformTypeByName");
+    addFunction("Init", "", "GetDistanceModelByName");
+    addFunction("Init", "", "GetFrequencyFilterTypeByName");
 
   addHeader("Support", "Library", "Filters & Effects");
-    addFunction("Init", "", "IsFilterSupported");
-    addFunction("Init", "", "IsEffectSupported");
+    addFunction("Init2", "", "MaxFilter");
+    addFunction("Init2", "", "MaxEffec");
+    addFunction("Init2", "", "IsFilterSupported");
+    addFunction("Init2", "", "IsEffectSupported");
 
    addHeader("Support", "Library", "Debugging functions");
-      addFunction("Init2", "", "GetErrorNo");
-      addFunction("Init2", "", "GetErrorString");
-      addFunction("Init2", "", "IsValid");
+      addFunction("Init3", "", "GetErrorNo");
+      addFunction("Init3", "", "GetErrorString");
+      addFunction("Init3", "", "IsValid");
   </script>
   </td>
  </tr>

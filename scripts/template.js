@@ -33,7 +33,7 @@ function addHead()
   document.write(" <tfoot>");
   document.write("  <tr>");
   document.write("   <td class=\"copyright\">");
-  document.write("    (C) Copyright 2005-2019 by Adalin B.V.");
+  document.write("    (C) Copyright 2005-2022 by Adalin B.V.");
   document.write("   </td>");
   document.write("   <td class=\"footer\">");
   document.write("    AeonWave Audio eXtensions Library&nbsp;<br>");

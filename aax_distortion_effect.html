@@ -40,6 +40,8 @@
    As a result distortion ranges from hard-clipping Fuzz to Valve-like Overdrive by altering just a few parameters.
    <p></p>
    The effect is auto gain-adjusting which means there is no need to alter the signal-level to compensate the different settings.
+   <p></p>
+   AeonWave 3.7.2 (version 1.01 of the effect) adds support for a timed-transition of the effect strength.
 
    <p></p>
    The Distortion effect is supported by the Mixer, Emitters and Audio-Frames.
@@ -74,7 +76,8 @@
 
    <h5>Distortion Effect state options</h5>
    Specify AAX_TRUE or envelope-following to enable the distortion effect or AAX_FALSE to disable it.<br>
-   Or use one of the ENVELOPE_FOLLOW types to make distortion volume dependent.
+   Timed-transition is a one time action from full to no effect strength (or from no to full strength in inverted mode) which takes 1 second to complete.<br>
+   Envelope following calculates the current amplitude and sets the effect strength based on that with an update speed of 1 second.
    <ul>
    <li>AAX_ENVELOPE_FOLLOW will provide strong distortion for loud signal peaks and virtually no distortion for soft sections.
    <li> AAX_INVERSE_ENVELOPE_FOLLOW will provide strong distortion for soft sections and virtually no distortion for loud signal peaks.
@@ -85,7 +88,9 @@
       <h6>Valid types are:</h6>
       <dl>
         <dt class="v22"> AAX_CONSTANT_VALUE (or AAX_TRUE)
+        <dt class="v37"> AAX_TIMED_TRANSITION
         <dt class="v22"> AAX_ENVELOPE_FOLLOW
+        <dt class="v37"> AAX_INVERSE_TIMED_TRANSITION
         <dt class="v22"> AAX_INVERSE_ENVELOPE_FOLLOW
       </dl><br>
     </dd>

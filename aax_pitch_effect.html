@@ -30,12 +30,12 @@
       <dt class="v20"><div>p1</div> AAX_MAX_PITCH</dt>
       <dd>Maximum pitch value, anything higher will be saturated.<br>
           Between 0.0 and 2.0, defaults to 2.0</dd>
-      <dt class="v20"><div>p2</div> AAX_PITCH_START</dt>
+      <dt class="v36"><div>p2</div> AAX_PITCH_START</dt>
       <dd> Starting value of the pitch-glide.<br>
            The end value will be the value defined by AAX_PITCH.<br>
            Between 0.0 and 2.0, defaults to 1.0</dd>
-      <dt class="v20"><div>p3</div> AAX_PITCH_RATE</dt>
-      <dd> Pitch-change per second. If set to 1.0 it will take 1 second to alter the pitch a value of 1.0<br>
+      <dt class="v36"><div>p3</div> AAX_PITCH_RATE</dt>
+      <dd> Pitch-change per second. If set to 0.5 the glide will take half a second.<br>
            The pitch will glide from AAX_PITCH_START to AAX_PITCH at AAX_PITCH_RATE.<br>
            When AAX_PITCH is reached it will remain at that value.<br>
            A positive value, defaults to 0.0 (disabled).</dd>
@@ -45,7 +45,7 @@
 
    <h5>Pitch Effect state options</h5>
    The effect is always enabled.<br>
-   To enable pitch-gliding it is required to set the state to AAX_TRUE after setting the pitch-glide parameters.<br>
+   To enable pitch-gliding it is required to set the state to AAX_TRUE or AAX_TIMED_TRANSITION after setting the pitch-glide parameters.<br>
    Adding AAX_ENVELOPE_FOLLOW to the state will make the pitch-glide logarithmic.
 
  <script>addFooter("The hard maximum pitch-limit is 2.0 and cannot be altered.");

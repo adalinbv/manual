@@ -25,11 +25,15 @@
     <li> The ratio parameter specifies the mixing ratio of the new waveform and the existing data.<br>
          A value of 1.0 will overwrite existing data and a value of 0.0 will preserve existing data.<br>
          A value of 0.5 mixes the new waveform and existing data at an equal level.
-    <li> The ptype parameter is an enumerated type <a href="#ProcessingType">aaxProcessingType</a> and specifies how the newly generated waveform-type should act upon the current data in the buffer.
+    <li> Tue ptype parameter is an enumerated type <a href="#ProcessingType">aaxProcessingType</a> and specifies how the newly generated waveform-type should act upon the current data in the buffer.
     <li> It is possible to mix several waveform-types at once at an equal ratio by adding the types together.
    </ul><p>
    Return AAX_TRUE if successful, AAX_FALSE otherwise.<p>
    Reasons for failure are an incorrect or already destroyed buffer handle or an incorrect waveform-type or processing-type parameter .
+
+   <strong>Starting with AeonWave version 4.0 aaxBufferProcessWaveform is being replaced by aaxBufferReadFromStream<br>
+    and a <a href="http://adalin.com/manual/aaxs_file_format.html">.aaxs file</a>, or aaxBufferSetData with the .aaxs files content parsed as plain text, which is a much more<br>
+    versatile combination.</strong>
 
    <h5 id="WaveformType">Waveform Type parameter</h5>
    Combining two or more waveform-types with an equal mixing-ratio can be done by using a logical OR operation:<br>

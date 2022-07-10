@@ -14,6 +14,11 @@
    <p></p>
    The main purpose is being to simulate atmospheric anomalies for wireless communications. But the effect is useful for other purposes too.
    <p></p>
+   AeonWave 3.7.2 (version 1.01 of the effect) adds support for a timed-transition of the effect strength.
+   <p></p>
+   AeonWave 3.8.2 (version 1.02 of the effect) adds support for randomness.
+
+   <p></p>
    The RingModulator effect is supported by Emitters.
 
    <h5>RingModulator Effect parameters</h5>
@@ -39,7 +44,10 @@
    </dl>
 
   <h5>RingModulator Effect state options</h5>
-  Specify a waveform type to enable the dynamic effect or AAX_FALSE to disable it. 
+  Specify a waveform type to enable the dynamic effect or AAX_FALSE to disable it. <br>
+   Timed-transition is a one time action from a start value to an end
+value which takes (1/lfo-frequency) seconds to complete.<br>
+   Envelope following calculates the current amplitude and sets the value based on that with an update speed of (1/lfo-frequency) seconds. A low value for lfo-frequency therefore means it takes longer for the envelope following to reach the next value.
    <dl>
     <dt class="v34">AAX_RINGMODULATOR_EFFECT</dt>
     <dd>
@@ -50,11 +58,14 @@
         <dt class="v34"> AAX_SINE_WAVE
         <dt class="v34"> AAX_SQUARE_WAVE
         <dt class="v34"> AAX_SAWTOOTH_WAVE
+        <dt class="v38"> AAX_RANDOMNESS
+        <dt class="v37"> AAX_TIMED_TRANSITION
         <dt class="v34"> AAX_ENVELOPE_FOLLOW
         <dt class="v34"> AAX_INVERSE_TRIANGLE_WAVE
         <dt class="v34"> AAX_INVERSE_SINE_WAVE
         <dt class="v34"> AAX_INVERSE_SQUARE_WAVE
         <dt class="v34"> AAX_INVERSE_SAWTOOTH_WAVE
+        <dt class="v37"> AAX_INVERSE_TIMED_TRANSITION
         <dt class="v34"> AAX_INVERSE_ENVELOPE_FOLLOW
       </dl>
     </dd>

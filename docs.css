@@ -1,4 +1,62 @@
+/*
 @import url(http://fonts.googleapis.com/css?family=Open+Sans|Spectral|PT+Sans+Narrow|Ubuntu+Mono:400,800,300,700,600);
+*/
+
+/* open-sans-regular - latin_cyrillic */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/open-sans-v27-latin_cyrillic-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('/fonts/open-sans-v27-latin_cyrillic-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/open-sans-v27-latin_cyrillic-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/open-sans-v27-latin_cyrillic-regular.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/open-sans-v27-latin_cyrillic-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/open-sans-v27-latin_cyrillic-regular.svg#OpenSans') format('svg'); /* Legacy iOS */
+}
+
+/* spectral-regular - latin_cyrillic */
+@font-face {
+  font-family: 'Spectral';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/spectral-v11-latin_cyrillic-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('/fonts/spectral-v11-latin_cyrillic-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/spectral-v11-latin_cyrillic-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/spectral-v11-latin_cyrillic-regular.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/spectral-v11-latin_cyrillic-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/spectral-v11-latin_cyrillic-regular.svg#Spectral') format('svg'); /* Legacy iOS */
+}
+
+/* pt-sans-narrow-regular - latin_cyrillic */
+@font-face {
+  font-family: 'PT Sans Narrow';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/pt-sans-narrow-v16-latin_cyrillic-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('/fonts/pt-sans-narrow-v16-latin_cyrillic-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/pt-sans-narrow-v16-latin_cyrillic-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/pt-sans-narrow-v16-latin_cyrillic-regular.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/pt-sans-narrow-v16-latin_cyrillic-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/pt-sans-narrow-v16-latin_cyrillic-regular.svg#PTSansNarrow') format('svg'); /* Legacy iOS */
+}
+
+/* ubuntu-mono-regular - latin_cyrillic */
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/ubuntu-mono-v14-latin_cyrillic-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('/fonts/ubuntu-mono-v14-latin_cyrillic-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/ubuntu-mono-v14-latin_cyrillic-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/ubuntu-mono-v14-latin_cyrillic-regular.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/ubuntu-mono-v14-latin_cyrillic-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/ubuntu-mono-v14-latin_cyrillic-regular.svg#UbuntuMono') format('svg'); /* Legacy iOS */
+}
 
 BODY {
     color: #404040;
@@ -292,6 +350,11 @@ H5.v33 {
     background-size: 32px 16px;
     background-position: right top;
     background-repeat: no-repeat;
+}
+
+DT.v38 {
+    background-image: url('images/vers3.8.png');
+    background-size: 32px 16px;
 }
 
 DT.v37 {
@@ -764,4 +827,3 @@ TFOOT TD.copyright {
     font-family: 'PT Sans Narrow', sans-serif;
     font-size: 9px;
 }
-

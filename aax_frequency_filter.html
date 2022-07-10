@@ -16,13 +16,24 @@
    <p></p>
    The Envelope Following mode can be used for <a href="https://en.wikipedia.org/wiki/Auto-wah" target="_blank">Auto-Wah</a> and can also be used in the Inverted mode.
    <p></p>
+   The Timed Transition mode is a one time operation which moves from a start value to the end value in the time specified by the sweep rate (1/rate seconds). Once the end value is reached it will stay at that value.
+   <p></p>
    If the value of the HF Cutoff Frequency parameter is below the value of the Cutoff Frequency parameter then both settings will be swapped.
+   <p></p>
+   Filter type selection and filter order selection are available for AeonWave 2.6 (filter version 1.1 ).
+   <p></p>
+   AeonWave 3.7.2 (version 1.11 of the filter) adds support for a timed-transition of the filter frequency.
+   <p></p>
+   AeonWave 3.8.0 (version 1.12 of the effect) adds support for logarithmic sliding.
+   <p></p>
+   AeonWave 3.8.2 (version 1.13 of the effect) adds support for randomness.
+
    <p></p>
    The Frequency filter is supported by the Scenery, Emitters and Audio-Frames.
 
    <h5>Frequency Filter parameters</h5>
    The filter uses one or two filter slots.<br>
-   Slot-1 is only used when the state is set to a waveform type or to envelope-following.
+   Slot-1 is only used when the state is set to a waveform type, to timed-transition or to envelope-following.
    <dl>
     <dt class="v20" id="AAX_FREQUENCY_FILTER">AAX_FREQUENCY_FILTER <div class="type">STEREO</div></dt>
     <dd>
@@ -48,7 +59,7 @@
       <dd>unused</dd>
       <dt class="v22"><div>p3</div> AAX_SWEEP_RATE</dt>
       <dd>Frequency of the low-frequency oscillator.<br>
-          Response rate in Hertz (1/seconds) when using Envelope Following mode.<br>
+          Response rate in Hertz (1/seconds) when using Timed Transition or Envelope Following mode.<br>
           Between 0.01 and 50 Hz.<dt>
      </dl>
     </dd>
@@ -61,7 +72,10 @@
    <p></p>
    Filter type selection and filter order selection are available for AAX_frequency_filter version 1.1 or higher only.<br>
    The filter type and filter order can be combined by using the bitwise OR operation.<br>
-    The default for AAX_TRUE is (AAX_2ND_ORDER|AAX_BUTTERWORTH)
+    The default for AAX_TRUE is (AAX_2ND_ORDER|AAX_BUTTERWORTH)<br>
+    <p></p>
+    <a href="aax_aaxfilterstate.html#frequency">Filter state information</a> explains all state options.
+<!--
    <dl>
     <dt class="v20" id="AAX_FREQUENCY_FILTER">AAX_FREQUENCY_FILTER</dt>
     <dd>
@@ -85,16 +99,19 @@
         <dt class="v20"> AAX_SINE_WAVE
         <dt class="v20"> AAX_SQUARE_WAVE
         <dt class="v20"> AAX_SAWTOOTH_WAVE
+        <dt class="v38"> AAX_RANDOMNESS
+        <dt class="v37"> AAX_TIMED_TRANSITION
         <dt class="v22"> AAX_ENVELOPE_FOLLOW
         <dt class="v22"> AAX_INVERSE_TRIANGLE_WAVE
         <dt class="v22"> AAX_INVERSE_SINE_WAVE
         <dt class="v22"> AAX_INVERSE_SQUARE_WAVE
         <dt class="v22"> AAX_INVERSE_SAWTOOTH_WAVE
+        <dt class="v37"> AAX_INVERSE_TIMED_TRANSITION
         <dt class="v22"> AAX_INVERSE_ENVELOPE_FOLLOW
       </dl><br>
     </dd>
    </dl>
-
+-->
  <script>addFooter("A Frequency Filter enhances or suppresses frequencies above or below a cutoff frequency.");
  </script>
 </body>

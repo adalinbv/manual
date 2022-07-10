@@ -10,13 +10,18 @@
 
    <h2>BitCrusher Filter</h2>
 
-   The BitCrusher filter can be used to simulate communications line degradation. A <a href="https://en.wikipedia.org/wiki/Bitcrusher" target="_bank">BitCrusher</a> is a lo-fi (low fidelity) digital audio effect, which produces a distortion by the reduction of the resolution or bandwidth of digital audio data.
+   The BitCrusher filter can be used to simulate communications line degradation. A <a href="https://en.wikipedia.org/wiki/Bitcrusher" target="_bank">BitCrusher</a> is a lo-fi (low fidelity) digital audio filter, which produces a distortion by the reduction of the resolution or bandwidth of digital audio data.
    <p></p>
    AeonWave only implements resolution-reduction using this filter. But since the frequency filter is applied before the bitcrusher filter it is easy to add bandwidth too.
    <p></p>
    AeonWave does however add the option to mix with a noise signal. And since the filter is applied after the frequency filter the noise is unaffected by any frequency filter settings.
    <p></p>
    If the combined Offset parameter and Depth parameter exceeds 1.0 then the depth of the low frequency oscillator is automatically clamped.
+   <p></p>
+   AeonWave 3.7.2 (version 1.01 of the filter) adds support for a timed-transition of the filter strength.
+   <p></p>
+   AeonWave 3.8.2 (version 1.02 of the effect) adds support for randomness.
+
    <p></p>
    The BitCrusher filter is supported by Emitters, Audio-Frames and the Mixer.
 
@@ -44,21 +49,29 @@
    </dl>
 
    <h5>BitCrusher Filter state options</h5>
-   Specify a waveform type or envelope-following to enable the dynamic filter or AAX_FALSE to disable it.
+   Specify a waveform type or envelope-following to enable the dynamic filter or AAX_FALSE to disable it.<br>
+   Timed-transition is a one time action from a start value to an end
+value which takes (1/lfo-frequency) seconds to complete.<br>
+   Envelope following calculates the current amplitude and sets the value based on that with an update speed of (1/lfo-frequency) seconds. A low value for lfo-frequency therefore means it takes longer for the envelope following to reach the next value.
    <dl>
     <dt class="v32" id="AAX_BITCRISHER_FILTER">AAX_BITCRISHER_FILTER</dt>
     <dd>
       <h6>Valid waveform types are:</h6>
       <dl>
-        <dt> AAX_CONSTANT_VALUE (or AAX_TRUE)
-        <dt> AAX_TRIANGLE_WAVE
-        <dt> AAX_SINE_WAVE
-        <dt> AAX_SQUARE_WAVE
-        <dt> AAX_SAWTOOTH_WAVE
-        <dt> AAX_INVERSE_TRIANGLE_WAVE
-        <dt> AAX_INVERSE_SINE_WAVE
-        <dt> AAX_INVERSE_SQUARE_WAVE
-        <dt> AAX_INVERSE_SAWTOOTH_WAVE
+        <dt class="v32"> AAX_CONSTANT_VALUE (or AAX_TRUE)
+        <dt class="v32"> AAX_TRIANGLE_WAVE
+        <dt class="v32"> AAX_SINE_WAVE
+        <dt class="v32"> AAX_SQUARE_WAVE
+        <dt class="v32"> AAX_SAWTOOTH_WAVE
+        <dt class="v38"> AAX_RANDOMNESS
+        <dt class="v37"> AAX_TIMED_TRANSITION
+        <dt class="v37"> AAX_ENVELOPE_FOLLOW
+        <dt class="v32"> AAX_INVERSE_TRIANGLE_WAVE
+        <dt class="v32"> AAX_INVERSE_SINE_WAVE
+        <dt class="v32"> AAX_INVERSE_SQUARE_WAVE
+        <dt class="v32"> AAX_INVERSE_SAWTOOTH_WAVE
+        <dt class="v37"> AAX_INVERSE_TIMED_TRANSITION
+        <dt class="v37"> AAX_INVERSE_ENVELOPE_FOLLOW
       </dl><br>
     </dd>
    </dl>

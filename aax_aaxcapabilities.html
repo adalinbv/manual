@@ -20,25 +20,20 @@
   <dd>Set to 1 for 32-bit SIMD support</dd>
   <dt class="v36" id="AAX_SIMD64">AAX_SIMD64</dt>
   <dd>Set to 1 for 64-bit SIMD support</dd>
-  <dt class="v37" id="AAX_RENDER_SYNTHESIZER">AAX_RENDER_SYNTHESIZER</dt>
-  <dd>Set to 1 when 80's FM Synthesizer style mode is set for AAXS encoded instruments.</dd>
-  <dt class="v37" id="AAX_RENDER_ARCADE">AAX_RENDER_ARCADE</dt>
-  <dd>Set to 1 when 70's Arcade Game Console style mode is set for AAXS encoded instruments.</dd>
+  <dt class="v37" id="AAX_RENDER_MODE">AAX_RENDER_MODE</dt> 
+  <dd>The render mode for AAXS encoded instruments:
+    <ul>
+    <li>AAX_RENDER_NORMAL: The default intricate rendering mode.</li>
+    <li>AAX_RENDER_SYNTHESIZER: An 80's FM Synthesizer style mode.</li>
+    <li>AAX_RENDER_ARCADE: A 70's Arcade Game Console style mode.</li>
+    </ul>
  </dl>
- <p>
+
  The system capabilities information is intended for the developer to determine
  a strategy for not overloading the system resources. For instance by limiting
  the number of emitters or by omitting certain types of filters or effects on
  system with a low number of resources.
- </p>
- <p>
- It is possible to mask the RENDERING mode by performing a logical AND
- operation with AAX_RENDER_MODE on the return value.
- </p>
- <p>e.g.</p>
- <div class="xml"><pre>
-  if (value &amp; AAX_RENDER_MODE == AAX_RENDER_SYNTHESIZER) {}
- </pre></div>
+
  <script>addFooter("");
  </script>
 </body>

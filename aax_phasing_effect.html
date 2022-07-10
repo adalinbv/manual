@@ -13,13 +13,15 @@
    The <a href="https://en.wikipedia.org/wiki/Phaser_%28effect%29" target="_blanK">Phasing effect</a> adds a slightly delayed copy of the original signal to the undelayed signal.<br>
    This causes natural frequency filtering with a series of peaks and troughs which alters the <a href="https://en.wikipedia.org/wiki/Timbre" target="_blank">Timbre</a> of the sound.
    <p></p>
-   Only one delay effect can be used at an object (mixer, emitter, audio-frame) at any given time: either Phasing, Chorus or Flanging.
+   Only one delay effect can be used at an object (mixer, emitter, audio-frame) at any given time: either Phasing, Chorus, Flanging or Delay.
    <p></p>
    In addition to following a continuous Low Frequency Oscillator level for effect strength it is also possible to alter the strength of the effect by following the level of the input signal. This makes it possible to have a strong effect for high input signal levels and no effect for low input levels or vice versa.
    <p></p>
    If the combined Offset parameter and Depth parameter exceeds 1.0 then the depth of the low frequency oscillator is automatically clamped.
    <p></p>
-   Starting with AeonWave version 3.6 the code supports a frequency filter to be applied to the feedback signal before mixing it with the original.
+   AeonWave 3.7.2 (version 1.01 of the effect) adds support for a timed-transition of the effect strength.
+   <p></p>
+   AeonWave 3.8.2 (version 1.02 of the effect) adds support for randomness.
    <p></p>
    The Phasing effect is supported by the Mixer, Emitters and Audio-Frames.
 
@@ -41,26 +43,31 @@
           set to 0.0 for a constant offset.</dd>
       <dt class="v20"><div>p3</div> AAX_LFO_OFFSET</dt>
       <dd>Offset position of the low-frequency oscillator.<br>
-          Between 0.0 and 1.0</dd>
+          Between 0.0 (50 microseconds) and 1.0 (10 milliseconds)</dd>
      </dl>
     </dd>
     <dd>
      <dl>Slot 1
-      <dt class="v36"><div>p0</div> AAX_CUTOFF_FREQUENCY_FB</dt>
-      <dd> Cut-off frequency for the feedback signal in Hz.<br>
+      <dt class="v36"><div>p0</div> AAX_DELAY_CUTOFF_FREQUENCY</dt>
+      <dd> Cut-off frequency for the delayed signal in Hz.<br>
            Between 20 Hz and 22050 Hz</dd>
-      <dt><div>p1</div></dt>
-      <dd>unused</dd>
-      <dt><div>p2</div></dt>
-      <dd>unused</dd>
-      <dt class="v36"><div>p3</div> AAX_RESONANCE_FB</dt>
+      <dt class="v36"><div>p1</div> AAX_DELAY_CUTOFF_FREQUENCY_HF</dt>
+      <dd class="v36">Higher cut-off frequency for the delayed signal in Hz.<br>
+           Between 20 Hz and 22050 Hz</dd>
+      <dt class="v36"><div>p2</div> AAX_FEEDBACK_GAIN</dt>
+      <dd>Gain of the feedback signal.<br>
+          Between 0.0 and 1.0</dd>
+      <dt class="v36"><div>p3</div> AAX_DELAY_RESONANCE</dt>
       <dd><a href="http://en.wikipedia.org/wiki/Q_factor" target="_blank">Resonance factor</a> of the frequency filter.<br>
           Between 0.1 en 100.0, defaults to 1.0</dd>
     </dl>
    </dd>
 
    <h5>Phasing Effect state options</h5>
-   Specify a waveform type or envelope-following to enable the phasing effect or AAX_FALSE to disable it.
+   Specify a waveform type or envelope-following to enable the phasing effect or AAX_FALSE to disable it.<br>
+   Timed-transition is a one time action from a start value to an end
+value which takes (1/lfo-frequency) seconds to complete.<br>
+   Envelope following calculates the current amplitude and sets the value based on that with an update speed of (1/lfo-frequency) seconds. A low value for lfo-frequency therefore means it takes longer for the envelope following to reach the next value.
    <dl>
     <dt class="v20">AAX_PHASING_EFFECT</dt>
     <dd>
@@ -71,11 +78,14 @@
         <dt class="v20"> AAX_SINE_WAVE
         <dt class="v20"> AAX_SQUARE_WAVE
         <dt class="v20"> AAX_SAWTOOTH_WAVE
+        <dt class="v38"> AAX_RANDOMNESS
+        <dt class="v37"> AAX_TIMED_TRANSITION
         <dt class="v22"> AAX_ENVELOPE_FOLLOW
         <dt class="v22"> AAX_INVERSE_TRIANGLE_WAVE
         <dt class="v22"> AAX_INVERSE_SINE_WAVE
         <dt class="v22"> AAX_INVERSE_SQUARE_WAVE
         <dt class="v22"> AAX_INVERSE_SAWTOOTH_WAVE
+        <dt class="v37"> AAX_INVERSE_TIMED_TRANSITION
         <dt class="v22"> AAX_INVERSE_ENVELOPE_FOLLOW
       </dl><br>
     </dd>

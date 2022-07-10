@@ -12,13 +12,16 @@
 
  Filters and effects are applied in the following order:<br>
   <ol>
+  <li> Occlusion</li>
   <li> Pitch related effects</li>
-  <li> Frequency filter</li>
   <li> BitCrusher filter</li>
+  <li> Modulator effect</li>
+  <li> Frequency filter</li>
   <li> Distortion</li>
   <li> Delay effects (phasing/chorus/flanging)</li>
+  <li> 1st order reverb</li>
   <li> Gain related filters</li>
-  <li> Equalizer/Reverb</li>
+  <li> Equalizer/2nd order Reverb</li>
   </ol>
 
  <table class="Index">
@@ -29,7 +32,7 @@
     addFEFunction("Timed", "Gain", "Filter");
     addFEFunction("Dynamic", "Gain", "Filter");
     addFEFunction("Frequency", "Filter");
-    addFEFunction("BitCrisher", "Filter");
+    addFEFunction("BitCrusher", "Filter");
     addFEFunction("Graphic", "Equalizer");
     addFEFunction("Equalizer");
     addFEFunction("Compressor");
