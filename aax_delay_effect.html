@@ -23,6 +23,7 @@
    The effect uses only one effect slot.
    <dl>
     <dt class="v39" id="AAX_DELAY_EFFECT">AAX_DELAY_EFFECT<div class="type">STEREO</div></dt>
+<!--
     <dd>
      <dl>
       <dt class="v39"><div>p0</div> AAX_DELAY_GAIN</dt>
@@ -37,6 +38,40 @@
           Between 0.0 (60 milliseconds) and 1.0 (200 milliseconds)</dd>
      </dl>
     </dd>
+-->
+    <dd>
+     <dl>Slot 0
+      <dt class="v39"><div>p0</div> AAX_DELAY_GAIN</dt>
+      <dd>Gain factor for the delayed signal. <div>AAX_LINEAR, AAX_LOGARITHMIC</div><br>
+          Between 0.0 and 1.0</dd>
+      <dt class="v39"><div>p1</div> AAX_LFO_FREQUENCY</dt>
+      <dd>Frequency of the low-frequency oscillator.<br>
+          Between 0.01 and 10 Hz.</dd>
+      <dt class="v39"><div>p2</div> AAX_LFO_DEPTH</dt>
+      <dd>Depth of the low-frequency oscillator.<br>
+          Between 0.0 and 1.0,
+          set to 0.0 for a constant offset.</dd>
+      <dt class="v39"><div>p3</div> AAX_LFO_OFFSET</dt>
+      <dd>Offset position of the low-frequency oscillator.<br>
+          Between 0.0 (10 milliseconds) and 1.0 (60 milliseconds)</dd>
+     </dl>
+    </dd>
+    <dd>
+     <dl>Slot 1
+      <dt class="v39"><div>p0</div> AAX_DELAY_CUTOFF_FREQUENCY</dt>
+      <dd> Cut-off frequency for the delayed signal in Hz.<br>
+           Between 20 Hz and 22050 Hz</dd>
+      <dt class="v39"><div>p1</div> AAX_DELAY_CUTOFF_FREQUENCY_HF</dt>
+      <dd class="v39">Higher cut-off frequency for the delayed signal in Hz.<br>
+           Between 20 Hz and 22050 Hz</dd>
+      <dt class="v39"><div>p2</div> AAX_FEEDBACK_GAIN</dt>
+      <dd>Gain of the feedback signal.<br>
+          Between 0.0 and 1.0</dd>
+      <dt class="v39"><div>p3</div> AAX_DELAY_RESONANCE</dt>
+      <dd><a href="http://en.wikipedia.org/wiki/Q_factor" target="_blank">Resonance factor</a> of the frequency filter.<br>
+          Between 0.1 en 100.0, defaults to 1.0</dd>
+    </dl>
+   </dd>
    </dl>
 
    <h5>Delay Effect state options</h5>
