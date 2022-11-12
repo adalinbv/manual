@@ -1,0 +1,71 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <h2>Dynamic Layer Filter</h2>
+
+   The Dynamic Layer filter dynamically mixes two sound layers from an AAXS file.
+   <p></p>
+   If the combined Offset parameter and Depth parameter exceeds 1.0 then the depth of the low frequency oscillator is automatically clamped.
+   <p></p>
+   The Dynamic Layer filter is supported by Emitters.
+
+   <h5>Dynamic Layer Filter parameters</h5>
+   The filter uses only one filter slot.
+   <dl>
+    <dt class="v39">AAX_DYNAMIC_LAYER_FILTER<div class="type">MONO</div></dt>
+    <dd>
+     <dl>
+      <dt class="v39"><div>p0</div> AAX_INITIAL_DELAY </dt>
+      <dd>Delay before the filter kicks in.<br>
+          Between 0.0 and 10.0 seconds.</dd>
+      <dt class="v39"><div>p1</div> AAX_LFO_FREQUENCY</dt>
+      <dd>Frequency of the low-frequency oscillator for mixing.<br>
+          Response rate in Hertz (1/seconds) when using Envelope Following mode.<br>
+          Between 0.01 and 50 Hz.</dd>
+      <dt class="v39"><div>p2</div> AAX_LFO_DEPTH</dt>
+      <dd>Depth range of the low-frequency oscillator.<br>
+          Between 0.0 and 1.0.</dd>
+      <dt class="v39"><div>p3</div> AAX_LFO_OFFSET</dt>
+      <dd>Minimum offset value of the low-frequency oscillator.<br>
+          Between 0.0 and 1.0</dd>
+     </dl>
+    </dd>
+   </dl>
+
+   <h5>Dynamic Layer Filter state options</h5>
+   Specify a waveform type or envelope-following to enable the dynamic filter or AAX_FALSE to disable it.
+   <dl>
+    <dt class="v39" id="AAX_DYNAMIC_LAYER_FILTER">AAX_DYNAMIC_LAYER_FILTER</dt>
+    <dd>
+      <h6>Valid waveform types are:</h6>
+      <dl>
+        <dt class="v39"> AAX_CONSTANT_VALUE (or AAX_TRUE)
+        <dt class="v39"> AAX_TRIANGLE_WAVE
+        <dt class="v39"> AAX_SINE_WAVE
+        <dt class="v39"> AAX_SQUARE_WAVE
+        <dt class="v39"> AAX_SAWTOOTH_WAVE
+        <dt class="v39"> AAX_ENVELOPE_FOLLOW
+        <dt class="v39"> AAX_INVERSE_TRIANGLE_WAVE
+        <dt class="v39"> AAX_INVERSE_SINE_WAVE
+        <dt class="v39"> AAX_INVERSE_SQUARE_WAVE
+        <dt class="v39"> AAX_INVERSE_SAWTOOTH_WAVE
+        <dt class="v39"> AAX_INVERSE_ENVELOPE_FOLLOW
+      </dl><br>
+      All waveforms may be combined with AAX_ENVELOPE_FOLLOW_LOG or
+      AAX_INVERSE_ENVELOPE_FOLLOW_LOG to create exponential behaviour, e.g.
+      AAX_ENVELOPE_FOLLOW|AAX_ENVELOPE_FOLLOW_LOG
+    </dd>
+   </dl>
+
+
+ <script>addFooter("The Dynamic Layer filter dynamically mixes two sound layers fron an AAXS file.");
+ </script>
+</body>
+</html>

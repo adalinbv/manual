@@ -32,6 +32,8 @@
     </dd>
     <dt class="v20">AAX_DYNAMIC_GAIN_FILTER</dt>
     <dt class="v32">AAX_BITCRISHER_FILTER</dt>
+    <dt class="v20">AAX_FREQUENCY_FILTER</dt>
+    
     <dd>
       A waveform type (or AAX_TRUE which equals to AAX_CONSTANT_VALUE) to enable the dynamic filter or AAX_FALSE to disable it.<br>
       Randomness is low-frequency noise with a cut-off frequency around the lfo-frequency value.<br>
@@ -54,35 +56,9 @@
         <dt class="v37"> AAX_INVERSE_TIMED_TRANSITION
         <dt class="v22"> AAX_INVERSE_ENVELOPE_FOLLOW
       </dl><br>
-    </dd>
-    <dt class="v20" id="AAX_DISTANCE_FILTER">AAX_DISTANCE_FILTER</dt>
-    <dd>
-     <br><i>Possible state parameter values:</i>
-     <dl>
-      <dt class="v20">AAX_DISTANCE_MODEL_NONE</dt>
-      <dd>No distance attenuation at all, attenuation is up to the developer.<br>
-          The emitter will sound equally loud at any distance.</dd>
-      <dt class="v20">AAX_EXPONENTIAL_DISTANCE</dt>
-      <dd>Natural exponential distance attenuation without distance delay.</dd>
-      <dt class="v34">AAX_ISO9613_DISTANCE</dt>
-      <dd>ISO9613-1 based distance attenuation without distance delay.</dd>
-      <dt class="v20"> AAX_EXPONENTIAL_DISTANCE_DELAY</dt>
-      <dd>Natural exponential distance attenuation including distance delay.</dd>
-       <dt class="v34">AAX_ISO9613_DISTANCE_DELAY</dt>
-      <dd>ISO9613-1 based distance attenuation including distance delay.</dd>
-      <br>
-      <dt class="v10">AAX_AL_INVERSE_DISTANCE</dt>
-      <dd>Support for OpenAL mode AL_INVERSE_DISTANCE</dd>
-      <dt class="v10">AAX_AL_INVERSE_DISTANCE_CLAMPED</dt>
-      <dd>Support for OpenAL mode AL_INVERSE_DISTANCE_CLAMPED</dd>
-      <dt class="v10">AAX_AL_LINEAR_DISTANCE</dt>
-      <dd>Support for OpenAL mode AL_LINEAR_DISTANCE</dd>
-      <dt class="v10">AAX_AL_LINEAR_DISTANCE_CLAMPED</dt>
-      <dd>Support for OpenAL mode AL_LINEAR_DISTANCE_CLAMPED</dd>
-      <dt class="v10">AAX_AL_EXPONENT_DISTANCE</dt>
-      <dd>Support for OpenAL mode AL_EXPONENT_DISTANCE</dd>
-      <dt class="v10">AAX_AL_EXPONENT_DISTANCE_CLAMPED</dt>
-      <dd>Support for OpenAL mode AL_EXPONENT_DISTANCE_CLAMPED</dd>
+      All waveforms may be combined with AAX_ENVELOPE_FOLLOW_LOG or
+      AAX_INVERSE_ENVELOPE_FOLLOW_LOG to create exponential behaviour, e.g.
+      AAX_ENVELOPE_FOLLOW|AAX_ENVELOPE_FOLLOW_LOG
     </dd>
    </dl>
    

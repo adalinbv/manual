@@ -69,7 +69,7 @@
    Specify a waveform type or envelope-following to enable the chorus effect or AAX_FALSE to disable it.<br>
    Timed-transition is a one time action from a start value to an end
 value which takes (1/lfo-frequency) seconds to complete.<br>
-   Envelope following calculates the current amplitude and sets the value based on that with an update speed of (1/lfo-frequency) seconds. A low value for lfo-frequency therefore means it takes longer for the envelope following to reach the next value.
+   Envelope following calculates the current amplitude and sets the value based on that with an update speed of (1/lfo-frequency) seconds. A low value for lfo-frequency therefore means it takes longer for the envelope following to reach the next value.<br>
    <dl>
     <dt class="v20">AAX_CHORUS_EFFECT</dt>
     <dd>
@@ -90,6 +90,9 @@ value which takes (1/lfo-frequency) seconds to complete.<br>
         <dt class="v37"> AAX_INVERSE_TIMED_TRANSITION
         <dt class="v22"> AAX_INVERSE_ENVELOPE_FOLLOW
       </dl><br>
+      All waveforms may be combined with AAX_ENVELOPE_FOLLOW_LOG or 
+      AAX_INVERSE_ENVELOPE_FOLLOW_LOG to create exponential behaviour, e.g.
+      AAX_ENVELOPE_FOLLOW|AAX_ENVELOPE_FOLLOW_LOG
     </dd>
    </dl>
 

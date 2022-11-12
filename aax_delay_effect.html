@@ -53,7 +53,7 @@
           set to 0.0 for a constant offset.</dd>
       <dt class="v39"><div>p3</div> AAX_LFO_OFFSET</dt>
       <dd>Offset position of the low-frequency oscillator.<br>
-          Between 0.0 (10 milliseconds) and 1.0 (60 milliseconds)</dd>
+          Between 0.0 (60 milliseconds) and 1.0 (250 milliseconds)</dd>
      </dl>
     </dd>
     <dd>
@@ -75,8 +75,33 @@
    </dl>
 
    <h5>Delay Effect state options</h5>
-   Specify AAX_TRUE to enable the delay effect or AAX_FALSE to disable it.
+   Specify a waveform type or envelope-following to enable the flanging effect or AAX_FALSE to disable it.<br>
+   Timed-transition is a one time action from a start value to an end
+value which takes (1/lfo-frequency) seconds to complete.<br>
+   Envelope following calculates the current amplitude and sets the value based on that with an update speed of (1/lfo-frequency) seconds. A low value for lfo-frequency therefore means it takes longer for the envelope following to reach the next value.<br>
+   <dl>
+    <dt class="v20">AAX_DELAY_EFFECT</dt>
+    <dd>
+      <h6>Valid waveform types are:</h6>
+      <dl>
+        <dt class="v22"> AAX_CONSTANT_VALUE (or AAX_TRUE)
+        <dt class="v20"> AAX_TRIANGLE_WAVE
+        <dt class="v20"> AAX_SINE_WAVE
+        <dt class="v20"> AAX_SQUARE_WAVE
+        <dt class="v20"> AAX_SAWTOOTH_WAVE
+        <dt class="v38"> AAX_RANDOMNESS
+        <dt class="v37"> AAX_TIMED_TRANSITION
+        <dt class="v22"> AAX_ENVELOPE_FOLLOW
+        <dt class="v22"> AAX_INVERSE_TRIANGLE_WAVE
+        <dt class="v22"> AAX_INVERSE_SINE_WAVE
+        <dt class="v22"> AAX_INVERSE_SQUARE_WAVE
+        <dt class="v22"> AAX_INVERSE_SAWTOOTH_WAVE
+        <dt class="v37"> AAX_INVERSE_TIMED_TRANSITION
+        <dt class="v22"> AAX_INVERSE_ENVELOPE_FOLLOW
       </dl><br>
+      All waveforms may be combined with AAX_ENVELOPE_FOLLOW_LOG or
+      AAX_INVERSE_ENVELOPE_FOLLOW_LOG to create exponential behaviour, e.g.
+      AAX_ENVELOPE_FOLLOW|AAX_ENVELOPE_FOLLOW_LOG
     </dd>
    </dl>
 
