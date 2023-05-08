@@ -13,7 +13,7 @@
    The <a href="https://en.wikipedia.org/wiki/Flanging" target="_blanK">Flanging effect</a> feeds a delayed copy of the signal back to the undelayed signal.<br>
    This causes natural frequency filtering with a series of peaks and notches which alters the <a href="https://en.wikipedia.org/wiki/Timbre" target="_blank">Timbre</a> of the sound severely.
    <p></p>
-   Only one delay effect can be used at an object (mixer, emitter, audio-frame) at any given time: either Phasing, Chorus, Flanging or Delay.
+   Only one delay effect can be used at an object (mixer, emitter, audio-frame) at any given time: either Phasing, Chorus, Flanging.
    <p></p>
    In addition to following a continuous Low Frequency Oscillator level for effect strength it is also possible to alter the strength of the effect by following the level of the input signal. This makes it possible to have a strong effect for high input signal levels and no effect for low input levels or vice versa.
    <p></p>
@@ -22,6 +22,10 @@
    AeonWave 3.7.2 (version 1.01 of the effect) adds support for a timed-transition of the effect strength.
    <p></p>
    AeonWave 3.8.2 (version 1.02 of the effect) adds support for randomness.
+   <p></p>
+   AeonWave 3.12.4 (version 1.03 of the effect) adds support for negative (phase shifted) levels and levels higher than 1.0 where the delayed signal is louder than the direct signal.
+   <p></p>
+   AeonWave 3.12.4 allows assigning both the delay effect and either phasing, chorus or flanging simultaneously.
    <p></p>
    The Flanging effect is supported by the Mixer, Emitters and Audio-Frames
 
@@ -33,7 +37,7 @@
      <dl>
       <dt class="v20"><div>p0</div> AAX_DELAY_GAIN</dt>
       <dd>Gain factor for the delayed signal. <div>AAX_LINEAR, AAX_LOGARITHMIC</div><br>
-          Between 0.0 and 1.0</dd>
+          Between -2.0 and 2.0</dd>
       <dt class="v20"><div>p1</div> AAX_LFO_FREQUENCY</dt>
       <dd>Frequency of the low-frequency oscillator.<br>
           Between 0.01 and 10 Hz.</dd>
@@ -63,6 +67,7 @@ value which takes (1/lfo-frequency) seconds to complete.<br>
         <dt class="v20"> AAX_SINE_WAVE
         <dt class="v20"> AAX_SQUARE_WAVE
         <dt class="v20"> AAX_SAWTOOTH_WAVE
+        <dt class="v312"> AAX_CYCLOID_WAVE
         <dt class="v38"> AAX_RANDOMNESS
         <dt class="v37"> AAX_TIMED_TRANSITION
         <dt class="v22"> AAX_ENVELOPE_FOLLOW
@@ -70,6 +75,7 @@ value which takes (1/lfo-frequency) seconds to complete.<br>
         <dt class="v22"> AAX_INVERSE_SINE_WAVE
         <dt class="v22"> AAX_INVERSE_SQUARE_WAVE
         <dt class="v22"> AAX_INVERSE_SAWTOOTH_WAVE
+        <dt class="v312"> AAX_INVERSE_CYCLOID_WAVE
         <dt class="v37"> AAX_INVERSE_TIMED_TRANSITION
         <dt class="v22"> AAX_INVERSE_ENVELOPE_FOLLOW
       </dl><br>

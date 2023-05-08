@@ -13,9 +13,11 @@
    The <a href="https://en.wikipedia.org/wiki/Delay_(audio_effect)" target="_blanK">Delay effect</a> feeds a delayed copy of the signal back to the undelayed signal.<br>
    Delay effects range from a subtle echo effect to a pronounced blending of previous sounds with new sounds.
    <p></p>
-   Only one delay effect can be used at an object (mixer, emitter, audio-frame) at any given time: either Phasing, Chorus, Flanging or Delay.
-   <p></p>
    AeonWave 3.9.2 adds support for the delay effect.
+   <p></p>
+   AeonWave 3.12.4 (version 1.04 of the effect) adds support for negative (phase shifted) levels and levels higher than 1.0 where the delayed signal is louder than the direct signal.
+   <p></p>
+   AeonWave 3.12.4 allows assigning both the delay effect and either phasing, chorus or flanging simultaneously.
    <p></p>
    The Delay effect is supported by the Mixer and Audio-Frames
 
@@ -23,27 +25,11 @@
    The effect uses only one effect slot.
    <dl>
     <dt class="v39" id="AAX_DELAY_EFFECT">AAX_DELAY_EFFECT<div class="type">STEREO</div></dt>
-<!--
-    <dd>
-     <dl>
-      <dt class="v39"><div>p0</div> AAX_DELAY_GAIN</dt>
-      <dd>Gain factor for the delayed signal. <div>AAX_LINEAR, AAX_LOGARITHMIC</div><br>
-          Between 0.0 and 1.0</dd>
-      <dt class="v39"><div>p1</div></dt>
-      <dd>unused</dd>
-      <dt class="v39"><div>p2</div></dt>
-      <dd>unused</dd>
-      <dt class="v39"><div>p3</div> AAX_LFO_OFFSET</dt>
-      <dd>Offset position of the low-frequency oscillator.<br>
-          Between 0.0 (60 milliseconds) and 1.0 (200 milliseconds)</dd>
-     </dl>
-    </dd>
--->
     <dd>
      <dl>Slot 0
       <dt class="v39"><div>p0</div> AAX_DELAY_GAIN</dt>
       <dd>Gain factor for the delayed signal. <div>AAX_LINEAR, AAX_LOGARITHMIC</div><br>
-          Between 0.0 and 1.0</dd>
+          Between -2.0 and 2.0</dd>
       <dt class="v39"><div>p1</div> AAX_LFO_FREQUENCY</dt>
       <dd>Frequency of the low-frequency oscillator.<br>
           Between 0.01 and 10 Hz.</dd>
@@ -53,7 +39,7 @@
           set to 0.0 for a constant offset.</dd>
       <dt class="v39"><div>p3</div> AAX_LFO_OFFSET</dt>
       <dd>Offset position of the low-frequency oscillator.<br>
-          Between 0.0 (60 milliseconds) and 1.0 (250 milliseconds)</dd>
+          Between 0.0 (60 milliseconds) and 5.0 (1 second)</dd>
      </dl>
     </dd>
     <dd>
@@ -66,7 +52,7 @@
            Between 20 Hz and 22050 Hz</dd>
       <dt class="v39"><div>p2</div> AAX_FEEDBACK_GAIN</dt>
       <dd>Gain of the feedback signal.<br>
-          Between 0.0 and 1.0</dd>
+          Between -2.0 and 2.0</dd>
       <dt class="v39"><div>p3</div> AAX_DELAY_RESONANCE</dt>
       <dd><a href="http://en.wikipedia.org/wiki/Q_factor" target="_blank">Resonance factor</a> of the frequency filter.<br>
           Between 0.1 en 100.0, defaults to 1.0</dd>
@@ -89,6 +75,7 @@ value which takes (1/lfo-frequency) seconds to complete.<br>
         <dt class="v20"> AAX_SINE_WAVE
         <dt class="v20"> AAX_SQUARE_WAVE
         <dt class="v20"> AAX_SAWTOOTH_WAVE
+        <dt class="v312"> AAX_CYCLOID_WAVE
         <dt class="v38"> AAX_RANDOMNESS
         <dt class="v37"> AAX_TIMED_TRANSITION
         <dt class="v22"> AAX_ENVELOPE_FOLLOW
@@ -96,6 +83,7 @@ value which takes (1/lfo-frequency) seconds to complete.<br>
         <dt class="v22"> AAX_INVERSE_SINE_WAVE
         <dt class="v22"> AAX_INVERSE_SQUARE_WAVE
         <dt class="v22"> AAX_INVERSE_SAWTOOTH_WAVE
+        <dt class="v312"> AAX_INVERSE_CYCLOID_WAVE
         <dt class="v37"> AAX_INVERSE_TIMED_TRANSITION
         <dt class="v22"> AAX_INVERSE_ENVELOPE_FOLLOW
       </dl><br>

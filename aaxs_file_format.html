@@ -53,13 +53,13 @@
   example where a 440Hz sine will be mixed with slightly static, soft sounding
   pink-noise (and filtered in the second example):
   <div class="xml"><pre>&lt;sound frequency="440" file="sine.wav"&gt;
-    &lt;waveform src="pink-noise" processing="mix" pitch="0.5" ratio="0.3" staticit="0.1"&#47;&gt;
+    &lt;waveform src="pink-noise" processing="mix" pitch="0.5" ratio="0.3" staticity="0.1"&#47;&gt;
   &lt;&#47;sound&gt;
   </pre></div>
   <div class="xml"><pre>
   &lt;sound frequency="440"&gt;
     &lt;waveform src="sine"&#47;&gt;
-    &lt;waveform src="pink-noise" processing="mix" pitch="0.5" ratio="0.3" staticit="0.1"&#47;&gt;
+    &lt;waveform src="pink-noise" processing="mix" pitch="0.5" ratio="0.3" staticity="0.1"&#47;&gt;
 
     &lt;filter type="frequency"&gt;
       &lt;slot n="0"&gt;
