@@ -352,6 +352,11 @@ H5.v33 {
     background-repeat: no-repeat;
 }
 
+DT.v312 {
+    background-image: url('images/vers3.12.png');
+    background-size: 32px 16px;
+}
+
 DT.v39 {
     background-image: url('images/vers3.9.png');
     background-size: 32px 16px;

@@ -22,7 +22,8 @@
    <p></p>
    AeonWave 3.8.2 (version 1.02 of the effect) adds support for randomness.
    <p></p>
-   AeonWave 3.12.4 (version 1.1 of the effect) adds support for sample rate decimation and noise staticity.
+   AeonWave 3.12.4 (version 1.1 of the effect) adds support for sample rate decimation and noise staticity (crackle).<br>
+   And adds the option to combine waveforms with AAX_WHITE_NOISE, AAX_PINK_NOISE or AAX_BROWNIAN_NOISE to define the noise type used by the filter. 
 
    <p></p>
    The BitCrusher filter is supported by Emitters, Audio-Frames and the Mixer.
@@ -34,28 +35,28 @@
     <dd>
      <dl>
       <dt><div>p0</div> AAX_NOISE_LEVEL </dt>
-      <dd>Level of the added white-noise.<br>
+      <dd>Level of the added white-noise. <div>AAX_LINEAR, AAX_DECIBEL</div><br>
           Between 0.0 and 1.0, 0.0 equals to no added noise.</dd>
       <dt><div>p1</div> AAX_LFO_FREQUENCY</dt>
       <dd>Frequency of the low-frequency oscillator.<br>
           Response rate in Hertz (1/seconds) when using Envelope Following mode.<br>
           Between 0.01 and 50 Hz.</dd>
       <dt><div>p2</div> AAX_LFO_DEPTH</dt>
-      <dd>Depth range of the low-frequency oscillator.<br>
+      <dd>Depth range of the low-frequency oscillator. <div>AAX_LINEAR, AAX_BITS_PER_SAMPLE</div><br>
           Between 0.0 and 1.0.</dd>
       <dt><div>p3</div> AAX_LFO_OFFSET</dt>
-      <dd>Minimum offset value of the low-frequency oscillator.<br>
+      <dd>Minimum offset value of the low-frequency oscillator. <div>AAX_LINEAR, AAX_BITS_PER_SAMPLE</div><br>
           Between 0.0 and 1.0</dd>
      </dl>
     </dd>
     <dd>
      <dl>Slot 1
-      <dt class="v312"><div>p0</div> AAX_CUTOFF_FREQUENCY_HF</dt>
+      <dt class="v312"><div>p0</div> AAX_SAMPLE_RATE</dt>
       <dd> Simulated sample rate for the sample rate conversion.<br>
            Between 20 Hz and 44100 Hz</dd>
       <dt class="v312"><div>p1</div> AAX_STATICITY</dt>
       <dd>Staticity level of the noise signal.<br>
-           Between 0.0 (non-static) and 1.0 (fully static)</dd>
+           Between 0.0 (non-static) and 1.0 (fully static/crackled)</dd>
       <dt><div>p2</div></dt>
       <dd>unused</dd>
       <dt><div>p3</div></dt>
@@ -93,7 +94,10 @@ value which takes (1/lfo-frequency) seconds to complete.<br>
       </dl><br>
       All waveforms may be combined with AAX_ENVELOPE_FOLLOW_LOG or
       AAX_INVERSE_ENVELOPE_FOLLOW_LOG to create exponential behaviour, e.g.
-      AAX_ENVELOPE_FOLLOW|AAX_ENVELOPE_FOLLOW_LOG
+      AAX_ENVELOPE_FOLLOW|AAX_ENVELOPE_FOLLOW_LOG<p>
+      Version 1.1 of the effect adds the option to combine waveforms with
+      AAX_WHITE_NOISE, AAX_PINK_NOISE or AAX_BROWNIAN_NOISE to define the
+      noise type used by the filter.
     </dd>
    </dl>
 
