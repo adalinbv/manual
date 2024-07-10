@@ -10,7 +10,7 @@
 
   <H2 id="support">Support</H2>
 
-   <pre class="v30" id="aaxEffectGetSlot">int aaxEffectGetSlot(aaxFilte effect, unsigned slot, int ptype,
+   <pre class="v30" id="aaxEffectGetSlot">bool aaxEffectGetSlot(aaxFilte effect, unsigned slot, int ptype,
                                               float *p1, float *p2, float *p3)</pre>
    Return all parameters of a defined parameter-slot for an effect.<p>
    <ul>
@@ -20,7 +20,7 @@
     <li> The ptype parameter specifies the unit of the parameter and is type specific.<br>
          See <a href="aax_aaxtype.html">enum aaxType</a> for more information.
    </ul><p>
-   Returns AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   Returns true if successful or false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed effect handle or an incorrect slot number.
 
    <pre class="v20" id="aaxEffectGetParam">float aaxEffectGetParam(aaxEffect effect, int param_no, int ptype)</pre>
@@ -32,8 +32,12 @@
     <li> The ptype parameter specifies the unit of the parameter and is type specific.<br>
          See <a href="aax_aaxtype.html">enum aaxType</a> for more information.
    </ul><p>
-   Return the parameters value if successful or AAX_FALSE otherwise.<p>
+   Return the parameters value if successful or false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed effect handle or an incorrect param_no value.
+
+  <pre class="v20" id="aaxEffectGetState">uint64_t aaxEffectGetState(aaxEffect effect)</pre>
+  Return the current state of the effect.<br>
+  See <a href="aax_aaxeffectstate.html">aaxEffectState</a> for more information.<p>
  
  <script>addFooter("");</script>
 </body>

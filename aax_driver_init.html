@@ -29,18 +29,30 @@
    </ul>
    Return a driver configuration handle.
 
-   <pre class="v10" id="aaxDriverClose">int aaxDriverClose(aaxConfig config)</pre>
+   <pre class="v10" id="aaxDriverClose">bool aaxDriverClose(aaxConfig config)</pre>
    Close the driver configuration.<p>
-   Return AAX_TRUE if successful, AAX_FALSE otherwise.<br>
+   Return true if successful, false otherwise.<br>
    Reasons for failure are an invalid driver handle or trying to close a driver
    that is still registered.
 
-   <pre class="v10" id="aaxDriverDestroy">int aaxDriverDestroy(aaxConfig config)</pre>
+   <pre class="v10" id="aaxDriverDestroy">bool aaxDriverDestroy(aaxConfig config)</pre>
    Free all the resources in use by the driver configuration.<p>
    Driver configurations that are opened using one of the aaxDriverOpen functions should be closed using aaxDriverClose first.<p>
-   Return AAX_TRUE if successful, AAX_FALSE otherwise.<br>
+   Return true if successful, false otherwise.<br>
    Reasons for failure are an invalid driver handle or trying to close a driver
    that is still registered.
+
+   <pre class="v36" id="aaxDriverSetSetup">bool aaxDriverSetSetup(const aaxConfig config, enum aaxSetupType type, const char *setup)</pre>
+   <p>These functions change the respective setup.<br>
+   <ul>
+   <li> The config parameter is the handle as returned by aaxDriverOpen.
+   <li> The type parameter is an enumerated type and specifies which setup parameter to change.
+   <li> The setup parameter is type  parameter specific (see <a href="aax_aaxsetuptype_driver.html">aaxSetupType</a> for more information).<br>
+   </ul>
+   <p>Return true if successful or false otherwise.<p>
+   Reasons for failure are an incorrect or already destroyed class handle or an incompatible setup value.
+   <p>&nbsp;<p>
+  If hardware limitations prevent a particular request then a closest match will be selected.
 
  <script>addFooter("Opened drivers have to be closed. All drivers should be freed afterwards.");
  </script>

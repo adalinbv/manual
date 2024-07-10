@@ -10,10 +10,10 @@
 
  <H2 id="support">Modifying audio filters</H2>
 
-  <pre class="shared" id="aaxMixerSetFilter">int aaxMixerSetFilter(aaxConfig config, aaxFilter filter)</pre>
-  <pre class="shared" id="aaxScenerySetFilter">int aaxScenerySetFilter(aaxConfig config, aaxFilter filter)</pre>
-  <pre class="shared" id="aaxAudioFrameSetFilter">int aaxAudioFrameSetFilter(aaxFrame frame, aaxFilter filter)</pre>
-  <pre class="shared" id="aaxEmitterSetFilter">int aaxEmitterSetFilter(aaxEmitter emitter, aaxFilter filter)</pre>
+  <pre class="shared" id="aaxMixerSetFilter">bool aaxMixerSetFilter(aaxConfig config, aaxFilter filter)</pre>
+  <pre class="shared" id="aaxScenerySetFilter">bool aaxScenerySetFilter(aaxConfig config, aaxFilter filter)</pre>
+  <pre class="shared" id="aaxAudioFrameSetFilter">bool aaxAudioFrameSetFilter(aaxFrame frame, aaxFilter filter)</pre>
+  <pre class="shared" id="aaxEmitterSetFilter">bool aaxEmitterSetFilter(aaxEmitter emitter, aaxFilter filter)</pre>
   <p>Update or apply new filter parameters.</br>
   <ul>
    <li> The config parameter is the handle as returned by aaxDriverOpen.
@@ -24,7 +24,7 @@
         See <a href="aax_aaxfiltertype.html">aaxFilterType</a> which filter types are supported.
    <li> When updating a registered filter it is advised to first retrieve it using one of the getter functions (see below) and altering the returned filter rather than creating a new filter and applying it. That way the unmodified filter parameters remain the same after applying.
   </ul>
-   <p>Return AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   <p>Return true if successful or false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed class handle or an incorrect or already destroyed filter handle.
    <p>
    <br>
@@ -41,7 +41,7 @@
     <li> The type parameter is an enumerated type <a href="aax_aaxfiltertype.html">aaxFilterType</a> which defines what filter type to return.
     <li> After retrieving the filter it is possible to examine it's parameters using the <a href="aax_filter.html">aaxFilter</a> support functions.
    </ul>
-   <p>Return the requested filter or AAX_FALSE if a error occurred.<p>
+   <p>Return the requested filter or false if a error occurred.<p>
    Reasons for failure are an incorrect or already destroyed class handle or an incompatible type parameter.
 
  <script>addFooter("");

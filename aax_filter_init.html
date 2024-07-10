@@ -21,12 +21,12 @@
    Return a newly created filter handle if successful or NULL otherwise.<p>
    Reasons for failure are in incorrect or already destroyed configuration handle or an incompatible type parameter or insufficient memory to allocate the filter handle.
 
-   <pre class="v20" id="aaxFilterDestroy">int aaxFilterDestroy(aaxFilter filter)</pre>
+   <pre class="v20" id="aaxFilterDestroy">bool aaxFilterDestroy(aaxFilter filter)</pre>
    Destroy a filter handle.<p>
    <ul>
    <li> The filter parameter is the handle as returned by aaxFilterCreate or one of the class getter functions.
    </ul><p>
-   Return AAX_TRUE if successful, AAX_FALSE otherwise.<p>
+   Return true if successful, false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed handle.
 
  <script>addFooter("Assigning 3D filters to a stereo emitter has no effect, stereo filters can always be assigned.");</script>

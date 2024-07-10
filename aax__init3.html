@@ -15,13 +15,13 @@
  <pre class="v10" id="aaxGetErrorString">const char* aaxGetErrorString(enum aaxErrorType error_no)</pre>
  Returns error information about the specified error number as a string constant.
 
- <pre class="v20" id="aaxIsValid">int aaxIsValid(const void* handle, enum aaxHandleType type)</pre>
+ <pre class="v20" id="aaxIsValid">bool aaxIsValid(const void* handle, enum aaxHandleType type)</pre>
  Test whether a handle is still valid or not.<p>
  <ul>
   <li> The handle parameter is either a driver, emitter, buffer or audio-frame handle.
   <li> The type parameter is an enumerated type <a href="aax_aaxhandletype.html">aaxHandleType</a> and specifies which handle type to test for.
  </ul><p>
-  Return AAX_TRUE if the handle is valid or AAX_FALSE otherwise.
+  Return true if the handle is valid or false otherwise.
 
  <script>addFooter("");
  </script>

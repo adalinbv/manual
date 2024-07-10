@@ -10,20 +10,20 @@
 
    <H2 id="support">Matrix Position and Orientation</H2>
 
-   <pre class="v10" id="aaxMatrix64SetDirection">int aaxMatrix64SetDirection(aaxMtx4d mtx, const aaxVec3d pos, const aaxVec3f at)</pre>
+   <pre class="v30" id="aaxMatrix64SetDirection">bool aaxMatrix64SetDirection(aaxMtx4d mtx, const aaxVec3d pos, const aaxVec3f at)</pre>
    Construct a matrix based on the pos and at vector parameters.<p>
    <ul>
    <li>If either the pos or at parameters is NULL or contains NaN's the direction is not changed but the program shall continue without a problem.
    </ul><p>
-   Return AAX_TRUE if successful, AAX_FALSE otherwise.
+   Return true if successful, false otherwise.
 
-   <pre class="v10" id="aaxMatrix64SetOrientation">int aaxMatrix64SetOrientation(aaxMtx4d mtx, const aaxVec3d pos, const aaxVec3f at,
+   <pre class="v30" id="aaxMatrix64SetOrientation">bool aaxMatrix64SetOrientation(aaxMtx4d mtx, const aaxVec3d pos, const aaxVec3f at,
                                              const aaxVec3f up)</pre>
    Construct a matrix based on the pos, at vector and up vector parameters.<p>
    <ul>
    <li>If one or more of the pos, at or up parameters are NULL or contains NaN's the orientation is not changed but the program shall continue without a problem.
    </ul><p>
-   Return AAX_TRUE if successful, AAX_FALSE otherwise.
+   Return true if successful, false otherwise.
 
  <script>addFooter("");
  </script>

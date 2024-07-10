@@ -17,16 +17,16 @@
    Return a new audio-frame handle or NULL in case of an error.<p>
    Reasons for failure are an incorrect or already destroyed config handle or insufficient memory to allocate the new audio-frame handle.
 
-   <pre class="v20" id="aaxAudioFrameDestroy">int aaxAudioFrameDestroy(aaxAudioFrame frame)</pre>
+   <pre class="v20" id="aaxAudioFrameDestroy">bool aaxAudioFrameDestroy(aaxAudioFrame frame)</pre>
    Destroy the frame and all it's associated memory allocations.<p>
    <ul>
     <li>The frame handle can not be used after calling this function.
    </ul><p>
-   Return AAX_TRUE if successful, AAX_FALSE otherwise.<p>
+   Return true if successful, false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed handle or trying to
    destroy a registered audio frame.
 
-   <pre class="v30" id="aaxAudioFrameAddBuffer">int aaxAudioFrameAddBuffer(aaxAudioFrame frame, aaxBuffer buffer)</pre>
+   <pre class="v30" id="aaxAudioFrameAddBuffer">bool aaxAudioFrameAddBuffer(aaxAudioFrame frame, aaxBuffer buffer)</pre>
    Adds an audio buffer to the frame.<p>
    <ul>
    <li>Only AAXS buffers containing filter and/or effect information are supported.
@@ -34,8 +34,19 @@
    <li>If the buffer parameter is NULL or a non existent buffer the program shall
    continue without a problem.
    </ul><p>
-   Return AAX_TRUE if successful, AAX_FALSE otherwise.<p>
+   Return true if successful, false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed frame or buffer handle, adding a buffer which has no AAXS data assigned to it or insufficient memory to add the buffer to the audio-frame.
+
+  <pre class="v40" id="aaxEmitterSetSetup">bool aaxAudioFrameSetSetup(aaxAudioFrame frame, enum aaxSetupType type, int64_t setup)</pre>
+   <p>These functions change the respective setup.<br>
+   <ul>
+   <li> The type parameter is an enumerated type and specifies which setup parameter to change.
+   <li> The setup parameter is type  parameter specific (see <a href="aax_aaxsetuptype_frame.html">aaxSetupType</a> for more information).<br>
+   </ul>
+   <p>Return true if successful or false otherwise.<p>
+   Reasons for failure are an incorrect or already destroyed class handle or an incompatible setup value.
+   <p>&nbsp;<p>
+  If hardware limitations prevent a particular request then a closest match will be selected.
 
  <script>addFooter("");
  </script>

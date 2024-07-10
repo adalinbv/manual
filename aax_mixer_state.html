@@ -10,13 +10,13 @@
 
   <H2 id="init">Change the Playback state</H2>
 
-   <pre class="shared" id="aaxMixerSetState">int aaxMixerSetState(aaxConfig config, enum aaxState state)</pre>
+   <pre class="shared" id="aaxMixerSetState">bool aaxMixerSetState(aaxConfig config, enum aaxState state)</pre>
    <p>These functions change the respective runtime playback state.<br>
    <ul>
    <li> The config parameter is the handle as returned by aaxOpenDevice.
    <li> The state parameter is an enumerated type <a href="aax_aaxstate.html">aaxState</a> and specifies the desired state for a class.
    </ul>
-   <p>Return AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   <p>Return true if successful or false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed class handle, an incompatible state value, failure to initialize using the requested setup parameters or the inability to start the mixer or capture thread.
    <p>
    <br>
@@ -25,7 +25,7 @@
   <ul>
    <li> The config parameter is the handle as returned by aaxOpenDevice.
   </ul>
-  <p>Return the current state of the class as an enumerated type <a href="aax_aaxstate.html">aaxState</a> or AAX_FALSE if a error occurred.<p>
+  <p>Return the current state of the class as an enumerated type <a href="aax_aaxstate.html">aaxState</a> or false if a error occurred.<p>
   Reasons for failure are an incorrect or already destroyed class handle.
 
   <h5>Supported values for the state parameter</h5>

@@ -10,14 +10,14 @@
 
   <H2 id="init">Effect initialization</H2>
 
-   <pre class="v30" id="aaxEffectSetSlot">int aaxEffectSetSlot(aaxEffect effect, unsigned slot, int ptype,
+   <pre class="v30" id="aaxEffectSetSlot">bool aaxEffectSetSlot(aaxEffect effect, unsigned slot, int ptype,
                                               float p1, float p2, float p3, float p4)</pre>
    Same as <a href="aaxEffectSetSlotParams">aaxEffectSetSlotParams</a> except that the fields of the values parameter have to be specified independently.<p>
    <ul>
     <li> p1 defines values[0], p2 defines values[1], p3 defines values[2] and p4  defines values[3].
    </ul>
 
-   <pre class="v30" id="aaxEffectSetSlotParams">int aaxEffectSetSlotParams(aaxEffect effect, unsigned slot, int ptype, aaxVec4f values)</pre>
+   <pre class="v30" id="aaxEffectSetSlotParams">bool aaxEffectSetSlotParams(aaxEffect effect, unsigned slot, int ptype, aaxVec4f values)</pre>
    Set the values of a parameter-slot for an effect.<br>
    Most effects need just one parameter-slot but some require more slots to be set properly.<p>
    <ul>
@@ -30,10 +30,10 @@
          See <a href="aax_aaxeffecttype.html">aaxEffectType</a> for more information.
     <li> If one or more of the fields of the values parameter is NaN it's value will not bet set.
    </ul>
-   Returns AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   Returns true if successful or false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed effect handle or an incorrect slot number.
  
-   <pre class="v20" id="aaxEffectSetParam">int aaxEffectSetParam(aaxEffect effect, int param_no, int ptype, float value)</pre>
+   <pre class="v20" id="aaxEffectSetParam">bool aaxEffectSetParam(aaxEffect effect, int param_no, int ptype, float value)</pre>
    Set the value of the specified parameter of the effect.<p>
    <ul>
     <li> The effect parameter is the handle as returned by <a href="aaxEffectCreate">aaxEffectCreate</a> or one of the class getter functions.
@@ -43,10 +43,10 @@
          See <a href="aax_aaxtype.html">enum aaxType</a> for more information.
      <li> If the value parameter is NaN the parameter value will not bet set.
    </ul><p>
-   Returns AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   Returns true if successful or false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed effect handle, an incorrect param_no value or the value parameter is a NaN.
 
-   <pre class="v30" id="aaxEffectSetState">int aaxEffectSetState(aaxEffect effect, int state)</pre>
+   <pre class="v30" id="aaxEffectSetState">bool aaxEffectSetState(aaxEffect effect, uint64_t state)</pre>
    Change the state of the effect.<p>
    <ul>
     <li> The effect parameter is the handle as returned by aaxEffectCreate or one of the class getter functions.
@@ -54,16 +54,16 @@
    See <a href="aax_aaxeffectstate.html">aaxEffectState</a> for more information.<p>
     </ul>
    </dl>
-   Returns AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   Returns true if successful or false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed effect handle.
    
-   <pre class="v30" id="aaxEffectAddBuffer">int aaxEffectAddBuffer(aaxEffect effect, aaxBuffer buffer)</pre>
+   <pre class="v30" id="aaxEffectAddBuffer">bool aaxEffectAddBuffer(aaxEffect effect, aaxBuffer buffer)</pre>
    Adds an audio buffer to the effect.<p>
    <ul>
    <li>Adding an audio buffer to an effect is only useful for the convolution effect.
    <li>Only buffers with a single track are supported.
    </ul>
-   Return AAX_TRUE if successful, AAX_FALSE otherwise.<p>
+   Return true if successful, false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed effect or buffer handle, adding a buffer which has no data assigned to it or adding a buffer with more than one tracks.
  <script>addFooter("");</script>
 </body>

@@ -19,6 +19,7 @@
     addFunction("Init", "Emitter", "AddBuffer");
     addFunction("Init", "Emitter", "RemoveBuffer");
     addFunction("Init", "Emitter", "Destroy");
+    addFunction("Init", "Emitter", "SetSetup");
  
    addHeader("Config", "Emitter", "Runtime Configuration");
     addSharedFunction("Config", "Emitter", "SetMode");
@@ -27,8 +28,8 @@
  
    addHeader("Emitter", "Playback", "Playback Control");
     addFunction("State", "Emitter", "SetState");
-    addFunction("Playback", "Emitter", "SetOffset");
-    addFunction("Playback", "Emitter", "SetOffsetSec");
+    addFunction("", "Offset", "SetOffset");
+    addFunction("", "Offset", "SetOffsetSec");
  
    addHeader("Position", "Emitter", "Position and Orientation");
     addFunction("Matrix", "Emitter", "SetMatrix64");

@@ -21,12 +21,12 @@
    Return a newly created effect handle if successful or NULL otherwise.<p>
    Reasons for failure are in incorrect or already destroyed configuration handle or an incompatible type parameter or insufficient memory to allocate the effect handle.
 
-   <pre class="v20" id="aaxEffectDestroy">int aaxEffectDestroy(aaxEffect effect)</pre>
+   <pre class="v20" id="aaxEffectDestroy">bool aaxEffectDestroy(aaxEffect effect)</pre>
    Destroy an effect handle.<p>
    <ul>
    <li> The effect parameter is the handle as returned by aaxEffectCreate or one of the class getter functions.
    </ul><p>
-   Return AAX_TRUE if successful, AAX_FALSE otherwise.<p>
+   Return true if successful, false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed handle.
 
  <script>addFooter("Assigning 3D effects to a stereo emitter has no effect, stereo effects can always be assigned.");</script>

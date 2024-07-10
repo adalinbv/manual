@@ -10,14 +10,14 @@
 
   <H2 id="init">Filter initialization</H2>
 
-   <pre class="v20" id="aaxFilterSetSlot">int aaxFilterSetSlot(aaxFilter filter, unsigned slot, int ptype,
+   <pre class="v20" id="aaxFilterSetSlot">bool aaxFilterSetSlot(aaxFilter filter, unsigned slot, int ptype,
                                               float p1, float p2, float p3, float p4)</pre>
    Same as <a href="aaxFilterSetSlotParams">aaxFilterSetSlotParams</a> except that the fields of the values parameter have to be specified independently.<p>
    <ul>
     <li> p1 defines values[0], p2 defines values[1], p3 defines values[2] and p4  defines values[3].
    </ul>
  
-   <pre class="v30" id="aaxFilterSetSlotParams">int aaxFilterSetSlotParams(aaxFilter filter, unsigned slot, int ptype, aaxVec4f values)</pre>
+   <pre class="v30" id="aaxFilterSetSlotParams">bool aaxFilterSetSlotParams(aaxFilter filter, unsigned slot, int ptype, aaxVec4f values)</pre>
    Set the values of a parameter-slot for a filter.<br>
    Most filters need just one parameter-slot but some require more slots to be set properly.<p>
    <ul>
@@ -30,10 +30,10 @@
          See <a href="aax_aaxfiltertype.html">aaxFilterType</a> for more information.
     <li> If one or more of the fields of the values parameter is NaN it's value will not bet set.
    </ul>
-   Return AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   Return true if successful or false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed filter handle or an improper slot number.
 
-   <pre class="v20" id="aaxFilterSetParam">int aaxFilterSetParam(aaxFilter filter, int param_no, int ptype, float value)</pre>
+   <pre class="v20" id="aaxFilterSetParam">bool aaxFilterSetParam(aaxFilter filter, int param_no, int ptype, float value)</pre>
    Set the value of the specified parameter of the filter.<p>
    <ul>
     <li> The filter parameter is the handle as returned by <a href="aaxFilterCreate">aaxFilterCreate</a> or one of the class getter functions.
@@ -43,10 +43,10 @@
          See <a href="aax_aaxtype.html">enum aaxType</a> for more information.
      <li> If the value parameter is NaN the parameter value will not bet set.
    </ul><p>
-   Return AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   Return true if successful or false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed filter handle, an incorrect param_no value or the value parameter is a NaN.
 
-   <pre class="v30" id="aaxFilterSetState">int aaxFilterSetState(aaxFilter filter, int state)</pre>
+   <pre class="v30" id="aaxFilterSetState">bool aaxFilterSetState(aaxFilter filter, uint64_t state)</pre>
    Change the state of the filter.<p>
    <ul>
     <li> The filter parameter is the handle as returned by <a href="aaxFilterCreate">aaxFilterCreate</a> or one of the class getter functions.
@@ -54,11 +54,11 @@
    See <a href="aax_aaxfilterstate.html">aaxFilterState</a> for more information.<p>
     </ul>
    </dl>
-   Return AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   Return true if successful or false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed filter handle.
    
-   <pre class="v30" id="aaxFilterAddBuffer">int aaxFilterAddBuffer(aaxFilter filter, aaxBuffer buffer)</pre>
-    This function is unused at this time and will always return AAX_FALSE.
+   <pre class="v30" id="aaxFilterAddBuffer">bool aaxFilterAddBuffer(aaxFilter filter, aaxBuffer buffer)</pre>
+    This function is unused at this time and will always return false.
 
  <script>addFooter("");</script>
 </body>

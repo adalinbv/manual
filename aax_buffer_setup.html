@@ -10,14 +10,14 @@
 
   <H2 id="init">Change Setup parameters</H2>
 
-   <pre class="shared" id="aaxBufferSetSetup">int aaxBufferSetup(aaxBuffer buffer, enum aaxSetupType type, unsigned int setup)</pre>
+   <pre class="shared" id="aaxBufferSetSetup">bool aaxBufferSetup(aaxBuffer buffer, enum aaxSetupType type, unsigned int setup)</pre>
    <p>These functions change the respective setup.<br>
    <ul>
    <li> The buffer parameter is the handle as returned by aaxBufferCreate.
    <li> The type parameter is an enumerated type and specifies which setup parameter to change.
    <li> The setup parameter is type  parameter specific (see <a href="aax_aaxsetuptype.html">aaxSetupType</a> for more information).<br>
    </ul>
-   <p>Return AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   <p>Return true if successful or false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed class handle or an incompatible setup value.
    <p>
    <br>
@@ -27,7 +27,7 @@
    <li> The buffer parameter is the handle as returned by aaxBufferCreate.
     <lI> The type parameter specifies which setup parameter to return.
   </ul>
-  <p>Return the current setup of the class as an enumerated type <a href="aax_aaxsetuptype.html">aaxSetupType</a> or AAX_FALSE if a error occurred.<p>
+  <p>Return the current setup of the class as an enumerated type <a href="aax_aaxsetuptype.html">aaxSetupType</a> or false if a error occurred.<p>
   Reasons for failure are an incorrect or already destroyed class handle or an improper type parameter.
   <p></p>&nbsp;
   <p></p>

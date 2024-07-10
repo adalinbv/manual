@@ -1,0 +1,35 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+  <h2>enum aaxSetupType</h2>
+  The following aaxSetupType entries are supported by aaxEmitterSetSetup.
+  <p>
+  <table id="aaxSetupType">
+  <tr>
+   <td colspan="2">
+    <dl>
+     <script>
+     addDL("40", "MIDI_RELEASE_FACTOR", "Set the MIDI release factor. Between 0 and 127");
+     addDL("40", "MIDI_ATTACK_FACTOR", "Set the MIDI attack factor. Between 0 and 127");
+     addDL("40", "DECAY_FACTOR", "Set the MIDI decay factor. Between 0 and 127");
+     addDL("40", "ATTACK_VELOCITY_FACTOR", "Set the MIDI attack velocity factor. Between 0 and 127");
+     addDL("40", "RELEASE_VELOCITY_FACTOR", "Set the MIDI release velocity factor. Between 0 and 127");
+     addDL("40", "PRESSURE_FACTOR", "Set the MIDI pressure factor. Between 0 and 127");
+     ddDL("40", "SOFT_FACTO", "Set the MIDI soft factor. Between 0 and 127");
+     </script>
+    </dl>
+   </td>
+  </tr>
+  </table>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

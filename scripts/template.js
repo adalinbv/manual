@@ -33,7 +33,7 @@ function addHead()
   document.write(" <tfoot>");
   document.write("  <tr>");
   document.write("   <td class=\"copyright\">");
-  document.write("    (C) Copyright 2005-2022 by Adalin B.V.");
+  document.write("    &#169; Copyright 2005-2024 by Adalin B.V.");
   document.write("   </td>");
   document.write("   <td class=\"footer\">");
   document.write("    AeonWave Audio eXtensions Library&nbsp;<br>");
@@ -147,3 +147,8 @@ function addDefine( title, fnClass, name )
   document.write("  <a href=\"aax_"+fnClass.toLowerCase()+"_"+title.toLowerCase()+".html#aax"+fnClass+name+"\">aax"+fnClass+name+"</a><br>");
 }
 
+function addDL( version, type, desc )
+{
+  document.write(" <dt class=\"v"+version+"\" id=\"AAX_"+type+"\">AAX_"+type+"</dt>");
+  document.write(" <dd>"+desc+".</dd>");
+}

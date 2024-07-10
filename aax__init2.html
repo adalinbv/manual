@@ -20,17 +20,17 @@
   <li> returns the maximum number of supported effect types.
  </ul>
 
- <pre  id="aaxIsFilterSupported">int aaxIsFilterSupported(aaxConfig config, const char *filter)</pre>
-  <pre  id="aaxIsEffectSupported">int aaxIsEffectSupported(aaxConfig config, const char *effect)</pre>
+ <pre  id="aaxIsFilterSupported">bool aaxIsFilterSupported(aaxConfig config, const char *filter)</pre>
+  <pre  id="aaxIsEffectSupported">bool aaxIsEffectSupported(aaxConfig config, const char *effect)</pre>
  <ul>
   <li> The config parameter is the handle as returned by aaxDriverOpen.
   <li> The config parameter may be set to NULL, in which case the minimum
        available configuration (AeonWave-Lite) is used.
   <li> As of AeonWave version 2.6 filters and effects can have a version number appended to the string name.<br>
        The filter or effect name string parameter may include the version number for this test, but it is not necessary.<br>
-       If the version number is specified exactly the function returns only AAX_TRUE if it matches exactly.<br>
-       If the version number is provided only partially then AAX_TRUE is returned if the available filter or effect version has the same major version.<br>
-       If no version information is provided to test for the function returns AAX_TRUE if the filter or effect is available in any version.
+       If the version number is specified exactly the function returns only true if it matches exactly.<br>
+       If the version number is provided only partially then true is returned if the available filter or effect version has the same major version.<br>
+       If no version information is provided to test for the function returns true if the filter or effect is available in any version.
   </ul>
 
  <script>addFooter("Matching major version numbers makes sure all functions are supported in the expected way.");

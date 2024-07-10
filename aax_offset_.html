@@ -9,22 +9,24 @@
  <script>addHead();</script>
 
   <H2 id="Support">Buffer Offset</H2>
-   <pre class="shared" id="aaxEmitterSetOffset">int aaxEmitterSetOffset(aaxEmitter emitter, unsigned long offset, enum aaxType type)</pre>
+   <pre class="shared" id="aaxSensorSetOffset">aaxSensorSetOffset(aaxConfig config, size_t offset, enum aaxType type)</pre>
+   <pre class="shared" id="aaxEmitterSetOffset">bool aaxEmitterSetOffset(aaxEmitter emitter, size_t offset, enum aaxType type)</pre>
     Set the offset from the start of the first buffer in the buffer stack.<p>
     <ul>
     <li> The emitter parameter is the handle as returned by aaxEmitterCreate.
     <li> The offset parameter defines the number of units offset.
     <li> The type parameter is an enumerated type <a href="aax_aaxtype.html">aaxType</a> and describes the unit-type for the buffer offset.
    </ul><p>
-   Return AAX_TRUE if successful, AAX_FALSE otherwise. 
+   Return true if successful, false otherwise. 
 
-   <pre class="shared v10" id="aaxEmitterSetOffsetSec">int aaxEmitterSetOffsetSec(aaxEmitter emitter, float offset)</pre>
+   <pre class="shared v310" id="aaxSensorSetOffsetSec">aaxSensorSetOffsetSec(aaxConfig config, float offset)</pre>
+   <pre class="shared v10" id="aaxEmitterSetOffsetSec">bool aaxEmitterSetOffsetSec(aaxEmitter emitter, float offset)</pre>
    Set the offset in seconds from the start of the first buffer in the buffer stack.<p>
    <ul>
     <li> The emitter parameter is the handle as returned by aaxEmitterCreate. 
     <li> The offset parameter defines the number of seconds offset.
    </ul><p>
-   Return AAX_TRUE if successful, AAX_FALSE otherwise.<p>
+   Return true if successful, false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed handle or an incorrect type parameter.
 
  <script>addFooter("");

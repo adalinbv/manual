@@ -1,0 +1,35 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+  <h2>enum aaxSetupType</h2>
+  The following aaxSetupType entries are supported by aaxGetByType.
+  <p>
+  <table id="aaxSetupType">
+  <tr>
+   <td colspan="2">
+    <dl>
+     <script>
+     addDL("40", "VERSION_MAJOR", "Return the libraries major version number");
+     addDL("40", "VERSION_MINOR", "Return the libraries minor version number");
+     addDL("40", "VERSION_MICRO", "Return the libraries micro version number");
+     addDL("40", "RELEASE_NUMBER", "Return the libraries release nymber");
+     addDL("40", "ERROR_NUMBER", "Return the latest error number");
+     addDL("40", "MAX_FILTER", "Return the maximum number of filters");
+     addDL("40", "MAX_EFFECT", "Return the maximum number of effects");
+     </script>
+    </dl>
+   </td>
+  </tr>
+  </table>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

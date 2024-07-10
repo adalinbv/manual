@@ -67,11 +67,11 @@
    </ul>
    Return the interface name at the specified position for the specified mode as a string constant.
 
-   <pre class="v10" id="aaxDriverGetSupport">int aaxDriverGetSupport(aaxConfig config, enum aaxRenderMode mode)</pre>
+   <pre class="v10" id="aaxDriverGetSupport">bool aaxDriverGetSupport(aaxConfig config, enum aaxRenderMode mode)</pre>
    <ul>
    <li>the mode parameter is an enumerated type <a href="aax_aaxrendermode.html">aaxRenderMode</a>.
    </ul>
-   Return AAX_TRUE if the driver supports the requested mode, AAX_FALSE otherwise.
+   Return true if the driver supports the requested mode, false otherwise.
 
  <script>addFooter("All drivers should be freed afterwards.");
  </script>

@@ -13,9 +13,9 @@
    <dl id="frequency">
     <dt class="v20">AAX_EQUALIZER</dt>
     <dt class="v22">AAX_GRAPHIC_EQUALIZER</dt>
-    <dd>AAX_TRUE to enable the filter or AAX_FALSE to disable it.<dl></dl><br></dd>
+    <dd>true to enable the filter or false to disable it.<dl></dl><br></dd>
     <dt class="v20">AAX_FREQUENCY_FILTER</dt>
-    <dd><br>Defines the filter type and filter slope or AAX_FALSE to disable it.<p>
+    <dd><br>Defines the filter type and filter slope or false to disable it.<p>
       <ul>
       <li>For filter sweeping one of the types for AAX_DYNAMIC_GAIN_FILTER as defined below can be added.<br>
           For envelope following (auto-wah) add AAX_ENVELOPE_FOLLOW.
@@ -35,7 +35,7 @@
     <dt class="v20">AAX_FREQUENCY_FILTER</dt>
     
     <dd>
-      A waveform type (or AAX_TRUE which equals to AAX_CONSTANT_VALUE) to enable the dynamic filter or AAX_FALSE to disable it.<br>
+      A waveform type (or true which equals to AAX_CONSTANT_VALUE) to enable the dynamic filter or false to disable it.<br>
       Randomness is low-frequency noise with a cut-off frequency around the lfo-frequency value.<br>
       Timed-transition is a one time action from a start value to an end value which takes (1/lfo-frequency) seconds to complete.<br>
       Envelope following calculates the current amplitude and sets the value based on that with an update speed of (1/lfo-frequency) seconds. A low value for lfo-frequency therefore means it takes longer for the envelope following to reach the next value.<br>

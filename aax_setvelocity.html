@@ -9,9 +9,9 @@
  <script>addHead();</script>
 
    <H2 id="config">Velocity</H2>
-   <pre class="shared v10" id="aaxSensorSetVelocity">int aaxSensorSetVelocity(aaxConfig config, const aaxVec3f velocity)</pre>
-   <pre class="shared v10" id="aaxEmitterSetVelocity">int aaxEmitterSetVelocity(aaxEmitter emitter, const aaxVec3f velocity)</pre>
-   <pre class="shared" id="aaxAudioFrameSetVelocity">int aaxAudioFrameSetVelocity(aaxFrame frame, const aaxVec3f velocity)</pre>
+   <pre class="shared v10" id="aaxSensorSetVelocity">bool aaxSensorSetVelocity(aaxConfig config, const aaxVec3f velocity)</pre>
+   <pre class="shared v10" id="aaxEmitterSetVelocity">bool aaxEmitterSetVelocity(aaxEmitter emitter, const aaxVec3f velocity)</pre>
+   <pre class="shared" id="aaxAudioFrameSetVelocity">bool aaxAudioFrameSetVelocity(aaxFrame frame, const aaxVec3f velocity)</pre>
    Set the velocity vector.<p>
    <ul>
    <li> The config parameter is the handle as returned by aaxOpenDevice.
@@ -21,12 +21,12 @@
    <!-- li> If the velocity parameter is NULL or contains NaN's  the velocity vector
    will not be changed but the program shall continue without a problem. -->
    </ul>
-   <p>Return AAX_TRUE if successful, AAX_FALSE otherwise.<p>
+   <p>Return true if successful, false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed class handle, a NULL pointer for the velocity parameter or a velocity vector that contains one ore more NaN's.
   <p><br><p>
-  <pre class="shared v10" id="aaxSensorGetVelocity">int aaxSensorGetVelocity(const aaxConfig config, aaxVec3f velocity)</pre>
-   <pre class="shared v10" id="aaxEmitterGetVelocity">int aaxEmitterGetVelocity(const aaxEmitter emitter, aaxVec3f velocity)</pre>
-   <pre class="shared" id="aaxAudioFrameGetVelocity">int aaxAudioFrameGetVelocity(const aaxFrame frame, aaxVec3f velocity)</pre>
+  <pre class="shared v10" id="aaxSensorGetVelocity">bool aaxSensorGetVelocity(const aaxConfig config, aaxVec3f velocity)</pre>
+   <pre class="shared v10" id="aaxEmitterGetVelocity">bool aaxEmitterGetVelocity(const aaxEmitter emitter, aaxVec3f velocity)</pre>
+   <pre class="shared" id="aaxAudioFrameGetVelocity">bool aaxAudioFrameGetVelocity(const aaxFrame frame, aaxVec3f velocity)</pre>
    Stores the velocity vector in the velocity parameter.<p>
    <ul>
    <li> The config parameter is the handle as returned by aaxOpenDevice.
@@ -35,7 +35,7 @@
    <li> Depending on the <a href="aax_setmode.html">position mode</a> the velocity vector of the emitter will either be absolute, or relative to the sensors velocity vector.
    <!-- li>If the velocity parameter is NULL the velocity is not stored and the program shall continue without a problem. -->
    </ul>
-   Return AAX_TRUE if successful, AAX_FALSE otherwise.<p>
+   Return true if successful, false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed class handle or a NULL pointer for the velocity parameter.
 
  <script>addFooter("");

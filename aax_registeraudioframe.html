@@ -26,7 +26,7 @@
     <li> The frame parameter is the handle as returned by aaxAudioFrameCreate.
     <li> The emitter parameter is the handle as returned by aaxEmitterCreate.
    </ul>
-   <p>Return AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   <p>Return true if successful or false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed config, emitter or audio-frame handle or insufficient memory to create internal buffers.<p>
 
    <pre class="shared v20" id="aaxMixerRegisterAudioFrame">int aaxMixerRegisterAudioFrame(aaxConfig config, const aaxFrame frame)</pre>
@@ -40,7 +40,7 @@
          properly initialized.
     <li> The frame parameter is the handle as returned by aaxAudioFrameCreate.
    </ul>
-   <p>Return AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   <p>Return true if successful or false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed config or audio-frame handle, insufficient memory to create internal buffers or when trying to register an audio-frame that is not in the proper state.<p>
 
    <pre class="shared v22" id="aaxMixerRegisterSensor">int aaxMixerRegisterSensor(aaxConfig config, const aaxConfig sensor)</pre>
@@ -52,7 +52,7 @@
     <li> The frame parameter is the handle as returned by aaxAudioFrameCreate.
     <li> The sensor parameter is the handle as returned by aaxOpenDevice in AAX_MODE_READ mode.
    </ul>
-   <p>Return AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   <p>Return true if successful or false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed config, sensor or audio-frame handle or insufficient memory to create internal buffers.<p>
 
    <br>
@@ -65,7 +65,7 @@
    <li> The frame parameter is the handle as returned by aaxAudioFrameCreate.
    <li> The emitter parameter is the handle as returned by aaxEmitterCreate.
    </ul>
-   <p>Return AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   <p>Return true if successful or false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed config, emitter or audio-frame handle.<p>
 
    <pre class="shared v20" id="aaxMixerDeregisterAudioFrame">int aaxMixerDeregisterAudioFrame(aaxConfig config, const aaxFrame frame)</pre>
@@ -75,7 +75,7 @@
     <li> The frame_config is the handle as returned by aaxAudioFrameCreate.
     <li> The frame parameter is the handle as returned by aaxAudioFrameCreate.
    </ul>
-   <p>Return AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   <p>Return true if successful or false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed config or audio-frame handle.<p>
 
    <pre class="shared v22" id="aaxMixerDeregisterSensor">int aaxMixerDeregisterSensor(aaxConfig config, const aaxConfig sensor)</pre>
@@ -86,7 +86,7 @@
    <li> The frame parameter is the handle as returned by aaxAudioFrameCreate.
    <li> The sensor parameter is the handle as returned by aaxOpenDevice in AAX_MODE_READ mode.
    </ul>
-   <p>Return AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   <p>Return true if successful or false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed config, sensor or audio-frame handle.<p>
 
 

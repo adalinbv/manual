@@ -10,10 +10,10 @@
 
  <H2 id="support">Modifying audio effects</H2>
 
-  <pre class="shared" id="aaxMixerSetEffect">int aaxMixerSetEffect(aaxConfig config, aaxEffect effect)</pre>
-  <pre class="shared" id="aaxScenerySetEffect">int aaxScenerySetEffect(aaxConfig config, aaxEffect effect)</pre>
-  <pre class="shared" id="aaxAudioFrameSetEffect">int aaxAudioFrameSetEffect(aaxFrame frame, aaxEffect effect)</pre>
-  <pre class="shared" id="aaxEmitterSetEffect">int aaxEmitterSetEffect(aaxEmitter emitter, aaxEffect effect)</pre>
+  <pre class="shared" id="aaxMixerSetEffect">bool aaxMixerSetEffect(aaxConfig config, aaxEffect effect)</pre>
+  <pre class="shared" id="aaxScenerySetEffect">bool aaxScenerySetEffect(aaxConfig config, aaxEffect effect)</pre>
+  <pre class="shared" id="aaxAudioFrameSetEffect">bool aaxAudioFrameSetEffect(aaxFrame frame, aaxEffect effect)</pre>
+  <pre class="shared" id="aaxEmitterSetEffect">bool aaxEmitterSetEffect(aaxEmitter emitter, aaxEffect effect)</pre>
   <p>Update or apply new effect parameters.</br>
   <ul>
    <li> The config parameter is the handle as returned by aaxDriverOpen.
@@ -26,7 +26,7 @@
       Adding a new delay effect will overwrite the current one.
    <li> When updating a registered effect it is advised to first retrieve it using one of the getter functions (see below) and altering the returned effect rather than creating a new effect and applying it. That way the unmodified effect parameters remain the same after applying.
   </ul>
-   <p>Return AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   <p>Return true if successful or false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed class handle or an incorrect or already destroyed effect handle.
    <p>
    <br>
@@ -43,7 +43,7 @@
     <li> The type parameter is an enumerated type <a href="aax_aaxeffecttype.html">aaxEffectType</a> which defines what effect type to return.
     <li> After retrieving the effect it is possible to examine it's parameters using the <a href="aax_effect.html">aaxEffect</a> support functions.
    </ul>
-   <p>Return the requested effect or AAX_FALSE if a error occurred.<p>
+   <p>Return the requested effect or false if a error occurred.<p>
    Reasons for failure are an incorrect or already destroyed class handle or an incompatible type parameter.
 
  <script>addFooter("");

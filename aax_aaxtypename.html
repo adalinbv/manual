@@ -1,0 +1,37 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+  <h2>enum aaxTypeName</h2>
+
+  <table id="aaxType">
+  <tr>
+   <td colspan="2">
+    <dl>
+     <script>
+     addDL("40", "ALL", "Auto-detect the type by the name");
+     addDL("40", "SOURCE_NAME", "Name is a source name and return an enum aaxSourceType");
+     addDL("40", "FREQUENCY_FILTER_NAME", "Name is a frequency-filter name and return an enum aaxSourceType");
+     addDL("40", "PROCESSING_NAME", "Name is a processing name and return an enum aaxProcessingType");
+     addDL("40", "FILTER_NAME", "Name is a filter name and return an enum aaxFilterType");
+     addDL("40", "EFFECT_NAME", "Name is an effect name and return an eenum aaxEffectType");
+     addDL("40", "DELAY_EFFECT_NAME", "Name is an effect name and return an eenum aaxEffectType");
+     addDL("40", "DISTANCE_MODEL_NAME", "Name is a distance model name and return an enum aaxDistanceModel");
+     addDL("40", "TYPE_NAME", "Name is a type name and return an enum aaxType");
+     addDL("40", "MODULATION_NAME", "Name is a MIDI modulation name and return an enum aaxMIDIModulationMode");
+     </script>
+    </dl>
+   </td>
+  </tr>
+  </table>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

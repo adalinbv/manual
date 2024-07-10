@@ -16,7 +16,7 @@
    <li> The frame parameter is the handle as returned by aaxAudioFrameCreate.
     <lI> The type parameter specifies which setup parameter to return.
   </ul>
-  <p>Return the current setup of the class as an enumerated type <a href="aax_aaxsetuptype.html">aaxSetupType</a> or AAX_FALSE if a error occurred.<p>
+  <p>Return the current setup of the class as an enumerated type <a href="aax_aaxsetuptype.html">aaxSetupType</a> or false if a error occurred.<p>
   Reasons for failure are an incorrect or already destroyed class handle or an improper type parameter.
 
   <p>
@@ -58,14 +58,14 @@
   <dt class="v25" id="AAX_FRAME_TIMING">AAX_FRAME_TIMING</dt>
   <dd>Get the time it took to render the last frame in &micro;s.</dd>
   <dt class="v23" id="AAX_GATE_ENABLED">AAX_GATE_ENABLED</dt>
-  <dd>Returns AAX_FALSE if the noise-gate is not active for a specified track.<br>
+  <dd>Returns false if the noise-gate is not active for a specified track.<br>
       Select a track by using a logical OR and an <a href="aax_aaxtracktype.html">aaxTrackType</a>, e.g. (AAX_GATE_ENABLED | AAX_FRONT_RIGHT).</dd>
   <dt class="v25" id="AAX_SHARED_MODE">AAX_SHARED_MODE</dt>
-  <dd>Returns AAX_FALSE if the device cannot be shared with other applications.</dd>
+  <dd>Returns false if the device cannot be shared with other applications.</dd>
   <dt class="v25" id="AAX_TIMER_MODE">AAX_TIMER_MODE</dt>
-  <dd>Returns AAX_FALSE if the device only supports interrupts for operation.</dd>
+  <dd>Returns false if the device only supports interrupts for operation.</dd>
   <dt class="v25" id="AAX_BATCHED_MODE">AAX_BATCHED_MODE</dt>
-  <dd>Returns AAX_FALSE if the device can not operate in maximum speed rendering mode.</dd>
+  <dd>Returns false if the device can not operate in maximum speed rendering mode.</dd>
   <dt class="v36" id="AAX_CAPABILITIES">AAX_CAPABILITIES</dt>
   <dd>Returns the <a href="aax_aaxcapabilities.html">system capabilities</a> as a bitmask.</dd>
   <dt class="v25" id="AAX_TRACKS_MIN">AAX_TRACKS_MIN</dt>

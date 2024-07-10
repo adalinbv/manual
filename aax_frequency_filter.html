@@ -66,13 +66,13 @@
    </dl>
 
    <h5>Frequency Filter state options</h5>
-   Specify a filter type and/or a filter order or a waveform type to enable the filter or AAX_FALSE to disable it.
+   Specify a filter type and/or a filter order or a waveform type to enable the filter or false to disable it.
    <p></p>
    The fastest filters are 6dB/Oct and 12dB/Oct (both are equally fast). Higher order filters require extra filter passes. This makes an 8th order filter 4 times slower than a 2nd order filter.
    <p></p>
    Filter type selection and filter order selection are available for AAX_frequency_filter version 1.1 or higher only.<br>
    The filter type and filter order can be combined by using the bitwise OR operation.<br>
-    The default for AAX_TRUE is (AAX_2ND_ORDER|AAX_BUTTERWORTH)<br>
+    The default for true is (AAX_2ND_ORDER|AAX_BUTTERWORTH)<br>
     <p></p>
     <a href="aax_aaxfilterstate.html#frequency">Filter state information</a> explains all state options.
 <!--
@@ -94,7 +94,7 @@
       </dl><br>
       Valid waveform types are:
       <dl>
-        <dt class="v22"> AAX_CONSTANT_VALUE (or AAX_TRUE)
+        <dt class="v22"> AAX_CONSTANT_VALUE (or true)
         <dt class="v20"> AAX_TRIANGLE_WAVE
         <dt class="v20"> AAX_SINE_WAVE
         <dt class="v20"> AAX_SQUARE_WAVE

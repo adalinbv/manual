@@ -15,7 +15,7 @@
    <li> The frame parameter is the handle as returned by aaxAudioFrameCreate.
     <lI> The type parameter specifies which setup parameter to return.
   </ul>
-  <p>Return the current setup of the class as an enumerated type <a href="aax_aaxsetuptype.html">aaxSetupType</a> or AAX_FALSE if a error occurred.<p>
+  <p>Return the current setup of the class as an enumerated type <a href="aax_aaxsetuptype.html">aaxSetupType</a> or false if a error occurred.<p>
   Reasons for failure are an incorrect or already destroyed class handle or an improper type parameter.
 
   <p>
@@ -32,7 +32,7 @@
       Only useful if the Compressor or a Dynamic Gain filter was applied.<br>
       Select a track by using a logical OR and an <a href="aax_aaxtracktype.html">aaxTrackType</a>, e.g. (AAX_COMPRESSION_VALUE | AAX_TRACK0).</dd>
   <dt class="v23" id="AAX_GATE_ENABLED">AAX_GATE_ENABLED</dt>
-  <dd>Returns AAX_FALSE if the noise-gate is not active for a specified track.<br>
+  <dd>Returns false if the noise-gate is not active for a specified track.<br>
       Select a track by using a logical OR and an <a href="aax_aaxtracktype.html">aaxTrackType</a>, e.g. (AAX_GATE_ENABLED | AAX_FRONT_RIGHT).</dd>
   </dl>
 

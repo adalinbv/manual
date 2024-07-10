@@ -10,14 +10,14 @@
 
   <H2 id="init">Change Setup parameters</H2>
 
-   <pre class="shared" id="aaxMixerSetSetup">int aaxMixerSetSetup(aaxConfig config, enum aaxSetupType type, unsigned int setup)</pre>
+   <pre class="shared" id="aaxMixerSetSetup">bool aaxMixerSetSetup(aaxConfig config, enum aaxSetupType type, unsigned int setup)</pre>
    <p>These functions change the respective setup.<br>
    <ul>
    <li> The config parameter is the handle as returned by aaxDriverOpen.
    <li> The type parameter is an enumerated type and specifies which setup parameter to change.
    <li> The setup parameter is type  parameter specific (see <a href="aax_aaxsetuptype.html">aaxSetupType</a> for more information).<br>
    </ul>
-   <p>Return AAX_TRUE if successful or AAX_FALSE otherwise.<p>
+   <p>Return true if successful or false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed class handle or an incompatible setup value.
    <p>&nbsp;<p>
   If hardware limitations prevent a particular request then a closest match will be selected.
@@ -61,7 +61,7 @@
   <dd> Set the <a href="aax_aaxcapabilities.html">rendering mode</a> for AAXS encoded instruments.</dt>
   </dl>
 
-  <pre class="v30" id="aaxMixerAddBuffer">int aaxMixerAddBuffer(aaxConfig config, aaxBuffer buffer)</pre>
+  <pre class="v30" id="aaxMixerAddBuffer">bool aaxMixerAddBuffer(aaxConfig config, aaxBuffer buffer)</pre>
    Adds an audio buffer to the mixer.<p>
    <ul>
    <li>Only AAXS buffers containing filter and/or effect information are supported.
@@ -69,7 +69,7 @@
    <li>If the buffer parameter is NULL or a non existent buffer the program shall
    continue without a problem.
    </ul><p>
-   Return AAX_TRUE if successful, AAX_FALSE otherwise.<p>
+   Return true if successful, false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed configuration or buffer handle, adding a buffer which has no AAXS data assigned to it or insufficient memory to add the buffer to the mixer.
 
  <script>addFooter("");

@@ -12,11 +12,11 @@
   <H2 id="playback">Emitter defines</H2>
 
    The function defines that require a buffer to return any useful information
-   will return AAX_FALSE if there is no buffer in the emitters buffer stack.
+   will return false if there is no buffer in the emitters buffer stack.
 
    <pre class="v20" id="aaxEmitterIsValid">aaxEmitterIsValid(handle)</pre>
    <div class="define">aaxIsValid(handle, AAX_EMITTER)</div>
-   Return AAX_TRUE if the handle is a valid emitter handle, AAX_FALSE otherwise.
+   Return true if the handle is a valid emitter handle, false otherwise.
 
    <pre class="define" id="aaxEmitterGetSetup">aaxEmitterGetSetup(emitter, type)</pre>
    <div class="define">aaxBufferGetSetup(aaxEmitterGetBuffer(emitter), type)</div>
@@ -24,7 +24,7 @@
    See <a href="aax_setsetup.html#aaxBufferGetSetup">aaxBufferGetSetup</a> for more information.
 
    <pre class="define" id="aaxEmitterGetBuffer">aaxEmitterGetBuffer(emitter)</pre>
-   <div class="define">aaxEmitterGetBufferByPos(emitter, 0, AAX_FALSE)</div>
+   <div class="define">aaxEmitterGetBufferByPos(emitter, 0, false)</div>
    Return the first buffer of the emitters buffer stack, the buffer will not be removed from the stack.<p>
    Since the buffer will not be copied it may become invalid when the last reference to it has been destroyed.<br>
 

@@ -10,7 +10,7 @@
 
    <H2 id="config">Buffer runtime configuration</H2>
 
-   <pre class="v10" id="aaxBufferSetData">int aaxBufferSetData(aaxBuffer buffer, const void* data)</pre>
+   <pre class="v10" id="aaxBufferSetData">bool aaxBufferSetData(aaxBuffer buffer, const void* data)</pre>
    Store new sample data in the buffer.<p>
    
    <ul>
@@ -19,7 +19,7 @@
     <li> When the sound buffer contains multiple tracks they should be interleaved according to the compression type specification.<br>
     <li> The sound data will be copied for internal use and the buffer pointed to by the data parameter should be freed by the caller.
    </ul><p>
-   Return AAX_TRUE if successful, AAX_FALSE otherwise.<p>
+   Return true if successful, false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed buffer handle or the data parameter being NULL.
   <p>
   <br>

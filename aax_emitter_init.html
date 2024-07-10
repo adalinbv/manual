@@ -14,7 +14,7 @@
    Return a new emitter handle or NULL in case of an error.<p>
    Reasons for failure a insufficient memory to create the handle.
 
-   <pre class="v20" id="aaxEmitterAddBuffer">int aaxEmitterAddBuffer(aaxEmitter emitter, aaxBuffer buffer)</pre>
+   <pre class="v20" id="aaxEmitterAddBuffer">bool aaxEmitterAddBuffer(aaxEmitter emitter, aaxBuffer buffer)</pre>
    Adds an audio buffer to the emitter.<p>
    <ul>
    <li>Without a buffer associated with the emitter no audio will be heard.
@@ -22,31 +22,42 @@
    <li>If the buffer parameter is NULL or a non existent buffer the program shall
    continue without a problem. 
    </ul><p>
-   Return AAX_TRUE if successful, AAX_FALSE otherwise.<p>
+   Return true if successful, false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed emitter or buffer handle, adding a buffer which has no data assigned to it, adding a buffer with fewer tracks than defined using <a href="aax_emitter_define.html#aaxEmitterSetBufferTrack">aaxEmitterSetBufferTrack</a> or insufficient memory to add the buffer to the emitter.
 
-   <pre class="v20" id="aaxEmitterRemoveBuffer">int aaxEmitterRemoveBuffer(aaxEmitter emitter)</pre>
+   <pre class="v20" id="aaxEmitterRemoveBuffer">bool aaxEmitterRemoveBuffer(aaxEmitter emitter)</pre>
    Remove the first buffer from the buffer queue of the emitter and clear
    all memory associated with it.<p>
    <ul>
-   <li>To remove all buffers from the queue one has to keep removing buffers until the function returns AAX_FALSE.
+   <li>To remove all buffers from the queue one has to keep removing buffers until the function returns false.
    </ul><p>
-   Return AAX_TRUE if successful, AAX_FALSE otherwise.<p>
+   Return true if successful, false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed emitter handle, trying to remove a buffer from an empty buffer stack, or trying to remove a buffer that is still playing.
 
-   <pre class="v20" id="aaxEmitterDestroy">int aaxEmitterDestroy(aaxEmitter emitter)</pre>
+   <pre class="v20" id="aaxEmitterDestroy">bool aaxEmitterDestroy(aaxEmitter emitter)</pre>
    Destroy the emitter and all it's associated memory allocations.<p>
    <ul>
    <li>The emitter handle can not be used after calling this function.
    <li>If there are still buffers in the buffer queue they will all be removed.
    </ul><p>
-   Return AAX_TRUE if successful, AAX_FALSE otherwise.<p>
+   Return true if successful, false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed emitter handle,
    trying to destroy a registered emitter or the buffer has not finished playing
    either because the end of the buffer was not yet reached or because of the
    presence of an active timed-gain filter which has not finished. To prevent
    the last do not use AAX_STOPPED but AAX_PROCESSED when calling
    aaxEmitterSetState (or wait until the state reaches AAX_PROCESSED by itself).
+
+   <pre class="v40" id="aaxEmitterSetSetup">bool aaxEmitterSetSetup(aaxEmitter emitter, enum aaxSetupType type, int64_t setup)</pre>
+   <p>These functions change the respective setup.<br>
+   <ul>
+   <li> The type parameter is an enumerated type and specifies which setup parameter to change.
+   <li> The setup parameter is type  parameter specific (see <a href="aax_aaxsetuptype_emitter.html">aaxSetupType</a> for more information).<br>
+   </ul>
+   <p>Return true if successful or false otherwise.<p>
+   Reasons for failure are an incorrect or already destroyed class handle or an incompatible setup value.
+   <p>&nbsp;<p>
+  If hardware limitations prevent a particular request then a closest match will be selected.
 
  <script>addFooter("");
  </script>

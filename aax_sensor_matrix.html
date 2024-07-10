@@ -10,22 +10,22 @@
 
    <H2 id="matrix">Position and Orientation</H2>
 
-   <pre class="shared v30" id="aaxSensorSetMatrix64">int aaxSensorSetMatrix64(aaxConfig config, const aaxMtx4d mtx)</pre>
+   <pre class="shared v30" id="aaxSensorSetMatrix64">bool aaxSensorSetMatrix64(aaxConfig config, const aaxMtx4d mtx)</pre>
    Set the position-and-orientation matrix.<p>
    <ul>
    <li> The config parameter is the handle as returned by aaxOpenDevice.
    <li> The sensor matrix should be inversed using <a href="aax_matrix64_config.html#aaxMatrix64Inverse">aaxMatrix64Inverse</a> first if the matrix was manipulated using the matrix support functions.
    </ul><p>
-   Return AAX_TRUE if successful, AAX_FALSE otherwise.<p>
+   Return true if successful, false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed class handle, a NULL pointer for the mtx parameter or a matrix that contains one ore more NaN's.
   <p><br><p>
 
-  <pre class="shared v30" id="aaxSensorGetMatrix64">int aaxSensorGetMatrix64(const aaxConfig config, aaxMtx4d mtx)</pre>
+  <pre class="shared v30" id="aaxSensorGetMatrix64">bool aaxSensorGetMatrix64(const aaxConfig config, aaxMtx4d mtx)</pre>
   Stores the position-and-orientation matrix int mtx.<p>
   <ul>
    <li> The config parameter is the handle as returned by aaxOpenDevice.
   </ul><p>
-   Return AAX_TRUE if successful, AAX_FALSE otherwise.<p>
+   Return true if successful, false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed class handle or a NULL pointer for the mtx parameter.
 
  <script>addFooter("");

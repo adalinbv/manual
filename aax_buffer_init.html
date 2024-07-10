@@ -36,12 +36,12 @@
   Return the new audio buffer or NULL in case of an error.<p>
    Reasons for failure are an incorrect or already destroyed config handle, an invalid URL or an unsupported audio format.
 
-   <pre class="v10" id="aaxBufferDestroy">int aaxBufferDestroy(aaxBuffer buffer)</pre>
+   <pre class="v10" id="aaxBufferDestroy">bool aaxBufferDestroy(aaxBuffer buffer)</pre>
    Destroy the audio buffer and all associated memory buffers.<p>
    <ul>
     <li> The buffer parameter is the handle as returned by aaxBufferCreate.
    </ul><p>
-   Return AAX_TRUE if successful, AAX_FALSE otherwise.<p>
+   Return true if successful, false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed buffer handle.
 
  <script>addFooter("");

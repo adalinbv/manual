@@ -10,7 +10,7 @@
 
   <H2 id="support">Support</H2>
 
-   <pre class="v30" id="aaxFilterGetSlot">int aaxFilterGetSlot(aaxFilte filter, unsigned slot, int ptype,
+   <pre class="v30" id="aaxFilterGetSlot">bool aaxFilterGetSlot(aaxFilte filter, unsigned slot, int ptype,
                                               float *p1, float *p2, float *p3)</pre>
    Return all parameters of a defined parameter-slot for a filter.<p>
    <ul>
@@ -20,7 +20,7 @@
     <li> The ptype parameter specifies the unit of the parameter and is type specific.<br>
          See <a href="aax_aaxtype.html">enum aaxType</a> for more information.
    </ul><p>
-   Return the value if successful or AAX_FALSE otherwise.<p>
+   Return the value if successful or false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed filter handle or an incorrect slot number.
 
    <pre class="v20" id="aaxFilterGetParam">float aaxFilterGetParam(aaxFilter filter, int param_no, int ptype)</pre>
@@ -32,8 +32,12 @@
     <li> The ptype parameter specifies the unit of the parameter and is type specific.<br>
          See <a href="aax_aaxtype.html">enum aaxType</a> for more information.
    </ul><p>
-   Return the value if successful or AAX_FALSE otherwise.<p>
+   Return the value if successful or false otherwise.<p>
    Reasons for failure are an incorrect or already destroyed filter handle or an incorrect param_no value.
+
+  <pre class="v20" id="aaxFilterGetState">uint64_t aaxFilterGetState(aaxFilter filter)</pre>
+  Return the current state of the filter.<br>
+  See <a href="aax_aaxfilterstate.html">aaxFilterState</a> for more information.<p>
  
  <script>addFooter("");</script>
 </body>
