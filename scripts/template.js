@@ -57,7 +57,6 @@ function addHead()
     document.write("     <li><a id=\"menu\" href=\"dsp.html?api=C++\">DSP</a></li>");
     document.write("     <li><a id=\"menu\" href=\"vector.html?api=C++\">Vector</a></li>");
     document.write("     <li><a id=\"menu\" href=\"matrix64.html?api=C++\">Matrix64</a></li>");
-    document.write("     <li><a id=\"menu\" href=\"matrix.html?api=C++\">Matrix</a></li>");
     document.write("     <p>");
     document.write("     <li><a id=\"menu\" href=\"support.html?api=C++\">support</a></li>");
     document.write("     <li><a id=\"menu\" href=\"strings.html?api=C++\">strings</a></li>");
@@ -151,4 +150,10 @@ function addDL( version, type, desc )
 {
   document.write(" <dt class=\"v"+version+"\" id=\"AAX_"+type+"\">AAX_"+type+"</dt>");
   document.write(" <dd>"+desc+".</dd>");
+}
+
+function addDLlink( version, type, pre, link, link_desc, post )
+{ 
+  document.write(" <dt class=\"v"+version+"\" id=\"AAX_"+type+"\">AAX_"+type+"</dt>");
+  document.write(" <dd>"+pre+" <a href=\"http://"+link+"\" target=\"_blank\">"+link_desc+"</a> "+post+".</dd>");
 }
