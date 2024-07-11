@@ -1,0 +1,80 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+  <h2>enum aaxSourceType</h2>
+  <a href="aax_aaxsourcetype_waveforms.html">Source waveform types are described in their own section.</a>
+
+  <h3>Filter and Effect response</h3>
+  <dl>
+    <script>
+    addDL("40", "TIMED_TRANSITION", "Transition within a timed period instead of following a periodic waveform");
+    addDL("40", "ENVELOPE_FOLLOW", "Follow the gain of the signal instead of following a periodic waveform");
+    addDL("40", "RANDOMNESS", "Follow a low-frequency random pattern instead of following a periodic waveform");
+    addDL("40", "RANDOM_SELECT", "Randomly select a value from within a range instead of following a periodic waveform");
+    addDL("40", "LFO_STEREO", "Add spatial effect (delay effect only). Can be combined with oher options");
+    addDL("40", "LFO_EXPONENTIAL", "Follow the source input exponentially. Can be combined with oher options");
+    </script>
+  </dl>
+
+  <h3>Timed Gain filter</h3>
+  <dl>
+    <script>
+    addDL("40", "RELEASE_FACTOR", "Define the release time for situations where sustain is not infinite");
+    addDL("40", "REPEAT", "Define how often the envelope has to repeat");
+    </script>
+  </dl>
+
+  <h3>Frequency filter</h3>
+  <h4>Filter type</h4>
+  <dl>
+    <script>
+    addDLlink("40", "BUTTERWORTH", "Use a filter with", "en.wikipedia.org/wiki/Butterworth_filter", "Butterworh", "filter characteristics");
+    addDLlink("40", "BESSEL", "Use a filter with", "en.wikipedia.org/wiki/Bessel_filter", "Bessel", "filter characteristics");
+    </script>
+  </dl>
+
+  <h4>Filter order</h4>
+  <dl>
+    <script>
+    addDL("40", "1ST_ORDER or AAX_6DB_OCT", "1st order filter roll-off (6dB/oct)");
+    addDL("40", "2ND_ORDER or AAX_12DB_OCT", "2nd order filter roll-off (12dB/oct)");
+    addDL("40", "4TH_ORDER or AAX_24DB_OCT", "4th order filter roll-off (24dB/oct)");
+    addDL("40", "6TH_ORDER or AAX_36DB_OCT", "6th order filter roll-off (36dB/oct)");
+    addDL("40", "8TH_ORDER or AAX_48DB_OCT", "8th order filter roll-off (48dB/oct)");
+    </script>
+  </dl>
+
+  <h3>Reverb and Delay effects</h3>
+  <h4>Effect order</h4>
+  <dl>
+    <script>
+    addDL("40", "EFFECT_1ST_ORDER", "Only process first order reflections");
+    addDL("40", "EFFECT_2ND_ORDER", "Only process second order reflections");
+    </script>
+  </dl>
+
+  <h3>Reverb</h3>
+  <h4>Room types</h4>
+  <dl>
+    <script>
+    addDL("40", "EMPTY_ROOM", "An empty room with full reflections");
+    addDL("40", "OPEN_ROOM", "A room with a lot of open space");
+    addDL("40", "SPARSE_ROOM", "A sparsly packed room");
+    addDL("40", "AVERAGE_ROOM", "An average living room");
+    addDL("40", "FILLED_ROOM", "A room  with many objects");
+    addDL("40", "DENSE_ROOM", "A densly packed room");
+    addDL("40", "DAMPED_ROOM", "A sound proved dampened room");
+    </script>
+  </dl>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

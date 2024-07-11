@@ -1,0 +1,68 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <h2>enum aaxSourceType</h2>
+
+   <dl>
+    <script>
+    addDLlink("40", "SINE", "Analog", "en.wikipedia.org/wiki/Sine_wave", "Sinusoidal wave", "that describes a smooth repetitive oscillation");
+    addDLlink("40", "SQUARE", "Analog", "en.wikipedia.org/wiki/Square_wave", "Squared wave", "which alternates instantaneously between two levels");
+    addDLlink("40", "TRIANGLE", "Analog", "en.wikipedia.org/wiki/Triangle_wave", "Triangle shaped wave", "which alternates linearly between two levels");
+    addDLlink("40", "SAWTOOTH", "Analog", "en.wikipedia.org/wiki/Sawtooth_wave", "Sawtooth shaped wave", "which resemblances the teeth on the blade of a saw");
+    addDLlink("40", "IMPULSE", "Analog", "en.wikipedia.org/wiki/Impulse_response", "Impulse", "which is zero for all values except for zero");
+    addDLlink("40", "CYCLOID", "Analog", "en.wikipedia.org/wiki/Cycloid", "Cycloid", "which is curve traced by a point on a circle as it rolls along a straight line without slipping");
+    addDLlink("40", "RANDOMNESS", "", "en.wikipedia.org/wiki/Randomness", "Randomness", "which lacks predictability");
+    addDLlink("40", "WHITE_NOISE", "", "en.wikipedia.org/wiki/White_noise", "White noise", "with randomness that has equal power for any frequency");
+    addDLlink("40", "PINK_NOISE", "", "en.wikipedia.org/wiki/Pink_noise", "Pink noise", "with randomness that decreases in power at 3dB per octave");
+    addDLlink("40", "BROWNIAN_NOISE", "", "en.wikipedia.org/wiki/Brownian_noise", "Brownian noise", "with randomness that decreases in power at 6dB per octave");
+    </script>
+  </dl>
+
+  <h3>variants</h3>
+  <h4>Pure</h4>
+  <dl>
+    <script>
+    addDL("40", "PURE_SINE", "Mathematically correct sine wave");
+    addDL("40", "PURE_SQUARE", "Mathematically correct square wave");
+    addDL("40", "PURE_TRIANGLE", "Mathematically correct triangle wave");
+    addDL("40", "PURE_SAWTOOTH", "Mathematically correct sawtooth wave");
+    addDL("40", "PURE_IMPULSE", "Mathematically correct impulse");
+    addDL("40", "PURE_CYCLOID", "Mathematically correct cycloid");
+    </script>
+  </dl>
+
+  <h4>Inverse</h4>
+  <dl>
+    <script>
+    addDL("40", "INVERSE_SINE", "Vertically inversed sine wave");
+    addDL("40", "INVERSE_SQUARE", "Vertically inversed square wave");
+    addDL("40", "INVERSE_TRIANGLE", "Vertically inversed triangle wave");
+    addDL("40", "INVERSE_SAWTOOTH", "Vertically inversed sawtooth wave");
+    addDL("40", "INVERSE_IMPULSE", "Vertically inversed impulse");
+    addDL("40", "INVERSE_CYCLOID", "Vertically inversed cycloid");
+    </script>
+  </dl>
+
+  <h4>Inverse Pure</h4>
+  <dl>
+    <script>
+    addDL("40", "INVERSE_PURE_SINE", "Vertically inversed mathematically correct sine wave");
+    addDL("40", "INVERSE_PURE_SQUARE", "Vertically inversed mathematically correct square wave");
+    addDL("40", "INVERSE_PURE_TRIANGLE", "Vertically inversed mathematically correct triangle wave");
+    addDL("40", "INVERSE_PURE_SAWTOOTH", "Vertically inversed mathematically correct sawtooth wave");
+    addDL("40", "INVERSE_PURE_IMPULSE", "Vertically inversed mathematically correct impulse");
+    addDL("40", "INVERSE_PURE_CYCLOID", "Vertically inversed mathematically correct cycloid");
+    </script>
+  </dl>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>
