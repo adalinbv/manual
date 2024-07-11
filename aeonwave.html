@@ -9,9 +9,11 @@
  <script>addHead();</script>
 
  <H1 id="Driver">Class AeonWave</H1>
- <h6 class="menu">Header file: &lt;aax/aeonwave.hpp&gt;</h6>
- <h6 class="menu">Namespace: aax</h6>
+ <h6 class="menu">Header file: &lt;aax/aeonwave&gt;</h6>
+ <h6 class="menu">Namespace: aeonwave<a href="#comment"><sup>(1)</sup></a></h6>
  <h6 class="menu">Inherits: <a href="sensor.html?api=C++">Sensor</a></h6>
+ <p>&nbsp;<p>
+ <sub id="comment">1) use "namespace aax = aeonwave;" for a quick conversion.</sub>
  <p>&nbsp;<p>
 
  The AeonWave class encapsulates the <a href="aax_driver.html">Driver</a>,
@@ -30,12 +32,12 @@
  <pre class="cpp">AeonWave(const char* name, <a href="aax_aaxrendermode.html">enum aaxRenderMode</a> mode=AAX_MODE_WRITE_STEREO)</pre>
  <pre class="cpp">AeonWave(std::string&amp; name, <a href="aax_aaxrendermode.html">enum aaxRenderMode</a> mode=AAX_MODE_WRITE_STEREO)</pre>
  <pre class="cpp">AeonWave(<a href="aax_aaxrendermode.html">enum aaxRenderMode</a> mode)</pre>
- <pre class="cpp">AeonWave(const aax::AeonWave&amp; config)</pre>
+ <pre class="cpp">AeonWave(const aeonwave::AeonWave&amp; config)</pre>
 
  <h5>Setting Position, Orientation and Velocity</h5>
  Position and Orientation calls <a href="aax_sensor_matrix.html#aaxSensorSetMatrix64">aaxSensorSetMatrix64</a> and Velocity calls <a href="aax_setvelocity.html#aaxSensorSetVelocity">aaxSensorSetVelocity</a><p>
- <pre class="cpp">bool sensor_matrix(aax::Matrix&amp; matrix)</pre>
- <pre class="cpp">bool sensor_velocity(aax::Vector&amp; vector)</pre>
+ <pre class="cpp">bool sensor_matrix(aeonwave::Matrix&amp; matrix)</pre>
+ <pre class="cpp">bool sensor_velocity(aeonwave::Vector&amp; vector)</pre>
 
  <h5 class="menu"><a href="aeonwave_enumeration.html?api=C++">Device Enumeration</a></h5>
  <pre class="cpp">const char* drivers(<a href="aax_aaxrendermode.html">enum aaxRenderMode</a> mode=AAX_MODE_WRITE_STEREO)</pre>
@@ -43,8 +45,8 @@
  <pre class="cpp">const char* interfaces(bool c_str=false)</pre>
 
  <h5 class="menu"><a href="aeonwave_buffer_management.html?api=C++">Buffer management</a></h5>
- <pre class="cpp">aax::Buffer&amp; buffer(std::string url)</pre>
- <pre class="cpp">void destroy(aax::Buffer&amp; buffer)</pre>
+ <pre class="cpp">aeonwave::Buffer&amp; buffer(std::string url)</pre>
+ <pre class="cpp">void destroy(aeonwave::Buffer&amp; buffer)</pre>
 
  <h5 class="menu"><a href="aeonwave_background_music_stream.html?api=C++">Background music stream</a></h5>
  <pre class="cpp">bool playback(std::string url)</pre>
@@ -53,8 +55,8 @@
  <pre class="cpp">float offset()</pre>
 
  <h5>Operators</h5>
- <pre class="cpp">friend void swap(aax::AeonWave&amp; config1, aax::AeonWave&amp; config2)</pre>
- <pre class="cpp">aax::AeonWave&amp; operator=(aax::AeonWave config)</pre>
+ <pre class="cpp">friend void swap(aeonwave::AeonWave&amp; config1, aeonwave::AeonWave&amp; config2)</pre>
+ <pre class="cpp">aeonwave::AeonWave&amp; operator=(aeonwave::AeonWave config)</pre>
 
  <!-- enherited from class Obj -->
  <pre class="cpp">operator void*() const</pre>

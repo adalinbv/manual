@@ -9,8 +9,8 @@
  <script>addHead();</script>
 
  <H1 id="Driver">Class Buffer</H1>
- <h6 class="menu">Header file: &lt;aax/aeonwave.hpp&gt;</h6>
- <h6 class="menu">Namespace: aax</h6>
+ <h6 class="menu">Header file: &lt;aax/aeonwave&gt;</h6>
+ <h6 class="menu">Namespace: aeonwave</h6>
  <p>&nbsp;<p>
 
  The Buffer class encapsulates the <a href="aax_buffer.html">Buffer</a> functions.
@@ -33,7 +33,7 @@
  <pre class="cpp">Buffer(aaxBuffer buffer, bool owner=true)</pre>
  <pre class="cpp">Buffer(aaxConfig config, unsigned int no_samples, unsigned int no_tracks,
          <a href="aax_aaxformat.html">enum aaxFormat</a> format)</pre>
- <pre class="cpp">Buffer(const aax::Buffer&amp; buffer)</pre>
+ <pre class="cpp">Buffer(const aeonwave::Buffer&amp; buffer)</pre>
  <h5>Constructors for AAXS encoded buffers</h5>
  <pre class="cpp v33">Buffer(aaxConfig config, const char* url);</pre>
  <pre class="cpp v33">Buffer(aaxConfig config, std::string&amp; url);</pre>
@@ -56,8 +56,8 @@
                float ratio=0.5f)</pre>
 
  <h5>Operators</h5>
- <pre class="cpp">friend void swap(aax::Buffer&amp; buffer1, aax::Buffer&amp; buffer2)</pre>
- <pre class="cpp">aax::Buffer&amp; operator=(aax::Buffer buffer)</pre>
+ <pre class="cpp">friend void swap(aeonwave::Buffer&amp; buffer1, aeonwave::Buffer&amp; buffer2)</pre>
+ <pre class="cpp">aeonwave::Buffer&amp; operator=(aeonwave::Buffer buffer)</pre>
 
  <!-- inherited from class Obj -->
  <pre class="cpp">operator void*() const</pre>

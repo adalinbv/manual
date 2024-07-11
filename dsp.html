@@ -9,8 +9,8 @@
  <script>addHead();</script>
 
  <H1 id="Driver">Class dsp</H1>
- <h6 class="menu">Header file: &lt;aax/aeonwave.hpp&gt;</h6>
- <h6 class="menu">Namespace: aax</h6>
+ <h6 class="menu">Header file: &lt;aax/aeonwave&gt;</h6>
+ <h6 class="menu">Namespace: aeonwave</h6>
  <p>&nbsp;<p>
 
  The dsp class encapsulates <a href="aax_filter.html">Filter</a> and <a href="aax_filter.html">Effect</a> functions.
@@ -21,14 +21,14 @@
  <h5>Constructors</h5>
  <pre class="cpp">dsp(aaxConfig config, <a href="aax_aaxfiltertype.html">enum aaxFilterType</a> filter)</pre>
  <pre class="cpp">dsp(aaxConfig config, <a href="aax_aaxeffecttype.html">enum aaxEffectType</a> effect)</pre>
- <pre class="cpp">dsp(const aax::dsp&amp; dsp)</pre>
+ <pre class="cpp">dsp(const aeonwave::dsp&amp; dsp)</pre>
 
  <h5>State</h5>
- <pre class="cpp">bool set(int state)</pre>
+ <pre class="cpp">bool set(uint64_t state)</pre>
  <pre class="cpp">int state()</pre>
 
  <h5>Slot</h5>
- <pre class="cpp">bool set(unsigned slot, aax::Vector&amp; values, <a href="aax_aaxtype.html">enum aaxType</a> type=AAX_LINEAR)</pre>
+ <pre class="cpp">bool set(unsigned slot, aeonwave::Vector&amp; values, <a href="aax_aaxtype.html">enum aaxType</a> type=AAX_LINEAR)</pre>
  <pre class="cpp">bool set(unsigned slot, const aaxVec4f values,
            <a href="aax_aaxtype.html">enum aaxType</a> type=AAX_LINEAR)</pre>
  <pre class="cpp">bool set(unsigned slot, float p1, float p2, float p3, float p4,
@@ -43,15 +43,15 @@
  <pre class="cpp">float get(<a href="aax_aaxparameter.html">enum aaxParameter</a> param, <a href="aax_aaxtype.html">enum aaxType</a> type=AAX_LINEAR)</pre>
 
  <h5>Buffer handling</h5>
- <pre class="cpp">bool add(aax::Buffer&amp; buffer)</pre>
+ <pre class="cpp">bool add(aeonwave::Buffer&amp; buffer)</pre>
 
  <h5>Support</h5>
  <pre class="cpp">bool is_filter()</pre>
  <pre class="cpp">int type()</pre>
 
  <h5>Operators</h5>
- <pre class="cpp">friend void swap(aax::dsp&amp; dsp1, aax::dsp&amp; dsp2)</pre>
- <pre class="cpp">aax::dsp&amp; operator=(aax::dsp dsp)</pre>
+ <pre class="cpp">friend void swap(aeonwave::dsp&amp; dsp1, aeonwave::dsp&amp; dsp2)</pre>
+ <pre class="cpp">aeonwave::dsp&amp; operator=(aeonwave::dsp dsp)</pre>
 
  <!-- inherited from class Obj -->
  <pre class="cpp">operator void*() const</pre>

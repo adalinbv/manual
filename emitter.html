@@ -9,8 +9,8 @@
  <script>addHead();</script>
 
  <H1 id="Driver">Class Emitter</H1>
- <h6 class="menu">Header file: &lt;aax/aeonwave.hpp&gt;</h6>
- <h6 class="menu">Namespace: aax</h6>
+ <h6 class="menu">Header file: &lt;aax/aeonwave&gt;</h6>
+ <h6 class="menu">Namespace: aeonwave</h6>
  <p>&nbsp;<p>
 
  The Emitter class encapsulates the <a href="aax_emitter.html">Emitter</a> functions.
@@ -27,7 +27,7 @@
 
  <h5>Constructors</h5>
  <pre class="cpp">Emitter(<a href="aax_aaxmodetype.html">enum aaxEmitterMode</a> mode)</pre>
- <pre class="cpp">Emitter(const aax::Emitter&amp; emitter)</pre>
+ <pre class="cpp">Emitter(const aeonwave::Emitter&amp; emitter)</pre>
 <!--
  <h5>Setup</h5>
  <pre class="cpp">bool set(<a href="aax_aaxsetuptype.html">enum aaxSetupType</a> type, unsigned int setup)</pre>
@@ -42,23 +42,23 @@
  <pre class="cpp">bool get(<a href="aax_aaxmodetype.html">enum aaxModeType</a> type)</pre>
 
  <h5 class="menu"><a href="emitter_dsp.html?api=C++">Filters and Effects</a></h5>
- <pre class="cpp">bool set(aax::dsp&amp; dsp)</pre>
- <pre class="cpp">aax::dsp get(<a href="aax_aaxfiltertype.html">enum aaxFilterType</a> filter)</pre>
- <pre class="cpp">aax::dsp get(<a href="aax_aaxeffecttype.html">enum aaxEffectType</a> effect)</pre>
+ <pre class="cpp">bool set(aeonwave::dsp&amp; dsp)</pre>
+ <pre class="cpp">aeonwave::dsp get(<a href="aax_aaxfiltertype.html">enum aaxFilterType</a> filter)</pre>
+ <pre class="cpp">aeonwave::dsp get(<a href="aax_aaxeffecttype.html">enum aaxEffectType</a> effect)</pre>
  <p>
- <pre class="cpp v33">bool tie(<a href="emitter_dsp.html?api=C++#param">aax::Param&amp;</a> parameter, <a href="aax_aaxfiltertype.html">enum aaxFilterType</a> filter, int param)</pre>
- <pre class="cpp v33">bool tie(<a href="emitter_dsp.html?api=C++#param">aax::Param&amp;</a> parameter, <a href="aax_aaxeffecttype.html">enum aaxEffectType</a> effect, int param)</pre>
- <pre class="cpp v33">bool untie(<a href="emitter_dsp.html?api=C++#param">aax::Param&amp;</a> parameter)</pre>
+ <pre class="cpp v33">bool tie(<a href="emitter_dsp.html?api=C++#param">aeonwave::Param&amp;</a> parameter, <a href="aax_aaxfiltertype.html">enum aaxFilterType</a> filter, int param)</pre>
+ <pre class="cpp v33">bool tie(<a href="emitter_dsp.html?api=C++#param">aeonwave::Param&amp;</a> parameter, <a href="aax_aaxeffecttype.html">enum aaxEffectType</a> effect, int param)</pre>
+ <pre class="cpp v33">bool untie(<a href="emitter_dsp.html?api=C++#param">aeonwave::Param&amp;</a> parameter)</pre>
 
  <h5>Position, Orientation and Velocity</h5>
- <pre class="cpp">bool matrix(aax::Matrix&amp; matrix)</pre>
- <pre class="cpp">bool velocity(aax::Vector&amp; vector)</pre>
- <pre class="cpp">bool get(aax::Matrix&amp; matrix)</pre>
- <pre class="cpp">bool get(aax::Vector&amp; vector)</pre>
+ <pre class="cpp">bool matrix(aeonwave::Matrix&amp; matrix)</pre>
+ <pre class="cpp">bool velocity(aeonwave::Vector&amp; vector)</pre>
+ <pre class="cpp">bool get(aeonwave::Matrix&amp; matrix)</pre>
+ <pre class="cpp">bool get(aeonwave::Vector&amp; vector)</pre>
 
  <h5>Buffer handling</h5>
- <pre class="cpp">bool add(aax::Buffer&amp; buffer)</pre>
- <pre class="cpp">aax::Buffer get(unsigned int pos, bool copy=false)</pre>
+ <pre class="cpp">bool add(aeonwave::Buffer&amp; buffer)</pre>
+ <pre class="cpp">aeonwave::Buffer get(unsigned int pos, bool copy=false)</pre>
  <pre class="cpp">bool remove_buffer()</pre>
 
  <h5>Set Offset (Forward and Rewind)</h5>
@@ -70,8 +70,8 @@
  <pre class="cpp">float offset()</pre>
 
  <h5>Operators</h5>
- <pre class="cpp">friend void swap(aax::Emitter&amp; emitter1, aax::Emitter&amp; emitter2)</pre>
- <pre class="cpp">aax::Emitter&amp; operator=(aax::Emitter emitter)</pre>
+ <pre class="cpp">friend void swap(aeonwave::Emitter&amp; emitter1, aeonwave::Emitter&amp; emitter2)</pre>
+ <pre class="cpp">aeonwave::Emitter&amp; operator=(aeonwave::Emitter emitter)</pre>
 
  <!-- inherited from class Obj -->
  <pre class="cpp">operator void*() const</pre>
