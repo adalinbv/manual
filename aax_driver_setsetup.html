@@ -8,12 +8,22 @@
 <body>
  <script>addHead();</script>
 
-  <h2>enum aaxSetupType</h2>
-  The following aaxSetupType entries are supported by aaxDriverSetSetup.
+  <H2 id="init">Driver initialization</H2>
+
+   <pre class="v36" id="aaxDriverSetSetup">bool aaxDriverSetSetup(const aaxConfig config, enum aaxSetupType type, const char *setup)</pre>
+   <p>These functions change the respective setup.<br>
+   <ul>
+   <li> The config parameter is the handle as returned by aaxDriverOpen.
+   <li> The type parameter is an enumerated type and specifies which setup parameter to change.
+   <li> The setup parameter is type  parameter specific (see <a href="aax_aaxsetuptype.html">aaxSetupType</a> for more information).<br>
+   </ul>
+   <p>Return true if successful or false otherwise.<p>
+   Reasons for failure are an incorrect or already destroyed class handle or an incompatible setup value.
+   <p>&nbsp;<p>
+  If hardware limitations prevent a particular request then a closest match will be selected.
+
   <p>
-  <table id="aaxSetupType">
-  <tr>
-   <td colspan="2">
+  <h5>Supported values for the type parameter</h5>
     <dl>
      <script>
      addDL("36", "SHARED_DATA_DIR", "Set the path of the shared data directory");
@@ -33,11 +43,8 @@
      addDL("36", "COVER_IMAGE_DATA", "Add cover image data");
      </script>
     </dl>
-   </td>
-  </tr>
-  </table>
 
- <script>addFooter("");
+ <script>addFooter("Opened drivers have to be closed. All drivers should be freed afterwards.");
  </script>
 </body>
 </html>
