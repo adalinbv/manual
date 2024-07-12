@@ -26,6 +26,8 @@
    <p></p>
    AeonWave version 3.1 adds support for <a href="occlusion.html">occlusion</a> by defining a 3D obstruction (or 3D cavity) at the same position, and with the same orientation, as the audio-frame. The obstruction/cavity could influence the gain of the emitter based on the relative position of the emitter, the audio-frame(s) and listener.
    <p></p>
+    AeonWave version 4.0 (version 1.2) adds support for specifying room damping using the state option and lets you specify the reflections and decay delay, the reverb gain and add an optional high-pass frequency filter to filter low frequencies.
+   <p></p>
    AeonWave does not define the units of measurement for size, the calculations are scale invariant.
    Developers have to make sure that all distances and sizes used by AeonWave use the same unit.
    <p></p>
@@ -62,12 +64,26 @@
       <dd>The density of the occlusion object.<br>
           Between 0.0 and 1.0, where 1.0 means silence when the object is directly between the emitter and sensor.</dd>
      </dl>
+     <dl>Slot 2
+      <dt class="v40"><div>p0</div> AAX_CUTOFF_FREQUENCY_HP</dt>
+      <dd>High-pass cutoff frequency to filter low frequencies.<br>
+          Between 50 Hz and 22kHz. Defaults to 50Hz.</dd>
+      <dt class="v40"><div>p1</div> AAX_REFLECTIONS_DELAY</dt>
+      <dd>Delay time before the reflections kick in.<br>
+          Between 0.0 and 100.0 ms. Defaults to 0.0 which equals to previous versions of the effect.</dd>
+      <dt class="v40"><div>p2</div> AAX_REVERB_GAIN</dt>
+      <dd>Sets the gain of the reverb (2nd order reflections).<br>
+          Between 0.0 and 1.0. Defaults to 0.0 which equals to previous versions of the effect.</dd>
+      <dt class="v40"><div>p3</div> AAX_DECAY_DELAY</dt>
+      <dd>Delay time before the decay kicks in.<br>
+          Between 0.0 and 1.0 seconds. Defaults to 0.0 which equals to previous versions of the effect.</dd>
+     </dl>
     </dd>
    </dl>
 
   <h5>Reverb state options</h5>
-  Specify true to enable reverb or false to disable it.<br>
-  For occlusion it is required to set the state to true (the dimensions define an obstruction) or AAX_INVERSE (the dimensions define a hole).
+  Specify true or a <a href="aax_aaxsourcetype.html#room_types">room type</a> definition to enable reverb or false to disable it.<br>
+  For occlusion it is required to set the state to AAX_INVERSE to specify a cavity otherwise the dimensions define an obstruction.
 
  <script>addFooter("Rooms with furniture, carpet and curtains reflect lower frequencies but tend to absorb higher frequencies more quickly.");
  </script>
