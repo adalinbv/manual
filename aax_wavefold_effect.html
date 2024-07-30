@@ -1,0 +1,96 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <div class="table_fx">
+    <table class="dist">
+     <tr>
+      <td></td>
+      <td>offset 0%</td>
+      <td>offset 80%</td>
+     </tr>
+     <tr>
+      <td class="legenda"><div class="vertical">threshold<br>0%</div></td>
+      <td><img src="images/wavefold-none.png"></img></td>
+      <td><img src="images/wavefold-offset.png"></img></td>
+     </tr>
+     <tr>
+      <td class="legenda"><div class="vertical">threshold<br>30%</div></td>
+      <td><img src="images/wavefold-threshold.png"></img></td>
+      <td><img src="images/wavefold-threshold_offset.png"></img></td>
+     </tr>
+    </table>
+   </div>
+
+   <h2>WaveFold Effect</h2>
+
+   Wavefolding is a type of distortion synthesis where when the input amplitude exceeds the threshold, the peaks get inverted.<br>
+   These folds produce complex spectra from simple waveforms so when you run a single sine wave through a wavefolder, very strange harmonics will emerge.
+   <p></p>
+   Traditional analog wavefolding will invert peaks into a series of folds around the threshold level but this implementation will do exact folding of all values above the peak level and is intended to create complex waveforms from the default 6 available waveforms in AeonWave.
+   <p></p>
+   &nbsp;
+   <p></p>
+   &nbsp;
+   <p></p>
+   The WaveFold effect is supported by Emitters.
+
+   <h5>WaveFold Effect parameters</h5>
+   The effect uses only one effect slot.
+   <dl>
+    <dt class="v41" id="AAX_WAVEFOLD_EFFECT">AAX_WAVEFOLD_EFFECT<div class="type">STEREO</div></dt>
+    <dd>
+     <dl>
+      <dt><div>p0</div> AAX_WAVEFOLD_OFFSET</dt>
+      <dd>DC-offset shift value.<br>
+          Between -1.0 and 1.0. Defaults to 0.0 (no offset)</dd>
+      <dt><div>p1</div> AAX_LFO_FREQUENCY</dt>
+      <dd> Frequency of the low-frequency oscillator.<br>
+          Between 0.01 and 10 Hz.</dd>
+      <dt><div>p2</div> AAX_LFO_MAX</dt>
+      <dd>Maximum position of the low-frequency oscillator.<br>
+          Between 0.0 and 1.0, set to 0.0 for a constant offset.</dd>
+      <dt><div>p3</div> AAX_LFO_MIN</dt>
+      <dd>Minimum position of the low-frequency oscillator.<br>
+          Between 0.0 and 1.0</dd>
+     </dl>
+    </dd>
+   </dl>
+   Both offset and threshold are LFO operated and both operations share the
+   minimum LFO value.
+
+   <h5>WaveFold Effect state options</h5>
+   <dl>
+    <dt>AAX_WAVEFOLD_EFFECT</dt>
+    <dd>
+      <h6>Valid types are:</h6>
+      <dl>
+        <dt> AAX_CONSTANT_VALUE (or true)
+        <dt> AAX_TRIANGLE
+        <dt> AAX_SINE
+        <dt> AAX_SQUARE
+        <dt> AAX_IMPULSE
+        <dt> AAX_SAWTOOTH
+        <dt> AAX_CYCLOID
+        <dt> AAX_RANDOMNESS
+        <dt> AAX_RANDOM_SELECT
+        <dt> AAX_TIMED_TRANSITION
+        <dt> AAX_ENVELOPE_FOLLOW
+      </dl><br>
+      All waveforms may be combined with AAX_INVERSE to invert the behaviour.
+      <p></p>
+      All waveforms may be combined with AAX_LOGARITHMIC to create exponential behaviour<br>
+      e.g. AAX_TIMED_TRANSITION|AAX_INVERSE|AAX_LOGARITHMIC
+    </dd>
+   </dl>
+
+ <script>addFooter("");
+ </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<html>
+<head>
+ <link rel="STYLESHEET" type="text/css" href="docs.css" title="Style">
+ <meta http-equiv="Content-Script-Type" Content="text/javascript">
+ <script src="scripts/template.js"></script>
+</head>
+
+<body>
+ <script>addHead();</script>
+
+   <h2>Timed Layer Filter</h2>
+
+   The Timed Layer filter mixes two sound layers from an AAXS file.
+   <p></p>
+   The Envelope may have up to 8 stages.<br>
+   Switching to the first Level is instant, switching to the next levels is smooth.<br>
+   Time steps can not be smaller than the refresh period (defaults to 22 milliseconds per period).<br>
+   Level transition during one refresh period is smooth and constant.<br>
+   If the amplitude level reaches zero the emitter will be stopped automatically.
+   <p></p>
+   Time parameters define the time (in seconds) relative to the previous stage.<br>
+   Set the Time parameter to AAX_FPINFINITE for the looped sustain period.<br>
+   Set the last Time parameter to zero if less than 8 stages are required.
+   <p></p>
+   Level parameters range between 0.0 and 4.0, where 1.0 is normal maximum.<br>
+   Higher values are allowed for a clearer attack (and/or release) period.
+   <p></p>
+   The Timed Layer filter is supported by Emitters.
+
+   <h5>Timed Layer Filter parameters</h5>
+   The filter uses up to four filter slots.
+   
+   <dl>
+    <dt class="v41" id="AAX_TIMED_GAIN_FILTER">AAX_TIMED_GAIN_FILTER<div class="type">STEREO</div></dt>
+    <dd>
+     <table class="parallel">
+      <tr>
+       <td>
+        <dl>Slot 0
+         <dt><div>p0</div> AAX_LEVEL0</dt>
+         <dt><div>p1</div> AAX_TIME0</dt>
+         <dt><div>p2</div> AAX_LEVEL1</dt>
+         <dt><div>p3</div> AAX_TIME1</dt>
+        </dl>
+       </td>
+       <td>
+        <dl>Slot 1
+         <dt><div>p0</div> AAX_LEVEL2</dt>
+         <dt><div>p1</div> AAX_TIME2</dt>
+         <dt><div>p2</div> AAX_LEVEL3</dt>
+         <dt><div>p3</div> AAX_TIME3</dt>
+        </dl>
+       </td>
+       <td>
+        <dl>Slot 2
+         <dt><div>p0</div> AAX_LEVEL4</dt>
+         <dt><div>p1</div> AAX_TIME4</dt>
+         <dt><div>p2</div> AAX_LEVEL5</dt>
+         <dt><div>p3</div> AAX_TIME5</dt>
+        </dl>
+       </td>
+       <td>
+        <dl>Slot 3
+         <dt><div>p0</div> AAX_LEVEL6</dt>
+         <dt><div>p1</div> AAX_TIME6</dt>
+         <dt><div>p2</div> AAX_LEVEL7</dt>
+         <dt><div>p3</div> AAX_TIME7</dt>
+        </dl>
+       </td>
+      </tr>
+     </table>
+    </dd>
+   </dl>
+
+  <h5>Timed Layer Filter state options</h5>
+  Specify true or AAX_ENVELOPE_FOLLOW to enable the timed layer filter or false to disable it.<br>
+  AeonWave version 3.6.0 (filter version 1.03) also adds the option to set the state to AAX_ENVELOPE_FOLLOW which will make the envelope curve exponential instead of linear.
+  <p></p>
+
+ <script>addFooter("The Timed Layer filter mixes two sound layers from an AAXS file.");
+ </script>
+</body>
+</html>
