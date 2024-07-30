@@ -12,7 +12,7 @@
 
    This effect can alter the <a href="https://en.wikipedia.org/wiki/Timbre" target="_blank">Timbre</a> of a looping sound buffer by adjusting the pitch using a predefined <a href="http://en.wikipedia.org/wiki/Synthesizer#ADSR_envelope" target="_blank">Pitch Envelope</a>.
    <p></p>
-   The Effect may have up to 6 stages.<br>
+   The Effect may have up to 8 stages since version 4.1.<br>
    Switching to the first Level is instant, switching to the next levels is smooth.<br>
    The pitch remains unchanged during one refresh period. Because of this slow pitch changes might provide better results.<br>
    Time steps can not be smaller than the refresh period (defaults to 22 milliseconds per period).<br>
@@ -20,7 +20,7 @@
    <p></p>
    Time parameters define the time (in seconds) relative to the previous stage.<br>
    Set the Time parameter to AAX_FPINFINITE for the looped sustain period.<br>
-   Set the last Time parameter to zero if less than 6 stages are required.
+   Set the last Time parameter to zero if less than 8 stages are required.
    <p></p>
    Level parameters range between 0.0 and 4.0.<br>
    High values allow for a clearer attack (and/or release) period.
@@ -30,7 +30,7 @@
    <img src="images/pitch_envelope.png"></img>
 
    <h5>Timed Pitch Effect parameters</h5>
-   The effect uses up to three effect slots.
+   The effect uses up to four effect slots.
 
    <dl>
     <dt class="v21" id="AAX_TIMED_PITCH_EFFECT">AAX_TIMED_PITCH_EFFECT<div class="type">STEREO</div></dt>
@@ -59,6 +59,14 @@
          <dt class="v21"><div>p1</div> AAX_TIME4</dt>
          <dt class="v21"><div>p2</div> AAX_LEVEL5</dt>
          <dt class="v21"><div>p3</div> AAX_TIME5</dt>
+        </dl>
+       </td>
+       <td>
+        <dl>Slot 3
+         <dt class="v41"><div>p0</div> AAX_LEVEL6</dt>
+         <dt class="v41"><div>p1</div> AAX_TIME6</dt>
+         <dt class="v41"><div>p2</div> AAX_LEVEL7</dt>
+         <dt class="v41"><div>p3</div> AAX_TIME7</dt>
         </dl>
        </td>
       </tr>
