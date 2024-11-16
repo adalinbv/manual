@@ -19,7 +19,9 @@
       <ul>
       <li>For filter sweeping one of the types for AAX_DYNAMIC_GAIN_FILTER as defined below can be added.<br>
           For envelope following (auto-wah) add AAX_ENVELOPE_FOLLOW.
-<li>The filter type is defined by adding AAX_BUTTERWORTH or AAX_BESSEL to the filter slope.<br>e.g.: (AAX_4TH_ORDER|AAX_BESSEL|AAX_ENVELOPE_FOLLOW)
+<li>The filter type is defined by adding AAX_BUTTERWORTH or AAX_BESSEL to the filter slope.<br>e.g.: (AAX_4TH_ORDER|AAX_BESSEL|AAX_ENVELOPE_FOLLOW)<br>
+      Defining AAX_RESONANCE_FACTOR causes the Q factor to be modified
+      by the LFO and the cutoff frequency remains the same.
       </ul>
       Valid types for the filter slope are:
       <dl>
@@ -28,6 +30,7 @@
        <dt class="v26">AAX_24DB_OCT (or AAX_4TH_ORDER)
        <dt class="v26">AAX_36DB_OCT (or AAX_6TH_ORDER)
        <dt class="v26">AAX_48DB_OCT (or AAX_8TH_ORDER)
+       <dt class="v40">AAX_RESONANCE_FACTOR
       </dl><br>
     </dd>
     <dt class="v20">AAX_DYNAMIC_GAIN_FILTER</dt>
