@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeonWave Schema Quick Reference</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        header {
+            border-bottom: 3px solid #2c3e50;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+        }
+        h1 { color: #2c3e50; margin-bottom: 5px; }
+        p.subtitle { color: #7f8c8d; font-style: italic; }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+        }
+        .section h2 {
+            margin-top: 0;
+            color: #2980b9;
+            border-left: 5px solid #2980b9;
+            padding-left: 15px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        th { background-color: #f8f9fa; color: #2c3e50; }
+        
+        code {
+            background: #f0f0f0;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: bold;
+            background: #e8f4fd;
+            color: #2980b9;
+        }
+
+        .nested {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .pattern-group {
+            margin-bottom: 20px;
+        }
+        .pattern-title {
+            font-weight: bold;
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>AeonWave AAXS Schema Reference</h1>
+        <p class="subtitle">Data structure guide for AeonWave audio synthesis formats.</p>
+    </header>
+
+    <!-- ROOT STRUCTURE -->
+    <div class="section">
+        <h2>Root Structure</h2>
+        <p>The root element is <code class="badge">&lt;aeonwave&gt;</code>. It contains four primary blocks:</p>
+        <ul style="columns: 1;">
+            <li><strong>info</strong>: Metadata</li>
+            <li><strong>sound</strong>: Synthesis</li>
+            <li><strong>emitter</strong> (Optional): Spatial/Output</li>
+            <li><strong>audioframe</strong> (Optional): Per-frame Overrides</li>
+        </ul>
+    </div>
+
+    <!-- INFO SECTION -->
+    <div class="section">
+        <h2>1. Info Section</h2>
+        <table>
+            <thead>
+                <tr><th>Attribute</th><th>Req.</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>name</td><td>Yes</td><td>Unique identifier for the entry.</td></tr>
+                <tr><td>bank</td><td>Yes</td><td>MIDI Bank identification (e.g., "1", "64").</td></tr>
+                <tr><td>program</td><td>Yes</td><td>MIDI Program index.</td></tr>
+                <tr><td>key</td><td>No</td><td>MIDI Key mapping.</td></tr>
+            </tbody>
+        </table>
+        <table>
+            <thead>
+                <tr><th>Child Element</th><th>Req.</th><th>Attributes / Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>license</td><td>Yes</td><td>Requires a <code class="badge">type</code> attribute.</td></tr>
+                <tr><td>copyright</td><td>Multi</td><td>Attributes: <code class="badge">from</code>, <code class="badge">until</code>, <code class="badge">by</code>.</td></tr>
+                <tr><td>contact</td><td>Yes</td><td>Attributes: <code class="badge">author</code>, <code class="badge">website</code>.</td></tr>
+                <tr><td>description</td><td>No</td><td>Requires a <code class="badge">text</code> attribute.</td></tr>
+                <tr><td>note</td><td>No</td><td>Parameters: polyphony, min, max, step, pitch-fraction, hold, tuning.</td></tr>
+                <tr><td>aftertouch</td><td>No</td><td>Requires a <code class="badge">mode</code> attribute.</td></tr>
+                <tr><td>sound</td><td>Yes</td><td>Requires a <code class="badge">version</code> decimal attribute.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SOUND & LAYERING -->
+    <div class="section">
+        <h2>2. Sound & Layering Logic</h2>
+        <p><strong class="badge">Global Attributes:</strong> <code class="badge">frequency</code> (Required), <code class="badge">gain</code>, <code class="badge">duration</code>, <code class="badge">voices</code>, <code class="badge">spread</code>, <code class="badge">phasing</code>, <code class="badge">mode</code>.</p>
+        <div class="nested">
+            <h3>Layers (max. 2)</h3>
+            <p>Each layer contains one or multiple:</p>
+            <ul>
+                <li><strong>Waveforms</strong>: Include properties like <code class="badge">src</code> (source type), <code class="badge">processing</code> (mix/add/modulate), <code class="badge">ratio</code>, <code class="badge">pitch</code>, <code class="badge">phase</code>, <code class="badge">staticity</code>, and <code class="badge">random</code>.</li>
+                <li><strong>Filters</strong> (optional): Various types.</li>
+                <li><strong>Effects</strong> (optional): Various effects.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PATTERN TABLES -->
+    <div class="section">
+        <h2>3. Pattern Matching Options</h2>
+        <p>Use the tables below to construct valid strings for complex pattern fields. You can combine components based on the logic described in the schema.</p>
+        
+        <h3 style="color:#2980b9; border-bottom: 1px solid #eee;">Waveform Sources</h3>
+        <p><small>Combine [Prefix] + [Shape] or use specific Noise types.</small></p>
+        <table>
+            <thead>
+                <tr><th>Category</th><th>Valid Values / Examples</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Prefixes</strong></td>
+                    <td><code>inverse-</code>, <code>pure-</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Shapes</strong></td>
+                    <td><code>sawtooth</code>, <code>square</code>, <code>triangle</code>, <code>sine</code>, <code>cycloid</code>, <code>impulse</code>, <code>pulse</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Noise Types</strong></td>
+                    <td><code>white-noise</code>, <code>pink-noise</code>, <code>brownian-noise</code></td>
+                </tr>
+            </tbody>
+        </table>
+        <p><small><em>Example constructions:</em> <code>sawtooth</code>, <code>inverse-pulse</code>, <code>pure-sine</code>, <code>white-noise</code></small></p>
+
+        <h3 style="color:#2980b9; border-bottom: 1px solid #eee;">LFO Source Components</h3>
+        <p><small>This field is modular. Chain components using pipes (|).</small></p>
+        <table>
+            <thead>
+                <tr><th>Component Type</th><th>Valid Options / Patterns</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Source Noise</strong></td>
+                    <td><code>white-noise</code>, <code>pink-noise</code>, <code>brownian-noise</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Prefixes</strong></td>
+                    <td><code>pure-</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Primary Shapes</strong></td>
+                    <td><code>sawtooth</code>, <code>square</code>, <code>triangle</code>, <code>sine</code>, <code>cycloid</code>, <code>impulse</code>, <code>pulse</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Modulators</strong></td>
+                    <td><code>inverse</code>, <code>reverse</code>, <code>random</code>, <code>randomness</code>, <code>envelope</code>, <code>timed</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Filter Logic</strong></td>
+                    <td><code>bessel</code>, <code>butterworth</code>, <code>bandwidth</code>, <code>svf</code>, <code>ladder</code>, <code>Q</code>, <code>pwm</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Orders/Stages</strong></td>
+                    <td><code>(6|12|24|36|48)db</code>, <code>[1-8]-stage</code>, <code>(1st|2nd|3rd|[5-8]th)-order</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Curves</strong></td>
+                    <td><code>exponential</code>, <code>logarithmic</code></td>
+                </tr>
+            </tbody>
+        </table>
+        <p><small><em>Example constructions:</em> <code>inverse|pure-sawtooth|timed</code>, <code>pulse|exponential</code>, <code>bessel|24db|logarithmic</code>, <code>sine|pwm</code></small></p>
+
+        <h3 style="color:#2980b9; border-bottom: 1px solid #eee;">General Processing & Ranges</h3>
+        <table style="margin-bottom: 0;">
+            <thead>
+                <tr><th>Field</th><th>Allowed Values / Rules</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Processing Modes</strong></td>
+                    <td><code>mix</code>, <code>add</code>, <code>modulate</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Bank Range</strong></td>
+                    <td>Numbers 1–128. Optional range format (MSB,LSB): <code class="badge">"1,128"</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Tuning Types</strong></td>
+                    <td><code>railsback(:[number])?</code> (e.g., "railsback", "railsback:1.67)</td>
+                </tr>
+                <tr>
+                    <td><strong>Numerical Constants</strong></td>
+                    <td>Integers OR <code class="badge">max</code> | Floats OR <code class="badge">inf</code></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <p style="text-align: center; color: #95a5a6; font-size: 0.8em;">AeonWave Schema Reference - Generated from aaxs.xsd</p>
+    </footer>
+</div>
+
+</body>
+</html>
+
